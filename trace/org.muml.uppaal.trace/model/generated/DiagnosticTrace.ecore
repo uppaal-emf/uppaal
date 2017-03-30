@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="trace" nsURI="http://www.muml.org/uppaal/trace/1.0.0" nsPrefix="trace">
+  <eClassifiers xsi:type="ecore:EClass" name="TraceRepository">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="traces" upperBound="-1"
+        eType="#//Trace" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Trace">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="property" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="line" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="result" eType="#//Result"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="traceItems" upperBound="-1"
+        eType="#//TraceItem" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="Result">
+    <eLiterals name="SUCCESS" literal="-- Property is satisfied."/>
+    <eLiterals name="FAILURE" value="1" literal="-- Property is NOT satisfied."/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ProcessIdentifier">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="template" eType="ecore:EClass platform:/resource/org.muml.uppaal/model/uppaal.ecore#//templates/AbstractTemplate"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="arguments" unique="false"
+        upperBound="-1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="LocationActivity">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="process" eType="#//ProcessIdentifier"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="location" eType="ecore:EClass platform:/resource/org.muml.uppaal/model/uppaal.ecore#//templates/Location"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="VariableValue">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="firstNamedElementReference"
+        eType="#//NamedElementReference" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="secondNamedElementReference"
+        eType="#//NamedElementReference" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="operator" eType="#//CompareOperator"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="CompareOperator">
+    <eLiterals name="EQ" literal="="/>
+    <eLiterals name="LEQ" value="1" literal="&lt;="/>
+    <eLiterals name="GEQ" value="2" literal=">="/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="SingleNamedElementReference">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="namedElement" eType="ecore:EClass platform:/resource/org.muml.uppaal/model/uppaal.ecore#//core/NamedElement"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="indexes" unique="false"
+        upperBound="-1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="NamedElementReference">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="singleNamedElementReference"
+        eType="#//SingleNamedElementReference" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="namedElementReference"
+        eType="#//NamedElementReference" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="TraceItem"/>
+  <eClassifiers xsi:type="ecore:EClass" name="State" eSuperTypes="#//TraceItem">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="locationActivities" upperBound="-1"
+        eType="#//LocationActivity" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="variableValues" upperBound="-1"
+        eType="#//VariableValue" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="EdgeActivity">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="source" eType="#//LocationActivity"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="target" eType="#//LocationActivity"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="details" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Synchronization"/>
+  <eClassifiers xsi:type="ecore:EClass" name="ChannelSynchronization" eSuperTypes="#//Synchronization">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="channel" eType="ecore:EClass platform:/resource/org.muml.uppaal/model/uppaal.ecore#//declarations/Variable"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="kind" eType="ecore:EEnum platform:/resource/org.muml.uppaal/model/uppaal.ecore#//templates/SynchronizationKind"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="DelayTransition" eSuperTypes="#//Transition">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="duration" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ActionTransition" eSuperTypes="#//Transition">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="edgeActivities" upperBound="-1"
+        eType="#//EdgeActivity" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Transition" eSuperTypes="#//TraceItem"/>
+</ecore:EPackage>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated requirements -->
+      <package
+            uri="http://www.muml.org/uppaal/requirements/1.0.0"
+            class="org.muml.uppaal.requirements.RequirementsPackage"
+            genModel="model/requirements.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.extension_parser">
+      <!-- @generated requirements -->
+      <parser
+            type="requirements"
+            class="org.muml.uppaal.requirements.util.RequirementsResourceFactoryImpl"/>
+   </extension>
+
+</plugin>

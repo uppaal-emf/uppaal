@@ -1,0 +1,108 @@
+grammar org.muml.uppaal.trace.DiagnosticTrace with org.eclipse.xtext.common.Terminals
+
+import "http://www.eclipse.org/emf/2002/Ecore" as ecore
+
+import "platform:/resource/org.muml.uppaal/model/uppaal.ecore" as uppaal
+import "platform:/resource/org.muml.uppaal/model/uppaal.ecore#//core" as core
+import "platform:/resource/org.muml.uppaal/model/uppaal.ecore#//types" as types
+import "platform:/resource/org.muml.uppaal/model/uppaal.ecore#//declarations" as declarations
+import "platform:/resource/org.muml.uppaal/model/uppaal.ecore#//declarations/global" as global
+import "platform:/resource/org.muml.uppaal/model/uppaal.ecore#//declarations/system" as system
+import "platform:/resource/org.muml.uppaal/model/uppaal.ecore#//templates" as templates
+import "platform:/resource/org.muml.uppaal/model/uppaal.ecore#//statements" as statements
+import "platform:/resource/org.muml.uppaal/model/uppaal.ecore#//expressions" as expressions
+import "platform:/resource/org.muml.uppaal/model/uppaal.ecore#//visuals" as visuals
+
+generate trace "http://www.muml.org/uppaal/trace/1.0.0"
+
+
+TraceRepository:
+	('Cannot reuse state space when trace length optimisation is used.')?
+	(traces+=Trace)*
+;
+
+Trace:
+	'Verifying' ('property' | 'formula') property=INT 'at line' line=INT
+	result=Result
+	(('Showing counter example.' | 'Showing example trace.') traceItems+=TraceItem+)?
+;
+
+enum Result:
+	SUCCESS='-- Property is satisfied.' | FAILURE='-- Property is NOT satisfied.' | SUCCESS='-- Formula is satisfied.' | FAILURE='-- Formula is NOT satisfied.'
+;
+
+ProcessIdentifier:
+	template=[templates::AbstractTemplate]('('arguments+=INT (','arguments+=INT)* ')')?
+;
+
+LocationActivity:
+	process=ProcessIdentifier '.' location=[templates::Location]
+;
+
+VariableValue:
+	firstNamedElementReference=NamedElementReference ('-' secondNamedElementReference=NamedElementReference)? operator = CompareOperator value=INT
+;
+
+enum CompareOperator:
+	EQ='=' | LEQ='<=' | GEQ='>='
+;
+
+SingleNamedElementReference:
+	namedElement=[core::NamedElement] ('[' indexes+=INT ']')*
+;
+
+terminal DEPTH:
+	'#depth='INT 
+;
+
+NamedElementReference:
+	singleNamedElementReference=SingleNamedElementReference ('.' namedElementReference=NamedElementReference)?
+;
+
+TraceItem:
+	State | Transition
+;
+
+State hidden(WS,DEPTH):
+	'State' (':')? // declare colon as optional since some UPPAAL traces come without a colon behind the 'State' keyword
+	'(' (locationActivities+=LocationActivity)+ ')'
+	(variableValues+=VariableValue ((',')? variableValues+=VariableValue)*)? // declare comma as optional since the list of UPPAAL variable values is sometimes comma-separated, sometimes not
+;
+
+EdgeActivity:	
+	source=LocationActivity '->' target=LocationActivity details=EDGE
+;
+
+terminal EDGE: '{' -> '}';
+
+Synchronization:
+	ChannelSynchronization | {Synchronization} TauSynchronization 
+;
+
+ChannelSynchronization:
+	channel=[declarations::Variable] kind=SynchronizationKind
+;
+
+enum SynchronizationKind returns templates::SynchronizationKind:
+	RECEIVE='?' | SEND='!'
+;
+
+TauSynchronization:
+	'tau'
+;
+
+DelayTransition:
+	'Delay:' duration=INT
+;
+
+ActionTransition:
+	'Transitions:'
+	edgeActivities+=EdgeActivity+
+;
+
+Transition:
+	ActionTransition | DelayTransition
+;
+
+// override INT rule to support signed negative integers as variable values
+terminal INT returns ecore::EInt: ('-')? ('0'..'9')+;

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="requirements" nsURI="http://www.muml.org/uppaal/requirements/1.0.0"
+    nsPrefix="requirements">
+  <eClassifiers xsi:type="ecore:EClass" name="UnaryProperty" eSuperTypes="#//Property">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="expression" lowerBound="1"
+        eType="ecore:EClass ../../org.muml.uppaal/model/uppaal.ecore#//expressions/Expression"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="quantifier" lowerBound="1"
+        eType="#//PathQuantifier"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="operator" lowerBound="1"
+        eType="#//TemporalOperator"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="PathQuantifier">
+    <eLiterals name="EXISTS" literal="E"/>
+    <eLiterals name="FORALL" value="1" literal="A"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="TemporalOperator">
+    <eLiterals name="FUTURE" literal="&lt;>"/>
+    <eLiterals name="GLOBAL" value="1" literal="[]"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="BinaryProperty" abstract="true" eSuperTypes="#//Property">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="leftExpression" lowerBound="1"
+        eType="ecore:EClass ../../org.muml.uppaal/model/uppaal.ecore#//expressions/Expression"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="rightExpression" lowerBound="1"
+        eType="ecore:EClass ../../org.muml.uppaal/model/uppaal.ecore#//expressions/Expression"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="LeadsToProperty" eSuperTypes="#//BinaryProperty"/>
+  <eClassifiers xsi:type="ecore:EClass" name="DeadlockExpression" eSuperTypes="../../org.muml.uppaal/model/uppaal.ecore#//expressions/Expression"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Property" abstract="true" eSuperTypes="../../org.muml.uppaal/model/uppaal.ecore#//core/CommentableElement"/>
+  <eClassifiers xsi:type="ecore:EClass" name="PropertyRepository">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="properties" upperBound="-1"
+        eType="#//Property" containment="true"/>
+  </eClassifiers>
+</ecore:EPackage>

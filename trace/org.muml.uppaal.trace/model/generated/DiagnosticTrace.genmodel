@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/org.muml.uppaal.trace/src-gen" editDirectory="/org.muml.uppaal.trace.edit/src"
+    editorDirectory="/org.muml.uppaal.trace.editor/src" modelPluginID="org.muml.uppaal.trace"
+    forceOverwrite="true" modelName="DiagnosticTrace" updateClasspath="false" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
+    complianceLevel="6.0" copyrightFields="false" editPluginID="org.muml.uppaal.trace.edit"
+    editorPluginID="org.muml.uppaal.trace.editor" runtimeVersion="2.12" usedGenPackages="platform:/resource/org.muml.uppaal/model/uppaal.genmodel#//uppaal/core platform:/resource/org.muml.uppaal/model/uppaal.genmodel#//uppaal/declarations platform:/resource/org.muml.uppaal/model/uppaal.genmodel#//uppaal/templates">
+  <genPackages prefix="Trace" basePackage="org.muml.uppaal" disposableProviderFactory="true"
+      ecorePackage="DiagnosticTrace.ecore#/">
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="DiagnosticTrace.ecore#//Result">
+      <genEnumLiterals ecoreEnumLiteral="DiagnosticTrace.ecore#//Result/SUCCESS"/>
+      <genEnumLiterals ecoreEnumLiteral="DiagnosticTrace.ecore#//Result/FAILURE"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="DiagnosticTrace.ecore#//CompareOperator">
+      <genEnumLiterals ecoreEnumLiteral="DiagnosticTrace.ecore#//CompareOperator/EQ"/>
+      <genEnumLiterals ecoreEnumLiteral="DiagnosticTrace.ecore#//CompareOperator/LEQ"/>
+      <genEnumLiterals ecoreEnumLiteral="DiagnosticTrace.ecore#//CompareOperator/GEQ"/>
+    </genEnums>
+    <genClasses ecoreClass="DiagnosticTrace.ecore#//TraceRepository">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference DiagnosticTrace.ecore#//TraceRepository/traces"/>
+    </genClasses>
+    <genClasses ecoreClass="DiagnosticTrace.ecore#//Trace">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute DiagnosticTrace.ecore#//Trace/property"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute DiagnosticTrace.ecore#//Trace/line"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute DiagnosticTrace.ecore#//Trace/result"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference DiagnosticTrace.ecore#//Trace/traceItems"/>
+    </genClasses>
+    <genClasses ecoreClass="DiagnosticTrace.ecore#//ProcessIdentifier">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference DiagnosticTrace.ecore#//ProcessIdentifier/template"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute DiagnosticTrace.ecore#//ProcessIdentifier/arguments"/>
+    </genClasses>
+    <genClasses ecoreClass="DiagnosticTrace.ecore#//LocationActivity">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference DiagnosticTrace.ecore#//LocationActivity/process"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference DiagnosticTrace.ecore#//LocationActivity/location"/>
+    </genClasses>
+    <genClasses ecoreClass="DiagnosticTrace.ecore#//VariableValue">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference DiagnosticTrace.ecore#//VariableValue/firstNamedElementReference"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference DiagnosticTrace.ecore#//VariableValue/secondNamedElementReference"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute DiagnosticTrace.ecore#//VariableValue/operator"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute DiagnosticTrace.ecore#//VariableValue/value"/>
+    </genClasses>
+    <genClasses ecoreClass="DiagnosticTrace.ecore#//SingleNamedElementReference">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference DiagnosticTrace.ecore#//SingleNamedElementReference/namedElement"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute DiagnosticTrace.ecore#//SingleNamedElementReference/indexes"/>
+    </genClasses>
+    <genClasses ecoreClass="DiagnosticTrace.ecore#//NamedElementReference">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference DiagnosticTrace.ecore#//NamedElementReference/singleNamedElementReference"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference DiagnosticTrace.ecore#//NamedElementReference/namedElementReference"/>
+    </genClasses>
+    <genClasses ecoreClass="DiagnosticTrace.ecore#//TraceItem"/>
+    <genClasses ecoreClass="DiagnosticTrace.ecore#//State">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference DiagnosticTrace.ecore#//State/locationActivities"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference DiagnosticTrace.ecore#//State/variableValues"/>
+    </genClasses>
+    <genClasses ecoreClass="DiagnosticTrace.ecore#//EdgeActivity">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference DiagnosticTrace.ecore#//EdgeActivity/source"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference DiagnosticTrace.ecore#//EdgeActivity/target"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute DiagnosticTrace.ecore#//EdgeActivity/details"/>
+    </genClasses>
+    <genClasses ecoreClass="DiagnosticTrace.ecore#//Synchronization"/>
+    <genClasses ecoreClass="DiagnosticTrace.ecore#//ChannelSynchronization">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference DiagnosticTrace.ecore#//ChannelSynchronization/channel"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute DiagnosticTrace.ecore#//ChannelSynchronization/kind"/>
+    </genClasses>
+    <genClasses ecoreClass="DiagnosticTrace.ecore#//DelayTransition">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute DiagnosticTrace.ecore#//DelayTransition/duration"/>
+    </genClasses>
+    <genClasses ecoreClass="DiagnosticTrace.ecore#//ActionTransition">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference DiagnosticTrace.ecore#//ActionTransition/edgeActivities"/>
+    </genClasses>
+    <genClasses ecoreClass="DiagnosticTrace.ecore#//Transition"/>
+  </genPackages>
+</genmodel:GenModel>

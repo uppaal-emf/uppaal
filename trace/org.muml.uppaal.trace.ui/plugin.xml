@@ -1,0 +1,323 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<plugin>
+
+    <extension
+            point="org.eclipse.ui.editors">
+        <editor
+            class="org.muml.uppaal.trace.ui.DiagnosticTraceExecutableExtensionFactory:org.eclipse.xtext.ui.editor.XtextEditor"
+            contributorClass="org.eclipse.ui.editors.text.TextEditorActionContributor"
+            default="true"
+            extensions="trace"
+            id="org.muml.uppaal.trace.DiagnosticTrace"
+            name="DiagnosticTrace Editor">
+        </editor>
+    </extension>
+    <extension
+        point="org.eclipse.ui.handlers">
+        <handler
+            class="org.muml.uppaal.trace.ui.DiagnosticTraceExecutableExtensionFactory:org.eclipse.xtext.ui.editor.hyperlinking.OpenDeclarationHandler"
+            commandId="org.eclipse.xtext.ui.editor.hyperlinking.OpenDeclaration">
+            <activeWhen>
+                <reference
+                    definitionId="org.muml.uppaal.trace.DiagnosticTrace.Editor.opened">
+                </reference>
+            </activeWhen>
+        </handler>
+        <handler
+            class="org.muml.uppaal.trace.ui.DiagnosticTraceExecutableExtensionFactory:org.eclipse.xtext.ui.editor.handler.ValidateActionHandler"
+            commandId="org.muml.uppaal.trace.DiagnosticTrace.validate">
+         <activeWhen>
+            <reference
+                    definitionId="org.muml.uppaal.trace.DiagnosticTrace.Editor.opened">
+            </reference>
+         </activeWhen>
+      </handler>
+    </extension>
+    <extension point="org.eclipse.core.expressions.definitions">
+        <definition id="org.muml.uppaal.trace.DiagnosticTrace.Editor.opened">
+            <and>
+                <reference definitionId="isActiveEditorAnInstanceOfXtextEditor"/>
+                <with variable="activeEditor">
+                    <test property="org.eclipse.xtext.ui.editor.XtextEditor.languageName" 
+                        value="org.muml.uppaal.trace.DiagnosticTrace" 
+                        forcePluginActivation="true"/>
+                </with>        
+            </and>
+        </definition>
+    </extension>
+    <extension
+            point="org.eclipse.ui.preferencePages">
+        <page
+            class="org.muml.uppaal.trace.ui.DiagnosticTraceExecutableExtensionFactory:org.eclipse.xtext.ui.editor.preferences.LanguageRootPreferencePage"
+            id="org.muml.uppaal.trace.DiagnosticTrace"
+            name="DiagnosticTrace">
+            <keywordReference id="org.muml.uppaal.trace.ui.keyword_DiagnosticTrace"/>
+        </page>
+        <page
+            category="org.muml.uppaal.trace.DiagnosticTrace"
+            class="org.muml.uppaal.trace.ui.DiagnosticTraceExecutableExtensionFactory:org.eclipse.xtext.ui.editor.syntaxcoloring.SyntaxColoringPreferencePage"
+            id="org.muml.uppaal.trace.DiagnosticTrace.coloring"
+            name="Syntax Coloring">
+            <keywordReference id="org.muml.uppaal.trace.ui.keyword_DiagnosticTrace"/>
+        </page>
+        <page
+            category="org.muml.uppaal.trace.DiagnosticTrace"
+            class="org.muml.uppaal.trace.ui.DiagnosticTraceExecutableExtensionFactory:org.eclipse.xtext.ui.editor.templates.XtextTemplatePreferencePage"
+            id="org.muml.uppaal.trace.DiagnosticTrace.templates"
+            name="Templates">
+            <keywordReference id="org.muml.uppaal.trace.ui.keyword_DiagnosticTrace"/>
+        </page>
+    </extension>
+    <extension
+            point="org.eclipse.ui.propertyPages">
+        <page
+            class="org.muml.uppaal.trace.ui.DiagnosticTraceExecutableExtensionFactory:org.eclipse.xtext.ui.editor.preferences.LanguageRootPreferencePage"
+            id="org.muml.uppaal.trace.DiagnosticTrace"
+            name="DiagnosticTrace">
+            <keywordReference id="org.muml.uppaal.trace.ui.keyword_DiagnosticTrace"/>
+            <enabledWhen>
+	            <adapt type="org.eclipse.core.resources.IProject"/>
+			</enabledWhen>
+	        <filter name="projectNature" value="org.eclipse.xtext.ui.shared.xtextNature"/>
+        </page>
+    </extension>
+    <extension
+        point="org.eclipse.ui.keywords">
+        <keyword
+            id="org.muml.uppaal.trace.ui.keyword_DiagnosticTrace"
+            label="DiagnosticTrace"/>
+    </extension>
+    <extension
+         point="org.eclipse.ui.commands">
+      <command
+            description="Trigger expensive validation"
+            id="org.muml.uppaal.trace.DiagnosticTrace.validate"
+            name="Validate">
+      </command>
+    </extension>
+    <extension point="org.eclipse.ui.menus">
+        <menuContribution
+            locationURI="popup:#TextEditorContext?after=group.edit">
+             <command
+                 commandId="org.muml.uppaal.trace.DiagnosticTrace.validate"
+                 style="push"
+                 tooltip="Trigger expensive validation">
+            <visibleWhen checkEnabled="false">
+                <reference
+                    definitionId="org.muml.uppaal.trace.DiagnosticTrace.Editor.opened">
+                </reference>
+            </visibleWhen>
+         </command>  
+         </menuContribution>
+    </extension>
+    <extension point="org.eclipse.ui.menus">
+		<menuContribution locationURI="popup:#TextEditorContext?endof=group.find">
+			<command commandId="org.eclipse.xtext.ui.editor.FindReferences">
+				<visibleWhen checkEnabled="false">
+                	<reference definitionId="org.muml.uppaal.trace.DiagnosticTrace.Editor.opened">
+                	</reference>
+            	</visibleWhen>
+			</command>
+		</menuContribution>
+	</extension>
+	<extension point="org.eclipse.ui.handlers">
+	    <handler
+            class="org.muml.uppaal.trace.ui.DiagnosticTraceExecutableExtensionFactory:org.eclipse.xtext.ui.editor.findrefs.FindReferencesHandler"
+            commandId="org.eclipse.xtext.ui.editor.FindReferences">
+            <activeWhen>
+                <reference
+                    definitionId="org.muml.uppaal.trace.DiagnosticTrace.Editor.opened">
+                </reference>
+            </activeWhen>
+        </handler>
+    </extension>   
+
+<!-- adding resource factories -->
+
+	<extension
+		point="org.eclipse.emf.ecore.extension_parser">
+		<parser
+			class="org.muml.uppaal.trace.ui.DiagnosticTraceExecutableExtensionFactory:org.eclipse.xtext.resource.IResourceFactory"
+			type="trace">
+		</parser>
+	</extension>
+	<extension point="org.eclipse.xtext.extension_resourceServiceProvider">
+        <resourceServiceProvider
+            class="org.muml.uppaal.trace.ui.DiagnosticTraceExecutableExtensionFactory:org.eclipse.xtext.ui.resource.IResourceUIServiceProvider"
+            uriExtension="trace">
+        </resourceServiceProvider>
+    </extension>
+
+
+    <!-- marker definitions for org.muml.uppaal.trace.DiagnosticTrace -->
+    <extension
+            id="diagnostictrace.check.fast"
+            name="DiagnosticTrace Problem"
+            point="org.eclipse.core.resources.markers">
+        <super type="org.eclipse.xtext.ui.check.fast"/>
+        <persistent value="true"/>
+    </extension>
+    <extension
+            id="diagnostictrace.check.normal"
+            name="DiagnosticTrace Problem"
+            point="org.eclipse.core.resources.markers">
+        <super type="org.eclipse.xtext.ui.check.normal"/>
+        <persistent value="true"/>
+    </extension>
+    <extension
+            id="diagnostictrace.check.expensive"
+            name="DiagnosticTrace Problem"
+            point="org.eclipse.core.resources.markers">
+        <super type="org.eclipse.xtext.ui.check.expensive"/>
+        <persistent value="true"/>
+    </extension>
+
+   <extension
+         point="org.eclipse.xtext.builder.participant">
+      <participant
+            class="org.muml.uppaal.trace.ui.DiagnosticTraceExecutableExtensionFactory:org.eclipse.xtext.builder.IXtextBuilderParticipant">
+      </participant>
+   </extension>
+   <extension
+            point="org.eclipse.ui.preferencePages">
+        <page
+            category="org.muml.uppaal.trace.DiagnosticTrace"
+            class="org.muml.uppaal.trace.ui.DiagnosticTraceExecutableExtensionFactory:org.eclipse.xtext.builder.preferences.BuilderPreferencePage"
+            id="org.muml.uppaal.trace.DiagnosticTrace.compiler.preferencePage"
+            name="Compiler">
+            <keywordReference id="org.muml.uppaal.trace.ui.keyword_DiagnosticTrace"/>
+        </page>
+    </extension>
+    <extension
+            point="org.eclipse.ui.propertyPages">
+        <page
+            category="org.muml.uppaal.trace.DiagnosticTrace"
+            class="org.muml.uppaal.trace.ui.DiagnosticTraceExecutableExtensionFactory:org.eclipse.xtext.builder.preferences.BuilderPreferencePage"
+            id="org.muml.uppaal.trace.DiagnosticTrace.compiler.propertyPage"
+            name="Compiler">
+            <keywordReference id="org.muml.uppaal.trace.ui.keyword_DiagnosticTrace"/>
+            <enabledWhen>
+	            <adapt type="org.eclipse.core.resources.IProject"/>
+			</enabledWhen>
+	        <filter name="projectNature" value="org.eclipse.xtext.ui.shared.xtextNature"/>
+        </page>
+    </extension>
+
+	<!-- Quick Outline -->
+	<extension
+		point="org.eclipse.ui.handlers">
+		<handler 
+			class="org.muml.uppaal.trace.ui.DiagnosticTraceExecutableExtensionFactory:org.eclipse.xtext.ui.editor.outline.quickoutline.ShowQuickOutlineActionHandler"
+			commandId="org.eclipse.xtext.ui.editor.outline.QuickOutline">
+			<activeWhen>
+				<reference
+					definitionId="org.muml.uppaal.trace.DiagnosticTrace.Editor.opened">
+				</reference>
+			</activeWhen>
+		</handler>
+	</extension>
+	<extension
+		point="org.eclipse.ui.commands">
+		<command
+			description="Open the quick outline."
+			id="org.eclipse.xtext.ui.editor.outline.QuickOutline"
+			name="Quick Outline">
+		</command>
+	</extension>
+	<extension point="org.eclipse.ui.menus">
+		<menuContribution
+			locationURI="popup:#TextEditorContext?after=group.open">
+			<command commandId="org.eclipse.xtext.ui.editor.outline.QuickOutline"
+				style="push"
+				tooltip="Open Quick Outline">
+				<visibleWhen checkEnabled="false">
+					<reference definitionId="org.muml.uppaal.trace.DiagnosticTrace.Editor.opened"/>
+				</visibleWhen>
+			</command>
+		</menuContribution>
+	</extension>
+    <!-- quickfix marker resolution generator for org.muml.uppaal.trace.DiagnosticTrace -->
+    <extension
+            point="org.eclipse.ui.ide.markerResolution">
+        <markerResolutionGenerator
+            class="org.muml.uppaal.trace.ui.DiagnosticTraceExecutableExtensionFactory:org.eclipse.xtext.ui.editor.quickfix.MarkerResolutionGenerator"
+            markerType="org.muml.uppaal.trace.ui.diagnostictrace.check.fast">
+            <attribute
+                name="FIXABLE_KEY"
+                value="true">
+            </attribute>
+        </markerResolutionGenerator>
+        <markerResolutionGenerator
+            class="org.muml.uppaal.trace.ui.DiagnosticTraceExecutableExtensionFactory:org.eclipse.xtext.ui.editor.quickfix.MarkerResolutionGenerator"
+            markerType="org.muml.uppaal.trace.ui.diagnostictrace.check.normal">
+            <attribute
+                name="FIXABLE_KEY"
+                value="true">
+            </attribute>
+        </markerResolutionGenerator>
+        <markerResolutionGenerator
+            class="org.muml.uppaal.trace.ui.DiagnosticTraceExecutableExtensionFactory:org.eclipse.xtext.ui.editor.quickfix.MarkerResolutionGenerator"
+            markerType="org.muml.uppaal.trace.ui.diagnostictrace.check.expensive">
+            <attribute
+                name="FIXABLE_KEY"
+                value="true">
+            </attribute>
+        </markerResolutionGenerator>
+    </extension>
+   	<!-- Rename Refactoring -->
+	<extension point="org.eclipse.ui.handlers">
+		<handler 
+			class="org.muml.uppaal.trace.ui.DiagnosticTraceExecutableExtensionFactory:org.eclipse.xtext.ui.refactoring.ui.IRenameElementHandler"
+			commandId="org.eclipse.xtext.ui.refactoring.RenameElement">
+			<activeWhen>
+				<reference
+					definitionId="org.muml.uppaal.trace.DiagnosticTrace.Editor.opened">
+				</reference>
+			</activeWhen>
+		</handler>
+	</extension>
+    <extension point="org.eclipse.ui.menus">
+         <menuContribution
+            locationURI="popup:#TextEditorContext?after=group.edit">
+         <command commandId="org.eclipse.xtext.ui.refactoring.RenameElement"
+               style="push">
+            <visibleWhen checkEnabled="false">
+               <reference
+                     definitionId="org.muml.uppaal.trace.DiagnosticTrace.Editor.opened">
+               </reference>
+            </visibleWhen>
+         </command>
+      </menuContribution>
+   </extension>
+   <extension point="org.eclipse.ui.preferencePages">
+	    <page
+	        category="org.muml.uppaal.trace.DiagnosticTrace"
+	        class="org.muml.uppaal.trace.ui.DiagnosticTraceExecutableExtensionFactory:org.eclipse.xtext.ui.refactoring.ui.RefactoringPreferencePage"
+	        id="org.muml.uppaal.trace.DiagnosticTrace.refactoring"
+	        name="Refactoring">
+	        <keywordReference id="org.muml.uppaal.trace.ui.keyword_DiagnosticTrace"/>
+	    </page>
+	</extension>
+
+  <extension point="org.eclipse.compare.contentViewers">
+    <viewer id="org.muml.uppaal.trace.DiagnosticTrace.compare.contentViewers"
+            class="org.muml.uppaal.trace.ui.DiagnosticTraceExecutableExtensionFactory:org.eclipse.xtext.ui.compare.InjectableViewerCreator"
+            extensions="trace">
+    </viewer>
+  </extension>
+  <extension point="org.eclipse.compare.contentMergeViewers">
+    <viewer id="org.muml.uppaal.trace.DiagnosticTrace.compare.contentMergeViewers"
+            class="org.muml.uppaal.trace.ui.DiagnosticTraceExecutableExtensionFactory:org.eclipse.xtext.ui.compare.InjectableViewerCreator"
+            extensions="trace" label="DiagnosticTrace Compare">
+     </viewer>
+  </extension>
+  <extension point="org.eclipse.ui.editors.documentProviders">
+    <provider id="org.muml.uppaal.trace.DiagnosticTrace.editors.documentProviders"
+            class="org.muml.uppaal.trace.ui.DiagnosticTraceExecutableExtensionFactory:org.eclipse.xtext.ui.editor.model.XtextDocumentProvider"
+            extensions="trace">
+    </provider>
+  </extension>
+
+</plugin>
