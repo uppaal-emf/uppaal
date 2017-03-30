@@ -1,0 +1,261 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.ui.newWizards">
+      <!-- @generated uppaal -->
+      <category
+            id="org.eclipse.emf.ecore.Wizard.category.ID"
+            name="%_UI_Wizard_category"/>
+      <wizard
+            id="org.muml.uppaal.presentation.UppaalModelWizardID"
+            name="%_UI_UppaalModelWizard_label"
+            class="org.muml.uppaal.presentation.UppaalModelWizard"
+            category="org.eclipse.emf.ecore.Wizard.category.ID"
+            icon="icons/full/obj16/UppaalModelFile.gif">
+         <description>%_UI_UppaalModelWizard_description</description>
+         <selection class="org.eclipse.core.resources.IResource"/>
+      </wizard>
+   </extension>
+
+   <extension point="org.eclipse.ui.editors">
+      <!-- @generated uppaal -->
+      <editor
+            id="org.muml.uppaal.presentation.UppaalEditorID"
+            name="%_UI_UppaalEditor_label"
+            icon="icons/full/obj16/UppaalModelFile.gif"
+            extensions="uppaal"
+            class="org.muml.uppaal.presentation.UppaalEditor"
+            contributorClass="org.muml.uppaal.presentation.UppaalActionBarContributor">
+      </editor>
+   </extension>
+
+   <extension point="org.eclipse.ui.newWizards">
+      <!-- @generated uppaal -->
+      <category
+            id="org.eclipse.emf.ecore.Wizard.category.ID"
+            name="%_UI_Wizard_category"/>
+      <wizard
+            id="org.muml.uppaal.types.presentation.TypesModelWizardID"
+            name="%_UI_TypesModelWizard_label"
+            class="org.muml.uppaal.types.presentation.TypesModelWizard"
+            category="org.eclipse.emf.ecore.Wizard.category.ID"
+            icon="icons/full/obj16/TypesModelFile.gif">
+         <description>%_UI_TypesModelWizard_description</description>
+         <selection class="org.eclipse.core.resources.IResource"/>
+      </wizard>
+   </extension>
+
+   <extension point="org.eclipse.ui.editors">
+      <!-- @generated uppaal -->
+      <editor
+            id="org.muml.uppaal.types.presentation.TypesEditorID"
+            name="%_UI_TypesEditor_label"
+            icon="icons/full/obj16/TypesModelFile.gif"
+            extensions="types"
+            class="org.muml.uppaal.types.presentation.TypesEditor"
+            contributorClass="org.muml.uppaal.types.presentation.TypesActionBarContributor">
+      </editor>
+   </extension>
+
+   <extension point="org.eclipse.ui.newWizards">
+      <!-- @generated uppaal -->
+      <category
+            id="org.eclipse.emf.ecore.Wizard.category.ID"
+            name="%_UI_Wizard_category"/>
+      <wizard
+            id="org.muml.uppaal.declarations.presentation.DeclarationsModelWizardID"
+            name="%_UI_DeclarationsModelWizard_label"
+            class="org.muml.uppaal.declarations.presentation.DeclarationsModelWizard"
+            category="org.eclipse.emf.ecore.Wizard.category.ID"
+            icon="icons/full/obj16/DeclarationsModelFile.gif">
+         <description>%_UI_DeclarationsModelWizard_description</description>
+         <selection class="org.eclipse.core.resources.IResource"/>
+      </wizard>
+   </extension>
+
+   <extension point="org.eclipse.ui.editors">
+      <!-- @generated uppaal -->
+      <editor
+            id="org.muml.uppaal.declarations.presentation.DeclarationsEditorID"
+            name="%_UI_DeclarationsEditor_label"
+            icon="icons/full/obj16/DeclarationsModelFile.gif"
+            extensions="declarations"
+            class="org.muml.uppaal.declarations.presentation.DeclarationsEditor"
+            contributorClass="org.muml.uppaal.declarations.presentation.DeclarationsActionBarContributor">
+      </editor>
+   </extension>
+
+   <extension point="org.eclipse.ui.newWizards">
+      <!-- @generated uppaal -->
+      <category
+            id="org.eclipse.emf.ecore.Wizard.category.ID"
+            name="%_UI_Wizard_category"/>
+      <wizard
+            id="org.muml.uppaal.declarations.global.presentation.GlobalModelWizardID"
+            name="%_UI_GlobalModelWizard_label"
+            class="org.muml.uppaal.declarations.global.presentation.GlobalModelWizard"
+            category="org.eclipse.emf.ecore.Wizard.category.ID"
+            icon="icons/full/obj16/GlobalModelFile.gif">
+         <description>%_UI_GlobalModelWizard_description</description>
+         <selection class="org.eclipse.core.resources.IResource"/>
+      </wizard>
+   </extension>
+
+   <extension point="org.eclipse.ui.editors">
+      <!-- @generated uppaal -->
+      <editor
+            id="org.muml.uppaal.declarations.global.presentation.GlobalEditorID"
+            name="%_UI_GlobalEditor_label"
+            icon="icons/full/obj16/GlobalModelFile.gif"
+            extensions="global"
+            class="org.muml.uppaal.declarations.global.presentation.GlobalEditor"
+            contributorClass="org.muml.uppaal.declarations.global.presentation.GlobalActionBarContributor">
+      </editor>
+   </extension>
+
+   <extension point="org.eclipse.ui.newWizards">
+      <!-- @generated uppaal -->
+      <category
+            id="org.eclipse.emf.ecore.Wizard.category.ID"
+            name="%_UI_Wizard_category"/>
+      <wizard
+            id="org.muml.uppaal.declarations.system.presentation.SystemModelWizardID"
+            name="%_UI_SystemModelWizard_label"
+            class="org.muml.uppaal.declarations.system.presentation.SystemModelWizard"
+            category="org.eclipse.emf.ecore.Wizard.category.ID"
+            icon="icons/full/obj16/SystemModelFile.gif">
+         <description>%_UI_SystemModelWizard_description</description>
+         <selection class="org.eclipse.core.resources.IResource"/>
+      </wizard>
+   </extension>
+
+   <extension point="org.eclipse.ui.editors">
+      <!-- @generated uppaal -->
+      <editor
+            id="org.muml.uppaal.declarations.system.presentation.SystemEditorID"
+            name="%_UI_SystemEditor_label"
+            icon="icons/full/obj16/SystemModelFile.gif"
+            extensions="system"
+            class="org.muml.uppaal.declarations.system.presentation.SystemEditor"
+            contributorClass="org.muml.uppaal.declarations.system.presentation.SystemActionBarContributor">
+      </editor>
+   </extension>
+
+   <extension point="org.eclipse.ui.newWizards">
+      <!-- @generated uppaal -->
+      <category
+            id="org.eclipse.emf.ecore.Wizard.category.ID"
+            name="%_UI_Wizard_category"/>
+      <wizard
+            id="org.muml.uppaal.templates.presentation.TemplatesModelWizardID"
+            name="%_UI_TemplatesModelWizard_label"
+            class="org.muml.uppaal.templates.presentation.TemplatesModelWizard"
+            category="org.eclipse.emf.ecore.Wizard.category.ID"
+            icon="icons/full/obj16/TemplatesModelFile.gif">
+         <description>%_UI_TemplatesModelWizard_description</description>
+         <selection class="org.eclipse.core.resources.IResource"/>
+      </wizard>
+   </extension>
+
+   <extension point="org.eclipse.ui.editors">
+      <!-- @generated uppaal -->
+      <editor
+            id="org.muml.uppaal.templates.presentation.TemplatesEditorID"
+            name="%_UI_TemplatesEditor_label"
+            icon="icons/full/obj16/TemplatesModelFile.gif"
+            extensions="templates"
+            class="org.muml.uppaal.templates.presentation.TemplatesEditor"
+            contributorClass="org.muml.uppaal.templates.presentation.TemplatesActionBarContributor">
+      </editor>
+   </extension>
+
+   <extension point="org.eclipse.ui.newWizards">
+      <!-- @generated uppaal -->
+      <category
+            id="org.eclipse.emf.ecore.Wizard.category.ID"
+            name="%_UI_Wizard_category"/>
+      <wizard
+            id="org.muml.uppaal.statements.presentation.StatementsModelWizardID"
+            name="%_UI_StatementsModelWizard_label"
+            class="org.muml.uppaal.statements.presentation.StatementsModelWizard"
+            category="org.eclipse.emf.ecore.Wizard.category.ID"
+            icon="icons/full/obj16/StatementsModelFile.gif">
+         <description>%_UI_StatementsModelWizard_description</description>
+         <selection class="org.eclipse.core.resources.IResource"/>
+      </wizard>
+   </extension>
+
+   <extension point="org.eclipse.ui.editors">
+      <!-- @generated uppaal -->
+      <editor
+            id="org.muml.uppaal.statements.presentation.StatementsEditorID"
+            name="%_UI_StatementsEditor_label"
+            icon="icons/full/obj16/StatementsModelFile.gif"
+            extensions="statements"
+            class="org.muml.uppaal.statements.presentation.StatementsEditor"
+            contributorClass="org.muml.uppaal.statements.presentation.StatementsActionBarContributor">
+      </editor>
+   </extension>
+
+   <extension point="org.eclipse.ui.newWizards">
+      <!-- @generated uppaal -->
+      <category
+            id="org.eclipse.emf.ecore.Wizard.category.ID"
+            name="%_UI_Wizard_category"/>
+      <wizard
+            id="org.muml.uppaal.expressions.presentation.ExpressionsModelWizardID"
+            name="%_UI_ExpressionsModelWizard_label"
+            class="org.muml.uppaal.expressions.presentation.ExpressionsModelWizard"
+            category="org.eclipse.emf.ecore.Wizard.category.ID"
+            icon="icons/full/obj16/ExpressionsModelFile.gif">
+         <description>%_UI_ExpressionsModelWizard_description</description>
+         <selection class="org.eclipse.core.resources.IResource"/>
+      </wizard>
+   </extension>
+
+   <extension point="org.eclipse.ui.editors">
+      <!-- @generated uppaal -->
+      <editor
+            id="org.muml.uppaal.expressions.presentation.ExpressionsEditorID"
+            name="%_UI_ExpressionsEditor_label"
+            icon="icons/full/obj16/ExpressionsModelFile.gif"
+            extensions="expressions"
+            class="org.muml.uppaal.expressions.presentation.ExpressionsEditor"
+            contributorClass="org.muml.uppaal.expressions.presentation.ExpressionsActionBarContributor">
+      </editor>
+   </extension>
+
+   <extension point="org.eclipse.ui.newWizards">
+      <!-- @generated uppaal -->
+      <category
+            id="org.eclipse.emf.ecore.Wizard.category.ID"
+            name="%_UI_Wizard_category"/>
+      <wizard
+            id="org.muml.uppaal.visuals.presentation.VisualsModelWizardID"
+            name="%_UI_VisualsModelWizard_label"
+            class="org.muml.uppaal.visuals.presentation.VisualsModelWizard"
+            category="org.eclipse.emf.ecore.Wizard.category.ID"
+            icon="icons/full/obj16/VisualsModelFile.gif">
+         <description>%_UI_VisualsModelWizard_description</description>
+         <selection class="org.eclipse.core.resources.IResource"/>
+      </wizard>
+   </extension>
+
+   <extension point="org.eclipse.ui.editors">
+      <!-- @generated uppaal -->
+      <editor
+            id="org.muml.uppaal.visuals.presentation.VisualsEditorID"
+            name="%_UI_VisualsEditor_label"
+            icon="icons/full/obj16/VisualsModelFile.gif"
+            extensions="visuals"
+            class="org.muml.uppaal.visuals.presentation.VisualsEditor"
+            contributorClass="org.muml.uppaal.visuals.presentation.VisualsActionBarContributor">
+      </editor>
+   </extension>
+
+</plugin>
