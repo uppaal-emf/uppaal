@@ -5,6 +5,7 @@ package org.muml.uppaal.core.impl;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EPackage;
+import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.EValidator;
 import org.eclipse.emf.ecore.impl.EPackageImpl;
 import org.muml.uppaal.UppaalPackage;
@@ -12,6 +13,7 @@ import org.muml.uppaal.core.CommentableElement;
 import org.muml.uppaal.core.CoreFactory;
 import org.muml.uppaal.core.CorePackage;
 import org.muml.uppaal.core.NamedElement;
+import org.muml.uppaal.core.TypedElement;
 import org.muml.uppaal.core.util.CoreValidator;
 import org.muml.uppaal.declarations.DeclarationsPackage;
 import org.muml.uppaal.declarations.global.GlobalPackage;
@@ -51,6 +53,13 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 	 * @generated
 	 */
 	private EClass commentableElementEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass typedElementEClass = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -192,6 +201,33 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getTypedElement() {
+		return typedElementEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getTypedElement_Container() {
+		return (EReference)typedElementEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getTypedElement_TypeDefinition() {
+		return (EReference)typedElementEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public CoreFactory getCoreFactory() {
 		return (CoreFactory)getEFactoryInstance();
 	}
@@ -220,6 +256,10 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 
 		commentableElementEClass = createEClass(COMMENTABLE_ELEMENT);
 		createEAttribute(commentableElementEClass, COMMENTABLE_ELEMENT__COMMENT);
+
+		typedElementEClass = createEClass(TYPED_ELEMENT);
+		createEReference(typedElementEClass, TYPED_ELEMENT__CONTAINER);
+		createEReference(typedElementEClass, TYPED_ELEMENT__TYPE_DEFINITION);
 	}
 
 	/**
@@ -245,6 +285,10 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 		setNsPrefix(eNS_PREFIX);
 		setNsURI(eNS_URI);
 
+		// Obtain other dependent packages
+		DeclarationsPackage theDeclarationsPackage = (DeclarationsPackage)EPackage.Registry.INSTANCE.getEPackage(DeclarationsPackage.eNS_URI);
+		ExpressionsPackage theExpressionsPackage = (ExpressionsPackage)EPackage.Registry.INSTANCE.getEPackage(ExpressionsPackage.eNS_URI);
+
 		// Create type parameters
 
 		// Set bounds for type parameters
@@ -253,10 +297,14 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 
 		// Initialize classes and features; add operations and parameters
 		initEClass(namedElementEClass, NamedElement.class, "NamedElement", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getNamedElement_Name(), ecorePackage.getEString(), "name", null, 1, 1, NamedElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getNamedElement_Name(), ecorePackage.getEString(), "name", null, 0, 1, NamedElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(commentableElementEClass, CommentableElement.class, "CommentableElement", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getCommentableElement_Comment(), ecorePackage.getEString(), "comment", null, 0, 1, CommentableElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(typedElementEClass, TypedElement.class, "TypedElement", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getTypedElement_Container(), theDeclarationsPackage.getTypedElementContainer(), theDeclarationsPackage.getTypedElementContainer_Elements(), "container", null, 0, 1, TypedElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getTypedElement_TypeDefinition(), theExpressionsPackage.getExpression(), null, "typeDefinition", null, 0, 1, TypedElement.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 
 		// Create annotations
 		// http://www.eclipse.org/emf/2002/Ecore
@@ -301,8 +349,14 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 		  (namedElementEClass, 
 		   source, 
 		   new String[] {
-			 "NoWhitespace", "self.name.characters()->excludes(\' \')",
-			 "NoDigitStart", "Set{0..9}->excludes(self.name.characters()->first())"
+			 "NoWhitespace", "(not self.name.oclIsUndefined())\r\nimplies\r\nself.name.characters()->excludes(\' \')",
+			 "NoDigitStart", "(not self.name.oclIsUndefined())\r\nimplies\r\nSet{0..9}->excludes(self.name.characters()->first())"
+		   });	
+		addAnnotation
+		  (getTypedElement_TypeDefinition(), 
+		   source, 
+		   new String[] {
+			 "derivation", "if self.container.oclIsUndefined()\r\nthen null \r\nelse \r\nself.container.typeDefinition \r\nendif"
 		   });
 	}
 

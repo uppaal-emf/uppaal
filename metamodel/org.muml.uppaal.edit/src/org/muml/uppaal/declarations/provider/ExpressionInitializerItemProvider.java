@@ -14,6 +14,7 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
 import org.muml.uppaal.declarations.DeclarationsPackage;
 import org.muml.uppaal.declarations.ExpressionInitializer;
 import org.muml.uppaal.expressions.ExpressionsFactory;
+import org.muml.uppaal.types.TypesFactory;
 
 /**
  * This is the item provider adapter for a {@link org.muml.uppaal.declarations.ExpressionInitializer} object.
@@ -133,6 +134,21 @@ public class ExpressionInitializerItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(DeclarationsPackage.Literals.EXPRESSION_INITIALIZER__EXPRESSION,
+				 TypesFactory.eINSTANCE.createScalarTypeSpecification()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DeclarationsPackage.Literals.EXPRESSION_INITIALIZER__EXPRESSION,
+				 TypesFactory.eINSTANCE.createStructTypeSpecification()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DeclarationsPackage.Literals.EXPRESSION_INITIALIZER__EXPRESSION,
+				 TypesFactory.eINSTANCE.createRangeTypeSpecification()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DeclarationsPackage.Literals.EXPRESSION_INITIALIZER__EXPRESSION,
 				 ExpressionsFactory.eINSTANCE.createNegationExpression()));
 
 		newChildDescriptors.add
@@ -154,6 +170,11 @@ public class ExpressionInitializerItemProvider
 			(createChildParameter
 				(DeclarationsPackage.Literals.EXPRESSION_INITIALIZER__EXPRESSION,
 				 ExpressionsFactory.eINSTANCE.createIdentifierExpression()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DeclarationsPackage.Literals.EXPRESSION_INITIALIZER__EXPRESSION,
+				 ExpressionsFactory.eINSTANCE.createScopedIdentifierExpression()));
 
 		newChildDescriptors.add
 			(createChildParameter
@@ -188,17 +209,17 @@ public class ExpressionInitializerItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(DeclarationsPackage.Literals.EXPRESSION_INITIALIZER__EXPRESSION,
-				 ExpressionsFactory.eINSTANCE.createScopedIdentifierExpression()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(DeclarationsPackage.Literals.EXPRESSION_INITIALIZER__EXPRESSION,
 				 ExpressionsFactory.eINSTANCE.createQuantificationExpression()));
 
 		newChildDescriptors.add
 			(createChildParameter
 				(DeclarationsPackage.Literals.EXPRESSION_INITIALIZER__EXPRESSION,
-				 ExpressionsFactory.eINSTANCE.createIncrementDecrementExpression()));
+				 ExpressionsFactory.eINSTANCE.createPreIncrementDecrementExpression()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DeclarationsPackage.Literals.EXPRESSION_INITIALIZER__EXPRESSION,
+				 ExpressionsFactory.eINSTANCE.createPostIncrementDecrementExpression()));
 
 		newChildDescriptors.add
 			(createChildParameter
@@ -214,6 +235,16 @@ public class ExpressionInitializerItemProvider
 			(createChildParameter
 				(DeclarationsPackage.Literals.EXPRESSION_INITIALIZER__EXPRESSION,
 				 ExpressionsFactory.eINSTANCE.createBitwiseExpression()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DeclarationsPackage.Literals.EXPRESSION_INITIALIZER__EXPRESSION,
+				 ExpressionsFactory.eINSTANCE.createChannelPrefixExpression()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DeclarationsPackage.Literals.EXPRESSION_INITIALIZER__EXPRESSION,
+				 ExpressionsFactory.eINSTANCE.createDataPrefixExpression()));
 	}
 
 }

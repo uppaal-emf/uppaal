@@ -6,14 +6,16 @@ import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notifier;
 import org.eclipse.emf.common.notify.impl.AdapterFactoryImpl;
 import org.eclipse.emf.ecore.EObject;
-import org.muml.uppaal.declarations.VariableContainer;
+import org.muml.uppaal.declarations.TypedElementContainer;
 import org.muml.uppaal.expressions.ArithmeticExpression;
 import org.muml.uppaal.expressions.AssignmentExpression;
 import org.muml.uppaal.expressions.BinaryExpression;
 import org.muml.uppaal.expressions.BitShiftExpression;
 import org.muml.uppaal.expressions.BitwiseExpression;
+import org.muml.uppaal.expressions.ChannelPrefixExpression;
 import org.muml.uppaal.expressions.CompareExpression;
 import org.muml.uppaal.expressions.ConditionExpression;
+import org.muml.uppaal.expressions.DataPrefixExpression;
 import org.muml.uppaal.expressions.Expression;
 import org.muml.uppaal.expressions.ExpressionsPackage;
 import org.muml.uppaal.expressions.FunctionCallExpression;
@@ -25,6 +27,8 @@ import org.muml.uppaal.expressions.MinMaxExpression;
 import org.muml.uppaal.expressions.MinusExpression;
 import org.muml.uppaal.expressions.NegationExpression;
 import org.muml.uppaal.expressions.PlusExpression;
+import org.muml.uppaal.expressions.PostIncrementDecrementExpression;
+import org.muml.uppaal.expressions.PreIncrementDecrementExpression;
 import org.muml.uppaal.expressions.QuantificationExpression;
 import org.muml.uppaal.expressions.ScopedIdentifierExpression;
 
@@ -113,6 +117,10 @@ public class ExpressionsAdapterFactory extends AdapterFactoryImpl {
 				return createIdentifierExpressionAdapter();
 			}
 			@Override
+			public Adapter caseScopedIdentifierExpression(ScopedIdentifierExpression object) {
+				return createScopedIdentifierExpressionAdapter();
+			}
+			@Override
 			public Adapter caseLiteralExpression(LiteralExpression object) {
 				return createLiteralExpressionAdapter();
 			}
@@ -137,16 +145,20 @@ public class ExpressionsAdapterFactory extends AdapterFactoryImpl {
 				return createConditionExpressionAdapter();
 			}
 			@Override
-			public Adapter caseScopedIdentifierExpression(ScopedIdentifierExpression object) {
-				return createScopedIdentifierExpressionAdapter();
-			}
-			@Override
 			public Adapter caseQuantificationExpression(QuantificationExpression object) {
 				return createQuantificationExpressionAdapter();
 			}
 			@Override
 			public Adapter caseIncrementDecrementExpression(IncrementDecrementExpression object) {
 				return createIncrementDecrementExpressionAdapter();
+			}
+			@Override
+			public Adapter casePreIncrementDecrementExpression(PreIncrementDecrementExpression object) {
+				return createPreIncrementDecrementExpressionAdapter();
+			}
+			@Override
+			public Adapter casePostIncrementDecrementExpression(PostIncrementDecrementExpression object) {
+				return createPostIncrementDecrementExpressionAdapter();
 			}
 			@Override
 			public Adapter caseBitShiftExpression(BitShiftExpression object) {
@@ -161,8 +173,16 @@ public class ExpressionsAdapterFactory extends AdapterFactoryImpl {
 				return createBitwiseExpressionAdapter();
 			}
 			@Override
-			public Adapter caseVariableContainer(VariableContainer object) {
-				return createVariableContainerAdapter();
+			public Adapter caseChannelPrefixExpression(ChannelPrefixExpression object) {
+				return createChannelPrefixExpressionAdapter();
+			}
+			@Override
+			public Adapter caseDataPrefixExpression(DataPrefixExpression object) {
+				return createDataPrefixExpressionAdapter();
+			}
+			@Override
+			public Adapter caseTypedElementContainer(TypedElementContainer object) {
+				return createTypedElementContainerAdapter();
 			}
 			@Override
 			public Adapter defaultCase(EObject object) {
@@ -409,6 +429,34 @@ public class ExpressionsAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
+	 * Creates a new adapter for an object of class '{@link org.muml.uppaal.expressions.PreIncrementDecrementExpression <em>Pre Increment Decrement Expression</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.muml.uppaal.expressions.PreIncrementDecrementExpression
+	 * @generated
+	 */
+	public Adapter createPreIncrementDecrementExpressionAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.muml.uppaal.expressions.PostIncrementDecrementExpression <em>Post Increment Decrement Expression</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.muml.uppaal.expressions.PostIncrementDecrementExpression
+	 * @generated
+	 */
+	public Adapter createPostIncrementDecrementExpressionAdapter() {
+		return null;
+	}
+
+	/**
 	 * Creates a new adapter for an object of class '{@link org.muml.uppaal.expressions.BitShiftExpression <em>Bit Shift Expression</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -451,16 +499,44 @@ public class ExpressionsAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.muml.uppaal.declarations.VariableContainer <em>Variable Container</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.muml.uppaal.expressions.ChannelPrefixExpression <em>Channel Prefix Expression</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see org.muml.uppaal.declarations.VariableContainer
+	 * @see org.muml.uppaal.expressions.ChannelPrefixExpression
 	 * @generated
 	 */
-	public Adapter createVariableContainerAdapter() {
+	public Adapter createChannelPrefixExpressionAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.muml.uppaal.expressions.DataPrefixExpression <em>Data Prefix Expression</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.muml.uppaal.expressions.DataPrefixExpression
+	 * @generated
+	 */
+	public Adapter createDataPrefixExpressionAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.muml.uppaal.declarations.TypedElementContainer <em>Typed Element Container</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.muml.uppaal.declarations.TypedElementContainer
+	 * @generated
+	 */
+	public Adapter createTypedElementContainerAdapter() {
 		return null;
 	}
 

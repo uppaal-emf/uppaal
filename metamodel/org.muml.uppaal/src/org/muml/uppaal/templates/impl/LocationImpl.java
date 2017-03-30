@@ -2,21 +2,26 @@
  */
 package org.muml.uppaal.templates.impl;
 
+import java.util.Collection;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.util.EObjectWithInverseResolvingEList;
 import org.eclipse.emf.ecore.util.EcoreUtil;
+import org.eclipse.emf.ecore.util.InternalEList;
 import org.muml.uppaal.core.CommentableElement;
 import org.muml.uppaal.core.CorePackage;
 import org.muml.uppaal.core.impl.NamedElementImpl;
 import org.muml.uppaal.expressions.Expression;
+import org.muml.uppaal.templates.Edge;
 import org.muml.uppaal.templates.Location;
 import org.muml.uppaal.templates.LocationKind;
 import org.muml.uppaal.templates.Template;
 import org.muml.uppaal.templates.TemplatesPackage;
-import org.muml.uppaal.visuals.ColorKind;
 import org.muml.uppaal.visuals.ColoredElement;
 import org.muml.uppaal.visuals.PlanarElement;
 import org.muml.uppaal.visuals.Point;
@@ -32,11 +37,12 @@ import org.muml.uppaal.visuals.VisualsPackage;
  * <ul>
  *   <li>{@link org.muml.uppaal.templates.impl.LocationImpl#getComment <em>Comment</em>}</li>
  *   <li>{@link org.muml.uppaal.templates.impl.LocationImpl#getPosition <em>Position</em>}</li>
- *   <li>{@link org.muml.uppaal.templates.impl.LocationImpl#getColor <em>Color</em>}</li>
  *   <li>{@link org.muml.uppaal.templates.impl.LocationImpl#getColorCode <em>Color Code</em>}</li>
  *   <li>{@link org.muml.uppaal.templates.impl.LocationImpl#getParentTemplate <em>Parent Template</em>}</li>
  *   <li>{@link org.muml.uppaal.templates.impl.LocationImpl#getInvariant <em>Invariant</em>}</li>
  *   <li>{@link org.muml.uppaal.templates.impl.LocationImpl#getLocationTimeKind <em>Location Time Kind</em>}</li>
+ *   <li>{@link org.muml.uppaal.templates.impl.LocationImpl#getIncomingEdges <em>Incoming Edges</em>}</li>
+ *   <li>{@link org.muml.uppaal.templates.impl.LocationImpl#getOutgoingEdges <em>Outgoing Edges</em>}</li>
  * </ul>
  *
  * @generated
@@ -71,26 +77,6 @@ public class LocationImpl extends NamedElementImpl implements Location {
 	 * @ordered
 	 */
 	protected Point position;
-
-	/**
-	 * The default value of the '{@link #getColor() <em>Color</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getColor()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final ColorKind COLOR_EDEFAULT = ColorKind.DEFAULT;
-
-	/**
-	 * The cached value of the '{@link #getColor() <em>Color</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getColor()
-	 * @generated
-	 * @ordered
-	 */
-	protected ColorKind color = COLOR_EDEFAULT;
 
 	/**
 	 * The default value of the '{@link #getColorCode() <em>Color Code</em>}' attribute.
@@ -141,6 +127,26 @@ public class LocationImpl extends NamedElementImpl implements Location {
 	 * @ordered
 	 */
 	protected LocationKind locationTimeKind = LOCATION_TIME_KIND_EDEFAULT;
+
+	/**
+	 * The cached value of the '{@link #getIncomingEdges() <em>Incoming Edges</em>}' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getIncomingEdges()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Edge> incomingEdges;
+
+	/**
+	 * The cached value of the '{@link #getOutgoingEdges() <em>Outgoing Edges</em>}' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getOutgoingEdges()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Edge> outgoingEdges;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -223,27 +229,6 @@ public class LocationImpl extends NamedElementImpl implements Location {
 		}
 		else if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, TemplatesPackage.LOCATION__POSITION, newPosition, newPosition));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public ColorKind getColor() {
-		return color;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setColor(ColorKind newColor) {
-		ColorKind oldColor = color;
-		color = newColor == null ? COLOR_EDEFAULT : newColor;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, TemplatesPackage.LOCATION__COLOR, oldColor, color));
 	}
 
 	/**
@@ -377,6 +362,31 @@ public class LocationImpl extends NamedElementImpl implements Location {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EList<Edge> getIncomingEdges() {
+		if (incomingEdges == null) {
+			incomingEdges = new EObjectWithInverseResolvingEList<Edge>(Edge.class, this, TemplatesPackage.LOCATION__INCOMING_EDGES, TemplatesPackage.EDGE__TARGET);
+		}
+		return incomingEdges;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<Edge> getOutgoingEdges() {
+		if (outgoingEdges == null) {
+			outgoingEdges = new EObjectWithInverseResolvingEList<Edge>(Edge.class, this, TemplatesPackage.LOCATION__OUTGOING_EDGES, TemplatesPackage.EDGE__SOURCE);
+		}
+		return outgoingEdges;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@SuppressWarnings("unchecked")
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -384,6 +394,10 @@ public class LocationImpl extends NamedElementImpl implements Location {
 				if (eInternalContainer() != null)
 					msgs = eBasicRemoveFromContainer(msgs);
 				return basicSetParentTemplate((Template)otherEnd, msgs);
+			case TemplatesPackage.LOCATION__INCOMING_EDGES:
+				return ((InternalEList<InternalEObject>)(InternalEList<?>)getIncomingEdges()).basicAdd(otherEnd, msgs);
+			case TemplatesPackage.LOCATION__OUTGOING_EDGES:
+				return ((InternalEList<InternalEObject>)(InternalEList<?>)getOutgoingEdges()).basicAdd(otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
@@ -402,6 +416,10 @@ public class LocationImpl extends NamedElementImpl implements Location {
 				return basicSetParentTemplate(null, msgs);
 			case TemplatesPackage.LOCATION__INVARIANT:
 				return basicSetInvariant(null, msgs);
+			case TemplatesPackage.LOCATION__INCOMING_EDGES:
+				return ((InternalEList<?>)getIncomingEdges()).basicRemove(otherEnd, msgs);
+			case TemplatesPackage.LOCATION__OUTGOING_EDGES:
+				return ((InternalEList<?>)getOutgoingEdges()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -432,8 +450,6 @@ public class LocationImpl extends NamedElementImpl implements Location {
 				return getComment();
 			case TemplatesPackage.LOCATION__POSITION:
 				return getPosition();
-			case TemplatesPackage.LOCATION__COLOR:
-				return getColor();
 			case TemplatesPackage.LOCATION__COLOR_CODE:
 				return getColorCode();
 			case TemplatesPackage.LOCATION__PARENT_TEMPLATE:
@@ -442,6 +458,10 @@ public class LocationImpl extends NamedElementImpl implements Location {
 				return getInvariant();
 			case TemplatesPackage.LOCATION__LOCATION_TIME_KIND:
 				return getLocationTimeKind();
+			case TemplatesPackage.LOCATION__INCOMING_EDGES:
+				return getIncomingEdges();
+			case TemplatesPackage.LOCATION__OUTGOING_EDGES:
+				return getOutgoingEdges();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -451,6 +471,7 @@ public class LocationImpl extends NamedElementImpl implements Location {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
@@ -459,9 +480,6 @@ public class LocationImpl extends NamedElementImpl implements Location {
 				return;
 			case TemplatesPackage.LOCATION__POSITION:
 				setPosition((Point)newValue);
-				return;
-			case TemplatesPackage.LOCATION__COLOR:
-				setColor((ColorKind)newValue);
 				return;
 			case TemplatesPackage.LOCATION__COLOR_CODE:
 				setColorCode((String)newValue);
@@ -474,6 +492,14 @@ public class LocationImpl extends NamedElementImpl implements Location {
 				return;
 			case TemplatesPackage.LOCATION__LOCATION_TIME_KIND:
 				setLocationTimeKind((LocationKind)newValue);
+				return;
+			case TemplatesPackage.LOCATION__INCOMING_EDGES:
+				getIncomingEdges().clear();
+				getIncomingEdges().addAll((Collection<? extends Edge>)newValue);
+				return;
+			case TemplatesPackage.LOCATION__OUTGOING_EDGES:
+				getOutgoingEdges().clear();
+				getOutgoingEdges().addAll((Collection<? extends Edge>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -493,9 +519,6 @@ public class LocationImpl extends NamedElementImpl implements Location {
 			case TemplatesPackage.LOCATION__POSITION:
 				setPosition((Point)null);
 				return;
-			case TemplatesPackage.LOCATION__COLOR:
-				setColor(COLOR_EDEFAULT);
-				return;
 			case TemplatesPackage.LOCATION__COLOR_CODE:
 				setColorCode(COLOR_CODE_EDEFAULT);
 				return;
@@ -507,6 +530,12 @@ public class LocationImpl extends NamedElementImpl implements Location {
 				return;
 			case TemplatesPackage.LOCATION__LOCATION_TIME_KIND:
 				setLocationTimeKind(LOCATION_TIME_KIND_EDEFAULT);
+				return;
+			case TemplatesPackage.LOCATION__INCOMING_EDGES:
+				getIncomingEdges().clear();
+				return;
+			case TemplatesPackage.LOCATION__OUTGOING_EDGES:
+				getOutgoingEdges().clear();
 				return;
 		}
 		super.eUnset(featureID);
@@ -524,8 +553,6 @@ public class LocationImpl extends NamedElementImpl implements Location {
 				return COMMENT_EDEFAULT == null ? comment != null : !COMMENT_EDEFAULT.equals(comment);
 			case TemplatesPackage.LOCATION__POSITION:
 				return position != null;
-			case TemplatesPackage.LOCATION__COLOR:
-				return color != COLOR_EDEFAULT;
 			case TemplatesPackage.LOCATION__COLOR_CODE:
 				return COLOR_CODE_EDEFAULT == null ? colorCode != null : !COLOR_CODE_EDEFAULT.equals(colorCode);
 			case TemplatesPackage.LOCATION__PARENT_TEMPLATE:
@@ -534,6 +561,10 @@ public class LocationImpl extends NamedElementImpl implements Location {
 				return invariant != null;
 			case TemplatesPackage.LOCATION__LOCATION_TIME_KIND:
 				return locationTimeKind != LOCATION_TIME_KIND_EDEFAULT;
+			case TemplatesPackage.LOCATION__INCOMING_EDGES:
+				return incomingEdges != null && !incomingEdges.isEmpty();
+			case TemplatesPackage.LOCATION__OUTGOING_EDGES:
+				return outgoingEdges != null && !outgoingEdges.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}
@@ -559,7 +590,6 @@ public class LocationImpl extends NamedElementImpl implements Location {
 		}
 		if (baseClass == ColoredElement.class) {
 			switch (derivedFeatureID) {
-				case TemplatesPackage.LOCATION__COLOR: return VisualsPackage.COLORED_ELEMENT__COLOR;
 				case TemplatesPackage.LOCATION__COLOR_CODE: return VisualsPackage.COLORED_ELEMENT__COLOR_CODE;
 				default: return -1;
 			}
@@ -588,7 +618,6 @@ public class LocationImpl extends NamedElementImpl implements Location {
 		}
 		if (baseClass == ColoredElement.class) {
 			switch (baseFeatureID) {
-				case VisualsPackage.COLORED_ELEMENT__COLOR: return TemplatesPackage.LOCATION__COLOR;
 				case VisualsPackage.COLORED_ELEMENT__COLOR_CODE: return TemplatesPackage.LOCATION__COLOR_CODE;
 				default: return -1;
 			}
@@ -608,8 +637,6 @@ public class LocationImpl extends NamedElementImpl implements Location {
 		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (comment: ");
 		result.append(comment);
-		result.append(", color: ");
-		result.append(color);
 		result.append(", colorCode: ");
 		result.append(colorCode);
 		result.append(", locationTimeKind: ");

@@ -89,8 +89,8 @@ public class QuantificationExpressionItemProvider
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(DeclarationsPackage.Literals.VARIABLE_CONTAINER__TYPE_DEFINITION);
-			childrenFeatures.add(DeclarationsPackage.Literals.VARIABLE_CONTAINER__VARIABLE);
+			childrenFeatures.add(DeclarationsPackage.Literals.TYPED_ELEMENT_CONTAINER__TYPE_DEFINITION);
+			childrenFeatures.add(DeclarationsPackage.Literals.TYPED_ELEMENT_CONTAINER__ELEMENTS);
 			childrenFeatures.add(ExpressionsPackage.Literals.QUANTIFICATION_EXPRESSION__EXPRESSION);
 		}
 		return childrenFeatures;
@@ -151,7 +151,7 @@ public class QuantificationExpressionItemProvider
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 			case ExpressionsPackage.QUANTIFICATION_EXPRESSION__TYPE_DEFINITION:
-			case ExpressionsPackage.QUANTIFICATION_EXPRESSION__VARIABLE:
+			case ExpressionsPackage.QUANTIFICATION_EXPRESSION__ELEMENTS:
 			case ExpressionsPackage.QUANTIFICATION_EXPRESSION__EXPRESSION:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
@@ -172,28 +172,133 @@ public class QuantificationExpressionItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
-				(DeclarationsPackage.Literals.VARIABLE_CONTAINER__TYPE_DEFINITION,
-				 TypesFactory.eINSTANCE.createTypeReference()));
+				(DeclarationsPackage.Literals.TYPED_ELEMENT_CONTAINER__TYPE_DEFINITION,
+				 ExpressionsFactory.eINSTANCE.createNegationExpression()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(DeclarationsPackage.Literals.VARIABLE_CONTAINER__TYPE_DEFINITION,
+				(DeclarationsPackage.Literals.TYPED_ELEMENT_CONTAINER__TYPE_DEFINITION,
+				 ExpressionsFactory.eINSTANCE.createPlusExpression()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DeclarationsPackage.Literals.TYPED_ELEMENT_CONTAINER__TYPE_DEFINITION,
+				 ExpressionsFactory.eINSTANCE.createMinusExpression()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DeclarationsPackage.Literals.TYPED_ELEMENT_CONTAINER__TYPE_DEFINITION,
+				 ExpressionsFactory.eINSTANCE.createAssignmentExpression()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DeclarationsPackage.Literals.TYPED_ELEMENT_CONTAINER__TYPE_DEFINITION,
+				 ExpressionsFactory.eINSTANCE.createIdentifierExpression()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DeclarationsPackage.Literals.TYPED_ELEMENT_CONTAINER__TYPE_DEFINITION,
+				 ExpressionsFactory.eINSTANCE.createScopedIdentifierExpression()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DeclarationsPackage.Literals.TYPED_ELEMENT_CONTAINER__TYPE_DEFINITION,
+				 ExpressionsFactory.eINSTANCE.createLiteralExpression()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DeclarationsPackage.Literals.TYPED_ELEMENT_CONTAINER__TYPE_DEFINITION,
+				 ExpressionsFactory.eINSTANCE.createArithmeticExpression()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DeclarationsPackage.Literals.TYPED_ELEMENT_CONTAINER__TYPE_DEFINITION,
+				 ExpressionsFactory.eINSTANCE.createLogicalExpression()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DeclarationsPackage.Literals.TYPED_ELEMENT_CONTAINER__TYPE_DEFINITION,
+				 ExpressionsFactory.eINSTANCE.createFunctionCallExpression()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DeclarationsPackage.Literals.TYPED_ELEMENT_CONTAINER__TYPE_DEFINITION,
+				 ExpressionsFactory.eINSTANCE.createCompareExpression()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DeclarationsPackage.Literals.TYPED_ELEMENT_CONTAINER__TYPE_DEFINITION,
+				 ExpressionsFactory.eINSTANCE.createConditionExpression()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DeclarationsPackage.Literals.TYPED_ELEMENT_CONTAINER__TYPE_DEFINITION,
+				 ExpressionsFactory.eINSTANCE.createQuantificationExpression()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DeclarationsPackage.Literals.TYPED_ELEMENT_CONTAINER__TYPE_DEFINITION,
+				 ExpressionsFactory.eINSTANCE.createPreIncrementDecrementExpression()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DeclarationsPackage.Literals.TYPED_ELEMENT_CONTAINER__TYPE_DEFINITION,
+				 ExpressionsFactory.eINSTANCE.createPostIncrementDecrementExpression()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DeclarationsPackage.Literals.TYPED_ELEMENT_CONTAINER__TYPE_DEFINITION,
+				 ExpressionsFactory.eINSTANCE.createBitShiftExpression()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DeclarationsPackage.Literals.TYPED_ELEMENT_CONTAINER__TYPE_DEFINITION,
+				 ExpressionsFactory.eINSTANCE.createMinMaxExpression()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DeclarationsPackage.Literals.TYPED_ELEMENT_CONTAINER__TYPE_DEFINITION,
+				 ExpressionsFactory.eINSTANCE.createBitwiseExpression()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DeclarationsPackage.Literals.TYPED_ELEMENT_CONTAINER__TYPE_DEFINITION,
+				 ExpressionsFactory.eINSTANCE.createChannelPrefixExpression()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DeclarationsPackage.Literals.TYPED_ELEMENT_CONTAINER__TYPE_DEFINITION,
+				 ExpressionsFactory.eINSTANCE.createDataPrefixExpression()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DeclarationsPackage.Literals.TYPED_ELEMENT_CONTAINER__TYPE_DEFINITION,
 				 TypesFactory.eINSTANCE.createScalarTypeSpecification()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(DeclarationsPackage.Literals.VARIABLE_CONTAINER__TYPE_DEFINITION,
+				(DeclarationsPackage.Literals.TYPED_ELEMENT_CONTAINER__TYPE_DEFINITION,
 				 TypesFactory.eINSTANCE.createStructTypeSpecification()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(DeclarationsPackage.Literals.VARIABLE_CONTAINER__TYPE_DEFINITION,
+				(DeclarationsPackage.Literals.TYPED_ELEMENT_CONTAINER__TYPE_DEFINITION,
 				 TypesFactory.eINSTANCE.createRangeTypeSpecification()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(DeclarationsPackage.Literals.VARIABLE_CONTAINER__VARIABLE,
+				(DeclarationsPackage.Literals.TYPED_ELEMENT_CONTAINER__ELEMENTS,
+				 DeclarationsFactory.eINSTANCE.createFunction()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DeclarationsPackage.Literals.TYPED_ELEMENT_CONTAINER__ELEMENTS,
 				 DeclarationsFactory.eINSTANCE.createVariable()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DeclarationsPackage.Literals.TYPED_ELEMENT_CONTAINER__ELEMENTS,
+				 DeclarationsFactory.eINSTANCE.createParameter()));
 
 		newChildDescriptors.add
 			(createChildParameter
@@ -219,6 +324,11 @@ public class QuantificationExpressionItemProvider
 			(createChildParameter
 				(ExpressionsPackage.Literals.QUANTIFICATION_EXPRESSION__EXPRESSION,
 				 ExpressionsFactory.eINSTANCE.createIdentifierExpression()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(ExpressionsPackage.Literals.QUANTIFICATION_EXPRESSION__EXPRESSION,
+				 ExpressionsFactory.eINSTANCE.createScopedIdentifierExpression()));
 
 		newChildDescriptors.add
 			(createChildParameter
@@ -253,17 +363,17 @@ public class QuantificationExpressionItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(ExpressionsPackage.Literals.QUANTIFICATION_EXPRESSION__EXPRESSION,
-				 ExpressionsFactory.eINSTANCE.createScopedIdentifierExpression()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(ExpressionsPackage.Literals.QUANTIFICATION_EXPRESSION__EXPRESSION,
 				 ExpressionsFactory.eINSTANCE.createQuantificationExpression()));
 
 		newChildDescriptors.add
 			(createChildParameter
 				(ExpressionsPackage.Literals.QUANTIFICATION_EXPRESSION__EXPRESSION,
-				 ExpressionsFactory.eINSTANCE.createIncrementDecrementExpression()));
+				 ExpressionsFactory.eINSTANCE.createPreIncrementDecrementExpression()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(ExpressionsPackage.Literals.QUANTIFICATION_EXPRESSION__EXPRESSION,
+				 ExpressionsFactory.eINSTANCE.createPostIncrementDecrementExpression()));
 
 		newChildDescriptors.add
 			(createChildParameter
@@ -279,6 +389,54 @@ public class QuantificationExpressionItemProvider
 			(createChildParameter
 				(ExpressionsPackage.Literals.QUANTIFICATION_EXPRESSION__EXPRESSION,
 				 ExpressionsFactory.eINSTANCE.createBitwiseExpression()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(ExpressionsPackage.Literals.QUANTIFICATION_EXPRESSION__EXPRESSION,
+				 ExpressionsFactory.eINSTANCE.createChannelPrefixExpression()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(ExpressionsPackage.Literals.QUANTIFICATION_EXPRESSION__EXPRESSION,
+				 ExpressionsFactory.eINSTANCE.createDataPrefixExpression()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(ExpressionsPackage.Literals.QUANTIFICATION_EXPRESSION__EXPRESSION,
+				 TypesFactory.eINSTANCE.createScalarTypeSpecification()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(ExpressionsPackage.Literals.QUANTIFICATION_EXPRESSION__EXPRESSION,
+				 TypesFactory.eINSTANCE.createStructTypeSpecification()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(ExpressionsPackage.Literals.QUANTIFICATION_EXPRESSION__EXPRESSION,
+				 TypesFactory.eINSTANCE.createRangeTypeSpecification()));
+	}
+
+	/**
+	 * This returns the label text for {@link org.eclipse.emf.edit.command.CreateChildCommand}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String getCreateChildText(Object owner, Object feature, Object child, Collection<?> selection) {
+		Object childFeature = feature;
+		Object childObject = child;
+
+		boolean qualify =
+			childFeature == DeclarationsPackage.Literals.TYPED_ELEMENT_CONTAINER__TYPE_DEFINITION ||
+			childFeature == ExpressionsPackage.Literals.QUANTIFICATION_EXPRESSION__EXPRESSION;
+
+		if (qualify) {
+			return getString
+				("_UI_CreateChild_text2",
+				 new Object[] { getTypeText(childObject), getFeatureText(childFeature), getTypeText(owner) });
+		}
+		return super.getCreateChildText(owner, feature, child, selection);
 	}
 
 }

@@ -203,55 +203,7 @@ public class SystemValidator extends EObjectValidator {
 	 * @generated
 	 */
 	public boolean validateInstantiationList(InstantiationList instantiationList, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		if (!validate_NoCircularContainment(instantiationList, diagnostics, context)) return false;
-		boolean result = validate_EveryMultiplicityConforms(instantiationList, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryDataValueConforms(instantiationList, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(instantiationList, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryBidirectionalReferenceIsPaired(instantiationList, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryProxyResolves(instantiationList, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_UniqueID(instantiationList, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryKeyUnique(instantiationList, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(instantiationList, diagnostics, context);
-		if (result || diagnostics != null) result &= validateInstantiationList_OnlyLegalParamsForPartialInstantiation(instantiationList, diagnostics, context);
-		return result;
-	}
-
-	/**
-	 * The cached validation expression for the OnlyLegalParamsForPartialInstantiation constraint of '<em>Instantiation List</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected static final String INSTANTIATION_LIST__ONLY_LEGAL_PARAMS_FOR_PARTIAL_INSTANTIATION__EEXPRESSION = "self.template->forAll(\r\n" +
-		"\tparameter->forAll(\r\n" +
-		"\t\tcallType = declarations::CallType::CALL_BY_VALUE\r\n" +
-		"\t\tand\r\n" +
-		"\t\t((not variableDeclaration.oclIsUndefined())\r\n" +
-		"\t\t\timplies\r\n" +
-		"\t\t (variableDeclaration.typeDefinition.typeSpecification.oclIsKindOf(types::RangeTypeSpecification) or\r\n" +
-		"\t\t  variableDeclaration.typeDefinition.typeSpecification.oclIsKindOf(types::ScalarTypeSpecification)))\r\n" +
-		"\t)\r\n" +
-		")";
-
-	/**
-	 * Validates the OnlyLegalParamsForPartialInstantiation constraint of '<em>Instantiation List</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public boolean validateInstantiationList_OnlyLegalParamsForPartialInstantiation(InstantiationList instantiationList, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return
-			validate
-				(SystemPackage.Literals.INSTANTIATION_LIST,
-				 instantiationList,
-				 diagnostics,
-				 context,
-				 "http://www.eclipse.org/emf/2002/Ecore/OCL",
-				 "OnlyLegalParamsForPartialInstantiation",
-				 INSTANTIATION_LIST__ONLY_LEGAL_PARAMS_FOR_PARTIAL_INSTANTIATION__EEXPRESSION,
-				 Diagnostic.ERROR,
-				 DIAGNOSTIC_SOURCE,
-				 0);
+		return validate_EveryDefaultConstraint(instantiationList, diagnostics, context);
 	}
 
 	/**

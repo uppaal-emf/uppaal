@@ -15,6 +15,7 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
 import org.muml.uppaal.expressions.ExpressionsFactory;
 import org.muml.uppaal.expressions.ExpressionsPackage;
 import org.muml.uppaal.expressions.IdentifierExpression;
+import org.muml.uppaal.types.TypesFactory;
 
 /**
  * This is the item provider adapter for a {@link org.muml.uppaal.expressions.IdentifierExpression} object.
@@ -182,6 +183,11 @@ public class IdentifierExpressionItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(ExpressionsPackage.Literals.IDENTIFIER_EXPRESSION__INDEX,
+				 ExpressionsFactory.eINSTANCE.createScopedIdentifierExpression()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(ExpressionsPackage.Literals.IDENTIFIER_EXPRESSION__INDEX,
 				 ExpressionsFactory.eINSTANCE.createLiteralExpression()));
 
 		newChildDescriptors.add
@@ -212,17 +218,17 @@ public class IdentifierExpressionItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(ExpressionsPackage.Literals.IDENTIFIER_EXPRESSION__INDEX,
-				 ExpressionsFactory.eINSTANCE.createScopedIdentifierExpression()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(ExpressionsPackage.Literals.IDENTIFIER_EXPRESSION__INDEX,
 				 ExpressionsFactory.eINSTANCE.createQuantificationExpression()));
 
 		newChildDescriptors.add
 			(createChildParameter
 				(ExpressionsPackage.Literals.IDENTIFIER_EXPRESSION__INDEX,
-				 ExpressionsFactory.eINSTANCE.createIncrementDecrementExpression()));
+				 ExpressionsFactory.eINSTANCE.createPreIncrementDecrementExpression()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(ExpressionsPackage.Literals.IDENTIFIER_EXPRESSION__INDEX,
+				 ExpressionsFactory.eINSTANCE.createPostIncrementDecrementExpression()));
 
 		newChildDescriptors.add
 			(createChildParameter
@@ -238,6 +244,31 @@ public class IdentifierExpressionItemProvider
 			(createChildParameter
 				(ExpressionsPackage.Literals.IDENTIFIER_EXPRESSION__INDEX,
 				 ExpressionsFactory.eINSTANCE.createBitwiseExpression()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(ExpressionsPackage.Literals.IDENTIFIER_EXPRESSION__INDEX,
+				 ExpressionsFactory.eINSTANCE.createChannelPrefixExpression()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(ExpressionsPackage.Literals.IDENTIFIER_EXPRESSION__INDEX,
+				 ExpressionsFactory.eINSTANCE.createDataPrefixExpression()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(ExpressionsPackage.Literals.IDENTIFIER_EXPRESSION__INDEX,
+				 TypesFactory.eINSTANCE.createScalarTypeSpecification()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(ExpressionsPackage.Literals.IDENTIFIER_EXPRESSION__INDEX,
+				 TypesFactory.eINSTANCE.createStructTypeSpecification()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(ExpressionsPackage.Literals.IDENTIFIER_EXPRESSION__INDEX,
+				 TypesFactory.eINSTANCE.createRangeTypeSpecification()));
 	}
 
 }

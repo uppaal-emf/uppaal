@@ -9,11 +9,12 @@ import org.eclipse.emf.common.util.DiagnosticChain;
 import org.eclipse.emf.common.util.ResourceLocator;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.util.EObjectValidator;
-import org.muml.uppaal.declarations.global.ChannelList;
-import org.muml.uppaal.declarations.global.ChannelPriority;
-import org.muml.uppaal.declarations.global.ChannelPriorityItem;
-import org.muml.uppaal.declarations.global.DefaultChannelPriority;
+import org.muml.uppaal.declarations.global.ChannelItem;
+import org.muml.uppaal.declarations.global.ChannelPriorityDeclaration;
+import org.muml.uppaal.declarations.global.ChannelPriorityGroup;
+import org.muml.uppaal.declarations.global.DefaultItem;
 import org.muml.uppaal.declarations.global.GlobalPackage;
+import org.muml.uppaal.declarations.global.PriorityItem;
 
 /**
  * <!-- begin-user-doc -->
@@ -87,14 +88,16 @@ public class GlobalValidator extends EObjectValidator {
 	@Override
 	protected boolean validate(int classifierID, Object value, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		switch (classifierID) {
-			case GlobalPackage.CHANNEL_PRIORITY:
-				return validateChannelPriority((ChannelPriority)value, diagnostics, context);
-			case GlobalPackage.CHANNEL_PRIORITY_ITEM:
-				return validateChannelPriorityItem((ChannelPriorityItem)value, diagnostics, context);
-			case GlobalPackage.CHANNEL_LIST:
-				return validateChannelList((ChannelList)value, diagnostics, context);
-			case GlobalPackage.DEFAULT_CHANNEL_PRIORITY:
-				return validateDefaultChannelPriority((DefaultChannelPriority)value, diagnostics, context);
+			case GlobalPackage.CHANNEL_PRIORITY_DECLARATION:
+				return validateChannelPriorityDeclaration((ChannelPriorityDeclaration)value, diagnostics, context);
+			case GlobalPackage.CHANNEL_PRIORITY_GROUP:
+				return validateChannelPriorityGroup((ChannelPriorityGroup)value, diagnostics, context);
+			case GlobalPackage.PRIORITY_ITEM:
+				return validatePriorityItem((PriorityItem)value, diagnostics, context);
+			case GlobalPackage.CHANNEL_ITEM:
+				return validateChannelItem((ChannelItem)value, diagnostics, context);
+			case GlobalPackage.DEFAULT_ITEM:
+				return validateDefaultItem((DefaultItem)value, diagnostics, context);
 			default:
 				return true;
 		}
@@ -105,74 +108,77 @@ public class GlobalValidator extends EObjectValidator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean validateChannelPriority(ChannelPriority channelPriority, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		if (!validate_NoCircularContainment(channelPriority, diagnostics, context)) return false;
-		boolean result = validate_EveryMultiplicityConforms(channelPriority, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryDataValueConforms(channelPriority, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(channelPriority, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryBidirectionalReferenceIsPaired(channelPriority, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryProxyResolves(channelPriority, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_UniqueID(channelPriority, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryKeyUnique(channelPriority, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(channelPriority, diagnostics, context);
-		if (result || diagnostics != null) result &= validateChannelPriority_AtMostOneDefaultItem(channelPriority, diagnostics, context);
-		if (result || diagnostics != null) result &= validateChannelPriority_EachChannelContainedAtMostOnce(channelPriority, diagnostics, context);
+	public boolean validateChannelPriorityDeclaration(ChannelPriorityDeclaration channelPriorityDeclaration, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		if (!validate_NoCircularContainment(channelPriorityDeclaration, diagnostics, context)) return false;
+		boolean result = validate_EveryMultiplicityConforms(channelPriorityDeclaration, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryDataValueConforms(channelPriorityDeclaration, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(channelPriorityDeclaration, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryBidirectionalReferenceIsPaired(channelPriorityDeclaration, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryProxyResolves(channelPriorityDeclaration, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_UniqueID(channelPriorityDeclaration, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryKeyUnique(channelPriorityDeclaration, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(channelPriorityDeclaration, diagnostics, context);
+		if (result || diagnostics != null) result &= validateChannelPriorityDeclaration_AtMostOneDefaultItem(channelPriorityDeclaration, diagnostics, context);
+		if (result || diagnostics != null) result &= validateChannelPriorityDeclaration_EachChannelContainedAtMostOnce(channelPriorityDeclaration, diagnostics, context);
 		return result;
 	}
 
 	/**
-	 * The cached validation expression for the AtMostOneDefaultItem constraint of '<em>Channel Priority</em>'.
+	 * The cached validation expression for the AtMostOneDefaultItem constraint of '<em>Channel Priority Declaration</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected static final String CHANNEL_PRIORITY__AT_MOST_ONE_DEFAULT_ITEM__EEXPRESSION = "self.item->select(oclIsKindOf(DefaultChannelPriority))->size() <= 1";
+	protected static final String CHANNEL_PRIORITY_DECLARATION__AT_MOST_ONE_DEFAULT_ITEM__EEXPRESSION = "self.groups.items->select(oclIsKindOf(uppaal::declarations::global::DefaultItem))->size() <= 1";
 
 	/**
-	 * Validates the AtMostOneDefaultItem constraint of '<em>Channel Priority</em>'.
+	 * Validates the AtMostOneDefaultItem constraint of '<em>Channel Priority Declaration</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean validateChannelPriority_AtMostOneDefaultItem(ChannelPriority channelPriority, DiagnosticChain diagnostics, Map<Object, Object> context) {
+	public boolean validateChannelPriorityDeclaration_AtMostOneDefaultItem(ChannelPriorityDeclaration channelPriorityDeclaration, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		return
 			validate
-				(GlobalPackage.Literals.CHANNEL_PRIORITY,
-				 channelPriority,
+				(GlobalPackage.Literals.CHANNEL_PRIORITY_DECLARATION,
+				 channelPriorityDeclaration,
 				 diagnostics,
 				 context,
 				 "http://www.eclipse.org/emf/2002/Ecore/OCL",
 				 "AtMostOneDefaultItem",
-				 CHANNEL_PRIORITY__AT_MOST_ONE_DEFAULT_ITEM__EEXPRESSION,
+				 CHANNEL_PRIORITY_DECLARATION__AT_MOST_ONE_DEFAULT_ITEM__EEXPRESSION,
 				 Diagnostic.ERROR,
 				 DIAGNOSTIC_SOURCE,
 				 0);
 	}
 
 	/**
-	 * The cached validation expression for the EachChannelContainedAtMostOnce constraint of '<em>Channel Priority</em>'.
+	 * The cached validation expression for the EachChannelContainedAtMostOnce constraint of '<em>Channel Priority Declaration</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected static final String CHANNEL_PRIORITY__EACH_CHANNEL_CONTAINED_AT_MOST_ONCE__EEXPRESSION = "self.item->select(oclIsKindOf(ChannelList)).oclAsType(ChannelList)->collect(channelExpression)->isUnique(variable)";
+	protected static final String CHANNEL_PRIORITY_DECLARATION__EACH_CHANNEL_CONTAINED_AT_MOST_ONCE__EEXPRESSION = "self.groups.items\r\n" +
+		"->select(oclIsKindOf(uppaal::declarations::global::ChannelItem))\r\n" +
+		"->collect(oclAsType(uppaal::declarations::global::ChannelItem))\r\n" +
+		"->isUnique(channelExpression.identifier)";
 
 	/**
-	 * Validates the EachChannelContainedAtMostOnce constraint of '<em>Channel Priority</em>'.
+	 * Validates the EachChannelContainedAtMostOnce constraint of '<em>Channel Priority Declaration</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean validateChannelPriority_EachChannelContainedAtMostOnce(ChannelPriority channelPriority, DiagnosticChain diagnostics, Map<Object, Object> context) {
+	public boolean validateChannelPriorityDeclaration_EachChannelContainedAtMostOnce(ChannelPriorityDeclaration channelPriorityDeclaration, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		return
 			validate
-				(GlobalPackage.Literals.CHANNEL_PRIORITY,
-				 channelPriority,
+				(GlobalPackage.Literals.CHANNEL_PRIORITY_DECLARATION,
+				 channelPriorityDeclaration,
 				 diagnostics,
 				 context,
 				 "http://www.eclipse.org/emf/2002/Ecore/OCL",
 				 "EachChannelContainedAtMostOnce",
-				 CHANNEL_PRIORITY__EACH_CHANNEL_CONTAINED_AT_MOST_ONCE__EEXPRESSION,
+				 CHANNEL_PRIORITY_DECLARATION__EACH_CHANNEL_CONTAINED_AT_MOST_ONCE__EEXPRESSION,
 				 Diagnostic.ERROR,
 				 DIAGNOSTIC_SOURCE,
 				 0);
@@ -183,8 +189,8 @@ public class GlobalValidator extends EObjectValidator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean validateChannelPriorityItem(ChannelPriorityItem channelPriorityItem, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return validate_EveryDefaultConstraint(channelPriorityItem, diagnostics, context);
+	public boolean validateChannelPriorityGroup(ChannelPriorityGroup channelPriorityGroup, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return validate_EveryDefaultConstraint(channelPriorityGroup, diagnostics, context);
 	}
 
 	/**
@@ -192,46 +198,67 @@ public class GlobalValidator extends EObjectValidator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean validateChannelList(ChannelList channelList, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		if (!validate_NoCircularContainment(channelList, diagnostics, context)) return false;
-		boolean result = validate_EveryMultiplicityConforms(channelList, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryDataValueConforms(channelList, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(channelList, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryBidirectionalReferenceIsPaired(channelList, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryProxyResolves(channelList, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_UniqueID(channelList, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryKeyUnique(channelList, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(channelList, diagnostics, context);
-		if (result || diagnostics != null) result &= validateChannelList_ChannelVariablesOnly(channelList, diagnostics, context);
+	public boolean validatePriorityItem(PriorityItem priorityItem, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return validate_EveryDefaultConstraint(priorityItem, diagnostics, context);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateChannelItem(ChannelItem channelItem, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		if (!validate_NoCircularContainment(channelItem, diagnostics, context)) return false;
+		boolean result = validate_EveryMultiplicityConforms(channelItem, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryDataValueConforms(channelItem, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(channelItem, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryBidirectionalReferenceIsPaired(channelItem, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryProxyResolves(channelItem, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_UniqueID(channelItem, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryKeyUnique(channelItem, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(channelItem, diagnostics, context);
+		if (result || diagnostics != null) result &= validateChannelItem_ChannelVariablesOnly(channelItem, diagnostics, context);
 		return result;
 	}
 
 	/**
-	 * The cached validation expression for the ChannelVariablesOnly constraint of '<em>Channel List</em>'.
+	 * The cached validation expression for the ChannelVariablesOnly constraint of '<em>Channel Item</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected static final String CHANNEL_LIST__CHANNEL_VARIABLES_ONLY__EEXPRESSION = "self.channelExpression->forAll(\r\n" +
-		"\t(not identifier.typeDefinition.oclIsUndefined()) implies identifier.typeDefinition.baseType = types::BuiltInType::CHAN\r\n" +
-		")";
+	protected static final String CHANNEL_ITEM__CHANNEL_VARIABLES_ONLY__EEXPRESSION = "\t(not self.channelExpression.oclIsUndefined())\r\n" +
+		"implies\r\n" +
+		"\tself.channelExpression.identifier.oclIsKindOf(uppaal::declarations::Variable)\r\n" +
+		"\tand\r\n" +
+		"\t(\r\n" +
+		"\tlet typeDefinition : uppaal::expressions::Expression = self.channelExpression.identifier.oclAsType(uppaal::declarations::Variable).typeDefinition in\r\n" +
+		"\t\tif (\r\n" +
+		"\t\t\ttypeDefinition.oclIsKindOf(uppaal::expressions::IdentifierExpression) and\r\n" +
+		"\t\t\ttypeDefinition.oclAsType(uppaal::expressions::IdentifierExpression).identifier.oclIsKindOf(uppaal::types::Type)\r\n" +
+		"\t\t) then\r\n" +
+		"\t\t\ttypeDefinition.oclAsType(uppaal::expressions::IdentifierExpression).identifier.oclAsType(uppaal::types::Type).baseType=uppaal::types::BuiltInType::CHAN\r\n" +
+		"\t\telse\r\n" +
+		"\t\t\ttypeDefinition.oclIsKindOf(uppaal::expressions::ChannelPrefixExpression)\r\n" +
+		"\t\tendif\r\n" +
+		"\t)";
 
 	/**
-	 * Validates the ChannelVariablesOnly constraint of '<em>Channel List</em>'.
+	 * Validates the ChannelVariablesOnly constraint of '<em>Channel Item</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean validateChannelList_ChannelVariablesOnly(ChannelList channelList, DiagnosticChain diagnostics, Map<Object, Object> context) {
+	public boolean validateChannelItem_ChannelVariablesOnly(ChannelItem channelItem, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		return
 			validate
-				(GlobalPackage.Literals.CHANNEL_LIST,
-				 channelList,
+				(GlobalPackage.Literals.CHANNEL_ITEM,
+				 channelItem,
 				 diagnostics,
 				 context,
 				 "http://www.eclipse.org/emf/2002/Ecore/OCL",
 				 "ChannelVariablesOnly",
-				 CHANNEL_LIST__CHANNEL_VARIABLES_ONLY__EEXPRESSION,
+				 CHANNEL_ITEM__CHANNEL_VARIABLES_ONLY__EEXPRESSION,
 				 Diagnostic.ERROR,
 				 DIAGNOSTIC_SOURCE,
 				 0);
@@ -242,8 +269,8 @@ public class GlobalValidator extends EObjectValidator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean validateDefaultChannelPriority(DefaultChannelPriority defaultChannelPriority, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return validate_EveryDefaultConstraint(defaultChannelPriority, diagnostics, context);
+	public boolean validateDefaultItem(DefaultItem defaultItem, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return validate_EveryDefaultConstraint(defaultItem, diagnostics, context);
 	}
 
 	/**

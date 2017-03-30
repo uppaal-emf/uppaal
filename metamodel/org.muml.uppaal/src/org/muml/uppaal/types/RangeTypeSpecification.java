@@ -23,7 +23,7 @@ package org.muml.uppaal.types;
  * @model
  * @generated
  */
-public interface RangeTypeSpecification extends TypeSpecification {
+public interface RangeTypeSpecification extends TypeExpression {
 	/**
 	 * Returns the value of the '<em><b>Bounds</b></em>' containment reference.
 	 * <!-- begin-user-doc -->

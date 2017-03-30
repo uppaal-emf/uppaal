@@ -11,7 +11,6 @@ import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
-import org.muml.uppaal.types.BuiltInType;
 import org.muml.uppaal.types.RangeTypeSpecification;
 import org.muml.uppaal.types.TypesFactory;
 import org.muml.uppaal.types.TypesPackage;
@@ -23,7 +22,7 @@ import org.muml.uppaal.types.TypesPackage;
  * @generated
  */
 public class RangeTypeSpecificationItemProvider
-	extends TypeSpecificationItemProvider {
+	extends TypeExpressionItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
@@ -98,11 +97,7 @@ public class RangeTypeSpecificationItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		BuiltInType labelValue = ((RangeTypeSpecification)object).getBaseType();
-		String label = labelValue == null ? null : labelValue.toString();
-		return label == null || label.length() == 0 ?
-			getString("_UI_RangeTypeSpecification_type") :
-			getString("_UI_RangeTypeSpecification_type") + " " + label;
+		return getString("_UI_RangeTypeSpecification_type");
 	}
 
 	/**

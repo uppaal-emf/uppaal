@@ -5,6 +5,7 @@ package org.muml.uppaal.core;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EPackage;
+import org.eclipse.emf.ecore.EReference;
 
 /**
  * <!-- begin-user-doc -->
@@ -116,6 +117,44 @@ public interface CorePackage extends EPackage {
 
 
 	/**
+	 * The meta object id for the '{@link org.muml.uppaal.core.impl.TypedElementImpl <em>Typed Element</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.muml.uppaal.core.impl.TypedElementImpl
+	 * @see org.muml.uppaal.core.impl.CorePackageImpl#getTypedElement()
+	 * @generated
+	 */
+	int TYPED_ELEMENT = 2;
+
+	/**
+	 * The feature id for the '<em><b>Container</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TYPED_ELEMENT__CONTAINER = 0;
+
+	/**
+	 * The feature id for the '<em><b>Type Definition</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TYPED_ELEMENT__TYPE_DEFINITION = 1;
+
+	/**
+	 * The number of structural features of the '<em>Typed Element</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TYPED_ELEMENT_FEATURE_COUNT = 2;
+
+
+	/**
 	 * Returns the meta object for class '{@link org.muml.uppaal.core.NamedElement <em>Named Element</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -156,6 +195,38 @@ public interface CorePackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getCommentableElement_Comment();
+
+	/**
+	 * Returns the meta object for class '{@link org.muml.uppaal.core.TypedElement <em>Typed Element</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Typed Element</em>'.
+	 * @see org.muml.uppaal.core.TypedElement
+	 * @generated
+	 */
+	EClass getTypedElement();
+
+	/**
+	 * Returns the meta object for the container reference '{@link org.muml.uppaal.core.TypedElement#getContainer <em>Container</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the container reference '<em>Container</em>'.
+	 * @see org.muml.uppaal.core.TypedElement#getContainer()
+	 * @see #getTypedElement()
+	 * @generated
+	 */
+	EReference getTypedElement_Container();
+
+	/**
+	 * Returns the meta object for the reference '{@link org.muml.uppaal.core.TypedElement#getTypeDefinition <em>Type Definition</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Type Definition</em>'.
+	 * @see org.muml.uppaal.core.TypedElement#getTypeDefinition()
+	 * @see #getTypedElement()
+	 * @generated
+	 */
+	EReference getTypedElement_TypeDefinition();
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -214,6 +285,32 @@ public interface CorePackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute COMMENTABLE_ELEMENT__COMMENT = eINSTANCE.getCommentableElement_Comment();
+
+		/**
+		 * The meta object literal for the '{@link org.muml.uppaal.core.impl.TypedElementImpl <em>Typed Element</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.muml.uppaal.core.impl.TypedElementImpl
+		 * @see org.muml.uppaal.core.impl.CorePackageImpl#getTypedElement()
+		 * @generated
+		 */
+		EClass TYPED_ELEMENT = eINSTANCE.getTypedElement();
+
+		/**
+		 * The meta object literal for the '<em><b>Container</b></em>' container reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference TYPED_ELEMENT__CONTAINER = eINSTANCE.getTypedElement_Container();
+
+		/**
+		 * The meta object literal for the '<em><b>Type Definition</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference TYPED_ELEMENT__TYPE_DEFINITION = eINSTANCE.getTypedElement_TypeDefinition();
 
 	}
 

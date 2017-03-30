@@ -14,6 +14,7 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
 import org.muml.uppaal.expressions.BinaryExpression;
 import org.muml.uppaal.expressions.ExpressionsFactory;
 import org.muml.uppaal.expressions.ExpressionsPackage;
+import org.muml.uppaal.types.TypesFactory;
 
 /**
  * This is the item provider adapter for a {@link org.muml.uppaal.expressions.BinaryExpression} object.
@@ -149,6 +150,11 @@ public class BinaryExpressionItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(ExpressionsPackage.Literals.BINARY_EXPRESSION__FIRST_EXPR,
+				 ExpressionsFactory.eINSTANCE.createScopedIdentifierExpression()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(ExpressionsPackage.Literals.BINARY_EXPRESSION__FIRST_EXPR,
 				 ExpressionsFactory.eINSTANCE.createLiteralExpression()));
 
 		newChildDescriptors.add
@@ -179,17 +185,17 @@ public class BinaryExpressionItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(ExpressionsPackage.Literals.BINARY_EXPRESSION__FIRST_EXPR,
-				 ExpressionsFactory.eINSTANCE.createScopedIdentifierExpression()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(ExpressionsPackage.Literals.BINARY_EXPRESSION__FIRST_EXPR,
 				 ExpressionsFactory.eINSTANCE.createQuantificationExpression()));
 
 		newChildDescriptors.add
 			(createChildParameter
 				(ExpressionsPackage.Literals.BINARY_EXPRESSION__FIRST_EXPR,
-				 ExpressionsFactory.eINSTANCE.createIncrementDecrementExpression()));
+				 ExpressionsFactory.eINSTANCE.createPreIncrementDecrementExpression()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(ExpressionsPackage.Literals.BINARY_EXPRESSION__FIRST_EXPR,
+				 ExpressionsFactory.eINSTANCE.createPostIncrementDecrementExpression()));
 
 		newChildDescriptors.add
 			(createChildParameter
@@ -205,6 +211,31 @@ public class BinaryExpressionItemProvider
 			(createChildParameter
 				(ExpressionsPackage.Literals.BINARY_EXPRESSION__FIRST_EXPR,
 				 ExpressionsFactory.eINSTANCE.createBitwiseExpression()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(ExpressionsPackage.Literals.BINARY_EXPRESSION__FIRST_EXPR,
+				 ExpressionsFactory.eINSTANCE.createChannelPrefixExpression()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(ExpressionsPackage.Literals.BINARY_EXPRESSION__FIRST_EXPR,
+				 ExpressionsFactory.eINSTANCE.createDataPrefixExpression()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(ExpressionsPackage.Literals.BINARY_EXPRESSION__FIRST_EXPR,
+				 TypesFactory.eINSTANCE.createScalarTypeSpecification()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(ExpressionsPackage.Literals.BINARY_EXPRESSION__FIRST_EXPR,
+				 TypesFactory.eINSTANCE.createStructTypeSpecification()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(ExpressionsPackage.Literals.BINARY_EXPRESSION__FIRST_EXPR,
+				 TypesFactory.eINSTANCE.createRangeTypeSpecification()));
 
 		newChildDescriptors.add
 			(createChildParameter
@@ -234,6 +265,11 @@ public class BinaryExpressionItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(ExpressionsPackage.Literals.BINARY_EXPRESSION__SECOND_EXPR,
+				 ExpressionsFactory.eINSTANCE.createScopedIdentifierExpression()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(ExpressionsPackage.Literals.BINARY_EXPRESSION__SECOND_EXPR,
 				 ExpressionsFactory.eINSTANCE.createLiteralExpression()));
 
 		newChildDescriptors.add
@@ -264,17 +300,17 @@ public class BinaryExpressionItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(ExpressionsPackage.Literals.BINARY_EXPRESSION__SECOND_EXPR,
-				 ExpressionsFactory.eINSTANCE.createScopedIdentifierExpression()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(ExpressionsPackage.Literals.BINARY_EXPRESSION__SECOND_EXPR,
 				 ExpressionsFactory.eINSTANCE.createQuantificationExpression()));
 
 		newChildDescriptors.add
 			(createChildParameter
 				(ExpressionsPackage.Literals.BINARY_EXPRESSION__SECOND_EXPR,
-				 ExpressionsFactory.eINSTANCE.createIncrementDecrementExpression()));
+				 ExpressionsFactory.eINSTANCE.createPreIncrementDecrementExpression()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(ExpressionsPackage.Literals.BINARY_EXPRESSION__SECOND_EXPR,
+				 ExpressionsFactory.eINSTANCE.createPostIncrementDecrementExpression()));
 
 		newChildDescriptors.add
 			(createChildParameter
@@ -290,6 +326,31 @@ public class BinaryExpressionItemProvider
 			(createChildParameter
 				(ExpressionsPackage.Literals.BINARY_EXPRESSION__SECOND_EXPR,
 				 ExpressionsFactory.eINSTANCE.createBitwiseExpression()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(ExpressionsPackage.Literals.BINARY_EXPRESSION__SECOND_EXPR,
+				 ExpressionsFactory.eINSTANCE.createChannelPrefixExpression()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(ExpressionsPackage.Literals.BINARY_EXPRESSION__SECOND_EXPR,
+				 ExpressionsFactory.eINSTANCE.createDataPrefixExpression()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(ExpressionsPackage.Literals.BINARY_EXPRESSION__SECOND_EXPR,
+				 TypesFactory.eINSTANCE.createScalarTypeSpecification()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(ExpressionsPackage.Literals.BINARY_EXPRESSION__SECOND_EXPR,
+				 TypesFactory.eINSTANCE.createStructTypeSpecification()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(ExpressionsPackage.Literals.BINARY_EXPRESSION__SECOND_EXPR,
+				 TypesFactory.eINSTANCE.createRangeTypeSpecification()));
 	}
 
 	/**

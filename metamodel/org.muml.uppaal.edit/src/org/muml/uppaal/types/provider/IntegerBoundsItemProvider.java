@@ -21,6 +21,7 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
 import org.muml.uppaal.expressions.ExpressionsFactory;
 import org.muml.uppaal.provider.UppaalEditPlugin;
 import org.muml.uppaal.types.IntegerBounds;
+import org.muml.uppaal.types.TypesFactory;
 import org.muml.uppaal.types.TypesPackage;
 
 /**
@@ -149,6 +150,21 @@ public class IntegerBoundsItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(TypesPackage.Literals.INTEGER_BOUNDS__LOWER_BOUND,
+				 TypesFactory.eINSTANCE.createScalarTypeSpecification()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(TypesPackage.Literals.INTEGER_BOUNDS__LOWER_BOUND,
+				 TypesFactory.eINSTANCE.createStructTypeSpecification()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(TypesPackage.Literals.INTEGER_BOUNDS__LOWER_BOUND,
+				 TypesFactory.eINSTANCE.createRangeTypeSpecification()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(TypesPackage.Literals.INTEGER_BOUNDS__LOWER_BOUND,
 				 ExpressionsFactory.eINSTANCE.createNegationExpression()));
 
 		newChildDescriptors.add
@@ -170,6 +186,11 @@ public class IntegerBoundsItemProvider
 			(createChildParameter
 				(TypesPackage.Literals.INTEGER_BOUNDS__LOWER_BOUND,
 				 ExpressionsFactory.eINSTANCE.createIdentifierExpression()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(TypesPackage.Literals.INTEGER_BOUNDS__LOWER_BOUND,
+				 ExpressionsFactory.eINSTANCE.createScopedIdentifierExpression()));
 
 		newChildDescriptors.add
 			(createChildParameter
@@ -204,17 +225,17 @@ public class IntegerBoundsItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(TypesPackage.Literals.INTEGER_BOUNDS__LOWER_BOUND,
-				 ExpressionsFactory.eINSTANCE.createScopedIdentifierExpression()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(TypesPackage.Literals.INTEGER_BOUNDS__LOWER_BOUND,
 				 ExpressionsFactory.eINSTANCE.createQuantificationExpression()));
 
 		newChildDescriptors.add
 			(createChildParameter
 				(TypesPackage.Literals.INTEGER_BOUNDS__LOWER_BOUND,
-				 ExpressionsFactory.eINSTANCE.createIncrementDecrementExpression()));
+				 ExpressionsFactory.eINSTANCE.createPreIncrementDecrementExpression()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(TypesPackage.Literals.INTEGER_BOUNDS__LOWER_BOUND,
+				 ExpressionsFactory.eINSTANCE.createPostIncrementDecrementExpression()));
 
 		newChildDescriptors.add
 			(createChildParameter
@@ -230,6 +251,31 @@ public class IntegerBoundsItemProvider
 			(createChildParameter
 				(TypesPackage.Literals.INTEGER_BOUNDS__LOWER_BOUND,
 				 ExpressionsFactory.eINSTANCE.createBitwiseExpression()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(TypesPackage.Literals.INTEGER_BOUNDS__LOWER_BOUND,
+				 ExpressionsFactory.eINSTANCE.createChannelPrefixExpression()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(TypesPackage.Literals.INTEGER_BOUNDS__LOWER_BOUND,
+				 ExpressionsFactory.eINSTANCE.createDataPrefixExpression()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(TypesPackage.Literals.INTEGER_BOUNDS__UPPER_BOUND,
+				 TypesFactory.eINSTANCE.createScalarTypeSpecification()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(TypesPackage.Literals.INTEGER_BOUNDS__UPPER_BOUND,
+				 TypesFactory.eINSTANCE.createStructTypeSpecification()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(TypesPackage.Literals.INTEGER_BOUNDS__UPPER_BOUND,
+				 TypesFactory.eINSTANCE.createRangeTypeSpecification()));
 
 		newChildDescriptors.add
 			(createChildParameter
@@ -255,6 +301,11 @@ public class IntegerBoundsItemProvider
 			(createChildParameter
 				(TypesPackage.Literals.INTEGER_BOUNDS__UPPER_BOUND,
 				 ExpressionsFactory.eINSTANCE.createIdentifierExpression()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(TypesPackage.Literals.INTEGER_BOUNDS__UPPER_BOUND,
+				 ExpressionsFactory.eINSTANCE.createScopedIdentifierExpression()));
 
 		newChildDescriptors.add
 			(createChildParameter
@@ -289,17 +340,17 @@ public class IntegerBoundsItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(TypesPackage.Literals.INTEGER_BOUNDS__UPPER_BOUND,
-				 ExpressionsFactory.eINSTANCE.createScopedIdentifierExpression()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(TypesPackage.Literals.INTEGER_BOUNDS__UPPER_BOUND,
 				 ExpressionsFactory.eINSTANCE.createQuantificationExpression()));
 
 		newChildDescriptors.add
 			(createChildParameter
 				(TypesPackage.Literals.INTEGER_BOUNDS__UPPER_BOUND,
-				 ExpressionsFactory.eINSTANCE.createIncrementDecrementExpression()));
+				 ExpressionsFactory.eINSTANCE.createPreIncrementDecrementExpression()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(TypesPackage.Literals.INTEGER_BOUNDS__UPPER_BOUND,
+				 ExpressionsFactory.eINSTANCE.createPostIncrementDecrementExpression()));
 
 		newChildDescriptors.add
 			(createChildParameter
@@ -315,6 +366,16 @@ public class IntegerBoundsItemProvider
 			(createChildParameter
 				(TypesPackage.Literals.INTEGER_BOUNDS__UPPER_BOUND,
 				 ExpressionsFactory.eINSTANCE.createBitwiseExpression()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(TypesPackage.Literals.INTEGER_BOUNDS__UPPER_BOUND,
+				 ExpressionsFactory.eINSTANCE.createChannelPrefixExpression()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(TypesPackage.Literals.INTEGER_BOUNDS__UPPER_BOUND,
+				 ExpressionsFactory.eINSTANCE.createDataPrefixExpression()));
 	}
 
 	/**

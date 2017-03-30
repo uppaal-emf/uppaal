@@ -369,26 +369,49 @@ public class ExpressionsItemProviderAdapterFactory extends ExpressionsAdapterFac
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link org.muml.uppaal.expressions.IncrementDecrementExpression} instances.
+	 * This keeps track of the one adapter used for all {@link org.muml.uppaal.expressions.PreIncrementDecrementExpression} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected IncrementDecrementExpressionItemProvider incrementDecrementExpressionItemProvider;
+	protected PreIncrementDecrementExpressionItemProvider preIncrementDecrementExpressionItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link org.muml.uppaal.expressions.IncrementDecrementExpression}.
+	 * This creates an adapter for a {@link org.muml.uppaal.expressions.PreIncrementDecrementExpression}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createIncrementDecrementExpressionAdapter() {
-		if (incrementDecrementExpressionItemProvider == null) {
-			incrementDecrementExpressionItemProvider = new IncrementDecrementExpressionItemProvider(this);
+	public Adapter createPreIncrementDecrementExpressionAdapter() {
+		if (preIncrementDecrementExpressionItemProvider == null) {
+			preIncrementDecrementExpressionItemProvider = new PreIncrementDecrementExpressionItemProvider(this);
 		}
 
-		return incrementDecrementExpressionItemProvider;
+		return preIncrementDecrementExpressionItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link org.muml.uppaal.expressions.PostIncrementDecrementExpression} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected PostIncrementDecrementExpressionItemProvider postIncrementDecrementExpressionItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.muml.uppaal.expressions.PostIncrementDecrementExpression}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createPostIncrementDecrementExpressionAdapter() {
+		if (postIncrementDecrementExpressionItemProvider == null) {
+			postIncrementDecrementExpressionItemProvider = new PostIncrementDecrementExpressionItemProvider(this);
+		}
+
+		return postIncrementDecrementExpressionItemProvider;
 	}
 
 	/**
@@ -458,6 +481,52 @@ public class ExpressionsItemProviderAdapterFactory extends ExpressionsAdapterFac
 		}
 
 		return bitwiseExpressionItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link org.muml.uppaal.expressions.ChannelPrefixExpression} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ChannelPrefixExpressionItemProvider channelPrefixExpressionItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.muml.uppaal.expressions.ChannelPrefixExpression}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createChannelPrefixExpressionAdapter() {
+		if (channelPrefixExpressionItemProvider == null) {
+			channelPrefixExpressionItemProvider = new ChannelPrefixExpressionItemProvider(this);
+		}
+
+		return channelPrefixExpressionItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link org.muml.uppaal.expressions.DataPrefixExpression} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected DataPrefixExpressionItemProvider dataPrefixExpressionItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.muml.uppaal.expressions.DataPrefixExpression}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createDataPrefixExpressionAdapter() {
+		if (dataPrefixExpressionItemProvider == null) {
+			dataPrefixExpressionItemProvider = new DataPrefixExpressionItemProvider(this);
+		}
+
+		return dataPrefixExpressionItemProvider;
 	}
 
 	/**
@@ -564,18 +633,21 @@ public class ExpressionsItemProviderAdapterFactory extends ExpressionsAdapterFac
 		if (minusExpressionItemProvider != null) minusExpressionItemProvider.dispose();
 		if (assignmentExpressionItemProvider != null) assignmentExpressionItemProvider.dispose();
 		if (identifierExpressionItemProvider != null) identifierExpressionItemProvider.dispose();
+		if (scopedIdentifierExpressionItemProvider != null) scopedIdentifierExpressionItemProvider.dispose();
 		if (literalExpressionItemProvider != null) literalExpressionItemProvider.dispose();
 		if (arithmeticExpressionItemProvider != null) arithmeticExpressionItemProvider.dispose();
 		if (logicalExpressionItemProvider != null) logicalExpressionItemProvider.dispose();
 		if (functionCallExpressionItemProvider != null) functionCallExpressionItemProvider.dispose();
 		if (compareExpressionItemProvider != null) compareExpressionItemProvider.dispose();
 		if (conditionExpressionItemProvider != null) conditionExpressionItemProvider.dispose();
-		if (scopedIdentifierExpressionItemProvider != null) scopedIdentifierExpressionItemProvider.dispose();
 		if (quantificationExpressionItemProvider != null) quantificationExpressionItemProvider.dispose();
-		if (incrementDecrementExpressionItemProvider != null) incrementDecrementExpressionItemProvider.dispose();
+		if (preIncrementDecrementExpressionItemProvider != null) preIncrementDecrementExpressionItemProvider.dispose();
+		if (postIncrementDecrementExpressionItemProvider != null) postIncrementDecrementExpressionItemProvider.dispose();
 		if (bitShiftExpressionItemProvider != null) bitShiftExpressionItemProvider.dispose();
 		if (minMaxExpressionItemProvider != null) minMaxExpressionItemProvider.dispose();
 		if (bitwiseExpressionItemProvider != null) bitwiseExpressionItemProvider.dispose();
+		if (channelPrefixExpressionItemProvider != null) channelPrefixExpressionItemProvider.dispose();
+		if (dataPrefixExpressionItemProvider != null) dataPrefixExpressionItemProvider.dispose();
 	}
 
 }

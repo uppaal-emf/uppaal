@@ -15,6 +15,7 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
 import org.muml.uppaal.expressions.ExpressionsFactory;
 import org.muml.uppaal.expressions.ExpressionsPackage;
 import org.muml.uppaal.expressions.FunctionCallExpression;
+import org.muml.uppaal.types.TypesFactory;
 
 /**
  * This is the item provider adapter for a {@link org.muml.uppaal.expressions.FunctionCallExpression} object.
@@ -182,6 +183,11 @@ public class FunctionCallExpressionItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(ExpressionsPackage.Literals.FUNCTION_CALL_EXPRESSION__ARGUMENT,
+				 ExpressionsFactory.eINSTANCE.createScopedIdentifierExpression()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(ExpressionsPackage.Literals.FUNCTION_CALL_EXPRESSION__ARGUMENT,
 				 ExpressionsFactory.eINSTANCE.createLiteralExpression()));
 
 		newChildDescriptors.add
@@ -212,17 +218,17 @@ public class FunctionCallExpressionItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(ExpressionsPackage.Literals.FUNCTION_CALL_EXPRESSION__ARGUMENT,
-				 ExpressionsFactory.eINSTANCE.createScopedIdentifierExpression()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(ExpressionsPackage.Literals.FUNCTION_CALL_EXPRESSION__ARGUMENT,
 				 ExpressionsFactory.eINSTANCE.createQuantificationExpression()));
 
 		newChildDescriptors.add
 			(createChildParameter
 				(ExpressionsPackage.Literals.FUNCTION_CALL_EXPRESSION__ARGUMENT,
-				 ExpressionsFactory.eINSTANCE.createIncrementDecrementExpression()));
+				 ExpressionsFactory.eINSTANCE.createPreIncrementDecrementExpression()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(ExpressionsPackage.Literals.FUNCTION_CALL_EXPRESSION__ARGUMENT,
+				 ExpressionsFactory.eINSTANCE.createPostIncrementDecrementExpression()));
 
 		newChildDescriptors.add
 			(createChildParameter
@@ -238,6 +244,31 @@ public class FunctionCallExpressionItemProvider
 			(createChildParameter
 				(ExpressionsPackage.Literals.FUNCTION_CALL_EXPRESSION__ARGUMENT,
 				 ExpressionsFactory.eINSTANCE.createBitwiseExpression()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(ExpressionsPackage.Literals.FUNCTION_CALL_EXPRESSION__ARGUMENT,
+				 ExpressionsFactory.eINSTANCE.createChannelPrefixExpression()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(ExpressionsPackage.Literals.FUNCTION_CALL_EXPRESSION__ARGUMENT,
+				 ExpressionsFactory.eINSTANCE.createDataPrefixExpression()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(ExpressionsPackage.Literals.FUNCTION_CALL_EXPRESSION__ARGUMENT,
+				 TypesFactory.eINSTANCE.createScalarTypeSpecification()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(ExpressionsPackage.Literals.FUNCTION_CALL_EXPRESSION__ARGUMENT,
+				 TypesFactory.eINSTANCE.createStructTypeSpecification()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(ExpressionsPackage.Literals.FUNCTION_CALL_EXPRESSION__ARGUMENT,
+				 TypesFactory.eINSTANCE.createRangeTypeSpecification()));
 	}
 
 }

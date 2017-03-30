@@ -183,51 +183,6 @@ public class UppaalPackageImpl extends EPackageImpl implements UppaalPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getNTA_Int() {
-		return (EReference)ntaEClass.getEStructuralFeatures().get(3);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getNTA_Bool() {
-		return (EReference)ntaEClass.getEStructuralFeatures().get(4);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getNTA_Clock() {
-		return (EReference)ntaEClass.getEStructuralFeatures().get(5);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getNTA_Chan() {
-		return (EReference)ntaEClass.getEStructuralFeatures().get(6);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getNTA_Void() {
-		return (EReference)ntaEClass.getEStructuralFeatures().get(7);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public UppaalFactory getUppaalFactory() {
 		return (UppaalFactory)getEFactoryInstance();
 	}
@@ -255,11 +210,6 @@ public class UppaalPackageImpl extends EPackageImpl implements UppaalPackage {
 		createEReference(ntaEClass, NTA__GLOBAL_DECLARATIONS);
 		createEReference(ntaEClass, NTA__TEMPLATE);
 		createEReference(ntaEClass, NTA__SYSTEM_DECLARATIONS);
-		createEReference(ntaEClass, NTA__INT);
-		createEReference(ntaEClass, NTA__BOOL);
-		createEReference(ntaEClass, NTA__CLOCK);
-		createEReference(ntaEClass, NTA__CHAN);
-		createEReference(ntaEClass, NTA__VOID);
 	}
 
 	/**
@@ -316,11 +266,6 @@ public class UppaalPackageImpl extends EPackageImpl implements UppaalPackage {
 		initEReference(getNTA_GlobalDeclarations(), theDeclarationsPackage.getGlobalDeclarations(), null, "globalDeclarations", null, 0, 1, org.muml.uppaal.NTA.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getNTA_Template(), theTemplatesPackage.getTemplate(), null, "template", null, 1, -1, org.muml.uppaal.NTA.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getNTA_SystemDeclarations(), theDeclarationsPackage.getSystemDeclarations(), null, "systemDeclarations", null, 1, 1, org.muml.uppaal.NTA.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getNTA_Int(), theTypesPackage.getPredefinedType(), null, "int", null, 1, 1, org.muml.uppaal.NTA.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getNTA_Bool(), theTypesPackage.getPredefinedType(), null, "bool", null, 1, 1, org.muml.uppaal.NTA.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getNTA_Clock(), theTypesPackage.getPredefinedType(), null, "clock", null, 1, 1, org.muml.uppaal.NTA.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getNTA_Chan(), theTypesPackage.getPredefinedType(), null, "chan", null, 1, 1, org.muml.uppaal.NTA.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getNTA_Void(), theTypesPackage.getPredefinedType(), null, "void", null, 1, 1, org.muml.uppaal.NTA.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Create resource
 		createResource(eNS_URI);
@@ -354,7 +299,7 @@ public class UppaalPackageImpl extends EPackageImpl implements UppaalPackage {
 		  (ntaEClass, 
 		   source, 
 		   new String[] {
-			 "constraints", "MatchingIntDetails MatchingBoolDetails MatchingClockDetails MatchingChanDetails MatchingVoidDetails UniqueTemplateNames"
+			 "constraints", "UniqueTemplateNames"
 		   });
 	}
 
@@ -408,11 +353,6 @@ public class UppaalPackageImpl extends EPackageImpl implements UppaalPackage {
 		  (ntaEClass, 
 		   source, 
 		   new String[] {
-			 "MatchingIntDetails", "(not self.int.oclIsUndefined())\r\nimplies\r\n((self.int.type = types::BuiltInType::INT) and (self.int.name.equalsIgnoreCase(\'int\')))",
-			 "MatchingBoolDetails", "(not self.bool.oclIsUndefined())\r\nimplies\r\n((self.bool.type = types::BuiltInType::BOOL) and (self.bool.name.equalsIgnoreCase(\'bool\')))",
-			 "MatchingClockDetails", "(not self.clock.oclIsUndefined())\r\nimplies\r\n((self.clock.type = types::BuiltInType::CLOCK) and (self.clock.name.equalsIgnoreCase(\'clock\')))",
-			 "MatchingChanDetails", "(not self.chan.oclIsUndefined())\r\nimplies\r\n((self.chan.type = types::BuiltInType::CHAN) and (self.chan.name.equalsIgnoreCase(\'chan\')))",
-			 "MatchingVoidDetails", "(not self.void.oclIsUndefined())\r\nimplies\r\n((self.void.type = types::BuiltInType::VOID) and (self.void.name.equalsIgnoreCase(\'void\')))",
 			 "UniqueTemplateNames", "self.template->isUnique(name)"
 		   });
 	}

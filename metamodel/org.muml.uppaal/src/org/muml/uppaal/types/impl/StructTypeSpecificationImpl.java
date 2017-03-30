@@ -10,7 +10,7 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
-import org.muml.uppaal.declarations.DataVariableDeclaration;
+import org.muml.uppaal.declarations.TypedDeclaration;
 import org.muml.uppaal.types.StructTypeSpecification;
 import org.muml.uppaal.types.TypesPackage;
 
@@ -27,7 +27,7 @@ import org.muml.uppaal.types.TypesPackage;
  *
  * @generated
  */
-public class StructTypeSpecificationImpl extends TypeSpecificationImpl implements StructTypeSpecification {
+public class StructTypeSpecificationImpl extends TypeExpressionImpl implements StructTypeSpecification {
 	/**
 	 * The cached value of the '{@link #getDeclaration() <em>Declaration</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
@@ -36,7 +36,7 @@ public class StructTypeSpecificationImpl extends TypeSpecificationImpl implement
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<DataVariableDeclaration> declaration;
+	protected EList<TypedDeclaration> declaration;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -62,9 +62,9 @@ public class StructTypeSpecificationImpl extends TypeSpecificationImpl implement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<DataVariableDeclaration> getDeclaration() {
+	public EList<TypedDeclaration> getDeclaration() {
 		if (declaration == null) {
-			declaration = new EObjectContainmentEList<DataVariableDeclaration>(DataVariableDeclaration.class, this, TypesPackage.STRUCT_TYPE_SPECIFICATION__DECLARATION);
+			declaration = new EObjectContainmentEList<TypedDeclaration>(TypedDeclaration.class, this, TypesPackage.STRUCT_TYPE_SPECIFICATION__DECLARATION);
 		}
 		return declaration;
 	}
@@ -108,7 +108,7 @@ public class StructTypeSpecificationImpl extends TypeSpecificationImpl implement
 		switch (featureID) {
 			case TypesPackage.STRUCT_TYPE_SPECIFICATION__DECLARATION:
 				getDeclaration().clear();
-				getDeclaration().addAll((Collection<? extends DataVariableDeclaration>)newValue);
+				getDeclaration().addAll((Collection<? extends TypedDeclaration>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);

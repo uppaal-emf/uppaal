@@ -2,7 +2,7 @@
  */
 package org.muml.uppaal.templates;
 
-import org.muml.uppaal.declarations.VariableContainer;
+import org.muml.uppaal.declarations.TypedElementContainer;
 
 /**
  * <!-- begin-user-doc -->
@@ -15,9 +15,9 @@ import org.muml.uppaal.declarations.VariableContainer;
  *
  *
  * @see org.muml.uppaal.templates.TemplatesPackage#getSelection()
- * @model annotation="http://www.eclipse.org/emf/2002/Ecore/OCL SingleVariable='self.variable->size() <= 1' IntegerBasedType='(not self.typeDefinition.oclIsUndefined())\r\nimplies\r\nself.typeDefinition.baseType = types::BuiltInType::INT'"
- *        annotation="http://www.eclipse.org/emf/2002/Ecore constraints='SingleVariable IntegerBasedType'"
+ * @model annotation="http://www.eclipse.org/emf/2002/Ecore/OCL SingleVariable='self.elements->size() <= 1'"
+ *        annotation="http://www.eclipse.org/emf/2002/Ecore constraints='SingleVariable'"
  * @generated
  */
-public interface Selection extends VariableContainer {
+public interface Selection extends TypedElementContainer {
 } // Selection

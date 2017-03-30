@@ -2,7 +2,7 @@
  */
 package org.muml.uppaal.statements;
 
-import org.muml.uppaal.declarations.VariableContainer;
+import org.muml.uppaal.declarations.TypedElementContainer;
 
 /**
  * <!-- begin-user-doc -->
@@ -21,11 +21,11 @@ import org.muml.uppaal.declarations.VariableContainer;
  * </ul>
  *
  * @see org.muml.uppaal.statements.StatementsPackage#getIteration()
- * @model annotation="http://www.eclipse.org/emf/2002/Ecore/OCL SingleVariable='self.variable->size() <= 1'"
+ * @model annotation="http://www.eclipse.org/emf/2002/Ecore/OCL SingleVariable='self.elements->size() <= 1'"
  *        annotation="http://www.eclipse.org/emf/2002/Ecore constraints='SingleVariable'"
  * @generated
  */
-public interface Iteration extends Statement, VariableContainer {
+public interface Iteration extends Statement, TypedElementContainer {
 	/**
 	 * Returns the value of the '<em><b>Statement</b></em>' containment reference.
 	 * <!-- begin-user-doc -->

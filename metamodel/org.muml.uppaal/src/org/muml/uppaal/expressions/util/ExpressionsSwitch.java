@@ -5,14 +5,16 @@ package org.muml.uppaal.expressions.util;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.util.Switch;
-import org.muml.uppaal.declarations.VariableContainer;
+import org.muml.uppaal.declarations.TypedElementContainer;
 import org.muml.uppaal.expressions.ArithmeticExpression;
 import org.muml.uppaal.expressions.AssignmentExpression;
 import org.muml.uppaal.expressions.BinaryExpression;
 import org.muml.uppaal.expressions.BitShiftExpression;
 import org.muml.uppaal.expressions.BitwiseExpression;
+import org.muml.uppaal.expressions.ChannelPrefixExpression;
 import org.muml.uppaal.expressions.CompareExpression;
 import org.muml.uppaal.expressions.ConditionExpression;
+import org.muml.uppaal.expressions.DataPrefixExpression;
 import org.muml.uppaal.expressions.Expression;
 import org.muml.uppaal.expressions.ExpressionsPackage;
 import org.muml.uppaal.expressions.FunctionCallExpression;
@@ -24,6 +26,8 @@ import org.muml.uppaal.expressions.MinMaxExpression;
 import org.muml.uppaal.expressions.MinusExpression;
 import org.muml.uppaal.expressions.NegationExpression;
 import org.muml.uppaal.expressions.PlusExpression;
+import org.muml.uppaal.expressions.PostIncrementDecrementExpression;
+import org.muml.uppaal.expressions.PreIncrementDecrementExpression;
 import org.muml.uppaal.expressions.QuantificationExpression;
 import org.muml.uppaal.expressions.ScopedIdentifierExpression;
 
@@ -133,6 +137,13 @@ public class ExpressionsSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case ExpressionsPackage.SCOPED_IDENTIFIER_EXPRESSION: {
+				ScopedIdentifierExpression scopedIdentifierExpression = (ScopedIdentifierExpression)theEObject;
+				T result = caseScopedIdentifierExpression(scopedIdentifierExpression);
+				if (result == null) result = caseExpression(scopedIdentifierExpression);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			case ExpressionsPackage.LITERAL_EXPRESSION: {
 				LiteralExpression literalExpression = (LiteralExpression)theEObject;
 				T result = caseLiteralExpression(literalExpression);
@@ -178,18 +189,11 @@ public class ExpressionsSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case ExpressionsPackage.SCOPED_IDENTIFIER_EXPRESSION: {
-				ScopedIdentifierExpression scopedIdentifierExpression = (ScopedIdentifierExpression)theEObject;
-				T result = caseScopedIdentifierExpression(scopedIdentifierExpression);
-				if (result == null) result = caseExpression(scopedIdentifierExpression);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
 			case ExpressionsPackage.QUANTIFICATION_EXPRESSION: {
 				QuantificationExpression quantificationExpression = (QuantificationExpression)theEObject;
 				T result = caseQuantificationExpression(quantificationExpression);
 				if (result == null) result = caseExpression(quantificationExpression);
-				if (result == null) result = caseVariableContainer(quantificationExpression);
+				if (result == null) result = caseTypedElementContainer(quantificationExpression);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -197,6 +201,22 @@ public class ExpressionsSwitch<T> extends Switch<T> {
 				IncrementDecrementExpression incrementDecrementExpression = (IncrementDecrementExpression)theEObject;
 				T result = caseIncrementDecrementExpression(incrementDecrementExpression);
 				if (result == null) result = caseExpression(incrementDecrementExpression);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case ExpressionsPackage.PRE_INCREMENT_DECREMENT_EXPRESSION: {
+				PreIncrementDecrementExpression preIncrementDecrementExpression = (PreIncrementDecrementExpression)theEObject;
+				T result = casePreIncrementDecrementExpression(preIncrementDecrementExpression);
+				if (result == null) result = caseIncrementDecrementExpression(preIncrementDecrementExpression);
+				if (result == null) result = caseExpression(preIncrementDecrementExpression);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case ExpressionsPackage.POST_INCREMENT_DECREMENT_EXPRESSION: {
+				PostIncrementDecrementExpression postIncrementDecrementExpression = (PostIncrementDecrementExpression)theEObject;
+				T result = casePostIncrementDecrementExpression(postIncrementDecrementExpression);
+				if (result == null) result = caseIncrementDecrementExpression(postIncrementDecrementExpression);
+				if (result == null) result = caseExpression(postIncrementDecrementExpression);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -221,6 +241,20 @@ public class ExpressionsSwitch<T> extends Switch<T> {
 				T result = caseBitwiseExpression(bitwiseExpression);
 				if (result == null) result = caseBinaryExpression(bitwiseExpression);
 				if (result == null) result = caseExpression(bitwiseExpression);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case ExpressionsPackage.CHANNEL_PREFIX_EXPRESSION: {
+				ChannelPrefixExpression channelPrefixExpression = (ChannelPrefixExpression)theEObject;
+				T result = caseChannelPrefixExpression(channelPrefixExpression);
+				if (result == null) result = caseExpression(channelPrefixExpression);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case ExpressionsPackage.DATA_PREFIX_EXPRESSION: {
+				DataPrefixExpression dataPrefixExpression = (DataPrefixExpression)theEObject;
+				T result = caseDataPrefixExpression(dataPrefixExpression);
+				if (result == null) result = caseExpression(dataPrefixExpression);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -469,6 +503,36 @@ public class ExpressionsSwitch<T> extends Switch<T> {
 	}
 
 	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Pre Increment Decrement Expression</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Pre Increment Decrement Expression</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T casePreIncrementDecrementExpression(PreIncrementDecrementExpression object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Post Increment Decrement Expression</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Post Increment Decrement Expression</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T casePostIncrementDecrementExpression(PostIncrementDecrementExpression object) {
+		return null;
+	}
+
+	/**
 	 * Returns the result of interpreting the object as an instance of '<em>Bit Shift Expression</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -514,17 +578,47 @@ public class ExpressionsSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Variable Container</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Channel Prefix Expression</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Variable Container</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Channel Prefix Expression</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseVariableContainer(VariableContainer object) {
+	public T caseChannelPrefixExpression(ChannelPrefixExpression object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Data Prefix Expression</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Data Prefix Expression</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseDataPrefixExpression(DataPrefixExpression object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Typed Element Container</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Typed Element Container</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseTypedElementContainer(TypedElementContainer object) {
 		return null;
 	}
 

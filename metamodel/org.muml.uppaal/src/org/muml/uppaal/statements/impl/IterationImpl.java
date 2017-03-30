@@ -12,13 +12,14 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
 import org.eclipse.emf.ecore.util.InternalEList;
+import org.muml.uppaal.core.CorePackage;
+import org.muml.uppaal.core.TypedElement;
 import org.muml.uppaal.declarations.DeclarationsPackage;
-import org.muml.uppaal.declarations.Variable;
-import org.muml.uppaal.declarations.VariableContainer;
+import org.muml.uppaal.declarations.TypedElementContainer;
+import org.muml.uppaal.expressions.Expression;
 import org.muml.uppaal.statements.Iteration;
 import org.muml.uppaal.statements.Statement;
 import org.muml.uppaal.statements.StatementsPackage;
-import org.muml.uppaal.types.TypeDefinition;
 
 /**
  * <!-- begin-user-doc -->
@@ -29,7 +30,7 @@ import org.muml.uppaal.types.TypeDefinition;
  * </p>
  * <ul>
  *   <li>{@link org.muml.uppaal.statements.impl.IterationImpl#getTypeDefinition <em>Type Definition</em>}</li>
- *   <li>{@link org.muml.uppaal.statements.impl.IterationImpl#getVariable <em>Variable</em>}</li>
+ *   <li>{@link org.muml.uppaal.statements.impl.IterationImpl#getElements <em>Elements</em>}</li>
  *   <li>{@link org.muml.uppaal.statements.impl.IterationImpl#getStatement <em>Statement</em>}</li>
  * </ul>
  *
@@ -44,17 +45,17 @@ public class IterationImpl extends StatementImpl implements Iteration {
 	 * @generated
 	 * @ordered
 	 */
-	protected TypeDefinition typeDefinition;
+	protected Expression typeDefinition;
 
 	/**
-	 * The cached value of the '{@link #getVariable() <em>Variable</em>}' containment reference list.
+	 * The cached value of the '{@link #getElements() <em>Elements</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getVariable()
+	 * @see #getElements()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<Variable> variable;
+	protected EList<TypedElement> elements;
 
 	/**
 	 * The cached value of the '{@link #getStatement() <em>Statement</em>}' containment reference.
@@ -90,7 +91,7 @@ public class IterationImpl extends StatementImpl implements Iteration {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public TypeDefinition getTypeDefinition() {
+	public Expression getTypeDefinition() {
 		return typeDefinition;
 	}
 
@@ -99,8 +100,8 @@ public class IterationImpl extends StatementImpl implements Iteration {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetTypeDefinition(TypeDefinition newTypeDefinition, NotificationChain msgs) {
-		TypeDefinition oldTypeDefinition = typeDefinition;
+	public NotificationChain basicSetTypeDefinition(Expression newTypeDefinition, NotificationChain msgs) {
+		Expression oldTypeDefinition = typeDefinition;
 		typeDefinition = newTypeDefinition;
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, StatementsPackage.ITERATION__TYPE_DEFINITION, oldTypeDefinition, newTypeDefinition);
@@ -114,7 +115,7 @@ public class IterationImpl extends StatementImpl implements Iteration {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setTypeDefinition(TypeDefinition newTypeDefinition) {
+	public void setTypeDefinition(Expression newTypeDefinition) {
 		if (newTypeDefinition != typeDefinition) {
 			NotificationChain msgs = null;
 			if (typeDefinition != null)
@@ -133,11 +134,11 @@ public class IterationImpl extends StatementImpl implements Iteration {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<Variable> getVariable() {
-		if (variable == null) {
-			variable = new EObjectContainmentWithInverseEList<Variable>(Variable.class, this, StatementsPackage.ITERATION__VARIABLE, DeclarationsPackage.VARIABLE__CONTAINER);
+	public EList<TypedElement> getElements() {
+		if (elements == null) {
+			elements = new EObjectContainmentWithInverseEList<TypedElement>(TypedElement.class, this, StatementsPackage.ITERATION__ELEMENTS, CorePackage.TYPED_ELEMENT__CONTAINER);
 		}
-		return variable;
+		return elements;
 	}
 
 	/**
@@ -192,8 +193,8 @@ public class IterationImpl extends StatementImpl implements Iteration {
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case StatementsPackage.ITERATION__VARIABLE:
-				return ((InternalEList<InternalEObject>)(InternalEList<?>)getVariable()).basicAdd(otherEnd, msgs);
+			case StatementsPackage.ITERATION__ELEMENTS:
+				return ((InternalEList<InternalEObject>)(InternalEList<?>)getElements()).basicAdd(otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
@@ -208,8 +209,8 @@ public class IterationImpl extends StatementImpl implements Iteration {
 		switch (featureID) {
 			case StatementsPackage.ITERATION__TYPE_DEFINITION:
 				return basicSetTypeDefinition(null, msgs);
-			case StatementsPackage.ITERATION__VARIABLE:
-				return ((InternalEList<?>)getVariable()).basicRemove(otherEnd, msgs);
+			case StatementsPackage.ITERATION__ELEMENTS:
+				return ((InternalEList<?>)getElements()).basicRemove(otherEnd, msgs);
 			case StatementsPackage.ITERATION__STATEMENT:
 				return basicSetStatement(null, msgs);
 		}
@@ -226,8 +227,8 @@ public class IterationImpl extends StatementImpl implements Iteration {
 		switch (featureID) {
 			case StatementsPackage.ITERATION__TYPE_DEFINITION:
 				return getTypeDefinition();
-			case StatementsPackage.ITERATION__VARIABLE:
-				return getVariable();
+			case StatementsPackage.ITERATION__ELEMENTS:
+				return getElements();
 			case StatementsPackage.ITERATION__STATEMENT:
 				return getStatement();
 		}
@@ -244,11 +245,11 @@ public class IterationImpl extends StatementImpl implements Iteration {
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case StatementsPackage.ITERATION__TYPE_DEFINITION:
-				setTypeDefinition((TypeDefinition)newValue);
+				setTypeDefinition((Expression)newValue);
 				return;
-			case StatementsPackage.ITERATION__VARIABLE:
-				getVariable().clear();
-				getVariable().addAll((Collection<? extends Variable>)newValue);
+			case StatementsPackage.ITERATION__ELEMENTS:
+				getElements().clear();
+				getElements().addAll((Collection<? extends TypedElement>)newValue);
 				return;
 			case StatementsPackage.ITERATION__STATEMENT:
 				setStatement((Statement)newValue);
@@ -266,10 +267,10 @@ public class IterationImpl extends StatementImpl implements Iteration {
 	public void eUnset(int featureID) {
 		switch (featureID) {
 			case StatementsPackage.ITERATION__TYPE_DEFINITION:
-				setTypeDefinition((TypeDefinition)null);
+				setTypeDefinition((Expression)null);
 				return;
-			case StatementsPackage.ITERATION__VARIABLE:
-				getVariable().clear();
+			case StatementsPackage.ITERATION__ELEMENTS:
+				getElements().clear();
 				return;
 			case StatementsPackage.ITERATION__STATEMENT:
 				setStatement((Statement)null);
@@ -288,8 +289,8 @@ public class IterationImpl extends StatementImpl implements Iteration {
 		switch (featureID) {
 			case StatementsPackage.ITERATION__TYPE_DEFINITION:
 				return typeDefinition != null;
-			case StatementsPackage.ITERATION__VARIABLE:
-				return variable != null && !variable.isEmpty();
+			case StatementsPackage.ITERATION__ELEMENTS:
+				return elements != null && !elements.isEmpty();
 			case StatementsPackage.ITERATION__STATEMENT:
 				return statement != null;
 		}
@@ -303,10 +304,10 @@ public class IterationImpl extends StatementImpl implements Iteration {
 	 */
 	@Override
 	public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass) {
-		if (baseClass == VariableContainer.class) {
+		if (baseClass == TypedElementContainer.class) {
 			switch (derivedFeatureID) {
-				case StatementsPackage.ITERATION__TYPE_DEFINITION: return DeclarationsPackage.VARIABLE_CONTAINER__TYPE_DEFINITION;
-				case StatementsPackage.ITERATION__VARIABLE: return DeclarationsPackage.VARIABLE_CONTAINER__VARIABLE;
+				case StatementsPackage.ITERATION__TYPE_DEFINITION: return DeclarationsPackage.TYPED_ELEMENT_CONTAINER__TYPE_DEFINITION;
+				case StatementsPackage.ITERATION__ELEMENTS: return DeclarationsPackage.TYPED_ELEMENT_CONTAINER__ELEMENTS;
 				default: return -1;
 			}
 		}
@@ -320,10 +321,10 @@ public class IterationImpl extends StatementImpl implements Iteration {
 	 */
 	@Override
 	public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass) {
-		if (baseClass == VariableContainer.class) {
+		if (baseClass == TypedElementContainer.class) {
 			switch (baseFeatureID) {
-				case DeclarationsPackage.VARIABLE_CONTAINER__TYPE_DEFINITION: return StatementsPackage.ITERATION__TYPE_DEFINITION;
-				case DeclarationsPackage.VARIABLE_CONTAINER__VARIABLE: return StatementsPackage.ITERATION__VARIABLE;
+				case DeclarationsPackage.TYPED_ELEMENT_CONTAINER__TYPE_DEFINITION: return StatementsPackage.ITERATION__TYPE_DEFINITION;
+				case DeclarationsPackage.TYPED_ELEMENT_CONTAINER__ELEMENTS: return StatementsPackage.ITERATION__ELEMENTS;
 				default: return -1;
 			}
 		}

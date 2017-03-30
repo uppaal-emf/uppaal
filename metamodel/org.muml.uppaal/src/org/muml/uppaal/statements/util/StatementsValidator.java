@@ -143,48 +143,7 @@ public class StatementsValidator extends EObjectValidator {
 	 * @generated
 	 */
 	public boolean validateBlock(Block block, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		if (!validate_NoCircularContainment(block, diagnostics, context)) return false;
-		boolean result = validate_EveryMultiplicityConforms(block, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryDataValueConforms(block, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(block, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryBidirectionalReferenceIsPaired(block, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryProxyResolves(block, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_UniqueID(block, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryKeyUnique(block, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(block, diagnostics, context);
-		if (result || diagnostics != null) result &= validateBlock_DataVariableDeclarationsOnly(block, diagnostics, context);
-		return result;
-	}
-
-	/**
-	 * The cached validation expression for the DataVariableDeclarationsOnly constraint of '<em>Block</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected static final String BLOCK__DATA_VARIABLE_DECLARATIONS_ONLY__EEXPRESSION = "(not self.declarations.oclIsUndefined())\r\n" +
-		"implies\r\n" +
-		"(self.declarations.declaration->forAll(oclIsKindOf(declarations::DataVariableDeclaration)))";
-
-	/**
-	 * Validates the DataVariableDeclarationsOnly constraint of '<em>Block</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public boolean validateBlock_DataVariableDeclarationsOnly(Block block, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return
-			validate
-				(StatementsPackage.Literals.BLOCK,
-				 block,
-				 diagnostics,
-				 context,
-				 "http://www.eclipse.org/emf/2002/Ecore/OCL",
-				 "DataVariableDeclarationsOnly",
-				 BLOCK__DATA_VARIABLE_DECLARATIONS_ONLY__EEXPRESSION,
-				 Diagnostic.ERROR,
-				 DIAGNOSTIC_SOURCE,
-				 0);
+		return validate_EveryDefaultConstraint(block, diagnostics, context);
 	}
 
 	/**
@@ -220,8 +179,9 @@ public class StatementsValidator extends EObjectValidator {
 		if (result || diagnostics != null) result &= validate_UniqueID(iteration, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryKeyUnique(iteration, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(iteration, diagnostics, context);
-		if (result || diagnostics != null) result &= declarationsValidator.validateVariableContainer_NoVoidVariables(iteration, diagnostics, context);
-		if (result || diagnostics != null) result &= declarationsValidator.validateVariableContainer_UniqueVariableNames(iteration, diagnostics, context);
+		if (result || diagnostics != null) result &= declarationsValidator.validateTypedElementContainer_ElementsMustHaveSameType(iteration, diagnostics, context);
+		if (result || diagnostics != null) result &= declarationsValidator.validateTypedElementContainer_TypeExpressionMustBeType(iteration, diagnostics, context);
+		if (result || diagnostics != null) result &= declarationsValidator.validateTypedElementContainer_UniqueElementNames(iteration, diagnostics, context);
 		if (result || diagnostics != null) result &= validateIteration_SingleVariable(iteration, diagnostics, context);
 		return result;
 	}
@@ -232,7 +192,7 @@ public class StatementsValidator extends EObjectValidator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected static final String ITERATION__SINGLE_VARIABLE__EEXPRESSION = "self.variable->size() <= 1";
+	protected static final String ITERATION__SINGLE_VARIABLE__EEXPRESSION = "self.elements->size() <= 1";
 
 	/**
 	 * Validates the SingleVariable constraint of '<em>Iteration</em>'.

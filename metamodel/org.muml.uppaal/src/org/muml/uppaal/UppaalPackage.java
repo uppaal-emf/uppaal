@@ -115,58 +115,13 @@ public interface UppaalPackage extends EPackage {
 	int NTA__SYSTEM_DECLARATIONS = CorePackage.NAMED_ELEMENT_FEATURE_COUNT + 3;
 
 	/**
-	 * The feature id for the '<em><b>Int</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NTA__INT = CorePackage.NAMED_ELEMENT_FEATURE_COUNT + 4;
-
-	/**
-	 * The feature id for the '<em><b>Bool</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NTA__BOOL = CorePackage.NAMED_ELEMENT_FEATURE_COUNT + 5;
-
-	/**
-	 * The feature id for the '<em><b>Clock</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NTA__CLOCK = CorePackage.NAMED_ELEMENT_FEATURE_COUNT + 6;
-
-	/**
-	 * The feature id for the '<em><b>Chan</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NTA__CHAN = CorePackage.NAMED_ELEMENT_FEATURE_COUNT + 7;
-
-	/**
-	 * The feature id for the '<em><b>Void</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NTA__VOID = CorePackage.NAMED_ELEMENT_FEATURE_COUNT + 8;
-
-	/**
 	 * The number of structural features of the '<em>NTA</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NTA_FEATURE_COUNT = CorePackage.NAMED_ELEMENT_FEATURE_COUNT + 9;
+	int NTA_FEATURE_COUNT = CorePackage.NAMED_ELEMENT_FEATURE_COUNT + 4;
 
 
 	/**
@@ -211,61 +166,6 @@ public interface UppaalPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getNTA_SystemDeclarations();
-
-	/**
-	 * Returns the meta object for the containment reference '{@link org.muml.uppaal.NTA#getInt <em>Int</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Int</em>'.
-	 * @see org.muml.uppaal.NTA#getInt()
-	 * @see #getNTA()
-	 * @generated
-	 */
-	EReference getNTA_Int();
-
-	/**
-	 * Returns the meta object for the containment reference '{@link org.muml.uppaal.NTA#getBool <em>Bool</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Bool</em>'.
-	 * @see org.muml.uppaal.NTA#getBool()
-	 * @see #getNTA()
-	 * @generated
-	 */
-	EReference getNTA_Bool();
-
-	/**
-	 * Returns the meta object for the containment reference '{@link org.muml.uppaal.NTA#getClock <em>Clock</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Clock</em>'.
-	 * @see org.muml.uppaal.NTA#getClock()
-	 * @see #getNTA()
-	 * @generated
-	 */
-	EReference getNTA_Clock();
-
-	/**
-	 * Returns the meta object for the containment reference '{@link org.muml.uppaal.NTA#getChan <em>Chan</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Chan</em>'.
-	 * @see org.muml.uppaal.NTA#getChan()
-	 * @see #getNTA()
-	 * @generated
-	 */
-	EReference getNTA_Chan();
-
-	/**
-	 * Returns the meta object for the containment reference '{@link org.muml.uppaal.NTA#getVoid <em>Void</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Void</em>'.
-	 * @see org.muml.uppaal.NTA#getVoid()
-	 * @see #getNTA()
-	 * @generated
-	 */
-	EReference getNTA_Void();
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -322,46 +222,6 @@ public interface UppaalPackage extends EPackage {
 		 * @generated
 		 */
 		EReference NTA__SYSTEM_DECLARATIONS = eINSTANCE.getNTA_SystemDeclarations();
-
-		/**
-		 * The meta object literal for the '<em><b>Int</b></em>' containment reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference NTA__INT = eINSTANCE.getNTA_Int();
-
-		/**
-		 * The meta object literal for the '<em><b>Bool</b></em>' containment reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference NTA__BOOL = eINSTANCE.getNTA_Bool();
-
-		/**
-		 * The meta object literal for the '<em><b>Clock</b></em>' containment reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference NTA__CLOCK = eINSTANCE.getNTA_Clock();
-
-		/**
-		 * The meta object literal for the '<em><b>Chan</b></em>' containment reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference NTA__CHAN = eINSTANCE.getNTA_Chan();
-
-		/**
-		 * The meta object literal for the '<em><b>Void</b></em>' containment reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference NTA__VOID = eINSTANCE.getNTA_Void();
 
 	}
 

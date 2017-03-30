@@ -5,7 +5,7 @@ package org.muml.uppaal.statements.util;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.util.Switch;
-import org.muml.uppaal.declarations.VariableContainer;
+import org.muml.uppaal.declarations.TypedElementContainer;
 import org.muml.uppaal.statements.Block;
 import org.muml.uppaal.statements.DoWhileLoop;
 import org.muml.uppaal.statements.EmptyStatement;
@@ -106,7 +106,7 @@ public class StatementsSwitch<T> extends Switch<T> {
 				Iteration iteration = (Iteration)theEObject;
 				T result = caseIteration(iteration);
 				if (result == null) result = caseStatement(iteration);
-				if (result == null) result = caseVariableContainer(iteration);
+				if (result == null) result = caseTypedElementContainer(iteration);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -300,17 +300,17 @@ public class StatementsSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Variable Container</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Typed Element Container</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Variable Container</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Typed Element Container</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseVariableContainer(VariableContainer object) {
+	public T caseTypedElementContainer(TypedElementContainer object) {
 		return null;
 	}
 

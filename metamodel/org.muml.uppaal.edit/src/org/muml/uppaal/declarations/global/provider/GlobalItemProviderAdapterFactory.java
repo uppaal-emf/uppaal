@@ -70,72 +70,95 @@ public class GlobalItemProviderAdapterFactory extends GlobalAdapterFactory imple
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link org.muml.uppaal.declarations.global.ChannelPriority} instances.
+	 * This keeps track of the one adapter used for all {@link org.muml.uppaal.declarations.global.ChannelPriorityDeclaration} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected ChannelPriorityItemProvider channelPriorityItemProvider;
+	protected ChannelPriorityDeclarationItemProvider channelPriorityDeclarationItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link org.muml.uppaal.declarations.global.ChannelPriority}.
+	 * This creates an adapter for a {@link org.muml.uppaal.declarations.global.ChannelPriorityDeclaration}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createChannelPriorityAdapter() {
-		if (channelPriorityItemProvider == null) {
-			channelPriorityItemProvider = new ChannelPriorityItemProvider(this);
+	public Adapter createChannelPriorityDeclarationAdapter() {
+		if (channelPriorityDeclarationItemProvider == null) {
+			channelPriorityDeclarationItemProvider = new ChannelPriorityDeclarationItemProvider(this);
 		}
 
-		return channelPriorityItemProvider;
+		return channelPriorityDeclarationItemProvider;
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link org.muml.uppaal.declarations.global.ChannelList} instances.
+	 * This keeps track of the one adapter used for all {@link org.muml.uppaal.declarations.global.ChannelPriorityGroup} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected ChannelListItemProvider channelListItemProvider;
+	protected ChannelPriorityGroupItemProvider channelPriorityGroupItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link org.muml.uppaal.declarations.global.ChannelList}.
+	 * This creates an adapter for a {@link org.muml.uppaal.declarations.global.ChannelPriorityGroup}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createChannelListAdapter() {
-		if (channelListItemProvider == null) {
-			channelListItemProvider = new ChannelListItemProvider(this);
+	public Adapter createChannelPriorityGroupAdapter() {
+		if (channelPriorityGroupItemProvider == null) {
+			channelPriorityGroupItemProvider = new ChannelPriorityGroupItemProvider(this);
 		}
 
-		return channelListItemProvider;
+		return channelPriorityGroupItemProvider;
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link org.muml.uppaal.declarations.global.DefaultChannelPriority} instances.
+	 * This keeps track of the one adapter used for all {@link org.muml.uppaal.declarations.global.ChannelItem} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected DefaultChannelPriorityItemProvider defaultChannelPriorityItemProvider;
+	protected ChannelItemItemProvider channelItemItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link org.muml.uppaal.declarations.global.DefaultChannelPriority}.
+	 * This creates an adapter for a {@link org.muml.uppaal.declarations.global.ChannelItem}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createDefaultChannelPriorityAdapter() {
-		if (defaultChannelPriorityItemProvider == null) {
-			defaultChannelPriorityItemProvider = new DefaultChannelPriorityItemProvider(this);
+	public Adapter createChannelItemAdapter() {
+		if (channelItemItemProvider == null) {
+			channelItemItemProvider = new ChannelItemItemProvider(this);
 		}
 
-		return defaultChannelPriorityItemProvider;
+		return channelItemItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link org.muml.uppaal.declarations.global.DefaultItem} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected DefaultItemItemProvider defaultItemItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.muml.uppaal.declarations.global.DefaultItem}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createDefaultItemAdapter() {
+		if (defaultItemItemProvider == null) {
+			defaultItemItemProvider = new DefaultItemItemProvider(this);
+		}
+
+		return defaultItemItemProvider;
 	}
 
 	/**
@@ -237,9 +260,10 @@ public class GlobalItemProviderAdapterFactory extends GlobalAdapterFactory imple
 	 * @generated
 	 */
 	public void dispose() {
-		if (channelPriorityItemProvider != null) channelPriorityItemProvider.dispose();
-		if (channelListItemProvider != null) channelListItemProvider.dispose();
-		if (defaultChannelPriorityItemProvider != null) defaultChannelPriorityItemProvider.dispose();
+		if (channelPriorityDeclarationItemProvider != null) channelPriorityDeclarationItemProvider.dispose();
+		if (channelPriorityGroupItemProvider != null) channelPriorityGroupItemProvider.dispose();
+		if (channelItemItemProvider != null) channelItemItemProvider.dispose();
+		if (defaultItemItemProvider != null) defaultItemItemProvider.dispose();
 	}
 
 }

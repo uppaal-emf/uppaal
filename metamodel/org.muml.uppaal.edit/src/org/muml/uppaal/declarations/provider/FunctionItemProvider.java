@@ -10,15 +10,16 @@ import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.ResourceLocator;
 import org.eclipse.emf.ecore.EStructuralFeature;
+import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
+import org.muml.uppaal.core.CorePackage;
 import org.muml.uppaal.core.provider.NamedElementItemProvider;
 import org.muml.uppaal.declarations.DeclarationsFactory;
 import org.muml.uppaal.declarations.DeclarationsPackage;
 import org.muml.uppaal.declarations.Function;
 import org.muml.uppaal.provider.UppaalEditPlugin;
 import org.muml.uppaal.statements.StatementsFactory;
-import org.muml.uppaal.types.TypesFactory;
 
 /**
  * This is the item provider adapter for a {@link org.muml.uppaal.declarations.Function} object.
@@ -49,8 +50,31 @@ public class FunctionItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
+			addTypeDefinitionPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
+	}
+
+	/**
+	 * This adds a property descriptor for the Type Definition feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addTypeDefinitionPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_TypedElement_typeDefinition_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_TypedElement_typeDefinition_feature", "_UI_TypedElement_type"),
+				 CorePackage.Literals.TYPED_ELEMENT__TYPE_DEFINITION,
+				 false,
+				 false,
+				 false,
+				 null,
+				 null,
+				 null));
 	}
 
 	/**
@@ -65,7 +89,6 @@ public class FunctionItemProvider
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(DeclarationsPackage.Literals.FUNCTION__RETURN_TYPE);
 			childrenFeatures.add(DeclarationsPackage.Literals.FUNCTION__BLOCK);
 			childrenFeatures.add(DeclarationsPackage.Literals.FUNCTION__PARAMETER);
 		}
@@ -122,7 +145,6 @@ public class FunctionItemProvider
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(Function.class)) {
-			case DeclarationsPackage.FUNCTION__RETURN_TYPE:
 			case DeclarationsPackage.FUNCTION__BLOCK:
 			case DeclarationsPackage.FUNCTION__PARAMETER:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
@@ -144,33 +166,13 @@ public class FunctionItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
-				(DeclarationsPackage.Literals.FUNCTION__RETURN_TYPE,
-				 TypesFactory.eINSTANCE.createTypeReference()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(DeclarationsPackage.Literals.FUNCTION__RETURN_TYPE,
-				 TypesFactory.eINSTANCE.createScalarTypeSpecification()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(DeclarationsPackage.Literals.FUNCTION__RETURN_TYPE,
-				 TypesFactory.eINSTANCE.createStructTypeSpecification()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(DeclarationsPackage.Literals.FUNCTION__RETURN_TYPE,
-				 TypesFactory.eINSTANCE.createRangeTypeSpecification()));
-
-		newChildDescriptors.add
-			(createChildParameter
 				(DeclarationsPackage.Literals.FUNCTION__BLOCK,
 				 StatementsFactory.eINSTANCE.createBlock()));
 
 		newChildDescriptors.add
 			(createChildParameter
 				(DeclarationsPackage.Literals.FUNCTION__PARAMETER,
-				 DeclarationsFactory.eINSTANCE.createParameter()));
+				 DeclarationsFactory.eINSTANCE.createParameterContainer()));
 	}
 
 	/**

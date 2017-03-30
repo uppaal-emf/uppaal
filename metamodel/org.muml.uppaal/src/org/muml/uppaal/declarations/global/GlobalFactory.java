@@ -22,31 +22,40 @@ public interface GlobalFactory extends EFactory {
 	GlobalFactory eINSTANCE = org.muml.uppaal.declarations.global.impl.GlobalFactoryImpl.init();
 
 	/**
-	 * Returns a new object of class '<em>Channel Priority</em>'.
+	 * Returns a new object of class '<em>Channel Priority Declaration</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Channel Priority</em>'.
+	 * @return a new object of class '<em>Channel Priority Declaration</em>'.
 	 * @generated
 	 */
-	ChannelPriority createChannelPriority();
+	ChannelPriorityDeclaration createChannelPriorityDeclaration();
 
 	/**
-	 * Returns a new object of class '<em>Channel List</em>'.
+	 * Returns a new object of class '<em>Channel Priority Group</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Channel List</em>'.
+	 * @return a new object of class '<em>Channel Priority Group</em>'.
 	 * @generated
 	 */
-	ChannelList createChannelList();
+	ChannelPriorityGroup createChannelPriorityGroup();
 
 	/**
-	 * Returns a new object of class '<em>Default Channel Priority</em>'.
+	 * Returns a new object of class '<em>Channel Item</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Default Channel Priority</em>'.
+	 * @return a new object of class '<em>Channel Item</em>'.
 	 * @generated
 	 */
-	DefaultChannelPriority createDefaultChannelPriority();
+	ChannelItem createChannelItem();
+
+	/**
+	 * Returns a new object of class '<em>Default Item</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Default Item</em>'.
+	 * @generated
+	 */
+	DefaultItem createDefaultItem();
 
 	/**
 	 * Returns the package supported by this factory.

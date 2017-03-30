@@ -3,9 +3,8 @@
 package org.muml.uppaal.templates;
 
 import org.eclipse.emf.common.util.EList;
-import org.muml.uppaal.core.CommentableElement;
 import org.muml.uppaal.core.NamedElement;
-import org.muml.uppaal.declarations.Parameter;
+import org.muml.uppaal.declarations.ParameterContainer;
 
 /**
  * <!-- begin-user-doc -->
@@ -25,14 +24,14 @@ import org.muml.uppaal.declarations.Parameter;
  *
  * @see org.muml.uppaal.templates.TemplatesPackage#getAbstractTemplate()
  * @model abstract="true"
- *        annotation="http://www.eclipse.org/emf/2002/Ecore/OCL UniqueParameterNames='self.parameter->collect(variableDeclaration)->collect(variable)->isUnique(name)'"
+ *        annotation="http://www.eclipse.org/emf/2002/Ecore/OCL UniqueParameterNames='self.parameter->collect(elements)->collect(oclAsType(core::NamedElement))->isUnique(name)'"
  *        annotation="http://www.eclipse.org/emf/2002/Ecore constraints='UniqueParameterNames'"
  * @generated
  */
-public interface AbstractTemplate extends NamedElement, CommentableElement {
+public interface AbstractTemplate extends NamedElement {
 	/**
 	 * Returns the value of the '<em><b>Parameter</b></em>' containment reference list.
-	 * The list contents are of type {@link org.muml.uppaal.declarations.Parameter}.
+	 * The list contents are of type {@link org.muml.uppaal.declarations.ParameterContainer}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
@@ -43,6 +42,6 @@ public interface AbstractTemplate extends NamedElement, CommentableElement {
 	 * @model containment="true"
 	 * @generated
 	 */
-	EList<Parameter> getParameter();
+	EList<ParameterContainer> getParameter();
 
 } // AbstractTemplate

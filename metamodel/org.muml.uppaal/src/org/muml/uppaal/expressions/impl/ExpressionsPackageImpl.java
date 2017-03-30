@@ -27,9 +27,11 @@ import org.muml.uppaal.expressions.BitShiftExpression;
 import org.muml.uppaal.expressions.BitShiftOperator;
 import org.muml.uppaal.expressions.BitwiseExpression;
 import org.muml.uppaal.expressions.BitwiseOperator;
+import org.muml.uppaal.expressions.ChannelPrefixExpression;
 import org.muml.uppaal.expressions.CompareExpression;
 import org.muml.uppaal.expressions.CompareOperator;
 import org.muml.uppaal.expressions.ConditionExpression;
+import org.muml.uppaal.expressions.DataPrefixExpression;
 import org.muml.uppaal.expressions.Expression;
 import org.muml.uppaal.expressions.ExpressionsFactory;
 import org.muml.uppaal.expressions.ExpressionsPackage;
@@ -37,7 +39,6 @@ import org.muml.uppaal.expressions.FunctionCallExpression;
 import org.muml.uppaal.expressions.IdentifierExpression;
 import org.muml.uppaal.expressions.IncrementDecrementExpression;
 import org.muml.uppaal.expressions.IncrementDecrementOperator;
-import org.muml.uppaal.expressions.IncrementDecrementPosition;
 import org.muml.uppaal.expressions.LiteralExpression;
 import org.muml.uppaal.expressions.LogicalExpression;
 import org.muml.uppaal.expressions.LogicalOperator;
@@ -46,6 +47,8 @@ import org.muml.uppaal.expressions.MinMaxOperator;
 import org.muml.uppaal.expressions.MinusExpression;
 import org.muml.uppaal.expressions.NegationExpression;
 import org.muml.uppaal.expressions.PlusExpression;
+import org.muml.uppaal.expressions.PostIncrementDecrementExpression;
+import org.muml.uppaal.expressions.PreIncrementDecrementExpression;
 import org.muml.uppaal.expressions.QuantificationExpression;
 import org.muml.uppaal.expressions.Quantifier;
 import org.muml.uppaal.expressions.ScopedIdentifierExpression;
@@ -184,6 +187,20 @@ public class ExpressionsPackageImpl extends EPackageImpl implements ExpressionsP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	private EClass preIncrementDecrementExpressionEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass postIncrementDecrementExpressionEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	private EClass bitShiftExpressionEClass = null;
 
 	/**
@@ -199,6 +216,20 @@ public class ExpressionsPackageImpl extends EPackageImpl implements ExpressionsP
 	 * @generated
 	 */
 	private EClass bitwiseExpressionEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass channelPrefixExpressionEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass dataPrefixExpressionEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -241,13 +272,6 @@ public class ExpressionsPackageImpl extends EPackageImpl implements ExpressionsP
 	 * @generated
 	 */
 	private EEnum incrementDecrementOperatorEEnum = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EEnum incrementDecrementPositionEEnum = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -716,7 +740,7 @@ public class ExpressionsPackageImpl extends EPackageImpl implements ExpressionsP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getIncrementDecrementExpression_Position() {
+	public EAttribute getIncrementDecrementExpression_Operator() {
 		return (EAttribute)incrementDecrementExpressionEClass.getEStructuralFeatures().get(1);
 	}
 
@@ -725,8 +749,17 @@ public class ExpressionsPackageImpl extends EPackageImpl implements ExpressionsP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getIncrementDecrementExpression_Operator() {
-		return (EAttribute)incrementDecrementExpressionEClass.getEStructuralFeatures().get(2);
+	public EClass getPreIncrementDecrementExpression() {
+		return preIncrementDecrementExpressionEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getPostIncrementDecrementExpression() {
+		return postIncrementDecrementExpressionEClass;
 	}
 
 	/**
@@ -788,6 +821,69 @@ public class ExpressionsPackageImpl extends EPackageImpl implements ExpressionsP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getChannelPrefixExpression() {
+		return channelPrefixExpressionEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getChannelPrefixExpression_Urgent() {
+		return (EAttribute)channelPrefixExpressionEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getChannelPrefixExpression_Broadcast() {
+		return (EAttribute)channelPrefixExpressionEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getChannelPrefixExpression_ChannelType() {
+		return (EReference)channelPrefixExpressionEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getDataPrefixExpression() {
+		return dataPrefixExpressionEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getDataPrefixExpression_Prefix() {
+		return (EAttribute)dataPrefixExpressionEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getDataPrefixExpression_DataTypeExpression() {
+		return (EReference)dataPrefixExpressionEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EEnum getAssignmentOperator() {
 		return assignmentOperatorEEnum;
 	}
@@ -835,15 +931,6 @@ public class ExpressionsPackageImpl extends EPackageImpl implements ExpressionsP
 	 */
 	public EEnum getIncrementDecrementOperator() {
 		return incrementDecrementOperatorEEnum;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EEnum getIncrementDecrementPosition() {
-		return incrementDecrementPositionEEnum;
 	}
 
 	/**
@@ -923,6 +1010,10 @@ public class ExpressionsPackageImpl extends EPackageImpl implements ExpressionsP
 		createEReference(identifierExpressionEClass, IDENTIFIER_EXPRESSION__IDENTIFIER);
 		createEReference(identifierExpressionEClass, IDENTIFIER_EXPRESSION__INDEX);
 
+		scopedIdentifierExpressionEClass = createEClass(SCOPED_IDENTIFIER_EXPRESSION);
+		createEReference(scopedIdentifierExpressionEClass, SCOPED_IDENTIFIER_EXPRESSION__SCOPE);
+		createEReference(scopedIdentifierExpressionEClass, SCOPED_IDENTIFIER_EXPRESSION__IDENTIFIER);
+
 		literalExpressionEClass = createEClass(LITERAL_EXPRESSION);
 		createEAttribute(literalExpressionEClass, LITERAL_EXPRESSION__TEXT);
 
@@ -944,18 +1035,17 @@ public class ExpressionsPackageImpl extends EPackageImpl implements ExpressionsP
 		createEReference(conditionExpressionEClass, CONDITION_EXPRESSION__THEN_EXPRESSION);
 		createEReference(conditionExpressionEClass, CONDITION_EXPRESSION__ELSE_EXPRESSION);
 
-		scopedIdentifierExpressionEClass = createEClass(SCOPED_IDENTIFIER_EXPRESSION);
-		createEReference(scopedIdentifierExpressionEClass, SCOPED_IDENTIFIER_EXPRESSION__SCOPE);
-		createEReference(scopedIdentifierExpressionEClass, SCOPED_IDENTIFIER_EXPRESSION__IDENTIFIER);
-
 		quantificationExpressionEClass = createEClass(QUANTIFICATION_EXPRESSION);
 		createEAttribute(quantificationExpressionEClass, QUANTIFICATION_EXPRESSION__QUANTIFIER);
 		createEReference(quantificationExpressionEClass, QUANTIFICATION_EXPRESSION__EXPRESSION);
 
 		incrementDecrementExpressionEClass = createEClass(INCREMENT_DECREMENT_EXPRESSION);
 		createEReference(incrementDecrementExpressionEClass, INCREMENT_DECREMENT_EXPRESSION__EXPRESSION);
-		createEAttribute(incrementDecrementExpressionEClass, INCREMENT_DECREMENT_EXPRESSION__POSITION);
 		createEAttribute(incrementDecrementExpressionEClass, INCREMENT_DECREMENT_EXPRESSION__OPERATOR);
+
+		preIncrementDecrementExpressionEClass = createEClass(PRE_INCREMENT_DECREMENT_EXPRESSION);
+
+		postIncrementDecrementExpressionEClass = createEClass(POST_INCREMENT_DECREMENT_EXPRESSION);
 
 		bitShiftExpressionEClass = createEClass(BIT_SHIFT_EXPRESSION);
 		createEAttribute(bitShiftExpressionEClass, BIT_SHIFT_EXPRESSION__OPERATOR);
@@ -966,6 +1056,15 @@ public class ExpressionsPackageImpl extends EPackageImpl implements ExpressionsP
 		bitwiseExpressionEClass = createEClass(BITWISE_EXPRESSION);
 		createEAttribute(bitwiseExpressionEClass, BITWISE_EXPRESSION__OPERATOR);
 
+		channelPrefixExpressionEClass = createEClass(CHANNEL_PREFIX_EXPRESSION);
+		createEAttribute(channelPrefixExpressionEClass, CHANNEL_PREFIX_EXPRESSION__URGENT);
+		createEAttribute(channelPrefixExpressionEClass, CHANNEL_PREFIX_EXPRESSION__BROADCAST);
+		createEReference(channelPrefixExpressionEClass, CHANNEL_PREFIX_EXPRESSION__CHANNEL_TYPE);
+
+		dataPrefixExpressionEClass = createEClass(DATA_PREFIX_EXPRESSION);
+		createEAttribute(dataPrefixExpressionEClass, DATA_PREFIX_EXPRESSION__PREFIX);
+		createEReference(dataPrefixExpressionEClass, DATA_PREFIX_EXPRESSION__DATA_TYPE_EXPRESSION);
+
 		// Create enums
 		assignmentOperatorEEnum = createEEnum(ASSIGNMENT_OPERATOR);
 		arithmeticOperatorEEnum = createEEnum(ARITHMETIC_OPERATOR);
@@ -973,7 +1072,6 @@ public class ExpressionsPackageImpl extends EPackageImpl implements ExpressionsP
 		compareOperatorEEnum = createEEnum(COMPARE_OPERATOR);
 		quantifierEEnum = createEEnum(QUANTIFIER);
 		incrementDecrementOperatorEEnum = createEEnum(INCREMENT_DECREMENT_OPERATOR);
-		incrementDecrementPositionEEnum = createEEnum(INCREMENT_DECREMENT_POSITION);
 		bitShiftOperatorEEnum = createEEnum(BIT_SHIFT_OPERATOR);
 		minMaxOperatorEEnum = createEEnum(MIN_MAX_OPERATOR);
 		bitwiseOperatorEEnum = createEEnum(BITWISE_OPERATOR);
@@ -1005,6 +1103,7 @@ public class ExpressionsPackageImpl extends EPackageImpl implements ExpressionsP
 		// Obtain other dependent packages
 		CorePackage theCorePackage = (CorePackage)EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI);
 		DeclarationsPackage theDeclarationsPackage = (DeclarationsPackage)EPackage.Registry.INSTANCE.getEPackage(DeclarationsPackage.eNS_URI);
+		TypesPackage theTypesPackage = (TypesPackage)EPackage.Registry.INSTANCE.getEPackage(TypesPackage.eNS_URI);
 
 		// Create type parameters
 
@@ -1017,19 +1116,23 @@ public class ExpressionsPackageImpl extends EPackageImpl implements ExpressionsP
 		binaryExpressionEClass.getESuperTypes().add(this.getExpression());
 		assignmentExpressionEClass.getESuperTypes().add(this.getBinaryExpression());
 		identifierExpressionEClass.getESuperTypes().add(this.getExpression());
+		scopedIdentifierExpressionEClass.getESuperTypes().add(this.getExpression());
 		literalExpressionEClass.getESuperTypes().add(this.getExpression());
 		arithmeticExpressionEClass.getESuperTypes().add(this.getBinaryExpression());
 		logicalExpressionEClass.getESuperTypes().add(this.getBinaryExpression());
 		functionCallExpressionEClass.getESuperTypes().add(this.getExpression());
 		compareExpressionEClass.getESuperTypes().add(this.getBinaryExpression());
 		conditionExpressionEClass.getESuperTypes().add(this.getExpression());
-		scopedIdentifierExpressionEClass.getESuperTypes().add(this.getExpression());
 		quantificationExpressionEClass.getESuperTypes().add(this.getExpression());
-		quantificationExpressionEClass.getESuperTypes().add(theDeclarationsPackage.getVariableContainer());
+		quantificationExpressionEClass.getESuperTypes().add(theDeclarationsPackage.getTypedElementContainer());
 		incrementDecrementExpressionEClass.getESuperTypes().add(this.getExpression());
+		preIncrementDecrementExpressionEClass.getESuperTypes().add(this.getIncrementDecrementExpression());
+		postIncrementDecrementExpressionEClass.getESuperTypes().add(this.getIncrementDecrementExpression());
 		bitShiftExpressionEClass.getESuperTypes().add(this.getBinaryExpression());
 		minMaxExpressionEClass.getESuperTypes().add(this.getBinaryExpression());
 		bitwiseExpressionEClass.getESuperTypes().add(this.getBinaryExpression());
+		channelPrefixExpressionEClass.getESuperTypes().add(this.getExpression());
+		dataPrefixExpressionEClass.getESuperTypes().add(this.getExpression());
 
 		// Initialize classes and features; add operations and parameters
 		initEClass(expressionEClass, Expression.class, "Expression", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -1054,6 +1157,10 @@ public class ExpressionsPackageImpl extends EPackageImpl implements ExpressionsP
 		initEReference(getIdentifierExpression_Identifier(), theCorePackage.getNamedElement(), null, "identifier", null, 1, 1, IdentifierExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getIdentifierExpression_Index(), this.getExpression(), null, "index", null, 0, -1, IdentifierExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
+		initEClass(scopedIdentifierExpressionEClass, ScopedIdentifierExpression.class, "ScopedIdentifierExpression", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getScopedIdentifierExpression_Scope(), this.getExpression(), null, "scope", null, 1, 1, ScopedIdentifierExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getScopedIdentifierExpression_Identifier(), this.getIdentifierExpression(), null, "identifier", null, 1, 1, ScopedIdentifierExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
 		initEClass(literalExpressionEClass, LiteralExpression.class, "LiteralExpression", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getLiteralExpression_Text(), ecorePackage.getEString(), "text", null, 1, 1, LiteralExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
@@ -1075,18 +1182,17 @@ public class ExpressionsPackageImpl extends EPackageImpl implements ExpressionsP
 		initEReference(getConditionExpression_ThenExpression(), this.getExpression(), null, "thenExpression", null, 1, 1, ConditionExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getConditionExpression_ElseExpression(), this.getExpression(), null, "elseExpression", null, 1, 1, ConditionExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(scopedIdentifierExpressionEClass, ScopedIdentifierExpression.class, "ScopedIdentifierExpression", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getScopedIdentifierExpression_Scope(), this.getExpression(), null, "scope", null, 1, 1, ScopedIdentifierExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getScopedIdentifierExpression_Identifier(), this.getIdentifierExpression(), null, "identifier", null, 1, 1, ScopedIdentifierExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
 		initEClass(quantificationExpressionEClass, QuantificationExpression.class, "QuantificationExpression", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getQuantificationExpression_Quantifier(), this.getQuantifier(), "quantifier", null, 1, 1, QuantificationExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getQuantificationExpression_Expression(), this.getExpression(), null, "expression", null, 1, 1, QuantificationExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(incrementDecrementExpressionEClass, IncrementDecrementExpression.class, "IncrementDecrementExpression", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEClass(incrementDecrementExpressionEClass, IncrementDecrementExpression.class, "IncrementDecrementExpression", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getIncrementDecrementExpression_Expression(), this.getExpression(), null, "expression", null, 1, 1, IncrementDecrementExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getIncrementDecrementExpression_Position(), this.getIncrementDecrementPosition(), "position", null, 1, 1, IncrementDecrementExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getIncrementDecrementExpression_Operator(), this.getIncrementDecrementOperator(), "operator", null, 1, 1, IncrementDecrementExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(preIncrementDecrementExpressionEClass, PreIncrementDecrementExpression.class, "PreIncrementDecrementExpression", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(postIncrementDecrementExpressionEClass, PostIncrementDecrementExpression.class, "PostIncrementDecrementExpression", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(bitShiftExpressionEClass, BitShiftExpression.class, "BitShiftExpression", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getBitShiftExpression_Operator(), this.getBitShiftOperator(), "operator", null, 1, 1, BitShiftExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1096,6 +1202,15 @@ public class ExpressionsPackageImpl extends EPackageImpl implements ExpressionsP
 
 		initEClass(bitwiseExpressionEClass, BitwiseExpression.class, "BitwiseExpression", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getBitwiseExpression_Operator(), this.getBitwiseOperator(), "operator", null, 1, 1, BitwiseExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(channelPrefixExpressionEClass, ChannelPrefixExpression.class, "ChannelPrefixExpression", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getChannelPrefixExpression_Urgent(), ecorePackage.getEBoolean(), "urgent", "false", 1, 1, ChannelPrefixExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getChannelPrefixExpression_Broadcast(), ecorePackage.getEBoolean(), "broadcast", "false", 1, 1, ChannelPrefixExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getChannelPrefixExpression_ChannelType(), theTypesPackage.getType(), null, "channelType", null, 1, 1, ChannelPrefixExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(dataPrefixExpressionEClass, DataPrefixExpression.class, "DataPrefixExpression", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getDataPrefixExpression_Prefix(), theDeclarationsPackage.getDataVariablePrefix(), "prefix", "const", 1, 1, DataPrefixExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getDataPrefixExpression_DataTypeExpression(), this.getExpression(), null, "dataTypeExpression", null, 1, 1, DataPrefixExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Initialize enums and add enum literals
 		initEEnum(assignmentOperatorEEnum, AssignmentOperator.class, "AssignmentOperator");
@@ -1138,10 +1253,6 @@ public class ExpressionsPackageImpl extends EPackageImpl implements ExpressionsP
 		initEEnum(incrementDecrementOperatorEEnum, IncrementDecrementOperator.class, "IncrementDecrementOperator");
 		addEEnumLiteral(incrementDecrementOperatorEEnum, IncrementDecrementOperator.INCREMENT);
 		addEEnumLiteral(incrementDecrementOperatorEEnum, IncrementDecrementOperator.DECREMENT);
-
-		initEEnum(incrementDecrementPositionEEnum, IncrementDecrementPosition.class, "IncrementDecrementPosition");
-		addEEnumLiteral(incrementDecrementPositionEEnum, IncrementDecrementPosition.PRE);
-		addEEnumLiteral(incrementDecrementPositionEEnum, IncrementDecrementPosition.POST);
 
 		initEEnum(bitShiftOperatorEEnum, BitShiftOperator.class, "BitShiftOperator");
 		addEEnumLiteral(bitShiftOperatorEEnum, BitShiftOperator.LEFT);
@@ -1190,6 +1301,18 @@ public class ExpressionsPackageImpl extends EPackageImpl implements ExpressionsP
 		   source, 
 		   new String[] {
 			 "constraints", "SingleVariable"
+		   });	
+		addAnnotation
+		  (channelPrefixExpressionEClass, 
+		   source, 
+		   new String[] {
+			 "constraints", "UrgentOrBroadcast ChannelTypeOnly"
+		   });	
+		addAnnotation
+		  (dataPrefixExpressionEClass, 
+		   source, 
+		   new String[] {
+			 "constraints", "TypeExpressionMustBeType"
 		   });
 	}
 
@@ -1211,7 +1334,20 @@ public class ExpressionsPackageImpl extends EPackageImpl implements ExpressionsP
 		  (quantificationExpressionEClass, 
 		   source, 
 		   new String[] {
-			 "SingleVariable", "self.variable->size() <= 1"
+			 "SingleVariable", "self.elements->size() <= 1"
+		   });	
+		addAnnotation
+		  (channelPrefixExpressionEClass, 
+		   source, 
+		   new String[] {
+			 "UrgentOrBroadcast", "self.urgent or self.broadcast",
+			 "ChannelTypeOnly", "not self.channelType.oclIsUndefined()\r\nimplies\r\nself.channelType.baseType=uppaal::types::BuiltInType::CHAN"
+		   });	
+		addAnnotation
+		  (dataPrefixExpressionEClass, 
+		   source, 
+		   new String[] {
+			 "TypeExpressionMustBeType", "self.dataTypeExpression.oclIsKindOf(types::TypeExpression)\r\nor\r\n(\r\n\tself.dataTypeExpression.oclIsKindOf(expressions::IdentifierExpression) and\r\n\tself.dataTypeExpression.oclAsType(expressions::IdentifierExpression).identifier.oclIsKindOf(types::Type)\r\n)"
 		   });
 	}
 

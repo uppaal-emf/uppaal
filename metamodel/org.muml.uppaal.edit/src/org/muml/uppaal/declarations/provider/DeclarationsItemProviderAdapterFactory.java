@@ -139,98 +139,6 @@ public class DeclarationsItemProviderAdapterFactory extends DeclarationsAdapterF
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link org.muml.uppaal.declarations.ChannelVariableDeclaration} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected ChannelVariableDeclarationItemProvider channelVariableDeclarationItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link org.muml.uppaal.declarations.ChannelVariableDeclaration}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createChannelVariableDeclarationAdapter() {
-		if (channelVariableDeclarationItemProvider == null) {
-			channelVariableDeclarationItemProvider = new ChannelVariableDeclarationItemProvider(this);
-		}
-
-		return channelVariableDeclarationItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link org.muml.uppaal.declarations.ClockVariableDeclaration} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected ClockVariableDeclarationItemProvider clockVariableDeclarationItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link org.muml.uppaal.declarations.ClockVariableDeclaration}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createClockVariableDeclarationAdapter() {
-		if (clockVariableDeclarationItemProvider == null) {
-			clockVariableDeclarationItemProvider = new ClockVariableDeclarationItemProvider(this);
-		}
-
-		return clockVariableDeclarationItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link org.muml.uppaal.declarations.DataVariableDeclaration} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected DataVariableDeclarationItemProvider dataVariableDeclarationItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link org.muml.uppaal.declarations.DataVariableDeclaration}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createDataVariableDeclarationAdapter() {
-		if (dataVariableDeclarationItemProvider == null) {
-			dataVariableDeclarationItemProvider = new DataVariableDeclarationItemProvider(this);
-		}
-
-		return dataVariableDeclarationItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link org.muml.uppaal.declarations.FunctionDeclaration} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected FunctionDeclarationItemProvider functionDeclarationItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link org.muml.uppaal.declarations.FunctionDeclaration}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createFunctionDeclarationAdapter() {
-		if (functionDeclarationItemProvider == null) {
-			functionDeclarationItemProvider = new FunctionDeclarationItemProvider(this);
-		}
-
-		return functionDeclarationItemProvider;
-	}
-
-	/**
 	 * This keeps track of the one adapter used for all {@link org.muml.uppaal.declarations.Function} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -300,52 +208,6 @@ public class DeclarationsItemProviderAdapterFactory extends DeclarationsAdapterF
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link org.muml.uppaal.declarations.ValueIndex} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected ValueIndexItemProvider valueIndexItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link org.muml.uppaal.declarations.ValueIndex}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createValueIndexAdapter() {
-		if (valueIndexItemProvider == null) {
-			valueIndexItemProvider = new ValueIndexItemProvider(this);
-		}
-
-		return valueIndexItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link org.muml.uppaal.declarations.TypeIndex} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected TypeIndexItemProvider typeIndexItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link org.muml.uppaal.declarations.TypeIndex}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createTypeIndexAdapter() {
-		if (typeIndexItemProvider == null) {
-			typeIndexItemProvider = new TypeIndexItemProvider(this);
-		}
-
-		return typeIndexItemProvider;
-	}
-
-	/**
 	 * This keeps track of the one adapter used for all {@link org.muml.uppaal.declarations.Parameter} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -412,6 +274,52 @@ public class DeclarationsItemProviderAdapterFactory extends DeclarationsAdapterF
 		}
 
 		return arrayInitializerItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link org.muml.uppaal.declarations.TypedDeclaration} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected TypedDeclarationItemProvider typedDeclarationItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.muml.uppaal.declarations.TypedDeclaration}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createTypedDeclarationAdapter() {
+		if (typedDeclarationItemProvider == null) {
+			typedDeclarationItemProvider = new TypedDeclarationItemProvider(this);
+		}
+
+		return typedDeclarationItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link org.muml.uppaal.declarations.ParameterContainer} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ParameterContainerItemProvider parameterContainerItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.muml.uppaal.declarations.ParameterContainer}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createParameterContainerAdapter() {
+		if (parameterContainerItemProvider == null) {
+			parameterContainerItemProvider = new ParameterContainerItemProvider(this);
+		}
+
+		return parameterContainerItemProvider;
 	}
 
 	/**
@@ -516,18 +424,14 @@ public class DeclarationsItemProviderAdapterFactory extends DeclarationsAdapterF
 		if (globalDeclarationsItemProvider != null) globalDeclarationsItemProvider.dispose();
 		if (localDeclarationsItemProvider != null) localDeclarationsItemProvider.dispose();
 		if (systemDeclarationsItemProvider != null) systemDeclarationsItemProvider.dispose();
-		if (channelVariableDeclarationItemProvider != null) channelVariableDeclarationItemProvider.dispose();
-		if (clockVariableDeclarationItemProvider != null) clockVariableDeclarationItemProvider.dispose();
-		if (dataVariableDeclarationItemProvider != null) dataVariableDeclarationItemProvider.dispose();
-		if (functionDeclarationItemProvider != null) functionDeclarationItemProvider.dispose();
 		if (functionItemProvider != null) functionItemProvider.dispose();
 		if (typeDeclarationItemProvider != null) typeDeclarationItemProvider.dispose();
 		if (variableItemProvider != null) variableItemProvider.dispose();
-		if (valueIndexItemProvider != null) valueIndexItemProvider.dispose();
-		if (typeIndexItemProvider != null) typeIndexItemProvider.dispose();
 		if (parameterItemProvider != null) parameterItemProvider.dispose();
 		if (expressionInitializerItemProvider != null) expressionInitializerItemProvider.dispose();
 		if (arrayInitializerItemProvider != null) arrayInitializerItemProvider.dispose();
+		if (typedDeclarationItemProvider != null) typedDeclarationItemProvider.dispose();
+		if (parameterContainerItemProvider != null) parameterContainerItemProvider.dispose();
 	}
 
 }

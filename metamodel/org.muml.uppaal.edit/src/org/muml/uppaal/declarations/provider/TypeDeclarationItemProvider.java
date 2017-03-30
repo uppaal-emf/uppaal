@@ -13,6 +13,7 @@ import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 import org.muml.uppaal.declarations.DeclarationsPackage;
 import org.muml.uppaal.declarations.TypeDeclaration;
+import org.muml.uppaal.expressions.ExpressionsFactory;
 import org.muml.uppaal.types.TypesFactory;
 
 /**
@@ -140,11 +141,6 @@ public class TypeDeclarationItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(DeclarationsPackage.Literals.TYPE_DECLARATION__TYPE_DEFINITION,
-				 TypesFactory.eINSTANCE.createTypeReference()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(DeclarationsPackage.Literals.TYPE_DECLARATION__TYPE_DEFINITION,
 				 TypesFactory.eINSTANCE.createScalarTypeSpecification()));
 
 		newChildDescriptors.add
@@ -156,6 +152,106 @@ public class TypeDeclarationItemProvider
 			(createChildParameter
 				(DeclarationsPackage.Literals.TYPE_DECLARATION__TYPE_DEFINITION,
 				 TypesFactory.eINSTANCE.createRangeTypeSpecification()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DeclarationsPackage.Literals.TYPE_DECLARATION__TYPE_DEFINITION,
+				 ExpressionsFactory.eINSTANCE.createNegationExpression()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DeclarationsPackage.Literals.TYPE_DECLARATION__TYPE_DEFINITION,
+				 ExpressionsFactory.eINSTANCE.createPlusExpression()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DeclarationsPackage.Literals.TYPE_DECLARATION__TYPE_DEFINITION,
+				 ExpressionsFactory.eINSTANCE.createMinusExpression()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DeclarationsPackage.Literals.TYPE_DECLARATION__TYPE_DEFINITION,
+				 ExpressionsFactory.eINSTANCE.createAssignmentExpression()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DeclarationsPackage.Literals.TYPE_DECLARATION__TYPE_DEFINITION,
+				 ExpressionsFactory.eINSTANCE.createIdentifierExpression()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DeclarationsPackage.Literals.TYPE_DECLARATION__TYPE_DEFINITION,
+				 ExpressionsFactory.eINSTANCE.createScopedIdentifierExpression()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DeclarationsPackage.Literals.TYPE_DECLARATION__TYPE_DEFINITION,
+				 ExpressionsFactory.eINSTANCE.createLiteralExpression()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DeclarationsPackage.Literals.TYPE_DECLARATION__TYPE_DEFINITION,
+				 ExpressionsFactory.eINSTANCE.createArithmeticExpression()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DeclarationsPackage.Literals.TYPE_DECLARATION__TYPE_DEFINITION,
+				 ExpressionsFactory.eINSTANCE.createLogicalExpression()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DeclarationsPackage.Literals.TYPE_DECLARATION__TYPE_DEFINITION,
+				 ExpressionsFactory.eINSTANCE.createFunctionCallExpression()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DeclarationsPackage.Literals.TYPE_DECLARATION__TYPE_DEFINITION,
+				 ExpressionsFactory.eINSTANCE.createCompareExpression()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DeclarationsPackage.Literals.TYPE_DECLARATION__TYPE_DEFINITION,
+				 ExpressionsFactory.eINSTANCE.createConditionExpression()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DeclarationsPackage.Literals.TYPE_DECLARATION__TYPE_DEFINITION,
+				 ExpressionsFactory.eINSTANCE.createQuantificationExpression()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DeclarationsPackage.Literals.TYPE_DECLARATION__TYPE_DEFINITION,
+				 ExpressionsFactory.eINSTANCE.createPreIncrementDecrementExpression()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DeclarationsPackage.Literals.TYPE_DECLARATION__TYPE_DEFINITION,
+				 ExpressionsFactory.eINSTANCE.createPostIncrementDecrementExpression()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DeclarationsPackage.Literals.TYPE_DECLARATION__TYPE_DEFINITION,
+				 ExpressionsFactory.eINSTANCE.createBitShiftExpression()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DeclarationsPackage.Literals.TYPE_DECLARATION__TYPE_DEFINITION,
+				 ExpressionsFactory.eINSTANCE.createMinMaxExpression()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DeclarationsPackage.Literals.TYPE_DECLARATION__TYPE_DEFINITION,
+				 ExpressionsFactory.eINSTANCE.createBitwiseExpression()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DeclarationsPackage.Literals.TYPE_DECLARATION__TYPE_DEFINITION,
+				 ExpressionsFactory.eINSTANCE.createChannelPrefixExpression()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DeclarationsPackage.Literals.TYPE_DECLARATION__TYPE_DEFINITION,
+				 ExpressionsFactory.eINSTANCE.createDataPrefixExpression()));
 	}
 
 }

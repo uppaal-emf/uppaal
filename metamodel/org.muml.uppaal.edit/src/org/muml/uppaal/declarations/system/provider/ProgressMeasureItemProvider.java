@@ -22,6 +22,7 @@ import org.muml.uppaal.declarations.system.ProgressMeasure;
 import org.muml.uppaal.declarations.system.SystemPackage;
 import org.muml.uppaal.expressions.ExpressionsFactory;
 import org.muml.uppaal.provider.UppaalEditPlugin;
+import org.muml.uppaal.types.TypesFactory;
 
 /**
  * This is the item provider adapter for a {@link org.muml.uppaal.declarations.system.ProgressMeasure} object.
@@ -147,6 +148,21 @@ public class ProgressMeasureItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(SystemPackage.Literals.PROGRESS_MEASURE__EXPRESSION,
+				 TypesFactory.eINSTANCE.createScalarTypeSpecification()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(SystemPackage.Literals.PROGRESS_MEASURE__EXPRESSION,
+				 TypesFactory.eINSTANCE.createStructTypeSpecification()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(SystemPackage.Literals.PROGRESS_MEASURE__EXPRESSION,
+				 TypesFactory.eINSTANCE.createRangeTypeSpecification()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(SystemPackage.Literals.PROGRESS_MEASURE__EXPRESSION,
 				 ExpressionsFactory.eINSTANCE.createNegationExpression()));
 
 		newChildDescriptors.add
@@ -168,6 +184,11 @@ public class ProgressMeasureItemProvider
 			(createChildParameter
 				(SystemPackage.Literals.PROGRESS_MEASURE__EXPRESSION,
 				 ExpressionsFactory.eINSTANCE.createIdentifierExpression()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(SystemPackage.Literals.PROGRESS_MEASURE__EXPRESSION,
+				 ExpressionsFactory.eINSTANCE.createScopedIdentifierExpression()));
 
 		newChildDescriptors.add
 			(createChildParameter
@@ -202,17 +223,17 @@ public class ProgressMeasureItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(SystemPackage.Literals.PROGRESS_MEASURE__EXPRESSION,
-				 ExpressionsFactory.eINSTANCE.createScopedIdentifierExpression()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(SystemPackage.Literals.PROGRESS_MEASURE__EXPRESSION,
 				 ExpressionsFactory.eINSTANCE.createQuantificationExpression()));
 
 		newChildDescriptors.add
 			(createChildParameter
 				(SystemPackage.Literals.PROGRESS_MEASURE__EXPRESSION,
-				 ExpressionsFactory.eINSTANCE.createIncrementDecrementExpression()));
+				 ExpressionsFactory.eINSTANCE.createPreIncrementDecrementExpression()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(SystemPackage.Literals.PROGRESS_MEASURE__EXPRESSION,
+				 ExpressionsFactory.eINSTANCE.createPostIncrementDecrementExpression()));
 
 		newChildDescriptors.add
 			(createChildParameter
@@ -228,6 +249,16 @@ public class ProgressMeasureItemProvider
 			(createChildParameter
 				(SystemPackage.Literals.PROGRESS_MEASURE__EXPRESSION,
 				 ExpressionsFactory.eINSTANCE.createBitwiseExpression()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(SystemPackage.Literals.PROGRESS_MEASURE__EXPRESSION,
+				 ExpressionsFactory.eINSTANCE.createChannelPrefixExpression()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(SystemPackage.Literals.PROGRESS_MEASURE__EXPRESSION,
+				 ExpressionsFactory.eINSTANCE.createDataPrefixExpression()));
 	}
 
 	/**

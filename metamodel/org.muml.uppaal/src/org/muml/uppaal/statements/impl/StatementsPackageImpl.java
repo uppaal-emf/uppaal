@@ -550,7 +550,7 @@ public class StatementsPackageImpl extends EPackageImpl implements StatementsPac
 		emptyStatementEClass.getESuperTypes().add(this.getStatement());
 		forLoopEClass.getESuperTypes().add(this.getStatement());
 		iterationEClass.getESuperTypes().add(this.getStatement());
-		iterationEClass.getESuperTypes().add(theDeclarationsPackage.getVariableContainer());
+		iterationEClass.getESuperTypes().add(theDeclarationsPackage.getTypedElementContainer());
 		whileLoopEClass.getESuperTypes().add(this.getStatement());
 		doWhileLoopEClass.getESuperTypes().add(this.getStatement());
 		ifStatementEClass.getESuperTypes().add(this.getStatement());
@@ -618,12 +618,6 @@ public class StatementsPackageImpl extends EPackageImpl implements StatementsPac
 			 "validationDelegates", "http://www.eclipse.org/emf/2002/Ecore/OCL"
 		   });	
 		addAnnotation
-		  (blockEClass, 
-		   source, 
-		   new String[] {
-			 "constraints", "DataVariableDeclarationsOnly"
-		   });	
-		addAnnotation
 		  (iterationEClass, 
 		   source, 
 		   new String[] {
@@ -640,16 +634,10 @@ public class StatementsPackageImpl extends EPackageImpl implements StatementsPac
 	protected void createOCLAnnotations() {
 		String source = "http://www.eclipse.org/emf/2002/Ecore/OCL";	
 		addAnnotation
-		  (blockEClass, 
-		   source, 
-		   new String[] {
-			 "DataVariableDeclarationsOnly", "(not self.declarations.oclIsUndefined())\r\nimplies\r\n(self.declarations.declaration->forAll(oclIsKindOf(declarations::DataVariableDeclaration)))"
-		   });	
-		addAnnotation
 		  (iterationEClass, 
 		   source, 
 		   new String[] {
-			 "SingleVariable", "self.variable->size() <= 1"
+			 "SingleVariable", "self.elements->size() <= 1"
 		   });
 	}
 

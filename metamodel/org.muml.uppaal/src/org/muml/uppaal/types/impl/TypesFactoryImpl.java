@@ -16,7 +16,6 @@ import org.muml.uppaal.types.PredefinedType;
 import org.muml.uppaal.types.RangeTypeSpecification;
 import org.muml.uppaal.types.ScalarTypeSpecification;
 import org.muml.uppaal.types.StructTypeSpecification;
-import org.muml.uppaal.types.TypeReference;
 import org.muml.uppaal.types.TypesFactory;
 import org.muml.uppaal.types.TypesPackage;
 
@@ -66,7 +65,6 @@ public class TypesFactoryImpl extends EFactoryImpl implements TypesFactory {
 		switch (eClass.getClassifierID()) {
 			case TypesPackage.PREDEFINED_TYPE: return createPredefinedType();
 			case TypesPackage.DECLARED_TYPE: return createDeclaredType();
-			case TypesPackage.TYPE_REFERENCE: return createTypeReference();
 			case TypesPackage.SCALAR_TYPE_SPECIFICATION: return createScalarTypeSpecification();
 			case TypesPackage.STRUCT_TYPE_SPECIFICATION: return createStructTypeSpecification();
 			case TypesPackage.RANGE_TYPE_SPECIFICATION: return createRangeTypeSpecification();
@@ -125,16 +123,6 @@ public class TypesFactoryImpl extends EFactoryImpl implements TypesFactory {
 	public DeclaredType createDeclaredType() {
 		DeclaredTypeImpl declaredType = new DeclaredTypeImpl();
 		return declaredType;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public TypeReference createTypeReference() {
-		TypeReferenceImpl typeReference = new TypeReferenceImpl();
-		return typeReference;
 	}
 
 	/**

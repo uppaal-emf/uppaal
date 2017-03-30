@@ -2,7 +2,7 @@
  */
 package org.muml.uppaal.expressions;
 
-import org.muml.uppaal.declarations.VariableContainer;
+import org.muml.uppaal.declarations.TypedElementContainer;
 
 /**
  * <!-- begin-user-doc -->
@@ -22,11 +22,11 @@ import org.muml.uppaal.declarations.VariableContainer;
  * </ul>
  *
  * @see org.muml.uppaal.expressions.ExpressionsPackage#getQuantificationExpression()
- * @model annotation="http://www.eclipse.org/emf/2002/Ecore/OCL SingleVariable='self.variable->size() <= 1'"
+ * @model annotation="http://www.eclipse.org/emf/2002/Ecore/OCL SingleVariable='self.elements->size() <= 1'"
  *        annotation="http://www.eclipse.org/emf/2002/Ecore constraints='SingleVariable'"
  * @generated
  */
-public interface QuantificationExpression extends Expression, VariableContainer {
+public interface QuantificationExpression extends Expression, TypedElementContainer {
 	/**
 	 * Returns the value of the '<em><b>Quantifier</b></em>' attribute.
 	 * The literals are from the enumeration {@link org.muml.uppaal.expressions.Quantifier}.

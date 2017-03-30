@@ -10,7 +10,7 @@ import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.ResourceLocator;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
-import org.muml.uppaal.declarations.provider.VariableContainerItemProvider;
+import org.muml.uppaal.declarations.provider.TypedElementContainerItemProvider;
 import org.muml.uppaal.provider.UppaalEditPlugin;
 
 /**
@@ -19,8 +19,7 @@ import org.muml.uppaal.provider.UppaalEditPlugin;
  * <!-- end-user-doc -->
  * @generated
  */
-public class SelectionItemProvider
-	extends VariableContainerItemProvider {
+public class SelectionItemProvider extends TypedElementContainerItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
@@ -67,6 +66,7 @@ public class SelectionItemProvider
 	public String getText(Object object) {
 		return getString("_UI_Selection_type");
 	}
+	
 
 	/**
 	 * This handles model notifications by calling {@link #updateChildren} to update any cached

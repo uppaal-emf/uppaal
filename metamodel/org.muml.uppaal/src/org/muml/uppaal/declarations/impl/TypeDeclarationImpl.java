@@ -14,8 +14,8 @@ import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 import org.muml.uppaal.declarations.DeclarationsPackage;
 import org.muml.uppaal.declarations.TypeDeclaration;
+import org.muml.uppaal.expressions.Expression;
 import org.muml.uppaal.types.DeclaredType;
-import org.muml.uppaal.types.TypeDefinition;
 import org.muml.uppaal.types.TypesPackage;
 
 /**
@@ -51,7 +51,7 @@ public class TypeDeclarationImpl extends DeclarationImpl implements TypeDeclarat
 	 * @generated
 	 * @ordered
 	 */
-	protected TypeDefinition typeDefinition;
+	protected Expression typeDefinition;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -89,7 +89,7 @@ public class TypeDeclarationImpl extends DeclarationImpl implements TypeDeclarat
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public TypeDefinition getTypeDefinition() {
+	public Expression getTypeDefinition() {
 		return typeDefinition;
 	}
 
@@ -98,8 +98,8 @@ public class TypeDeclarationImpl extends DeclarationImpl implements TypeDeclarat
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetTypeDefinition(TypeDefinition newTypeDefinition, NotificationChain msgs) {
-		TypeDefinition oldTypeDefinition = typeDefinition;
+	public NotificationChain basicSetTypeDefinition(Expression newTypeDefinition, NotificationChain msgs) {
+		Expression oldTypeDefinition = typeDefinition;
 		typeDefinition = newTypeDefinition;
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, DeclarationsPackage.TYPE_DECLARATION__TYPE_DEFINITION, oldTypeDefinition, newTypeDefinition);
@@ -113,7 +113,7 @@ public class TypeDeclarationImpl extends DeclarationImpl implements TypeDeclarat
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setTypeDefinition(TypeDefinition newTypeDefinition) {
+	public void setTypeDefinition(Expression newTypeDefinition) {
 		if (newTypeDefinition != typeDefinition) {
 			NotificationChain msgs = null;
 			if (typeDefinition != null)
@@ -188,7 +188,7 @@ public class TypeDeclarationImpl extends DeclarationImpl implements TypeDeclarat
 				getType().addAll((Collection<? extends DeclaredType>)newValue);
 				return;
 			case DeclarationsPackage.TYPE_DECLARATION__TYPE_DEFINITION:
-				setTypeDefinition((TypeDefinition)newValue);
+				setTypeDefinition((Expression)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -206,7 +206,7 @@ public class TypeDeclarationImpl extends DeclarationImpl implements TypeDeclarat
 				getType().clear();
 				return;
 			case DeclarationsPackage.TYPE_DECLARATION__TYPE_DEFINITION:
-				setTypeDefinition((TypeDefinition)null);
+				setTypeDefinition((Expression)null);
 				return;
 		}
 		super.eUnset(featureID);

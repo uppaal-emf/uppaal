@@ -18,6 +18,7 @@ import org.muml.uppaal.declarations.system.TemplateDeclaration;
 import org.muml.uppaal.expressions.ExpressionsFactory;
 import org.muml.uppaal.provider.UppaalEditPlugin;
 import org.muml.uppaal.templates.TemplatesFactory;
+import org.muml.uppaal.types.TypesFactory;
 
 /**
  * This is the item provider adapter for a {@link org.muml.uppaal.declarations.system.TemplateDeclaration} object.
@@ -144,6 +145,21 @@ public class TemplateDeclarationItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(SystemPackage.Literals.TEMPLATE_DECLARATION__ARGUMENT,
+				 TypesFactory.eINSTANCE.createScalarTypeSpecification()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(SystemPackage.Literals.TEMPLATE_DECLARATION__ARGUMENT,
+				 TypesFactory.eINSTANCE.createStructTypeSpecification()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(SystemPackage.Literals.TEMPLATE_DECLARATION__ARGUMENT,
+				 TypesFactory.eINSTANCE.createRangeTypeSpecification()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(SystemPackage.Literals.TEMPLATE_DECLARATION__ARGUMENT,
 				 ExpressionsFactory.eINSTANCE.createNegationExpression()));
 
 		newChildDescriptors.add
@@ -165,6 +181,11 @@ public class TemplateDeclarationItemProvider
 			(createChildParameter
 				(SystemPackage.Literals.TEMPLATE_DECLARATION__ARGUMENT,
 				 ExpressionsFactory.eINSTANCE.createIdentifierExpression()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(SystemPackage.Literals.TEMPLATE_DECLARATION__ARGUMENT,
+				 ExpressionsFactory.eINSTANCE.createScopedIdentifierExpression()));
 
 		newChildDescriptors.add
 			(createChildParameter
@@ -199,17 +220,17 @@ public class TemplateDeclarationItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(SystemPackage.Literals.TEMPLATE_DECLARATION__ARGUMENT,
-				 ExpressionsFactory.eINSTANCE.createScopedIdentifierExpression()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(SystemPackage.Literals.TEMPLATE_DECLARATION__ARGUMENT,
 				 ExpressionsFactory.eINSTANCE.createQuantificationExpression()));
 
 		newChildDescriptors.add
 			(createChildParameter
 				(SystemPackage.Literals.TEMPLATE_DECLARATION__ARGUMENT,
-				 ExpressionsFactory.eINSTANCE.createIncrementDecrementExpression()));
+				 ExpressionsFactory.eINSTANCE.createPreIncrementDecrementExpression()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(SystemPackage.Literals.TEMPLATE_DECLARATION__ARGUMENT,
+				 ExpressionsFactory.eINSTANCE.createPostIncrementDecrementExpression()));
 
 		newChildDescriptors.add
 			(createChildParameter
@@ -225,6 +246,16 @@ public class TemplateDeclarationItemProvider
 			(createChildParameter
 				(SystemPackage.Literals.TEMPLATE_DECLARATION__ARGUMENT,
 				 ExpressionsFactory.eINSTANCE.createBitwiseExpression()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(SystemPackage.Literals.TEMPLATE_DECLARATION__ARGUMENT,
+				 ExpressionsFactory.eINSTANCE.createChannelPrefixExpression()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(SystemPackage.Literals.TEMPLATE_DECLARATION__ARGUMENT,
+				 ExpressionsFactory.eINSTANCE.createDataPrefixExpression()));
 	}
 
 	/**

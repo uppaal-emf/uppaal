@@ -8,7 +8,6 @@ import org.muml.uppaal.core.NamedElement;
 import org.muml.uppaal.declarations.GlobalDeclarations;
 import org.muml.uppaal.declarations.SystemDeclarations;
 import org.muml.uppaal.templates.Template;
-import org.muml.uppaal.types.PredefinedType;
 
 /**
  * <!-- begin-user-doc -->
@@ -26,17 +25,12 @@ import org.muml.uppaal.types.PredefinedType;
  *   <li>{@link org.muml.uppaal.NTA#getGlobalDeclarations <em>Global Declarations</em>}</li>
  *   <li>{@link org.muml.uppaal.NTA#getTemplate <em>Template</em>}</li>
  *   <li>{@link org.muml.uppaal.NTA#getSystemDeclarations <em>System Declarations</em>}</li>
- *   <li>{@link org.muml.uppaal.NTA#getInt <em>Int</em>}</li>
- *   <li>{@link org.muml.uppaal.NTA#getBool <em>Bool</em>}</li>
- *   <li>{@link org.muml.uppaal.NTA#getClock <em>Clock</em>}</li>
- *   <li>{@link org.muml.uppaal.NTA#getChan <em>Chan</em>}</li>
- *   <li>{@link org.muml.uppaal.NTA#getVoid <em>Void</em>}</li>
  * </ul>
  *
  * @see org.muml.uppaal.UppaalPackage#getNTA()
  * @model extendedMetaData="name='NTA' kind='elementOnly'"
- *        annotation="http://www.eclipse.org/emf/2002/Ecore/OCL MatchingIntDetails='(not self.int.oclIsUndefined())\r\nimplies\r\n((self.int.type = types::BuiltInType::INT) and (self.int.name.equalsIgnoreCase(\'int\')))' MatchingBoolDetails='(not self.bool.oclIsUndefined())\r\nimplies\r\n((self.bool.type = types::BuiltInType::BOOL) and (self.bool.name.equalsIgnoreCase(\'bool\')))' MatchingClockDetails='(not self.clock.oclIsUndefined())\r\nimplies\r\n((self.clock.type = types::BuiltInType::CLOCK) and (self.clock.name.equalsIgnoreCase(\'clock\')))' MatchingChanDetails='(not self.chan.oclIsUndefined())\r\nimplies\r\n((self.chan.type = types::BuiltInType::CHAN) and (self.chan.name.equalsIgnoreCase(\'chan\')))' MatchingVoidDetails='(not self.void.oclIsUndefined())\r\nimplies\r\n((self.void.type = types::BuiltInType::VOID) and (self.void.name.equalsIgnoreCase(\'void\')))' UniqueTemplateNames='self.template->isUnique(name)'"
- *        annotation="http://www.eclipse.org/emf/2002/Ecore constraints='MatchingIntDetails MatchingBoolDetails MatchingClockDetails MatchingChanDetails MatchingVoidDetails UniqueTemplateNames'"
+ *        annotation="http://www.eclipse.org/emf/2002/Ecore/OCL UniqueTemplateNames='self.template->isUnique(name)'"
+ *        annotation="http://www.eclipse.org/emf/2002/Ecore constraints='UniqueTemplateNames'"
  * @generated
  */
 public interface NTA extends NamedElement, CommentableElement {
@@ -107,130 +101,5 @@ public interface NTA extends NamedElement, CommentableElement {
 	 * @generated
 	 */
 	void setSystemDeclarations(SystemDeclarations value);
-
-	/**
-	 * Returns the value of the '<em><b>Int</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * The predefined type 'int'.
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Int</em>' containment reference.
-	 * @see #setInt(PredefinedType)
-	 * @see org.muml.uppaal.UppaalPackage#getNTA_Int()
-	 * @model containment="true" required="true"
-	 * @generated
-	 */
-	PredefinedType getInt();
-
-	/**
-	 * Sets the value of the '{@link org.muml.uppaal.NTA#getInt <em>Int</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Int</em>' containment reference.
-	 * @see #getInt()
-	 * @generated
-	 */
-	void setInt(PredefinedType value);
-
-	/**
-	 * Returns the value of the '<em><b>Bool</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * The predefined type 'bool'.
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Bool</em>' containment reference.
-	 * @see #setBool(PredefinedType)
-	 * @see org.muml.uppaal.UppaalPackage#getNTA_Bool()
-	 * @model containment="true" required="true"
-	 * @generated
-	 */
-	PredefinedType getBool();
-
-	/**
-	 * Sets the value of the '{@link org.muml.uppaal.NTA#getBool <em>Bool</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Bool</em>' containment reference.
-	 * @see #getBool()
-	 * @generated
-	 */
-	void setBool(PredefinedType value);
-
-	/**
-	 * Returns the value of the '<em><b>Clock</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * The predefined type 'clock'.
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Clock</em>' containment reference.
-	 * @see #setClock(PredefinedType)
-	 * @see org.muml.uppaal.UppaalPackage#getNTA_Clock()
-	 * @model containment="true" required="true"
-	 * @generated
-	 */
-	PredefinedType getClock();
-
-	/**
-	 * Sets the value of the '{@link org.muml.uppaal.NTA#getClock <em>Clock</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Clock</em>' containment reference.
-	 * @see #getClock()
-	 * @generated
-	 */
-	void setClock(PredefinedType value);
-
-	/**
-	 * Returns the value of the '<em><b>Chan</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * The predefined type 'chan'.
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Chan</em>' containment reference.
-	 * @see #setChan(PredefinedType)
-	 * @see org.muml.uppaal.UppaalPackage#getNTA_Chan()
-	 * @model containment="true" required="true"
-	 * @generated
-	 */
-	PredefinedType getChan();
-
-	/**
-	 * Sets the value of the '{@link org.muml.uppaal.NTA#getChan <em>Chan</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Chan</em>' containment reference.
-	 * @see #getChan()
-	 * @generated
-	 */
-	void setChan(PredefinedType value);
-
-	/**
-	 * Returns the value of the '<em><b>Void</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * The predefined dummy type 'void'.
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Void</em>' containment reference.
-	 * @see #setVoid(PredefinedType)
-	 * @see org.muml.uppaal.UppaalPackage#getNTA_Void()
-	 * @model containment="true" required="true"
-	 * @generated
-	 */
-	PredefinedType getVoid();
-
-	/**
-	 * Sets the value of the '{@link org.muml.uppaal.NTA#getVoid <em>Void</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Void</em>' containment reference.
-	 * @see #getVoid()
-	 * @generated
-	 */
-	void setVoid(PredefinedType value);
 
 } // NTA

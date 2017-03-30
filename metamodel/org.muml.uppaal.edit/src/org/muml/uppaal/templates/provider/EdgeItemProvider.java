@@ -20,6 +20,7 @@ import org.muml.uppaal.provider.UppaalEditPlugin;
 import org.muml.uppaal.templates.Edge;
 import org.muml.uppaal.templates.TemplatesFactory;
 import org.muml.uppaal.templates.TemplatesPackage;
+import org.muml.uppaal.types.TypesFactory;
 import org.muml.uppaal.visuals.VisualsPackage;
 import org.muml.uppaal.visuals.provider.LinearElementItemProvider;
 
@@ -53,7 +54,6 @@ public class EdgeItemProvider
 			super.getPropertyDescriptors(object);
 
 			addCommentPropertyDescriptor(object);
-			addColorPropertyDescriptor(object);
 			addColorCodePropertyDescriptor(object);
 			addSourcePropertyDescriptor(object);
 			addTargetPropertyDescriptor(object);
@@ -75,28 +75,6 @@ public class EdgeItemProvider
 				 getString("_UI_CommentableElement_comment_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_CommentableElement_comment_feature", "_UI_CommentableElement_type"),
 				 CorePackage.Literals.COMMENTABLE_ELEMENT__COMMENT,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Color feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addColorPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_ColoredElement_color_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_ColoredElement_color_feature", "_UI_ColoredElement_type"),
-				 VisualsPackage.Literals.COLORED_ELEMENT__COLOR,
 				 true,
 				 false,
 				 false,
@@ -242,7 +220,6 @@ public class EdgeItemProvider
 
 		switch (notification.getFeatureID(Edge.class)) {
 			case TemplatesPackage.EDGE__COMMENT:
-			case TemplatesPackage.EDGE__COLOR:
 			case TemplatesPackage.EDGE__COLOR_CODE:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
@@ -270,6 +247,21 @@ public class EdgeItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(TemplatesPackage.Literals.EDGE__GUARD,
+				 TypesFactory.eINSTANCE.createScalarTypeSpecification()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(TemplatesPackage.Literals.EDGE__GUARD,
+				 TypesFactory.eINSTANCE.createStructTypeSpecification()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(TemplatesPackage.Literals.EDGE__GUARD,
+				 TypesFactory.eINSTANCE.createRangeTypeSpecification()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(TemplatesPackage.Literals.EDGE__GUARD,
 				 ExpressionsFactory.eINSTANCE.createNegationExpression()));
 
 		newChildDescriptors.add
@@ -291,6 +283,11 @@ public class EdgeItemProvider
 			(createChildParameter
 				(TemplatesPackage.Literals.EDGE__GUARD,
 				 ExpressionsFactory.eINSTANCE.createIdentifierExpression()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(TemplatesPackage.Literals.EDGE__GUARD,
+				 ExpressionsFactory.eINSTANCE.createScopedIdentifierExpression()));
 
 		newChildDescriptors.add
 			(createChildParameter
@@ -325,17 +322,17 @@ public class EdgeItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(TemplatesPackage.Literals.EDGE__GUARD,
-				 ExpressionsFactory.eINSTANCE.createScopedIdentifierExpression()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(TemplatesPackage.Literals.EDGE__GUARD,
 				 ExpressionsFactory.eINSTANCE.createQuantificationExpression()));
 
 		newChildDescriptors.add
 			(createChildParameter
 				(TemplatesPackage.Literals.EDGE__GUARD,
-				 ExpressionsFactory.eINSTANCE.createIncrementDecrementExpression()));
+				 ExpressionsFactory.eINSTANCE.createPreIncrementDecrementExpression()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(TemplatesPackage.Literals.EDGE__GUARD,
+				 ExpressionsFactory.eINSTANCE.createPostIncrementDecrementExpression()));
 
 		newChildDescriptors.add
 			(createChildParameter
@@ -351,6 +348,31 @@ public class EdgeItemProvider
 			(createChildParameter
 				(TemplatesPackage.Literals.EDGE__GUARD,
 				 ExpressionsFactory.eINSTANCE.createBitwiseExpression()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(TemplatesPackage.Literals.EDGE__GUARD,
+				 ExpressionsFactory.eINSTANCE.createChannelPrefixExpression()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(TemplatesPackage.Literals.EDGE__GUARD,
+				 ExpressionsFactory.eINSTANCE.createDataPrefixExpression()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(TemplatesPackage.Literals.EDGE__UPDATE,
+				 TypesFactory.eINSTANCE.createScalarTypeSpecification()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(TemplatesPackage.Literals.EDGE__UPDATE,
+				 TypesFactory.eINSTANCE.createStructTypeSpecification()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(TemplatesPackage.Literals.EDGE__UPDATE,
+				 TypesFactory.eINSTANCE.createRangeTypeSpecification()));
 
 		newChildDescriptors.add
 			(createChildParameter
@@ -376,6 +398,11 @@ public class EdgeItemProvider
 			(createChildParameter
 				(TemplatesPackage.Literals.EDGE__UPDATE,
 				 ExpressionsFactory.eINSTANCE.createIdentifierExpression()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(TemplatesPackage.Literals.EDGE__UPDATE,
+				 ExpressionsFactory.eINSTANCE.createScopedIdentifierExpression()));
 
 		newChildDescriptors.add
 			(createChildParameter
@@ -410,17 +437,17 @@ public class EdgeItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(TemplatesPackage.Literals.EDGE__UPDATE,
-				 ExpressionsFactory.eINSTANCE.createScopedIdentifierExpression()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(TemplatesPackage.Literals.EDGE__UPDATE,
 				 ExpressionsFactory.eINSTANCE.createQuantificationExpression()));
 
 		newChildDescriptors.add
 			(createChildParameter
 				(TemplatesPackage.Literals.EDGE__UPDATE,
-				 ExpressionsFactory.eINSTANCE.createIncrementDecrementExpression()));
+				 ExpressionsFactory.eINSTANCE.createPreIncrementDecrementExpression()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(TemplatesPackage.Literals.EDGE__UPDATE,
+				 ExpressionsFactory.eINSTANCE.createPostIncrementDecrementExpression()));
 
 		newChildDescriptors.add
 			(createChildParameter
@@ -436,6 +463,16 @@ public class EdgeItemProvider
 			(createChildParameter
 				(TemplatesPackage.Literals.EDGE__UPDATE,
 				 ExpressionsFactory.eINSTANCE.createBitwiseExpression()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(TemplatesPackage.Literals.EDGE__UPDATE,
+				 ExpressionsFactory.eINSTANCE.createChannelPrefixExpression()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(TemplatesPackage.Literals.EDGE__UPDATE,
+				 ExpressionsFactory.eINSTANCE.createDataPrefixExpression()));
 
 		newChildDescriptors.add
 			(createChildParameter

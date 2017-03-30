@@ -24,7 +24,7 @@ import org.muml.uppaal.types.TypesPackage;
  *
  * @generated
  */
-public class ScalarTypeSpecificationImpl extends TypeSpecificationImpl implements ScalarTypeSpecification {
+public class ScalarTypeSpecificationImpl extends TypeExpressionImpl implements ScalarTypeSpecification {
 	/**
 	 * The cached value of the '{@link #getSizeExpression() <em>Size Expression</em>}' containment reference.
 	 * <!-- begin-user-doc -->

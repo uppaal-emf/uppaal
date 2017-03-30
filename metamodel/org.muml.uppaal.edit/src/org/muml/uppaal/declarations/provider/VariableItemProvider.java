@@ -13,11 +13,14 @@ import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
+import org.muml.uppaal.core.CorePackage;
 import org.muml.uppaal.core.provider.NamedElementItemProvider;
 import org.muml.uppaal.declarations.DeclarationsFactory;
 import org.muml.uppaal.declarations.DeclarationsPackage;
 import org.muml.uppaal.declarations.Variable;
+import org.muml.uppaal.expressions.ExpressionsFactory;
 import org.muml.uppaal.provider.UppaalEditPlugin;
+import org.muml.uppaal.types.TypesFactory;
 
 /**
  * This is the item provider adapter for a {@link org.muml.uppaal.declarations.Variable} object.
@@ -64,9 +67,9 @@ public class VariableItemProvider
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_Variable_typeDefinition_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Variable_typeDefinition_feature", "_UI_Variable_type"),
-				 DeclarationsPackage.Literals.VARIABLE__TYPE_DEFINITION,
+				 getString("_UI_TypedElement_typeDefinition_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_TypedElement_typeDefinition_feature", "_UI_TypedElement_type"),
+				 CorePackage.Literals.TYPED_ELEMENT__TYPE_DEFINITION,
 				 false,
 				 false,
 				 false,
@@ -165,12 +168,117 @@ public class VariableItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(DeclarationsPackage.Literals.VARIABLE__INDEX,
-				 DeclarationsFactory.eINSTANCE.createValueIndex()));
+				 TypesFactory.eINSTANCE.createScalarTypeSpecification()));
 
 		newChildDescriptors.add
 			(createChildParameter
 				(DeclarationsPackage.Literals.VARIABLE__INDEX,
-				 DeclarationsFactory.eINSTANCE.createTypeIndex()));
+				 TypesFactory.eINSTANCE.createStructTypeSpecification()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DeclarationsPackage.Literals.VARIABLE__INDEX,
+				 TypesFactory.eINSTANCE.createRangeTypeSpecification()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DeclarationsPackage.Literals.VARIABLE__INDEX,
+				 ExpressionsFactory.eINSTANCE.createNegationExpression()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DeclarationsPackage.Literals.VARIABLE__INDEX,
+				 ExpressionsFactory.eINSTANCE.createPlusExpression()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DeclarationsPackage.Literals.VARIABLE__INDEX,
+				 ExpressionsFactory.eINSTANCE.createMinusExpression()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DeclarationsPackage.Literals.VARIABLE__INDEX,
+				 ExpressionsFactory.eINSTANCE.createAssignmentExpression()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DeclarationsPackage.Literals.VARIABLE__INDEX,
+				 ExpressionsFactory.eINSTANCE.createIdentifierExpression()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DeclarationsPackage.Literals.VARIABLE__INDEX,
+				 ExpressionsFactory.eINSTANCE.createScopedIdentifierExpression()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DeclarationsPackage.Literals.VARIABLE__INDEX,
+				 ExpressionsFactory.eINSTANCE.createLiteralExpression()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DeclarationsPackage.Literals.VARIABLE__INDEX,
+				 ExpressionsFactory.eINSTANCE.createArithmeticExpression()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DeclarationsPackage.Literals.VARIABLE__INDEX,
+				 ExpressionsFactory.eINSTANCE.createLogicalExpression()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DeclarationsPackage.Literals.VARIABLE__INDEX,
+				 ExpressionsFactory.eINSTANCE.createFunctionCallExpression()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DeclarationsPackage.Literals.VARIABLE__INDEX,
+				 ExpressionsFactory.eINSTANCE.createCompareExpression()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DeclarationsPackage.Literals.VARIABLE__INDEX,
+				 ExpressionsFactory.eINSTANCE.createConditionExpression()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DeclarationsPackage.Literals.VARIABLE__INDEX,
+				 ExpressionsFactory.eINSTANCE.createQuantificationExpression()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DeclarationsPackage.Literals.VARIABLE__INDEX,
+				 ExpressionsFactory.eINSTANCE.createPreIncrementDecrementExpression()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DeclarationsPackage.Literals.VARIABLE__INDEX,
+				 ExpressionsFactory.eINSTANCE.createPostIncrementDecrementExpression()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DeclarationsPackage.Literals.VARIABLE__INDEX,
+				 ExpressionsFactory.eINSTANCE.createBitShiftExpression()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DeclarationsPackage.Literals.VARIABLE__INDEX,
+				 ExpressionsFactory.eINSTANCE.createMinMaxExpression()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DeclarationsPackage.Literals.VARIABLE__INDEX,
+				 ExpressionsFactory.eINSTANCE.createBitwiseExpression()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DeclarationsPackage.Literals.VARIABLE__INDEX,
+				 ExpressionsFactory.eINSTANCE.createChannelPrefixExpression()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DeclarationsPackage.Literals.VARIABLE__INDEX,
+				 ExpressionsFactory.eINSTANCE.createDataPrefixExpression()));
 
 		newChildDescriptors.add
 			(createChildParameter

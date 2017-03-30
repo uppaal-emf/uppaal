@@ -6,28 +6,23 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.util.Switch;
 import org.muml.uppaal.core.NamedElement;
+import org.muml.uppaal.core.TypedElement;
 import org.muml.uppaal.declarations.ArrayInitializer;
-import org.muml.uppaal.declarations.ChannelVariableDeclaration;
-import org.muml.uppaal.declarations.ClockVariableDeclaration;
-import org.muml.uppaal.declarations.DataVariableDeclaration;
 import org.muml.uppaal.declarations.Declaration;
 import org.muml.uppaal.declarations.Declarations;
 import org.muml.uppaal.declarations.DeclarationsPackage;
 import org.muml.uppaal.declarations.ExpressionInitializer;
 import org.muml.uppaal.declarations.Function;
-import org.muml.uppaal.declarations.FunctionDeclaration;
 import org.muml.uppaal.declarations.GlobalDeclarations;
-import org.muml.uppaal.declarations.Index;
 import org.muml.uppaal.declarations.Initializer;
 import org.muml.uppaal.declarations.LocalDeclarations;
 import org.muml.uppaal.declarations.Parameter;
+import org.muml.uppaal.declarations.ParameterContainer;
 import org.muml.uppaal.declarations.SystemDeclarations;
 import org.muml.uppaal.declarations.TypeDeclaration;
-import org.muml.uppaal.declarations.TypeIndex;
-import org.muml.uppaal.declarations.ValueIndex;
+import org.muml.uppaal.declarations.TypedDeclaration;
+import org.muml.uppaal.declarations.TypedElementContainer;
 import org.muml.uppaal.declarations.Variable;
-import org.muml.uppaal.declarations.VariableContainer;
-import org.muml.uppaal.declarations.VariableDeclaration;
 
 /**
  * <!-- begin-user-doc -->
@@ -119,52 +114,11 @@ public class DeclarationsSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case DeclarationsPackage.VARIABLE_DECLARATION: {
-				VariableDeclaration variableDeclaration = (VariableDeclaration)theEObject;
-				T result = caseVariableDeclaration(variableDeclaration);
-				if (result == null) result = caseDeclaration(variableDeclaration);
-				if (result == null) result = caseVariableContainer(variableDeclaration);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case DeclarationsPackage.CHANNEL_VARIABLE_DECLARATION: {
-				ChannelVariableDeclaration channelVariableDeclaration = (ChannelVariableDeclaration)theEObject;
-				T result = caseChannelVariableDeclaration(channelVariableDeclaration);
-				if (result == null) result = caseVariableDeclaration(channelVariableDeclaration);
-				if (result == null) result = caseDeclaration(channelVariableDeclaration);
-				if (result == null) result = caseVariableContainer(channelVariableDeclaration);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case DeclarationsPackage.CLOCK_VARIABLE_DECLARATION: {
-				ClockVariableDeclaration clockVariableDeclaration = (ClockVariableDeclaration)theEObject;
-				T result = caseClockVariableDeclaration(clockVariableDeclaration);
-				if (result == null) result = caseVariableDeclaration(clockVariableDeclaration);
-				if (result == null) result = caseDeclaration(clockVariableDeclaration);
-				if (result == null) result = caseVariableContainer(clockVariableDeclaration);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case DeclarationsPackage.DATA_VARIABLE_DECLARATION: {
-				DataVariableDeclaration dataVariableDeclaration = (DataVariableDeclaration)theEObject;
-				T result = caseDataVariableDeclaration(dataVariableDeclaration);
-				if (result == null) result = caseVariableDeclaration(dataVariableDeclaration);
-				if (result == null) result = caseDeclaration(dataVariableDeclaration);
-				if (result == null) result = caseVariableContainer(dataVariableDeclaration);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case DeclarationsPackage.FUNCTION_DECLARATION: {
-				FunctionDeclaration functionDeclaration = (FunctionDeclaration)theEObject;
-				T result = caseFunctionDeclaration(functionDeclaration);
-				if (result == null) result = caseDeclaration(functionDeclaration);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
 			case DeclarationsPackage.FUNCTION: {
 				Function function = (Function)theEObject;
 				T result = caseFunction(function);
 				if (result == null) result = caseNamedElement(function);
+				if (result == null) result = caseTypedElement(function);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -179,38 +133,22 @@ public class DeclarationsSwitch<T> extends Switch<T> {
 				Variable variable = (Variable)theEObject;
 				T result = caseVariable(variable);
 				if (result == null) result = caseNamedElement(variable);
+				if (result == null) result = caseTypedElement(variable);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case DeclarationsPackage.INDEX: {
-				Index index = (Index)theEObject;
-				T result = caseIndex(index);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case DeclarationsPackage.VALUE_INDEX: {
-				ValueIndex valueIndex = (ValueIndex)theEObject;
-				T result = caseValueIndex(valueIndex);
-				if (result == null) result = caseIndex(valueIndex);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case DeclarationsPackage.TYPE_INDEX: {
-				TypeIndex typeIndex = (TypeIndex)theEObject;
-				T result = caseTypeIndex(typeIndex);
-				if (result == null) result = caseIndex(typeIndex);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case DeclarationsPackage.VARIABLE_CONTAINER: {
-				VariableContainer variableContainer = (VariableContainer)theEObject;
-				T result = caseVariableContainer(variableContainer);
+			case DeclarationsPackage.TYPED_ELEMENT_CONTAINER: {
+				TypedElementContainer typedElementContainer = (TypedElementContainer)theEObject;
+				T result = caseTypedElementContainer(typedElementContainer);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case DeclarationsPackage.PARAMETER: {
 				Parameter parameter = (Parameter)theEObject;
 				T result = caseParameter(parameter);
+				if (result == null) result = caseVariable(parameter);
+				if (result == null) result = caseNamedElement(parameter);
+				if (result == null) result = caseTypedElement(parameter);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -231,6 +169,21 @@ public class DeclarationsSwitch<T> extends Switch<T> {
 				ArrayInitializer arrayInitializer = (ArrayInitializer)theEObject;
 				T result = caseArrayInitializer(arrayInitializer);
 				if (result == null) result = caseInitializer(arrayInitializer);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case DeclarationsPackage.TYPED_DECLARATION: {
+				TypedDeclaration typedDeclaration = (TypedDeclaration)theEObject;
+				T result = caseTypedDeclaration(typedDeclaration);
+				if (result == null) result = caseDeclaration(typedDeclaration);
+				if (result == null) result = caseTypedElementContainer(typedDeclaration);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case DeclarationsPackage.PARAMETER_CONTAINER: {
+				ParameterContainer parameterContainer = (ParameterContainer)theEObject;
+				T result = caseParameterContainer(parameterContainer);
+				if (result == null) result = caseTypedElementContainer(parameterContainer);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -314,81 +267,6 @@ public class DeclarationsSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Variable Declaration</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Variable Declaration</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseVariableDeclaration(VariableDeclaration object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Channel Variable Declaration</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Channel Variable Declaration</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseChannelVariableDeclaration(ChannelVariableDeclaration object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Clock Variable Declaration</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Clock Variable Declaration</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseClockVariableDeclaration(ClockVariableDeclaration object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Data Variable Declaration</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Data Variable Declaration</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseDataVariableDeclaration(DataVariableDeclaration object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Function Declaration</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Function Declaration</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseFunctionDeclaration(FunctionDeclaration object) {
-		return null;
-	}
-
-	/**
 	 * Returns the result of interpreting the object as an instance of '<em>Function</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -434,62 +312,17 @@ public class DeclarationsSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Index</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Typed Element Container</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Index</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Typed Element Container</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseIndex(Index object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Value Index</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Value Index</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseValueIndex(ValueIndex object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Type Index</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Type Index</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseTypeIndex(TypeIndex object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Variable Container</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Variable Container</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseVariableContainer(VariableContainer object) {
+	public T caseTypedElementContainer(TypedElementContainer object) {
 		return null;
 	}
 
@@ -554,6 +387,36 @@ public class DeclarationsSwitch<T> extends Switch<T> {
 	}
 
 	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Typed Declaration</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Typed Declaration</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseTypedDeclaration(TypedDeclaration object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Parameter Container</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Parameter Container</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseParameterContainer(ParameterContainer object) {
+		return null;
+	}
+
+	/**
 	 * Returns the result of interpreting the object as an instance of '<em>Named Element</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -565,6 +428,21 @@ public class DeclarationsSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseNamedElement(NamedElement object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Typed Element</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Typed Element</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseTypedElement(TypedElement object) {
 		return null;
 	}
 

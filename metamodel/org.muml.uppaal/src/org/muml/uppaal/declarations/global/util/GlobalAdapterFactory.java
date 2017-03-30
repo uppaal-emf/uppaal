@@ -6,11 +6,13 @@ import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notifier;
 import org.eclipse.emf.common.notify.impl.AdapterFactoryImpl;
 import org.eclipse.emf.ecore.EObject;
-import org.muml.uppaal.declarations.global.ChannelList;
-import org.muml.uppaal.declarations.global.ChannelPriority;
-import org.muml.uppaal.declarations.global.ChannelPriorityItem;
-import org.muml.uppaal.declarations.global.DefaultChannelPriority;
+import org.muml.uppaal.declarations.Declaration;
+import org.muml.uppaal.declarations.global.ChannelItem;
+import org.muml.uppaal.declarations.global.ChannelPriorityDeclaration;
+import org.muml.uppaal.declarations.global.ChannelPriorityGroup;
+import org.muml.uppaal.declarations.global.DefaultItem;
 import org.muml.uppaal.declarations.global.GlobalPackage;
+import org.muml.uppaal.declarations.global.PriorityItem;
 
 /**
  * <!-- begin-user-doc -->
@@ -69,20 +71,28 @@ public class GlobalAdapterFactory extends AdapterFactoryImpl {
 	protected GlobalSwitch<Adapter> modelSwitch =
 		new GlobalSwitch<Adapter>() {
 			@Override
-			public Adapter caseChannelPriority(ChannelPriority object) {
-				return createChannelPriorityAdapter();
+			public Adapter caseChannelPriorityDeclaration(ChannelPriorityDeclaration object) {
+				return createChannelPriorityDeclarationAdapter();
 			}
 			@Override
-			public Adapter caseChannelPriorityItem(ChannelPriorityItem object) {
-				return createChannelPriorityItemAdapter();
+			public Adapter caseChannelPriorityGroup(ChannelPriorityGroup object) {
+				return createChannelPriorityGroupAdapter();
 			}
 			@Override
-			public Adapter caseChannelList(ChannelList object) {
-				return createChannelListAdapter();
+			public Adapter casePriorityItem(PriorityItem object) {
+				return createPriorityItemAdapter();
 			}
 			@Override
-			public Adapter caseDefaultChannelPriority(DefaultChannelPriority object) {
-				return createDefaultChannelPriorityAdapter();
+			public Adapter caseChannelItem(ChannelItem object) {
+				return createChannelItemAdapter();
+			}
+			@Override
+			public Adapter caseDefaultItem(DefaultItem object) {
+				return createDefaultItemAdapter();
+			}
+			@Override
+			public Adapter caseDeclaration(Declaration object) {
+				return createDeclarationAdapter();
 			}
 			@Override
 			public Adapter defaultCase(EObject object) {
@@ -105,58 +115,86 @@ public class GlobalAdapterFactory extends AdapterFactoryImpl {
 
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.muml.uppaal.declarations.global.ChannelPriority <em>Channel Priority</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.muml.uppaal.declarations.global.ChannelPriorityDeclaration <em>Channel Priority Declaration</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see org.muml.uppaal.declarations.global.ChannelPriority
+	 * @see org.muml.uppaal.declarations.global.ChannelPriorityDeclaration
 	 * @generated
 	 */
-	public Adapter createChannelPriorityAdapter() {
+	public Adapter createChannelPriorityDeclarationAdapter() {
 		return null;
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.muml.uppaal.declarations.global.ChannelPriorityItem <em>Channel Priority Item</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.muml.uppaal.declarations.global.ChannelPriorityGroup <em>Channel Priority Group</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see org.muml.uppaal.declarations.global.ChannelPriorityItem
+	 * @see org.muml.uppaal.declarations.global.ChannelPriorityGroup
 	 * @generated
 	 */
-	public Adapter createChannelPriorityItemAdapter() {
+	public Adapter createChannelPriorityGroupAdapter() {
 		return null;
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.muml.uppaal.declarations.global.ChannelList <em>Channel List</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.muml.uppaal.declarations.global.PriorityItem <em>Priority Item</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see org.muml.uppaal.declarations.global.ChannelList
+	 * @see org.muml.uppaal.declarations.global.PriorityItem
 	 * @generated
 	 */
-	public Adapter createChannelListAdapter() {
+	public Adapter createPriorityItemAdapter() {
 		return null;
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.muml.uppaal.declarations.global.DefaultChannelPriority <em>Default Channel Priority</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.muml.uppaal.declarations.global.ChannelItem <em>Channel Item</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see org.muml.uppaal.declarations.global.DefaultChannelPriority
+	 * @see org.muml.uppaal.declarations.global.ChannelItem
 	 * @generated
 	 */
-	public Adapter createDefaultChannelPriorityAdapter() {
+	public Adapter createChannelItemAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.muml.uppaal.declarations.global.DefaultItem <em>Default Item</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.muml.uppaal.declarations.global.DefaultItem
+	 * @generated
+	 */
+	public Adapter createDefaultItemAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.muml.uppaal.declarations.Declaration <em>Declaration</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.muml.uppaal.declarations.Declaration
+	 * @generated
+	 */
+	public Adapter createDeclarationAdapter() {
 		return null;
 	}
 

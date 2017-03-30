@@ -3,8 +3,8 @@
 package org.muml.uppaal.declarations;
 
 import org.eclipse.emf.common.util.EList;
+import org.muml.uppaal.expressions.Expression;
 import org.muml.uppaal.types.DeclaredType;
-import org.muml.uppaal.types.TypeDefinition;
 
 /**
  * <!-- begin-user-doc -->
@@ -54,12 +54,12 @@ public interface TypeDeclaration extends Declaration {
 	 * The type definition for declared types.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Type Definition</em>' containment reference.
-	 * @see #setTypeDefinition(TypeDefinition)
+	 * @see #setTypeDefinition(Expression)
 	 * @see org.muml.uppaal.declarations.DeclarationsPackage#getTypeDeclaration_TypeDefinition()
 	 * @model containment="true" required="true"
 	 * @generated
 	 */
-	TypeDefinition getTypeDefinition();
+	Expression getTypeDefinition();
 
 	/**
 	 * Sets the value of the '{@link org.muml.uppaal.declarations.TypeDeclaration#getTypeDefinition <em>Type Definition</em>}' containment reference.
@@ -69,6 +69,6 @@ public interface TypeDeclaration extends Declaration {
 	 * @see #getTypeDefinition()
 	 * @generated
 	 */
-	void setTypeDefinition(TypeDefinition value);
+	void setTypeDefinition(Expression value);
 
 } // TypeDeclaration

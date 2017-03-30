@@ -34,9 +34,7 @@ import org.muml.uppaal.types.RangeTypeSpecification;
 import org.muml.uppaal.types.ScalarTypeSpecification;
 import org.muml.uppaal.types.StructTypeSpecification;
 import org.muml.uppaal.types.Type;
-import org.muml.uppaal.types.TypeDefinition;
-import org.muml.uppaal.types.TypeReference;
-import org.muml.uppaal.types.TypeSpecification;
+import org.muml.uppaal.types.TypeExpression;
 import org.muml.uppaal.types.TypesFactory;
 import org.muml.uppaal.types.TypesPackage;
 import org.muml.uppaal.types.util.TypesValidator;
@@ -76,21 +74,7 @@ public class TypesPackageImpl extends EPackageImpl implements TypesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass typeDefinitionEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass typeReferenceEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass typeSpecificationEClass = null;
+	private EClass typeExpressionEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -247,26 +231,8 @@ public class TypesPackageImpl extends EPackageImpl implements TypesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getType_Index() {
-		return (EReference)typeEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EAttribute getType_BaseType() {
-		return (EAttribute)typeEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getType_TypeSpecification() {
-		return (EReference)typeEClass.getEStructuralFeatures().get(2);
+		return (EAttribute)typeEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -319,53 +285,8 @@ public class TypesPackageImpl extends EPackageImpl implements TypesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getTypeDefinition() {
-		return typeDefinitionEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getTypeDefinition_BaseType() {
-		return (EAttribute)typeDefinitionEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getTypeDefinition_TypeSpecification() {
-		return (EReference)typeDefinitionEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getTypeReference() {
-		return typeReferenceEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getTypeReference_ReferredType() {
-		return (EReference)typeReferenceEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getTypeSpecification() {
-		return typeSpecificationEClass;
+	public EClass getTypeExpression() {
+		return typeExpressionEClass;
 	}
 
 	/**
@@ -505,9 +426,7 @@ public class TypesPackageImpl extends EPackageImpl implements TypesPackage {
 
 		// Create classes and their features
 		typeEClass = createEClass(TYPE);
-		createEReference(typeEClass, TYPE__INDEX);
 		createEAttribute(typeEClass, TYPE__BASE_TYPE);
-		createEReference(typeEClass, TYPE__TYPE_SPECIFICATION);
 
 		predefinedTypeEClass = createEClass(PREDEFINED_TYPE);
 		createEAttribute(predefinedTypeEClass, PREDEFINED_TYPE__TYPE);
@@ -516,14 +435,7 @@ public class TypesPackageImpl extends EPackageImpl implements TypesPackage {
 		createEReference(declaredTypeEClass, DECLARED_TYPE__TYPE_DECLARATION);
 		createEReference(declaredTypeEClass, DECLARED_TYPE__TYPE_DEFINITION);
 
-		typeDefinitionEClass = createEClass(TYPE_DEFINITION);
-		createEAttribute(typeDefinitionEClass, TYPE_DEFINITION__BASE_TYPE);
-		createEReference(typeDefinitionEClass, TYPE_DEFINITION__TYPE_SPECIFICATION);
-
-		typeReferenceEClass = createEClass(TYPE_REFERENCE);
-		createEReference(typeReferenceEClass, TYPE_REFERENCE__REFERRED_TYPE);
-
-		typeSpecificationEClass = createEClass(TYPE_SPECIFICATION);
+		typeExpressionEClass = createEClass(TYPE_EXPRESSION);
 
 		scalarTypeSpecificationEClass = createEClass(SCALAR_TYPE_SPECIFICATION);
 		createEReference(scalarTypeSpecificationEClass, SCALAR_TYPE_SPECIFICATION__SIZE_EXPRESSION);
@@ -581,39 +493,29 @@ public class TypesPackageImpl extends EPackageImpl implements TypesPackage {
 		typeEClass.getESuperTypes().add(theCorePackage.getNamedElement());
 		predefinedTypeEClass.getESuperTypes().add(this.getType());
 		declaredTypeEClass.getESuperTypes().add(this.getType());
-		typeReferenceEClass.getESuperTypes().add(this.getTypeDefinition());
-		typeSpecificationEClass.getESuperTypes().add(this.getTypeDefinition());
-		scalarTypeSpecificationEClass.getESuperTypes().add(this.getTypeSpecification());
-		structTypeSpecificationEClass.getESuperTypes().add(this.getTypeSpecification());
-		rangeTypeSpecificationEClass.getESuperTypes().add(this.getTypeSpecification());
+		typeExpressionEClass.getESuperTypes().add(theExpressionsPackage.getExpression());
+		scalarTypeSpecificationEClass.getESuperTypes().add(this.getTypeExpression());
+		structTypeSpecificationEClass.getESuperTypes().add(this.getTypeExpression());
+		rangeTypeSpecificationEClass.getESuperTypes().add(this.getTypeExpression());
 
 		// Initialize classes and features; add operations and parameters
 		initEClass(typeEClass, Type.class, "Type", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getType_Index(), theDeclarationsPackage.getIndex(), null, "index", null, 0, -1, Type.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getType_BaseType(), this.getBuiltInType(), "baseType", null, 0, 1, Type.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
-		initEReference(getType_TypeSpecification(), this.getTypeSpecification(), null, "typeSpecification", null, 0, 1, Type.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 
 		initEClass(predefinedTypeEClass, PredefinedType.class, "PredefinedType", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getPredefinedType_Type(), this.getBuiltInType(), "type", null, 1, 1, PredefinedType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(declaredTypeEClass, DeclaredType.class, "DeclaredType", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getDeclaredType_TypeDeclaration(), theDeclarationsPackage.getTypeDeclaration(), theDeclarationsPackage.getTypeDeclaration_Type(), "typeDeclaration", null, 1, 1, DeclaredType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getDeclaredType_TypeDefinition(), this.getTypeDefinition(), null, "typeDefinition", null, 1, 1, DeclaredType.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
+		initEReference(getDeclaredType_TypeDefinition(), theExpressionsPackage.getExpression(), null, "typeDefinition", null, 1, 1, DeclaredType.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 
-		initEClass(typeDefinitionEClass, TypeDefinition.class, "TypeDefinition", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getTypeDefinition_BaseType(), this.getBuiltInType(), "baseType", null, 0, 1, TypeDefinition.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
-		initEReference(getTypeDefinition_TypeSpecification(), this.getTypeSpecification(), null, "typeSpecification", null, 0, 1, TypeDefinition.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
-
-		initEClass(typeReferenceEClass, TypeReference.class, "TypeReference", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getTypeReference_ReferredType(), this.getType(), null, "referredType", null, 1, 1, TypeReference.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-		initEClass(typeSpecificationEClass, TypeSpecification.class, "TypeSpecification", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEClass(typeExpressionEClass, TypeExpression.class, "TypeExpression", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(scalarTypeSpecificationEClass, ScalarTypeSpecification.class, "ScalarTypeSpecification", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getScalarTypeSpecification_SizeExpression(), theExpressionsPackage.getExpression(), null, "sizeExpression", null, 1, 1, ScalarTypeSpecification.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(structTypeSpecificationEClass, StructTypeSpecification.class, "StructTypeSpecification", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getStructTypeSpecification_Declaration(), theDeclarationsPackage.getDataVariableDeclaration(), null, "declaration", null, 1, -1, StructTypeSpecification.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getStructTypeSpecification_Declaration(), theDeclarationsPackage.getTypedDeclaration(), null, "declaration", null, 1, -1, StructTypeSpecification.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(rangeTypeSpecificationEClass, RangeTypeSpecification.class, "RangeTypeSpecification", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getRangeTypeSpecification_Bounds(), this.getIntegerBounds(), null, "bounds", null, 1, 1, RangeTypeSpecification.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -623,7 +525,7 @@ public class TypesPackageImpl extends EPackageImpl implements TypesPackage {
 		initEReference(getIntegerBounds_UpperBound(), theExpressionsPackage.getExpression(), null, "upperBound", null, 1, 1, IntegerBounds.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(libraryEClass, Library.class, "Library", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getLibrary_Types(), this.getPredefinedType(), null, "types", null, 0, 1, Library.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getLibrary_Types(), this.getPredefinedType(), null, "types", null, 0, -1, Library.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Initialize enums and add enum literals
 		initEEnum(builtInTypeEEnum, BuiltInType.class, "BuiltInType");
@@ -678,13 +580,7 @@ public class TypesPackageImpl extends EPackageImpl implements TypesPackage {
 		  (getType_BaseType(), 
 		   source, 
 		   new String[] {
-			 "derivation", "if self.oclIsKindOf(DeclaredType)\r\nthen \r\n\tif self.oclAsType(DeclaredType).typeDefinition.oclIsUndefined()\r\n\tthen null\r\n\telse self.oclAsType(DeclaredType).typeDefinition.baseType\r\n\tendif\r\nelse \r\n\tif self.oclIsKindOf(PredefinedType)\r\n\tthen self.oclAsType(PredefinedType).type\r\n\telse null\r\n\tendif\r\nendif"
-		   });	
-		addAnnotation
-		  (getType_TypeSpecification(), 
-		   source, 
-		   new String[] {
-			 "derivation", "if (self.oclIsKindOf(DeclaredType))\r\nthen self.oclAsType(DeclaredType).typeDefinition.typeSpecification\r\nelse null\r\nendif"
+			 "derivation", "if self.oclIsKindOf(DeclaredType) then \r\n\tif self.oclAsType(DeclaredType).typeDefinition.oclIsUndefined() then\r\n\t\tnull\r\n\telse\r\n\t\tif self.oclAsType(DeclaredType).typeDefinition.oclIsKindOf(uppaal::expressions::IdentifierExpression) then\r\n\t\t\t-- Identifier reference to either a predefined or a declared type.\r\n\t\t\tif self.oclAsType(DeclaredType).typeDefinition.oclAsType(uppaal::expressions::IdentifierExpression).identifier.oclIsKindOf(Type) then\r\n\t\t\t\tself.oclAsType(DeclaredType).typeDefinition.oclAsType(uppaal::expressions::IdentifierExpression).identifier.oclAsType(Type).baseType\r\n\t\t\telse\r\n\t\t\t\tnull\r\n\t\t\tendif\r\n\t\telse\r\n\t\t\t-- A channel prefix leading to a channel type.\r\n\t\t\tif self.oclAsType(DeclaredType).typeDefinition.oclIsKindOf(uppaal::expressions::ChannelPrefixExpression) then\r\n\t\t\t\tself.oclAsType(DeclaredType).typeDefinition.oclAsType(uppaal::expressions::ChannelPrefixExpression).channelType.baseType\r\n\t\t\t-- A data prefix leading to another type.\r\n\t\t\telse\r\n\t\t\t\tif self.oclAsType(DeclaredType).typeDefinition.oclIsKindOf(uppaal::expressions::DataPrefixExpression) then\r\n\t\t\t\t\tif self.oclAsType(DeclaredType).typeDefinition.oclAsType(uppaal::expressions::DataPrefixExpression).dataTypeExpression.oclIsKindOf(uppaal::expressions::IdentifierExpression) then\r\n\t\t\t\t\t\tif self.oclAsType(DeclaredType).typeDefinition.oclAsType(uppaal::expressions::DataPrefixExpression).dataTypeExpression.oclAsType(uppaal::expressions::IdentifierExpression).identifier.oclIsKindOf(Type) then\r\n\t\t\t\t\t\t\tself.oclAsType(DeclaredType).typeDefinition.oclAsType(uppaal::expressions::DataPrefixExpression).dataTypeExpression.oclAsType(uppaal::expressions::IdentifierExpression).identifier.oclAsType(Type).baseType\r\n\t\t\t\t\t\telse\r\n\t\t\t\t\t\t\tnull\r\n\t\t\t\t\t\tendif\r\n\t\t\t\t\telse\r\n\t\t\t\t\t\tnull\r\n\t\t\t\t\tendif\t\t\t\r\n\t\t\t\telse\r\n\t\t\t\t\t-- Or, finally, a range type.\r\n\t\t\t\t\tif self.oclAsType(DeclaredType).typeDefinition.oclIsKindOf(uppaal::types::RangeTypeSpecification) then\r\n\t\t\t\t\t\tuppaal::types::BuiltInType::INT\r\n\t\t\t\t\telse\r\n\t\t\t\t\t\tnull\r\n\t\t\t\t\tendif\r\n\t\t\t\tendif\r\n\t\t\tendif\r\n\t\tendif\r\n\tendif\r\nelse \r\n\t-- Only a boring predefined type.\r\n\tif self.oclIsKindOf(PredefinedType) then\r\n\t\tself.oclAsType(PredefinedType).type\r\n\telse\r\n\t\tnull\r\n\tendif\r\nendif"
 		   });	
 		addAnnotation
 		  (getDeclaredType_TypeDefinition(), 
@@ -693,36 +589,10 @@ public class TypesPackageImpl extends EPackageImpl implements TypesPackage {
 			 "derivation", "if self.typeDeclaration.oclIsUndefined()\r\nthen null\r\nelse self.typeDeclaration.typeDefinition\r\nendif"
 		   });	
 		addAnnotation
-		  (getTypeDefinition_BaseType(), 
-		   source, 
-		   new String[] {
-			 "derivation", "if self.oclIsKindOf(TypeReference)\r\nthen \r\n\tif self.oclAsType(TypeReference).referredType.oclIsUndefined()\r\n\tthen null\r\n\telse self.oclAsType(TypeReference).referredType.baseType\r\n\tendif\r\nelse \r\n\tif self.oclIsKindOf(ScalarTypeSpecification) or self.oclIsKindOf(RangeTypeSpecification)\r\n\tthen BuiltInType::INT\r\n\telse null\r\n\tendif\r\nendif"
-		   });	
-		addAnnotation
-		  (getTypeDefinition_TypeSpecification(), 
-		   source, 
-		   new String[] {
-			 "derivation", "if (self.oclIsKindOf(TypeReference))\r\nthen self.oclAsType(TypeReference).referredType.typeSpecification\r\nelse\r\n\tif (self.oclIsKindOf(TypeSpecification))\r\n\tthen self.oclAsType(TypeSpecification)\r\n\telse null\r\n\tendif\r\nendif"
-		   });
-		addAnnotation
-		  (getTypeDefinition_TypeSpecification(), 
-		   new boolean[] { true },
-		   "http://www.eclipse.org/emf/2002/Ecore/OCL",
-		   new String[] {
-			 "body", "if (self.oclIsKindOf(DeclaredType))\r\nthen self.oclAsType(DeclaredType).typeDefinition.typeSpecification\r\nelse null\r\nendif"
-		   });
-		addAnnotation
-		  (getTypeDefinition_TypeSpecification(), 
-		   new boolean[] { true, true },
-		   "http://www.eclipse.org/emf/2002/Ecore/OCL",
-		   new String[] {
-			 "body", "if (self.oclIsKindOf(DeclaredType))\r\nthen self.oclAsType(DeclaredType).typeDefinition.typeSpecification\r\nelse null\r\nendif"
-		   });	
-		addAnnotation
 		  (structTypeSpecificationEClass, 
 		   source, 
 		   new String[] {
-			 "UniqueFieldNames", "self.declaration->collect(variable)->isUnique(name)"
+			 "UniqueFieldNames", "self.declaration->collect(elements)->collect(oclAsType(core::NamedElement))->isUnique(name)"
 		   });
 	}
 

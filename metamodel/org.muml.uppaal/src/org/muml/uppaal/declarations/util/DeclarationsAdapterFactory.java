@@ -7,28 +7,23 @@ import org.eclipse.emf.common.notify.Notifier;
 import org.eclipse.emf.common.notify.impl.AdapterFactoryImpl;
 import org.eclipse.emf.ecore.EObject;
 import org.muml.uppaal.core.NamedElement;
+import org.muml.uppaal.core.TypedElement;
 import org.muml.uppaal.declarations.ArrayInitializer;
-import org.muml.uppaal.declarations.ChannelVariableDeclaration;
-import org.muml.uppaal.declarations.ClockVariableDeclaration;
-import org.muml.uppaal.declarations.DataVariableDeclaration;
 import org.muml.uppaal.declarations.Declaration;
 import org.muml.uppaal.declarations.Declarations;
 import org.muml.uppaal.declarations.DeclarationsPackage;
 import org.muml.uppaal.declarations.ExpressionInitializer;
 import org.muml.uppaal.declarations.Function;
-import org.muml.uppaal.declarations.FunctionDeclaration;
 import org.muml.uppaal.declarations.GlobalDeclarations;
-import org.muml.uppaal.declarations.Index;
 import org.muml.uppaal.declarations.Initializer;
 import org.muml.uppaal.declarations.LocalDeclarations;
 import org.muml.uppaal.declarations.Parameter;
+import org.muml.uppaal.declarations.ParameterContainer;
 import org.muml.uppaal.declarations.SystemDeclarations;
 import org.muml.uppaal.declarations.TypeDeclaration;
-import org.muml.uppaal.declarations.TypeIndex;
-import org.muml.uppaal.declarations.ValueIndex;
+import org.muml.uppaal.declarations.TypedDeclaration;
+import org.muml.uppaal.declarations.TypedElementContainer;
 import org.muml.uppaal.declarations.Variable;
-import org.muml.uppaal.declarations.VariableContainer;
-import org.muml.uppaal.declarations.VariableDeclaration;
 
 /**
  * <!-- begin-user-doc -->
@@ -107,26 +102,6 @@ public class DeclarationsAdapterFactory extends AdapterFactoryImpl {
 				return createDeclarationAdapter();
 			}
 			@Override
-			public Adapter caseVariableDeclaration(VariableDeclaration object) {
-				return createVariableDeclarationAdapter();
-			}
-			@Override
-			public Adapter caseChannelVariableDeclaration(ChannelVariableDeclaration object) {
-				return createChannelVariableDeclarationAdapter();
-			}
-			@Override
-			public Adapter caseClockVariableDeclaration(ClockVariableDeclaration object) {
-				return createClockVariableDeclarationAdapter();
-			}
-			@Override
-			public Adapter caseDataVariableDeclaration(DataVariableDeclaration object) {
-				return createDataVariableDeclarationAdapter();
-			}
-			@Override
-			public Adapter caseFunctionDeclaration(FunctionDeclaration object) {
-				return createFunctionDeclarationAdapter();
-			}
-			@Override
 			public Adapter caseFunction(Function object) {
 				return createFunctionAdapter();
 			}
@@ -139,20 +114,8 @@ public class DeclarationsAdapterFactory extends AdapterFactoryImpl {
 				return createVariableAdapter();
 			}
 			@Override
-			public Adapter caseIndex(Index object) {
-				return createIndexAdapter();
-			}
-			@Override
-			public Adapter caseValueIndex(ValueIndex object) {
-				return createValueIndexAdapter();
-			}
-			@Override
-			public Adapter caseTypeIndex(TypeIndex object) {
-				return createTypeIndexAdapter();
-			}
-			@Override
-			public Adapter caseVariableContainer(VariableContainer object) {
-				return createVariableContainerAdapter();
+			public Adapter caseTypedElementContainer(TypedElementContainer object) {
+				return createTypedElementContainerAdapter();
 			}
 			@Override
 			public Adapter caseParameter(Parameter object) {
@@ -171,8 +134,20 @@ public class DeclarationsAdapterFactory extends AdapterFactoryImpl {
 				return createArrayInitializerAdapter();
 			}
 			@Override
+			public Adapter caseTypedDeclaration(TypedDeclaration object) {
+				return createTypedDeclarationAdapter();
+			}
+			@Override
+			public Adapter caseParameterContainer(ParameterContainer object) {
+				return createParameterContainerAdapter();
+			}
+			@Override
 			public Adapter caseNamedElement(NamedElement object) {
 				return createNamedElementAdapter();
+			}
+			@Override
+			public Adapter caseTypedElement(TypedElement object) {
+				return createTypedElementAdapter();
 			}
 			@Override
 			public Adapter defaultCase(EObject object) {
@@ -265,76 +240,6 @@ public class DeclarationsAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.muml.uppaal.declarations.VariableDeclaration <em>Variable Declaration</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.muml.uppaal.declarations.VariableDeclaration
-	 * @generated
-	 */
-	public Adapter createVariableDeclarationAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link org.muml.uppaal.declarations.ChannelVariableDeclaration <em>Channel Variable Declaration</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.muml.uppaal.declarations.ChannelVariableDeclaration
-	 * @generated
-	 */
-	public Adapter createChannelVariableDeclarationAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link org.muml.uppaal.declarations.ClockVariableDeclaration <em>Clock Variable Declaration</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.muml.uppaal.declarations.ClockVariableDeclaration
-	 * @generated
-	 */
-	public Adapter createClockVariableDeclarationAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link org.muml.uppaal.declarations.DataVariableDeclaration <em>Data Variable Declaration</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.muml.uppaal.declarations.DataVariableDeclaration
-	 * @generated
-	 */
-	public Adapter createDataVariableDeclarationAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link org.muml.uppaal.declarations.FunctionDeclaration <em>Function Declaration</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.muml.uppaal.declarations.FunctionDeclaration
-	 * @generated
-	 */
-	public Adapter createFunctionDeclarationAdapter() {
-		return null;
-	}
-
-	/**
 	 * Creates a new adapter for an object of class '{@link org.muml.uppaal.declarations.Function <em>Function</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -377,58 +282,16 @@ public class DeclarationsAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.muml.uppaal.declarations.Index <em>Index</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.muml.uppaal.declarations.TypedElementContainer <em>Typed Element Container</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see org.muml.uppaal.declarations.Index
+	 * @see org.muml.uppaal.declarations.TypedElementContainer
 	 * @generated
 	 */
-	public Adapter createIndexAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link org.muml.uppaal.declarations.ValueIndex <em>Value Index</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.muml.uppaal.declarations.ValueIndex
-	 * @generated
-	 */
-	public Adapter createValueIndexAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link org.muml.uppaal.declarations.TypeIndex <em>Type Index</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.muml.uppaal.declarations.TypeIndex
-	 * @generated
-	 */
-	public Adapter createTypeIndexAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link org.muml.uppaal.declarations.VariableContainer <em>Variable Container</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.muml.uppaal.declarations.VariableContainer
-	 * @generated
-	 */
-	public Adapter createVariableContainerAdapter() {
+	public Adapter createTypedElementContainerAdapter() {
 		return null;
 	}
 
@@ -489,6 +352,34 @@ public class DeclarationsAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
+	 * Creates a new adapter for an object of class '{@link org.muml.uppaal.declarations.TypedDeclaration <em>Typed Declaration</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.muml.uppaal.declarations.TypedDeclaration
+	 * @generated
+	 */
+	public Adapter createTypedDeclarationAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.muml.uppaal.declarations.ParameterContainer <em>Parameter Container</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.muml.uppaal.declarations.ParameterContainer
+	 * @generated
+	 */
+	public Adapter createParameterContainerAdapter() {
+		return null;
+	}
+
+	/**
 	 * Creates a new adapter for an object of class '{@link org.muml.uppaal.core.NamedElement <em>Named Element</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -499,6 +390,20 @@ public class DeclarationsAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createNamedElementAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.muml.uppaal.core.TypedElement <em>Typed Element</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.muml.uppaal.core.TypedElement
+	 * @generated
+	 */
+	public Adapter createTypedElementAdapter() {
 		return null;
 	}
 

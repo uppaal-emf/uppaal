@@ -21,6 +21,7 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
 import org.muml.uppaal.declarations.Declarations;
 import org.muml.uppaal.declarations.DeclarationsFactory;
 import org.muml.uppaal.declarations.DeclarationsPackage;
+import org.muml.uppaal.declarations.global.GlobalFactory;
 import org.muml.uppaal.declarations.system.SystemFactory;
 import org.muml.uppaal.provider.UppaalEditPlugin;
 
@@ -148,27 +149,17 @@ public class DeclarationsItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(DeclarationsPackage.Literals.DECLARATIONS__DECLARATION,
-				 DeclarationsFactory.eINSTANCE.createChannelVariableDeclaration()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(DeclarationsPackage.Literals.DECLARATIONS__DECLARATION,
-				 DeclarationsFactory.eINSTANCE.createClockVariableDeclaration()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(DeclarationsPackage.Literals.DECLARATIONS__DECLARATION,
-				 DeclarationsFactory.eINSTANCE.createDataVariableDeclaration()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(DeclarationsPackage.Literals.DECLARATIONS__DECLARATION,
-				 DeclarationsFactory.eINSTANCE.createFunctionDeclaration()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(DeclarationsPackage.Literals.DECLARATIONS__DECLARATION,
 				 DeclarationsFactory.eINSTANCE.createTypeDeclaration()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DeclarationsPackage.Literals.DECLARATIONS__DECLARATION,
+				 DeclarationsFactory.eINSTANCE.createTypedDeclaration()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DeclarationsPackage.Literals.DECLARATIONS__DECLARATION,
+				 GlobalFactory.eINSTANCE.createChannelPriorityDeclaration()));
 
 		newChildDescriptors.add
 			(createChildParameter

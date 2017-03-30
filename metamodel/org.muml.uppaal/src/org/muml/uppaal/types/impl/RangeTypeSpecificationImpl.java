@@ -24,7 +24,7 @@ import org.muml.uppaal.types.TypesPackage;
  *
  * @generated
  */
-public class RangeTypeSpecificationImpl extends TypeSpecificationImpl implements RangeTypeSpecification {
+public class RangeTypeSpecificationImpl extends TypeExpressionImpl implements RangeTypeSpecification {
 	/**
 	 * The cached value of the '{@link #getBounds() <em>Bounds</em>}' containment reference.
 	 * <!-- begin-user-doc -->

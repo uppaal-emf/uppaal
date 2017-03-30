@@ -14,6 +14,7 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
 import org.muml.uppaal.expressions.ExpressionsFactory;
 import org.muml.uppaal.expressions.ExpressionsPackage;
 import org.muml.uppaal.expressions.ScopedIdentifierExpression;
+import org.muml.uppaal.types.TypesFactory;
 
 /**
  * This is the item provider adapter for a {@link org.muml.uppaal.expressions.ScopedIdentifierExpression} object.
@@ -160,6 +161,11 @@ public class ScopedIdentifierExpressionItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(ExpressionsPackage.Literals.SCOPED_IDENTIFIER_EXPRESSION__SCOPE,
+				 ExpressionsFactory.eINSTANCE.createScopedIdentifierExpression()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(ExpressionsPackage.Literals.SCOPED_IDENTIFIER_EXPRESSION__SCOPE,
 				 ExpressionsFactory.eINSTANCE.createLiteralExpression()));
 
 		newChildDescriptors.add
@@ -190,17 +196,17 @@ public class ScopedIdentifierExpressionItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(ExpressionsPackage.Literals.SCOPED_IDENTIFIER_EXPRESSION__SCOPE,
-				 ExpressionsFactory.eINSTANCE.createScopedIdentifierExpression()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(ExpressionsPackage.Literals.SCOPED_IDENTIFIER_EXPRESSION__SCOPE,
 				 ExpressionsFactory.eINSTANCE.createQuantificationExpression()));
 
 		newChildDescriptors.add
 			(createChildParameter
 				(ExpressionsPackage.Literals.SCOPED_IDENTIFIER_EXPRESSION__SCOPE,
-				 ExpressionsFactory.eINSTANCE.createIncrementDecrementExpression()));
+				 ExpressionsFactory.eINSTANCE.createPreIncrementDecrementExpression()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(ExpressionsPackage.Literals.SCOPED_IDENTIFIER_EXPRESSION__SCOPE,
+				 ExpressionsFactory.eINSTANCE.createPostIncrementDecrementExpression()));
 
 		newChildDescriptors.add
 			(createChildParameter
@@ -216,6 +222,31 @@ public class ScopedIdentifierExpressionItemProvider
 			(createChildParameter
 				(ExpressionsPackage.Literals.SCOPED_IDENTIFIER_EXPRESSION__SCOPE,
 				 ExpressionsFactory.eINSTANCE.createBitwiseExpression()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(ExpressionsPackage.Literals.SCOPED_IDENTIFIER_EXPRESSION__SCOPE,
+				 ExpressionsFactory.eINSTANCE.createChannelPrefixExpression()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(ExpressionsPackage.Literals.SCOPED_IDENTIFIER_EXPRESSION__SCOPE,
+				 ExpressionsFactory.eINSTANCE.createDataPrefixExpression()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(ExpressionsPackage.Literals.SCOPED_IDENTIFIER_EXPRESSION__SCOPE,
+				 TypesFactory.eINSTANCE.createScalarTypeSpecification()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(ExpressionsPackage.Literals.SCOPED_IDENTIFIER_EXPRESSION__SCOPE,
+				 TypesFactory.eINSTANCE.createStructTypeSpecification()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(ExpressionsPackage.Literals.SCOPED_IDENTIFIER_EXPRESSION__SCOPE,
+				 TypesFactory.eINSTANCE.createRangeTypeSpecification()));
 
 		newChildDescriptors.add
 			(createChildParameter

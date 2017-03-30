@@ -9,7 +9,7 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.muml.uppaal.declarations.DeclarationsPackage;
 import org.muml.uppaal.declarations.GlobalDeclarations;
-import org.muml.uppaal.declarations.global.ChannelPriority;
+import org.muml.uppaal.declarations.global.ChannelPriorityDeclaration;
 
 /**
  * <!-- begin-user-doc -->
@@ -33,7 +33,7 @@ public class GlobalDeclarationsImpl extends DeclarationsImpl implements GlobalDe
 	 * @generated
 	 * @ordered
 	 */
-	protected ChannelPriority channelPriority;
+	protected ChannelPriorityDeclaration channelPriority;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -59,7 +59,7 @@ public class GlobalDeclarationsImpl extends DeclarationsImpl implements GlobalDe
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ChannelPriority getChannelPriority() {
+	public ChannelPriorityDeclaration getChannelPriority() {
 		return channelPriority;
 	}
 
@@ -68,8 +68,8 @@ public class GlobalDeclarationsImpl extends DeclarationsImpl implements GlobalDe
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetChannelPriority(ChannelPriority newChannelPriority, NotificationChain msgs) {
-		ChannelPriority oldChannelPriority = channelPriority;
+	public NotificationChain basicSetChannelPriority(ChannelPriorityDeclaration newChannelPriority, NotificationChain msgs) {
+		ChannelPriorityDeclaration oldChannelPriority = channelPriority;
 		channelPriority = newChannelPriority;
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, DeclarationsPackage.GLOBAL_DECLARATIONS__CHANNEL_PRIORITY, oldChannelPriority, newChannelPriority);
@@ -83,7 +83,7 @@ public class GlobalDeclarationsImpl extends DeclarationsImpl implements GlobalDe
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setChannelPriority(ChannelPriority newChannelPriority) {
+	public void setChannelPriority(ChannelPriorityDeclaration newChannelPriority) {
 		if (newChannelPriority != channelPriority) {
 			NotificationChain msgs = null;
 			if (channelPriority != null)
@@ -134,7 +134,7 @@ public class GlobalDeclarationsImpl extends DeclarationsImpl implements GlobalDe
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case DeclarationsPackage.GLOBAL_DECLARATIONS__CHANNEL_PRIORITY:
-				setChannelPriority((ChannelPriority)newValue);
+				setChannelPriority((ChannelPriorityDeclaration)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -149,7 +149,7 @@ public class GlobalDeclarationsImpl extends DeclarationsImpl implements GlobalDe
 	public void eUnset(int featureID) {
 		switch (featureID) {
 			case DeclarationsPackage.GLOBAL_DECLARATIONS__CHANNEL_PRIORITY:
-				setChannelPriority((ChannelPriority)null);
+				setChannelPriority((ChannelPriorityDeclaration)null);
 				return;
 		}
 		super.eUnset(featureID);

@@ -19,9 +19,7 @@ import org.muml.uppaal.types.RangeTypeSpecification;
 import org.muml.uppaal.types.ScalarTypeSpecification;
 import org.muml.uppaal.types.StructTypeSpecification;
 import org.muml.uppaal.types.Type;
-import org.muml.uppaal.types.TypeDefinition;
-import org.muml.uppaal.types.TypeReference;
-import org.muml.uppaal.types.TypeSpecification;
+import org.muml.uppaal.types.TypeExpression;
 import org.muml.uppaal.types.TypesPackage;
 
 /**
@@ -111,12 +109,8 @@ public class TypesValidator extends EObjectValidator {
 				return validatePredefinedType((PredefinedType)value, diagnostics, context);
 			case TypesPackage.DECLARED_TYPE:
 				return validateDeclaredType((DeclaredType)value, diagnostics, context);
-			case TypesPackage.TYPE_DEFINITION:
-				return validateTypeDefinition((TypeDefinition)value, diagnostics, context);
-			case TypesPackage.TYPE_REFERENCE:
-				return validateTypeReference((TypeReference)value, diagnostics, context);
-			case TypesPackage.TYPE_SPECIFICATION:
-				return validateTypeSpecification((TypeSpecification)value, diagnostics, context);
+			case TypesPackage.TYPE_EXPRESSION:
+				return validateTypeExpression((TypeExpression)value, diagnostics, context);
 			case TypesPackage.SCALAR_TYPE_SPECIFICATION:
 				return validateScalarTypeSpecification((ScalarTypeSpecification)value, diagnostics, context);
 			case TypesPackage.STRUCT_TYPE_SPECIFICATION:
@@ -199,26 +193,8 @@ public class TypesValidator extends EObjectValidator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean validateTypeDefinition(TypeDefinition typeDefinition, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return validate_EveryDefaultConstraint(typeDefinition, diagnostics, context);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public boolean validateTypeReference(TypeReference typeReference, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return validate_EveryDefaultConstraint(typeReference, diagnostics, context);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public boolean validateTypeSpecification(TypeSpecification typeSpecification, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return validate_EveryDefaultConstraint(typeSpecification, diagnostics, context);
+	public boolean validateTypeExpression(TypeExpression typeExpression, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return validate_EveryDefaultConstraint(typeExpression, diagnostics, context);
 	}
 
 	/**
@@ -255,7 +231,7 @@ public class TypesValidator extends EObjectValidator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected static final String STRUCT_TYPE_SPECIFICATION__UNIQUE_FIELD_NAMES__EEXPRESSION = "self.declaration->collect(variable)->isUnique(name)";
+	protected static final String STRUCT_TYPE_SPECIFICATION__UNIQUE_FIELD_NAMES__EEXPRESSION = "self.declaration->collect(elements)->collect(oclAsType(core::NamedElement))->isUnique(name)";
 
 	/**
 	 * Validates the UniqueFieldNames constraint of '<em>Struct Type Specification</em>'.

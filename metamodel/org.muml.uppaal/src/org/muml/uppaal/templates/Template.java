@@ -27,7 +27,7 @@ import org.muml.uppaal.declarations.LocalDeclarations;
  * @see org.muml.uppaal.templates.TemplatesPackage#getTemplate()
  * @model extendedMetaData="name='Template' kind='elementOnly'"
  *        annotation="http://www.eclipse.org/emf/2002/Ecore/OCL UniqueLocationNames='self.location->isUnique(name)'"
- *        annotation="http://www.eclipse.org/emf/2002/Ecore constraints='UniqueLocationNames'"
+ *        annotation="http://www.eclipse.org/emf/2002/Ecore constraints=''"
  * @generated
  */
 public interface Template extends AbstractTemplate {

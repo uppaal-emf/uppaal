@@ -3,6 +3,7 @@
 package org.muml.uppaal.types;
 
 import org.muml.uppaal.declarations.TypeDeclaration;
+import org.muml.uppaal.expressions.Expression;
 
 /**
  * <!-- begin-user-doc -->
@@ -66,6 +67,6 @@ public interface DeclaredType extends Type {
 	 *        annotation="http://www.eclipse.org/emf/2002/Ecore/OCL derivation='if self.typeDeclaration.oclIsUndefined()\r\nthen null\r\nelse self.typeDeclaration.typeDefinition\r\nendif'"
 	 * @generated
 	 */
-	TypeDefinition getTypeDefinition();
+	Expression getTypeDefinition();
 
 } // DeclaredType

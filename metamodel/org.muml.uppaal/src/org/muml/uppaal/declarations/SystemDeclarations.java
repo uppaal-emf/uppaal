@@ -22,8 +22,8 @@ import org.muml.uppaal.declarations.system.ProgressMeasure;
  * </ul>
  *
  * @see org.muml.uppaal.declarations.DeclarationsPackage#getSystemDeclarations()
- * @model annotation="http://www.eclipse.org/emf/2002/Ecore/OCL UniqueTemplateNames='self.declaration->select(oclIsKindOf(system::TemplateDeclaration)).oclAsType(system::TemplateDeclaration)->collect(declaredTemplate)->isUnique(name)' NoChannelDeclarations='not self.declaration->exists(oclIsKindOf(ChannelVariableDeclaration))'"
- *        annotation="http://www.eclipse.org/emf/2002/Ecore constraints='UniqueTemplateNames NoChannelDeclarations'"
+ * @model annotation="http://www.eclipse.org/emf/2002/Ecore/OCL UniqueTemplateNames='self.declaration->select(oclIsKindOf(system::TemplateDeclaration)).oclAsType(system::TemplateDeclaration)->collect(declaredTemplate)->isUnique(name)'"
+ *        annotation="http://www.eclipse.org/emf/2002/Ecore constraints='UniqueTemplateNames'"
  * @generated
  */
 public interface SystemDeclarations extends Declarations {

@@ -39,6 +39,7 @@ import org.muml.uppaal.visuals.LinearElement;
 public interface Edge extends LinearElement, CommentableElement, ColoredElement {
 	/**
 	 * Returns the value of the '<em><b>Source</b></em>' reference.
+	 * It is bidirectional and its opposite is '{@link org.muml.uppaal.templates.Location#getOutgoingEdges <em>Outgoing Edges</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
@@ -47,7 +48,8 @@ public interface Edge extends LinearElement, CommentableElement, ColoredElement 
 	 * @return the value of the '<em>Source</em>' reference.
 	 * @see #setSource(Location)
 	 * @see org.muml.uppaal.templates.TemplatesPackage#getEdge_Source()
-	 * @model required="true"
+	 * @see org.muml.uppaal.templates.Location#getOutgoingEdges
+	 * @model opposite="outgoingEdges" required="true"
 	 *        extendedMetaData="kind='attribute' name='source'"
 	 * @generated
 	 */
@@ -65,6 +67,7 @@ public interface Edge extends LinearElement, CommentableElement, ColoredElement 
 
 	/**
 	 * Returns the value of the '<em><b>Target</b></em>' reference.
+	 * It is bidirectional and its opposite is '{@link org.muml.uppaal.templates.Location#getIncomingEdges <em>Incoming Edges</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
@@ -73,7 +76,8 @@ public interface Edge extends LinearElement, CommentableElement, ColoredElement 
 	 * @return the value of the '<em>Target</em>' reference.
 	 * @see #setTarget(Location)
 	 * @see org.muml.uppaal.templates.TemplatesPackage#getEdge_Target()
-	 * @model required="true"
+	 * @see org.muml.uppaal.templates.Location#getIncomingEdges
+	 * @model opposite="incomingEdges" required="true"
 	 *        extendedMetaData="kind='attribute' name='target'"
 	 * @generated
 	 */

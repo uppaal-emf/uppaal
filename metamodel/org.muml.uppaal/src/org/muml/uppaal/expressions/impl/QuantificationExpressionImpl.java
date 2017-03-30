@@ -12,14 +12,14 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
 import org.eclipse.emf.ecore.util.InternalEList;
+import org.muml.uppaal.core.CorePackage;
+import org.muml.uppaal.core.TypedElement;
 import org.muml.uppaal.declarations.DeclarationsPackage;
-import org.muml.uppaal.declarations.Variable;
-import org.muml.uppaal.declarations.VariableContainer;
+import org.muml.uppaal.declarations.TypedElementContainer;
 import org.muml.uppaal.expressions.Expression;
 import org.muml.uppaal.expressions.ExpressionsPackage;
 import org.muml.uppaal.expressions.QuantificationExpression;
 import org.muml.uppaal.expressions.Quantifier;
-import org.muml.uppaal.types.TypeDefinition;
 
 /**
  * <!-- begin-user-doc -->
@@ -30,7 +30,7 @@ import org.muml.uppaal.types.TypeDefinition;
  * </p>
  * <ul>
  *   <li>{@link org.muml.uppaal.expressions.impl.QuantificationExpressionImpl#getTypeDefinition <em>Type Definition</em>}</li>
- *   <li>{@link org.muml.uppaal.expressions.impl.QuantificationExpressionImpl#getVariable <em>Variable</em>}</li>
+ *   <li>{@link org.muml.uppaal.expressions.impl.QuantificationExpressionImpl#getElements <em>Elements</em>}</li>
  *   <li>{@link org.muml.uppaal.expressions.impl.QuantificationExpressionImpl#getQuantifier <em>Quantifier</em>}</li>
  *   <li>{@link org.muml.uppaal.expressions.impl.QuantificationExpressionImpl#getExpression <em>Expression</em>}</li>
  * </ul>
@@ -46,17 +46,17 @@ public class QuantificationExpressionImpl extends ExpressionImpl implements Quan
 	 * @generated
 	 * @ordered
 	 */
-	protected TypeDefinition typeDefinition;
+	protected Expression typeDefinition;
 
 	/**
-	 * The cached value of the '{@link #getVariable() <em>Variable</em>}' containment reference list.
+	 * The cached value of the '{@link #getElements() <em>Elements</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getVariable()
+	 * @see #getElements()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<Variable> variable;
+	protected EList<TypedElement> elements;
 
 	/**
 	 * The default value of the '{@link #getQuantifier() <em>Quantifier</em>}' attribute.
@@ -112,7 +112,7 @@ public class QuantificationExpressionImpl extends ExpressionImpl implements Quan
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public TypeDefinition getTypeDefinition() {
+	public Expression getTypeDefinition() {
 		return typeDefinition;
 	}
 
@@ -121,8 +121,8 @@ public class QuantificationExpressionImpl extends ExpressionImpl implements Quan
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetTypeDefinition(TypeDefinition newTypeDefinition, NotificationChain msgs) {
-		TypeDefinition oldTypeDefinition = typeDefinition;
+	public NotificationChain basicSetTypeDefinition(Expression newTypeDefinition, NotificationChain msgs) {
+		Expression oldTypeDefinition = typeDefinition;
 		typeDefinition = newTypeDefinition;
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, ExpressionsPackage.QUANTIFICATION_EXPRESSION__TYPE_DEFINITION, oldTypeDefinition, newTypeDefinition);
@@ -136,7 +136,7 @@ public class QuantificationExpressionImpl extends ExpressionImpl implements Quan
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setTypeDefinition(TypeDefinition newTypeDefinition) {
+	public void setTypeDefinition(Expression newTypeDefinition) {
 		if (newTypeDefinition != typeDefinition) {
 			NotificationChain msgs = null;
 			if (typeDefinition != null)
@@ -155,11 +155,11 @@ public class QuantificationExpressionImpl extends ExpressionImpl implements Quan
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<Variable> getVariable() {
-		if (variable == null) {
-			variable = new EObjectContainmentWithInverseEList<Variable>(Variable.class, this, ExpressionsPackage.QUANTIFICATION_EXPRESSION__VARIABLE, DeclarationsPackage.VARIABLE__CONTAINER);
+	public EList<TypedElement> getElements() {
+		if (elements == null) {
+			elements = new EObjectContainmentWithInverseEList<TypedElement>(TypedElement.class, this, ExpressionsPackage.QUANTIFICATION_EXPRESSION__ELEMENTS, CorePackage.TYPED_ELEMENT__CONTAINER);
 		}
-		return variable;
+		return elements;
 	}
 
 	/**
@@ -235,8 +235,8 @@ public class QuantificationExpressionImpl extends ExpressionImpl implements Quan
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case ExpressionsPackage.QUANTIFICATION_EXPRESSION__VARIABLE:
-				return ((InternalEList<InternalEObject>)(InternalEList<?>)getVariable()).basicAdd(otherEnd, msgs);
+			case ExpressionsPackage.QUANTIFICATION_EXPRESSION__ELEMENTS:
+				return ((InternalEList<InternalEObject>)(InternalEList<?>)getElements()).basicAdd(otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
@@ -251,8 +251,8 @@ public class QuantificationExpressionImpl extends ExpressionImpl implements Quan
 		switch (featureID) {
 			case ExpressionsPackage.QUANTIFICATION_EXPRESSION__TYPE_DEFINITION:
 				return basicSetTypeDefinition(null, msgs);
-			case ExpressionsPackage.QUANTIFICATION_EXPRESSION__VARIABLE:
-				return ((InternalEList<?>)getVariable()).basicRemove(otherEnd, msgs);
+			case ExpressionsPackage.QUANTIFICATION_EXPRESSION__ELEMENTS:
+				return ((InternalEList<?>)getElements()).basicRemove(otherEnd, msgs);
 			case ExpressionsPackage.QUANTIFICATION_EXPRESSION__EXPRESSION:
 				return basicSetExpression(null, msgs);
 		}
@@ -269,8 +269,8 @@ public class QuantificationExpressionImpl extends ExpressionImpl implements Quan
 		switch (featureID) {
 			case ExpressionsPackage.QUANTIFICATION_EXPRESSION__TYPE_DEFINITION:
 				return getTypeDefinition();
-			case ExpressionsPackage.QUANTIFICATION_EXPRESSION__VARIABLE:
-				return getVariable();
+			case ExpressionsPackage.QUANTIFICATION_EXPRESSION__ELEMENTS:
+				return getElements();
 			case ExpressionsPackage.QUANTIFICATION_EXPRESSION__QUANTIFIER:
 				return getQuantifier();
 			case ExpressionsPackage.QUANTIFICATION_EXPRESSION__EXPRESSION:
@@ -289,11 +289,11 @@ public class QuantificationExpressionImpl extends ExpressionImpl implements Quan
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case ExpressionsPackage.QUANTIFICATION_EXPRESSION__TYPE_DEFINITION:
-				setTypeDefinition((TypeDefinition)newValue);
+				setTypeDefinition((Expression)newValue);
 				return;
-			case ExpressionsPackage.QUANTIFICATION_EXPRESSION__VARIABLE:
-				getVariable().clear();
-				getVariable().addAll((Collection<? extends Variable>)newValue);
+			case ExpressionsPackage.QUANTIFICATION_EXPRESSION__ELEMENTS:
+				getElements().clear();
+				getElements().addAll((Collection<? extends TypedElement>)newValue);
 				return;
 			case ExpressionsPackage.QUANTIFICATION_EXPRESSION__QUANTIFIER:
 				setQuantifier((Quantifier)newValue);
@@ -314,10 +314,10 @@ public class QuantificationExpressionImpl extends ExpressionImpl implements Quan
 	public void eUnset(int featureID) {
 		switch (featureID) {
 			case ExpressionsPackage.QUANTIFICATION_EXPRESSION__TYPE_DEFINITION:
-				setTypeDefinition((TypeDefinition)null);
+				setTypeDefinition((Expression)null);
 				return;
-			case ExpressionsPackage.QUANTIFICATION_EXPRESSION__VARIABLE:
-				getVariable().clear();
+			case ExpressionsPackage.QUANTIFICATION_EXPRESSION__ELEMENTS:
+				getElements().clear();
 				return;
 			case ExpressionsPackage.QUANTIFICATION_EXPRESSION__QUANTIFIER:
 				setQuantifier(QUANTIFIER_EDEFAULT);
@@ -339,8 +339,8 @@ public class QuantificationExpressionImpl extends ExpressionImpl implements Quan
 		switch (featureID) {
 			case ExpressionsPackage.QUANTIFICATION_EXPRESSION__TYPE_DEFINITION:
 				return typeDefinition != null;
-			case ExpressionsPackage.QUANTIFICATION_EXPRESSION__VARIABLE:
-				return variable != null && !variable.isEmpty();
+			case ExpressionsPackage.QUANTIFICATION_EXPRESSION__ELEMENTS:
+				return elements != null && !elements.isEmpty();
 			case ExpressionsPackage.QUANTIFICATION_EXPRESSION__QUANTIFIER:
 				return quantifier != QUANTIFIER_EDEFAULT;
 			case ExpressionsPackage.QUANTIFICATION_EXPRESSION__EXPRESSION:
@@ -356,10 +356,10 @@ public class QuantificationExpressionImpl extends ExpressionImpl implements Quan
 	 */
 	@Override
 	public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass) {
-		if (baseClass == VariableContainer.class) {
+		if (baseClass == TypedElementContainer.class) {
 			switch (derivedFeatureID) {
-				case ExpressionsPackage.QUANTIFICATION_EXPRESSION__TYPE_DEFINITION: return DeclarationsPackage.VARIABLE_CONTAINER__TYPE_DEFINITION;
-				case ExpressionsPackage.QUANTIFICATION_EXPRESSION__VARIABLE: return DeclarationsPackage.VARIABLE_CONTAINER__VARIABLE;
+				case ExpressionsPackage.QUANTIFICATION_EXPRESSION__TYPE_DEFINITION: return DeclarationsPackage.TYPED_ELEMENT_CONTAINER__TYPE_DEFINITION;
+				case ExpressionsPackage.QUANTIFICATION_EXPRESSION__ELEMENTS: return DeclarationsPackage.TYPED_ELEMENT_CONTAINER__ELEMENTS;
 				default: return -1;
 			}
 		}
@@ -373,10 +373,10 @@ public class QuantificationExpressionImpl extends ExpressionImpl implements Quan
 	 */
 	@Override
 	public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass) {
-		if (baseClass == VariableContainer.class) {
+		if (baseClass == TypedElementContainer.class) {
 			switch (baseFeatureID) {
-				case DeclarationsPackage.VARIABLE_CONTAINER__TYPE_DEFINITION: return ExpressionsPackage.QUANTIFICATION_EXPRESSION__TYPE_DEFINITION;
-				case DeclarationsPackage.VARIABLE_CONTAINER__VARIABLE: return ExpressionsPackage.QUANTIFICATION_EXPRESSION__VARIABLE;
+				case DeclarationsPackage.TYPED_ELEMENT_CONTAINER__TYPE_DEFINITION: return ExpressionsPackage.QUANTIFICATION_EXPRESSION__TYPE_DEFINITION;
+				case DeclarationsPackage.TYPED_ELEMENT_CONTAINER__ELEMENTS: return ExpressionsPackage.QUANTIFICATION_EXPRESSION__ELEMENTS;
 				default: return -1;
 			}
 		}

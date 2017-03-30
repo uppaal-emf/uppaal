@@ -20,7 +20,6 @@ import org.muml.uppaal.core.impl.NamedElementImpl;
 import org.muml.uppaal.declarations.GlobalDeclarations;
 import org.muml.uppaal.declarations.SystemDeclarations;
 import org.muml.uppaal.templates.Template;
-import org.muml.uppaal.types.PredefinedType;
 
 /**
  * <!-- begin-user-doc -->
@@ -34,11 +33,6 @@ import org.muml.uppaal.types.PredefinedType;
  *   <li>{@link org.muml.uppaal.impl.NTAImpl#getGlobalDeclarations <em>Global Declarations</em>}</li>
  *   <li>{@link org.muml.uppaal.impl.NTAImpl#getTemplate <em>Template</em>}</li>
  *   <li>{@link org.muml.uppaal.impl.NTAImpl#getSystemDeclarations <em>System Declarations</em>}</li>
- *   <li>{@link org.muml.uppaal.impl.NTAImpl#getInt <em>Int</em>}</li>
- *   <li>{@link org.muml.uppaal.impl.NTAImpl#getBool <em>Bool</em>}</li>
- *   <li>{@link org.muml.uppaal.impl.NTAImpl#getClock <em>Clock</em>}</li>
- *   <li>{@link org.muml.uppaal.impl.NTAImpl#getChan <em>Chan</em>}</li>
- *   <li>{@link org.muml.uppaal.impl.NTAImpl#getVoid <em>Void</em>}</li>
  * </ul>
  *
  * @generated
@@ -93,56 +87,6 @@ public class NTAImpl extends NamedElementImpl implements NTA {
 	 * @ordered
 	 */
 	protected SystemDeclarations systemDeclarations;
-
-	/**
-	 * The cached value of the '{@link #getInt() <em>Int</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getInt()
-	 * @generated
-	 * @ordered
-	 */
-	protected PredefinedType int_;
-
-	/**
-	 * The cached value of the '{@link #getBool() <em>Bool</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getBool()
-	 * @generated
-	 * @ordered
-	 */
-	protected PredefinedType bool;
-
-	/**
-	 * The cached value of the '{@link #getClock() <em>Clock</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getClock()
-	 * @generated
-	 * @ordered
-	 */
-	protected PredefinedType clock;
-
-	/**
-	 * The cached value of the '{@link #getChan() <em>Chan</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getChan()
-	 * @generated
-	 * @ordered
-	 */
-	protected PredefinedType chan;
-
-	/**
-	 * The cached value of the '{@link #getVoid() <em>Void</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getVoid()
-	 * @generated
-	 * @ordered
-	 */
-	protected PredefinedType void_;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -287,221 +231,6 @@ public class NTAImpl extends NamedElementImpl implements NTA {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public PredefinedType getInt() {
-		return int_;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetInt(PredefinedType newInt, NotificationChain msgs) {
-		PredefinedType oldInt = int_;
-		int_ = newInt;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, UppaalPackage.NTA__INT, oldInt, newInt);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setInt(PredefinedType newInt) {
-		if (newInt != int_) {
-			NotificationChain msgs = null;
-			if (int_ != null)
-				msgs = ((InternalEObject)int_).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - UppaalPackage.NTA__INT, null, msgs);
-			if (newInt != null)
-				msgs = ((InternalEObject)newInt).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - UppaalPackage.NTA__INT, null, msgs);
-			msgs = basicSetInt(newInt, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, UppaalPackage.NTA__INT, newInt, newInt));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public PredefinedType getBool() {
-		return bool;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetBool(PredefinedType newBool, NotificationChain msgs) {
-		PredefinedType oldBool = bool;
-		bool = newBool;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, UppaalPackage.NTA__BOOL, oldBool, newBool);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setBool(PredefinedType newBool) {
-		if (newBool != bool) {
-			NotificationChain msgs = null;
-			if (bool != null)
-				msgs = ((InternalEObject)bool).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - UppaalPackage.NTA__BOOL, null, msgs);
-			if (newBool != null)
-				msgs = ((InternalEObject)newBool).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - UppaalPackage.NTA__BOOL, null, msgs);
-			msgs = basicSetBool(newBool, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, UppaalPackage.NTA__BOOL, newBool, newBool));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public PredefinedType getClock() {
-		return clock;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetClock(PredefinedType newClock, NotificationChain msgs) {
-		PredefinedType oldClock = clock;
-		clock = newClock;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, UppaalPackage.NTA__CLOCK, oldClock, newClock);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setClock(PredefinedType newClock) {
-		if (newClock != clock) {
-			NotificationChain msgs = null;
-			if (clock != null)
-				msgs = ((InternalEObject)clock).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - UppaalPackage.NTA__CLOCK, null, msgs);
-			if (newClock != null)
-				msgs = ((InternalEObject)newClock).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - UppaalPackage.NTA__CLOCK, null, msgs);
-			msgs = basicSetClock(newClock, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, UppaalPackage.NTA__CLOCK, newClock, newClock));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public PredefinedType getChan() {
-		return chan;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetChan(PredefinedType newChan, NotificationChain msgs) {
-		PredefinedType oldChan = chan;
-		chan = newChan;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, UppaalPackage.NTA__CHAN, oldChan, newChan);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setChan(PredefinedType newChan) {
-		if (newChan != chan) {
-			NotificationChain msgs = null;
-			if (chan != null)
-				msgs = ((InternalEObject)chan).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - UppaalPackage.NTA__CHAN, null, msgs);
-			if (newChan != null)
-				msgs = ((InternalEObject)newChan).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - UppaalPackage.NTA__CHAN, null, msgs);
-			msgs = basicSetChan(newChan, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, UppaalPackage.NTA__CHAN, newChan, newChan));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public PredefinedType getVoid() {
-		return void_;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetVoid(PredefinedType newVoid, NotificationChain msgs) {
-		PredefinedType oldVoid = void_;
-		void_ = newVoid;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, UppaalPackage.NTA__VOID, oldVoid, newVoid);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setVoid(PredefinedType newVoid) {
-		if (newVoid != void_) {
-			NotificationChain msgs = null;
-			if (void_ != null)
-				msgs = ((InternalEObject)void_).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - UppaalPackage.NTA__VOID, null, msgs);
-			if (newVoid != null)
-				msgs = ((InternalEObject)newVoid).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - UppaalPackage.NTA__VOID, null, msgs);
-			msgs = basicSetVoid(newVoid, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, UppaalPackage.NTA__VOID, newVoid, newVoid));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -511,16 +240,6 @@ public class NTAImpl extends NamedElementImpl implements NTA {
 				return ((InternalEList<?>)getTemplate()).basicRemove(otherEnd, msgs);
 			case UppaalPackage.NTA__SYSTEM_DECLARATIONS:
 				return basicSetSystemDeclarations(null, msgs);
-			case UppaalPackage.NTA__INT:
-				return basicSetInt(null, msgs);
-			case UppaalPackage.NTA__BOOL:
-				return basicSetBool(null, msgs);
-			case UppaalPackage.NTA__CLOCK:
-				return basicSetClock(null, msgs);
-			case UppaalPackage.NTA__CHAN:
-				return basicSetChan(null, msgs);
-			case UppaalPackage.NTA__VOID:
-				return basicSetVoid(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -541,16 +260,6 @@ public class NTAImpl extends NamedElementImpl implements NTA {
 				return getTemplate();
 			case UppaalPackage.NTA__SYSTEM_DECLARATIONS:
 				return getSystemDeclarations();
-			case UppaalPackage.NTA__INT:
-				return getInt();
-			case UppaalPackage.NTA__BOOL:
-				return getBool();
-			case UppaalPackage.NTA__CLOCK:
-				return getClock();
-			case UppaalPackage.NTA__CHAN:
-				return getChan();
-			case UppaalPackage.NTA__VOID:
-				return getVoid();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -577,21 +286,6 @@ public class NTAImpl extends NamedElementImpl implements NTA {
 			case UppaalPackage.NTA__SYSTEM_DECLARATIONS:
 				setSystemDeclarations((SystemDeclarations)newValue);
 				return;
-			case UppaalPackage.NTA__INT:
-				setInt((PredefinedType)newValue);
-				return;
-			case UppaalPackage.NTA__BOOL:
-				setBool((PredefinedType)newValue);
-				return;
-			case UppaalPackage.NTA__CLOCK:
-				setClock((PredefinedType)newValue);
-				return;
-			case UppaalPackage.NTA__CHAN:
-				setChan((PredefinedType)newValue);
-				return;
-			case UppaalPackage.NTA__VOID:
-				setVoid((PredefinedType)newValue);
-				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -616,21 +310,6 @@ public class NTAImpl extends NamedElementImpl implements NTA {
 			case UppaalPackage.NTA__SYSTEM_DECLARATIONS:
 				setSystemDeclarations((SystemDeclarations)null);
 				return;
-			case UppaalPackage.NTA__INT:
-				setInt((PredefinedType)null);
-				return;
-			case UppaalPackage.NTA__BOOL:
-				setBool((PredefinedType)null);
-				return;
-			case UppaalPackage.NTA__CLOCK:
-				setClock((PredefinedType)null);
-				return;
-			case UppaalPackage.NTA__CHAN:
-				setChan((PredefinedType)null);
-				return;
-			case UppaalPackage.NTA__VOID:
-				setVoid((PredefinedType)null);
-				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -651,16 +330,6 @@ public class NTAImpl extends NamedElementImpl implements NTA {
 				return template != null && !template.isEmpty();
 			case UppaalPackage.NTA__SYSTEM_DECLARATIONS:
 				return systemDeclarations != null;
-			case UppaalPackage.NTA__INT:
-				return int_ != null;
-			case UppaalPackage.NTA__BOOL:
-				return bool != null;
-			case UppaalPackage.NTA__CLOCK:
-				return clock != null;
-			case UppaalPackage.NTA__CHAN:
-				return chan != null;
-			case UppaalPackage.NTA__VOID:
-				return void_ != null;
 		}
 		return super.eIsSet(featureID);
 	}

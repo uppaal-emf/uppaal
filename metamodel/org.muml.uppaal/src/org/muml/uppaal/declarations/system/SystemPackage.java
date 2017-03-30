@@ -41,7 +41,7 @@ public interface SystemPackage extends EPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	String eNS_URI = "http://www.muml.org/uppaal/declarations/system/1.0.0";
+	String eNS_URI = "http://www.muml.org/uppaal/declarations/system";
 
 	/**
 	 * The package namespace name.

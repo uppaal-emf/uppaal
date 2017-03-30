@@ -11,8 +11,8 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.muml.uppaal.declarations.DeclarationsPackage;
 import org.muml.uppaal.declarations.TypeDeclaration;
+import org.muml.uppaal.expressions.Expression;
 import org.muml.uppaal.types.DeclaredType;
-import org.muml.uppaal.types.TypeDefinition;
 import org.muml.uppaal.types.TypesPackage;
 
 /**
@@ -105,8 +105,8 @@ public class DeclaredTypeImpl extends TypeImpl implements DeclaredType {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public TypeDefinition getTypeDefinition() {
-		return (TypeDefinition)TYPE_DEFINITION__ESETTING_DELEGATE.dynamicGet(this, null, 0, true, false);
+	public Expression getTypeDefinition() {
+		return (Expression)TYPE_DEFINITION__ESETTING_DELEGATE.dynamicGet(this, null, 0, true, false);
 	}
 
 	/**
@@ -114,8 +114,8 @@ public class DeclaredTypeImpl extends TypeImpl implements DeclaredType {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public TypeDefinition basicGetTypeDefinition() {
-		return (TypeDefinition)TYPE_DEFINITION__ESETTING_DELEGATE.dynamicGet(this, null, 0, false, false);
+	public Expression basicGetTypeDefinition() {
+		return (Expression)TYPE_DEFINITION__ESETTING_DELEGATE.dynamicGet(this, null, 0, false, false);
 	}
 
 	/**

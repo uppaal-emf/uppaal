@@ -220,209 +220,6 @@ public interface DeclarationsPackage extends EPackage {
 	int DECLARATION_FEATURE_COUNT = 0;
 
 	/**
-	 * The meta object id for the '{@link org.muml.uppaal.declarations.impl.VariableDeclarationImpl <em>Variable Declaration</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see org.muml.uppaal.declarations.impl.VariableDeclarationImpl
-	 * @see org.muml.uppaal.declarations.impl.DeclarationsPackageImpl#getVariableDeclaration()
-	 * @generated
-	 */
-	int VARIABLE_DECLARATION = 5;
-
-	/**
-	 * The feature id for the '<em><b>Type Definition</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int VARIABLE_DECLARATION__TYPE_DEFINITION = DECLARATION_FEATURE_COUNT + 0;
-
-	/**
-	 * The feature id for the '<em><b>Variable</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int VARIABLE_DECLARATION__VARIABLE = DECLARATION_FEATURE_COUNT + 1;
-
-	/**
-	 * The number of structural features of the '<em>Variable Declaration</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int VARIABLE_DECLARATION_FEATURE_COUNT = DECLARATION_FEATURE_COUNT + 2;
-
-	/**
-	 * The meta object id for the '{@link org.muml.uppaal.declarations.impl.ChannelVariableDeclarationImpl <em>Channel Variable Declaration</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see org.muml.uppaal.declarations.impl.ChannelVariableDeclarationImpl
-	 * @see org.muml.uppaal.declarations.impl.DeclarationsPackageImpl#getChannelVariableDeclaration()
-	 * @generated
-	 */
-	int CHANNEL_VARIABLE_DECLARATION = 6;
-
-	/**
-	 * The feature id for the '<em><b>Type Definition</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CHANNEL_VARIABLE_DECLARATION__TYPE_DEFINITION = VARIABLE_DECLARATION__TYPE_DEFINITION;
-
-	/**
-	 * The feature id for the '<em><b>Variable</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CHANNEL_VARIABLE_DECLARATION__VARIABLE = VARIABLE_DECLARATION__VARIABLE;
-
-	/**
-	 * The feature id for the '<em><b>Urgent</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CHANNEL_VARIABLE_DECLARATION__URGENT = VARIABLE_DECLARATION_FEATURE_COUNT + 0;
-
-	/**
-	 * The feature id for the '<em><b>Broadcast</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CHANNEL_VARIABLE_DECLARATION__BROADCAST = VARIABLE_DECLARATION_FEATURE_COUNT + 1;
-
-	/**
-	 * The number of structural features of the '<em>Channel Variable Declaration</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CHANNEL_VARIABLE_DECLARATION_FEATURE_COUNT = VARIABLE_DECLARATION_FEATURE_COUNT + 2;
-
-	/**
-	 * The meta object id for the '{@link org.muml.uppaal.declarations.impl.ClockVariableDeclarationImpl <em>Clock Variable Declaration</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see org.muml.uppaal.declarations.impl.ClockVariableDeclarationImpl
-	 * @see org.muml.uppaal.declarations.impl.DeclarationsPackageImpl#getClockVariableDeclaration()
-	 * @generated
-	 */
-	int CLOCK_VARIABLE_DECLARATION = 7;
-
-	/**
-	 * The feature id for the '<em><b>Type Definition</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CLOCK_VARIABLE_DECLARATION__TYPE_DEFINITION = VARIABLE_DECLARATION__TYPE_DEFINITION;
-
-	/**
-	 * The feature id for the '<em><b>Variable</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CLOCK_VARIABLE_DECLARATION__VARIABLE = VARIABLE_DECLARATION__VARIABLE;
-
-	/**
-	 * The number of structural features of the '<em>Clock Variable Declaration</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CLOCK_VARIABLE_DECLARATION_FEATURE_COUNT = VARIABLE_DECLARATION_FEATURE_COUNT + 0;
-
-	/**
-	 * The meta object id for the '{@link org.muml.uppaal.declarations.impl.DataVariableDeclarationImpl <em>Data Variable Declaration</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see org.muml.uppaal.declarations.impl.DataVariableDeclarationImpl
-	 * @see org.muml.uppaal.declarations.impl.DeclarationsPackageImpl#getDataVariableDeclaration()
-	 * @generated
-	 */
-	int DATA_VARIABLE_DECLARATION = 8;
-
-	/**
-	 * The feature id for the '<em><b>Type Definition</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DATA_VARIABLE_DECLARATION__TYPE_DEFINITION = VARIABLE_DECLARATION__TYPE_DEFINITION;
-
-	/**
-	 * The feature id for the '<em><b>Variable</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DATA_VARIABLE_DECLARATION__VARIABLE = VARIABLE_DECLARATION__VARIABLE;
-
-	/**
-	 * The feature id for the '<em><b>Prefix</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DATA_VARIABLE_DECLARATION__PREFIX = VARIABLE_DECLARATION_FEATURE_COUNT + 0;
-
-	/**
-	 * The number of structural features of the '<em>Data Variable Declaration</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DATA_VARIABLE_DECLARATION_FEATURE_COUNT = VARIABLE_DECLARATION_FEATURE_COUNT + 1;
-
-	/**
-	 * The meta object id for the '{@link org.muml.uppaal.declarations.impl.FunctionDeclarationImpl <em>Function Declaration</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see org.muml.uppaal.declarations.impl.FunctionDeclarationImpl
-	 * @see org.muml.uppaal.declarations.impl.DeclarationsPackageImpl#getFunctionDeclaration()
-	 * @generated
-	 */
-	int FUNCTION_DECLARATION = 9;
-
-	/**
-	 * The feature id for the '<em><b>Function</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int FUNCTION_DECLARATION__FUNCTION = DECLARATION_FEATURE_COUNT + 0;
-
-	/**
-	 * The number of structural features of the '<em>Function Declaration</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int FUNCTION_DECLARATION_FEATURE_COUNT = DECLARATION_FEATURE_COUNT + 1;
-
-	/**
 	 * The meta object id for the '{@link org.muml.uppaal.declarations.impl.FunctionImpl <em>Function</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -430,7 +227,7 @@ public interface DeclarationsPackage extends EPackage {
 	 * @see org.muml.uppaal.declarations.impl.DeclarationsPackageImpl#getFunction()
 	 * @generated
 	 */
-	int FUNCTION = 10;
+	int FUNCTION = 5;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -442,13 +239,22 @@ public interface DeclarationsPackage extends EPackage {
 	int FUNCTION__NAME = CorePackage.NAMED_ELEMENT__NAME;
 
 	/**
-	 * The feature id for the '<em><b>Return Type</b></em>' containment reference.
+	 * The feature id for the '<em><b>Container</b></em>' container reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int FUNCTION__RETURN_TYPE = CorePackage.NAMED_ELEMENT_FEATURE_COUNT + 0;
+	int FUNCTION__CONTAINER = CorePackage.NAMED_ELEMENT_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Type Definition</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FUNCTION__TYPE_DEFINITION = CorePackage.NAMED_ELEMENT_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Block</b></em>' containment reference.
@@ -457,7 +263,7 @@ public interface DeclarationsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int FUNCTION__BLOCK = CorePackage.NAMED_ELEMENT_FEATURE_COUNT + 1;
+	int FUNCTION__BLOCK = CorePackage.NAMED_ELEMENT_FEATURE_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>Parameter</b></em>' containment reference list.
@@ -466,7 +272,7 @@ public interface DeclarationsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int FUNCTION__PARAMETER = CorePackage.NAMED_ELEMENT_FEATURE_COUNT + 2;
+	int FUNCTION__PARAMETER = CorePackage.NAMED_ELEMENT_FEATURE_COUNT + 3;
 
 	/**
 	 * The number of structural features of the '<em>Function</em>' class.
@@ -475,7 +281,7 @@ public interface DeclarationsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int FUNCTION_FEATURE_COUNT = CorePackage.NAMED_ELEMENT_FEATURE_COUNT + 3;
+	int FUNCTION_FEATURE_COUNT = CorePackage.NAMED_ELEMENT_FEATURE_COUNT + 4;
 
 	/**
 	 * The meta object id for the '{@link org.muml.uppaal.declarations.impl.TypeDeclarationImpl <em>Type Declaration</em>}' class.
@@ -485,7 +291,7 @@ public interface DeclarationsPackage extends EPackage {
 	 * @see org.muml.uppaal.declarations.impl.DeclarationsPackageImpl#getTypeDeclaration()
 	 * @generated
 	 */
-	int TYPE_DECLARATION = 11;
+	int TYPE_DECLARATION = 6;
 
 	/**
 	 * The feature id for the '<em><b>Type</b></em>' containment reference list.
@@ -522,7 +328,7 @@ public interface DeclarationsPackage extends EPackage {
 	 * @see org.muml.uppaal.declarations.impl.DeclarationsPackageImpl#getVariable()
 	 * @generated
 	 */
-	int VARIABLE = 12;
+	int VARIABLE = 7;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -534,22 +340,13 @@ public interface DeclarationsPackage extends EPackage {
 	int VARIABLE__NAME = CorePackage.NAMED_ELEMENT__NAME;
 
 	/**
-	 * The feature id for the '<em><b>Index</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int VARIABLE__INDEX = CorePackage.NAMED_ELEMENT_FEATURE_COUNT + 0;
-
-	/**
 	 * The feature id for the '<em><b>Container</b></em>' container reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int VARIABLE__CONTAINER = CorePackage.NAMED_ELEMENT_FEATURE_COUNT + 1;
+	int VARIABLE__CONTAINER = CorePackage.NAMED_ELEMENT_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Type Definition</b></em>' reference.
@@ -558,7 +355,16 @@ public interface DeclarationsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int VARIABLE__TYPE_DEFINITION = CorePackage.NAMED_ELEMENT_FEATURE_COUNT + 2;
+	int VARIABLE__TYPE_DEFINITION = CorePackage.NAMED_ELEMENT_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Index</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VARIABLE__INDEX = CorePackage.NAMED_ELEMENT_FEATURE_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>Initializer</b></em>' containment reference.
@@ -579,61 +385,14 @@ public interface DeclarationsPackage extends EPackage {
 	int VARIABLE_FEATURE_COUNT = CorePackage.NAMED_ELEMENT_FEATURE_COUNT + 4;
 
 	/**
-	 * The meta object id for the '{@link org.muml.uppaal.declarations.impl.IndexImpl <em>Index</em>}' class.
+	 * The meta object id for the '{@link org.muml.uppaal.declarations.impl.TypedElementContainerImpl <em>Typed Element Container</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see org.muml.uppaal.declarations.impl.IndexImpl
-	 * @see org.muml.uppaal.declarations.impl.DeclarationsPackageImpl#getIndex()
+	 * @see org.muml.uppaal.declarations.impl.TypedElementContainerImpl
+	 * @see org.muml.uppaal.declarations.impl.DeclarationsPackageImpl#getTypedElementContainer()
 	 * @generated
 	 */
-	int INDEX = 13;
-
-	/**
-	 * The number of structural features of the '<em>Index</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int INDEX_FEATURE_COUNT = 0;
-
-	/**
-	 * The meta object id for the '{@link org.muml.uppaal.declarations.impl.ValueIndexImpl <em>Value Index</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see org.muml.uppaal.declarations.impl.ValueIndexImpl
-	 * @see org.muml.uppaal.declarations.impl.DeclarationsPackageImpl#getValueIndex()
-	 * @generated
-	 */
-	int VALUE_INDEX = 14;
-
-	/**
-	 * The feature id for the '<em><b>Size Expression</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int VALUE_INDEX__SIZE_EXPRESSION = INDEX_FEATURE_COUNT + 0;
-
-	/**
-	 * The number of structural features of the '<em>Value Index</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int VALUE_INDEX_FEATURE_COUNT = INDEX_FEATURE_COUNT + 1;
-
-	/**
-	 * The meta object id for the '{@link org.muml.uppaal.declarations.impl.TypeIndexImpl <em>Type Index</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see org.muml.uppaal.declarations.impl.TypeIndexImpl
-	 * @see org.muml.uppaal.declarations.impl.DeclarationsPackageImpl#getTypeIndex()
-	 * @generated
-	 */
-	int TYPE_INDEX = 15;
+	int TYPED_ELEMENT_CONTAINER = 8;
 
 	/**
 	 * The feature id for the '<em><b>Type Definition</b></em>' containment reference.
@@ -642,53 +401,25 @@ public interface DeclarationsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TYPE_INDEX__TYPE_DEFINITION = INDEX_FEATURE_COUNT + 0;
+	int TYPED_ELEMENT_CONTAINER__TYPE_DEFINITION = 0;
 
 	/**
-	 * The number of structural features of the '<em>Type Index</em>' class.
+	 * The feature id for the '<em><b>Elements</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TYPE_INDEX_FEATURE_COUNT = INDEX_FEATURE_COUNT + 1;
+	int TYPED_ELEMENT_CONTAINER__ELEMENTS = 1;
 
 	/**
-	 * The meta object id for the '{@link org.muml.uppaal.declarations.impl.VariableContainerImpl <em>Variable Container</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see org.muml.uppaal.declarations.impl.VariableContainerImpl
-	 * @see org.muml.uppaal.declarations.impl.DeclarationsPackageImpl#getVariableContainer()
-	 * @generated
-	 */
-	int VARIABLE_CONTAINER = 16;
-
-	/**
-	 * The feature id for the '<em><b>Type Definition</b></em>' containment reference.
+	 * The number of structural features of the '<em>Typed Element Container</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int VARIABLE_CONTAINER__TYPE_DEFINITION = 0;
-
-	/**
-	 * The feature id for the '<em><b>Variable</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int VARIABLE_CONTAINER__VARIABLE = 1;
-
-	/**
-	 * The number of structural features of the '<em>Variable Container</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int VARIABLE_CONTAINER_FEATURE_COUNT = 2;
+	int TYPED_ELEMENT_CONTAINER_FEATURE_COUNT = 2;
 
 	/**
 	 * The meta object id for the '{@link org.muml.uppaal.declarations.impl.ParameterImpl <em>Parameter</em>}' class.
@@ -698,16 +429,52 @@ public interface DeclarationsPackage extends EPackage {
 	 * @see org.muml.uppaal.declarations.impl.DeclarationsPackageImpl#getParameter()
 	 * @generated
 	 */
-	int PARAMETER = 17;
+	int PARAMETER = 9;
 
 	/**
-	 * The feature id for the '<em><b>Variable Declaration</b></em>' containment reference.
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PARAMETER__VARIABLE_DECLARATION = 0;
+	int PARAMETER__NAME = VARIABLE__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Container</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARAMETER__CONTAINER = VARIABLE__CONTAINER;
+
+	/**
+	 * The feature id for the '<em><b>Type Definition</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARAMETER__TYPE_DEFINITION = VARIABLE__TYPE_DEFINITION;
+
+	/**
+	 * The feature id for the '<em><b>Index</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARAMETER__INDEX = VARIABLE__INDEX;
+
+	/**
+	 * The feature id for the '<em><b>Initializer</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARAMETER__INITIALIZER = VARIABLE__INITIALIZER;
 
 	/**
 	 * The feature id for the '<em><b>Call Type</b></em>' attribute.
@@ -716,7 +483,7 @@ public interface DeclarationsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PARAMETER__CALL_TYPE = 1;
+	int PARAMETER__CALL_TYPE = VARIABLE_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of structural features of the '<em>Parameter</em>' class.
@@ -725,7 +492,7 @@ public interface DeclarationsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PARAMETER_FEATURE_COUNT = 2;
+	int PARAMETER_FEATURE_COUNT = VARIABLE_FEATURE_COUNT + 1;
 
 	/**
 	 * The meta object id for the '{@link org.muml.uppaal.declarations.impl.InitializerImpl <em>Initializer</em>}' class.
@@ -735,7 +502,7 @@ public interface DeclarationsPackage extends EPackage {
 	 * @see org.muml.uppaal.declarations.impl.DeclarationsPackageImpl#getInitializer()
 	 * @generated
 	 */
-	int INITIALIZER = 18;
+	int INITIALIZER = 10;
 
 	/**
 	 * The number of structural features of the '<em>Initializer</em>' class.
@@ -754,7 +521,7 @@ public interface DeclarationsPackage extends EPackage {
 	 * @see org.muml.uppaal.declarations.impl.DeclarationsPackageImpl#getExpressionInitializer()
 	 * @generated
 	 */
-	int EXPRESSION_INITIALIZER = 19;
+	int EXPRESSION_INITIALIZER = 11;
 
 	/**
 	 * The feature id for the '<em><b>Expression</b></em>' containment reference.
@@ -782,7 +549,7 @@ public interface DeclarationsPackage extends EPackage {
 	 * @see org.muml.uppaal.declarations.impl.DeclarationsPackageImpl#getArrayInitializer()
 	 * @generated
 	 */
-	int ARRAY_INITIALIZER = 20;
+	int ARRAY_INITIALIZER = 12;
 
 	/**
 	 * The feature id for the '<em><b>Initializer</b></em>' containment reference list.
@@ -803,6 +570,80 @@ public interface DeclarationsPackage extends EPackage {
 	int ARRAY_INITIALIZER_FEATURE_COUNT = INITIALIZER_FEATURE_COUNT + 1;
 
 	/**
+	 * The meta object id for the '{@link org.muml.uppaal.declarations.impl.TypedDeclarationImpl <em>Typed Declaration</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.muml.uppaal.declarations.impl.TypedDeclarationImpl
+	 * @see org.muml.uppaal.declarations.impl.DeclarationsPackageImpl#getTypedDeclaration()
+	 * @generated
+	 */
+	int TYPED_DECLARATION = 13;
+
+	/**
+	 * The feature id for the '<em><b>Type Definition</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TYPED_DECLARATION__TYPE_DEFINITION = DECLARATION_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Elements</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TYPED_DECLARATION__ELEMENTS = DECLARATION_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of structural features of the '<em>Typed Declaration</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TYPED_DECLARATION_FEATURE_COUNT = DECLARATION_FEATURE_COUNT + 2;
+
+	/**
+	 * The meta object id for the '{@link org.muml.uppaal.declarations.impl.ParameterContainerImpl <em>Parameter Container</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.muml.uppaal.declarations.impl.ParameterContainerImpl
+	 * @see org.muml.uppaal.declarations.impl.DeclarationsPackageImpl#getParameterContainer()
+	 * @generated
+	 */
+	int PARAMETER_CONTAINER = 14;
+
+	/**
+	 * The feature id for the '<em><b>Type Definition</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARAMETER_CONTAINER__TYPE_DEFINITION = TYPED_ELEMENT_CONTAINER__TYPE_DEFINITION;
+
+	/**
+	 * The feature id for the '<em><b>Elements</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARAMETER_CONTAINER__ELEMENTS = TYPED_ELEMENT_CONTAINER__ELEMENTS;
+
+	/**
+	 * The number of structural features of the '<em>Parameter Container</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARAMETER_CONTAINER_FEATURE_COUNT = TYPED_ELEMENT_CONTAINER_FEATURE_COUNT + 0;
+
+	/**
 	 * The meta object id for the '{@link org.muml.uppaal.declarations.DataVariablePrefix <em>Data Variable Prefix</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -810,7 +651,7 @@ public interface DeclarationsPackage extends EPackage {
 	 * @see org.muml.uppaal.declarations.impl.DeclarationsPackageImpl#getDataVariablePrefix()
 	 * @generated
 	 */
-	int DATA_VARIABLE_PREFIX = 21;
+	int DATA_VARIABLE_PREFIX = 15;
 
 	/**
 	 * The meta object id for the '{@link org.muml.uppaal.declarations.CallType <em>Call Type</em>}' enum.
@@ -820,7 +661,7 @@ public interface DeclarationsPackage extends EPackage {
 	 * @see org.muml.uppaal.declarations.impl.DeclarationsPackageImpl#getCallType()
 	 * @generated
 	 */
-	int CALL_TYPE = 22;
+	int CALL_TYPE = 16;
 
 
 	/**
@@ -918,100 +759,6 @@ public interface DeclarationsPackage extends EPackage {
 	EClass getDeclaration();
 
 	/**
-	 * Returns the meta object for class '{@link org.muml.uppaal.declarations.VariableDeclaration <em>Variable Declaration</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Variable Declaration</em>'.
-	 * @see org.muml.uppaal.declarations.VariableDeclaration
-	 * @generated
-	 */
-	EClass getVariableDeclaration();
-
-	/**
-	 * Returns the meta object for class '{@link org.muml.uppaal.declarations.ChannelVariableDeclaration <em>Channel Variable Declaration</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Channel Variable Declaration</em>'.
-	 * @see org.muml.uppaal.declarations.ChannelVariableDeclaration
-	 * @generated
-	 */
-	EClass getChannelVariableDeclaration();
-
-	/**
-	 * Returns the meta object for the attribute '{@link org.muml.uppaal.declarations.ChannelVariableDeclaration#isUrgent <em>Urgent</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Urgent</em>'.
-	 * @see org.muml.uppaal.declarations.ChannelVariableDeclaration#isUrgent()
-	 * @see #getChannelVariableDeclaration()
-	 * @generated
-	 */
-	EAttribute getChannelVariableDeclaration_Urgent();
-
-	/**
-	 * Returns the meta object for the attribute '{@link org.muml.uppaal.declarations.ChannelVariableDeclaration#isBroadcast <em>Broadcast</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Broadcast</em>'.
-	 * @see org.muml.uppaal.declarations.ChannelVariableDeclaration#isBroadcast()
-	 * @see #getChannelVariableDeclaration()
-	 * @generated
-	 */
-	EAttribute getChannelVariableDeclaration_Broadcast();
-
-	/**
-	 * Returns the meta object for class '{@link org.muml.uppaal.declarations.ClockVariableDeclaration <em>Clock Variable Declaration</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Clock Variable Declaration</em>'.
-	 * @see org.muml.uppaal.declarations.ClockVariableDeclaration
-	 * @generated
-	 */
-	EClass getClockVariableDeclaration();
-
-	/**
-	 * Returns the meta object for class '{@link org.muml.uppaal.declarations.DataVariableDeclaration <em>Data Variable Declaration</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Data Variable Declaration</em>'.
-	 * @see org.muml.uppaal.declarations.DataVariableDeclaration
-	 * @generated
-	 */
-	EClass getDataVariableDeclaration();
-
-	/**
-	 * Returns the meta object for the attribute '{@link org.muml.uppaal.declarations.DataVariableDeclaration#getPrefix <em>Prefix</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Prefix</em>'.
-	 * @see org.muml.uppaal.declarations.DataVariableDeclaration#getPrefix()
-	 * @see #getDataVariableDeclaration()
-	 * @generated
-	 */
-	EAttribute getDataVariableDeclaration_Prefix();
-
-	/**
-	 * Returns the meta object for class '{@link org.muml.uppaal.declarations.FunctionDeclaration <em>Function Declaration</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Function Declaration</em>'.
-	 * @see org.muml.uppaal.declarations.FunctionDeclaration
-	 * @generated
-	 */
-	EClass getFunctionDeclaration();
-
-	/**
-	 * Returns the meta object for the containment reference '{@link org.muml.uppaal.declarations.FunctionDeclaration#getFunction <em>Function</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Function</em>'.
-	 * @see org.muml.uppaal.declarations.FunctionDeclaration#getFunction()
-	 * @see #getFunctionDeclaration()
-	 * @generated
-	 */
-	EReference getFunctionDeclaration_Function();
-
-	/**
 	 * Returns the meta object for class '{@link org.muml.uppaal.declarations.Function <em>Function</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1020,17 +767,6 @@ public interface DeclarationsPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getFunction();
-
-	/**
-	 * Returns the meta object for the containment reference '{@link org.muml.uppaal.declarations.Function#getReturnType <em>Return Type</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Return Type</em>'.
-	 * @see org.muml.uppaal.declarations.Function#getReturnType()
-	 * @see #getFunction()
-	 * @generated
-	 */
-	EReference getFunction_ReturnType();
 
 	/**
 	 * Returns the meta object for the containment reference '{@link org.muml.uppaal.declarations.Function#getBlock <em>Block</em>}'.
@@ -1108,28 +844,6 @@ public interface DeclarationsPackage extends EPackage {
 	EReference getVariable_Index();
 
 	/**
-	 * Returns the meta object for the container reference '{@link org.muml.uppaal.declarations.Variable#getContainer <em>Container</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the container reference '<em>Container</em>'.
-	 * @see org.muml.uppaal.declarations.Variable#getContainer()
-	 * @see #getVariable()
-	 * @generated
-	 */
-	EReference getVariable_Container();
-
-	/**
-	 * Returns the meta object for the reference '{@link org.muml.uppaal.declarations.Variable#getTypeDefinition <em>Type Definition</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Type Definition</em>'.
-	 * @see org.muml.uppaal.declarations.Variable#getTypeDefinition()
-	 * @see #getVariable()
-	 * @generated
-	 */
-	EReference getVariable_TypeDefinition();
-
-	/**
 	 * Returns the meta object for the containment reference '{@link org.muml.uppaal.declarations.Variable#getInitializer <em>Initializer</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1141,88 +855,36 @@ public interface DeclarationsPackage extends EPackage {
 	EReference getVariable_Initializer();
 
 	/**
-	 * Returns the meta object for class '{@link org.muml.uppaal.declarations.Index <em>Index</em>}'.
+	 * Returns the meta object for class '{@link org.muml.uppaal.declarations.TypedElementContainer <em>Typed Element Container</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Index</em>'.
-	 * @see org.muml.uppaal.declarations.Index
+	 * @return the meta object for class '<em>Typed Element Container</em>'.
+	 * @see org.muml.uppaal.declarations.TypedElementContainer
 	 * @generated
 	 */
-	EClass getIndex();
+	EClass getTypedElementContainer();
 
 	/**
-	 * Returns the meta object for class '{@link org.muml.uppaal.declarations.ValueIndex <em>Value Index</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Value Index</em>'.
-	 * @see org.muml.uppaal.declarations.ValueIndex
-	 * @generated
-	 */
-	EClass getValueIndex();
-
-	/**
-	 * Returns the meta object for the containment reference '{@link org.muml.uppaal.declarations.ValueIndex#getSizeExpression <em>Size Expression</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Size Expression</em>'.
-	 * @see org.muml.uppaal.declarations.ValueIndex#getSizeExpression()
-	 * @see #getValueIndex()
-	 * @generated
-	 */
-	EReference getValueIndex_SizeExpression();
-
-	/**
-	 * Returns the meta object for class '{@link org.muml.uppaal.declarations.TypeIndex <em>Type Index</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Type Index</em>'.
-	 * @see org.muml.uppaal.declarations.TypeIndex
-	 * @generated
-	 */
-	EClass getTypeIndex();
-
-	/**
-	 * Returns the meta object for the containment reference '{@link org.muml.uppaal.declarations.TypeIndex#getTypeDefinition <em>Type Definition</em>}'.
+	 * Returns the meta object for the containment reference '{@link org.muml.uppaal.declarations.TypedElementContainer#getTypeDefinition <em>Type Definition</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the containment reference '<em>Type Definition</em>'.
-	 * @see org.muml.uppaal.declarations.TypeIndex#getTypeDefinition()
-	 * @see #getTypeIndex()
+	 * @see org.muml.uppaal.declarations.TypedElementContainer#getTypeDefinition()
+	 * @see #getTypedElementContainer()
 	 * @generated
 	 */
-	EReference getTypeIndex_TypeDefinition();
+	EReference getTypedElementContainer_TypeDefinition();
 
 	/**
-	 * Returns the meta object for class '{@link org.muml.uppaal.declarations.VariableContainer <em>Variable Container</em>}'.
+	 * Returns the meta object for the containment reference list '{@link org.muml.uppaal.declarations.TypedElementContainer#getElements <em>Elements</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Variable Container</em>'.
-	 * @see org.muml.uppaal.declarations.VariableContainer
+	 * @return the meta object for the containment reference list '<em>Elements</em>'.
+	 * @see org.muml.uppaal.declarations.TypedElementContainer#getElements()
+	 * @see #getTypedElementContainer()
 	 * @generated
 	 */
-	EClass getVariableContainer();
-
-	/**
-	 * Returns the meta object for the containment reference '{@link org.muml.uppaal.declarations.VariableContainer#getTypeDefinition <em>Type Definition</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Type Definition</em>'.
-	 * @see org.muml.uppaal.declarations.VariableContainer#getTypeDefinition()
-	 * @see #getVariableContainer()
-	 * @generated
-	 */
-	EReference getVariableContainer_TypeDefinition();
-
-	/**
-	 * Returns the meta object for the containment reference list '{@link org.muml.uppaal.declarations.VariableContainer#getVariable <em>Variable</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Variable</em>'.
-	 * @see org.muml.uppaal.declarations.VariableContainer#getVariable()
-	 * @see #getVariableContainer()
-	 * @generated
-	 */
-	EReference getVariableContainer_Variable();
+	EReference getTypedElementContainer_Elements();
 
 	/**
 	 * Returns the meta object for class '{@link org.muml.uppaal.declarations.Parameter <em>Parameter</em>}'.
@@ -1233,17 +895,6 @@ public interface DeclarationsPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getParameter();
-
-	/**
-	 * Returns the meta object for the containment reference '{@link org.muml.uppaal.declarations.Parameter#getVariableDeclaration <em>Variable Declaration</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Variable Declaration</em>'.
-	 * @see org.muml.uppaal.declarations.Parameter#getVariableDeclaration()
-	 * @see #getParameter()
-	 * @generated
-	 */
-	EReference getParameter_VariableDeclaration();
 
 	/**
 	 * Returns the meta object for the attribute '{@link org.muml.uppaal.declarations.Parameter#getCallType <em>Call Type</em>}'.
@@ -1307,6 +958,26 @@ public interface DeclarationsPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getArrayInitializer_Initializer();
+
+	/**
+	 * Returns the meta object for class '{@link org.muml.uppaal.declarations.TypedDeclaration <em>Typed Declaration</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Typed Declaration</em>'.
+	 * @see org.muml.uppaal.declarations.TypedDeclaration
+	 * @generated
+	 */
+	EClass getTypedDeclaration();
+
+	/**
+	 * Returns the meta object for class '{@link org.muml.uppaal.declarations.ParameterContainer <em>Parameter Container</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Parameter Container</em>'.
+	 * @see org.muml.uppaal.declarations.ParameterContainer
+	 * @generated
+	 */
+	EClass getParameterContainer();
 
 	/**
 	 * Returns the meta object for enum '{@link org.muml.uppaal.declarations.DataVariablePrefix <em>Data Variable Prefix</em>}'.
@@ -1433,88 +1104,6 @@ public interface DeclarationsPackage extends EPackage {
 		EClass DECLARATION = eINSTANCE.getDeclaration();
 
 		/**
-		 * The meta object literal for the '{@link org.muml.uppaal.declarations.impl.VariableDeclarationImpl <em>Variable Declaration</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see org.muml.uppaal.declarations.impl.VariableDeclarationImpl
-		 * @see org.muml.uppaal.declarations.impl.DeclarationsPackageImpl#getVariableDeclaration()
-		 * @generated
-		 */
-		EClass VARIABLE_DECLARATION = eINSTANCE.getVariableDeclaration();
-
-		/**
-		 * The meta object literal for the '{@link org.muml.uppaal.declarations.impl.ChannelVariableDeclarationImpl <em>Channel Variable Declaration</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see org.muml.uppaal.declarations.impl.ChannelVariableDeclarationImpl
-		 * @see org.muml.uppaal.declarations.impl.DeclarationsPackageImpl#getChannelVariableDeclaration()
-		 * @generated
-		 */
-		EClass CHANNEL_VARIABLE_DECLARATION = eINSTANCE.getChannelVariableDeclaration();
-
-		/**
-		 * The meta object literal for the '<em><b>Urgent</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute CHANNEL_VARIABLE_DECLARATION__URGENT = eINSTANCE.getChannelVariableDeclaration_Urgent();
-
-		/**
-		 * The meta object literal for the '<em><b>Broadcast</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute CHANNEL_VARIABLE_DECLARATION__BROADCAST = eINSTANCE.getChannelVariableDeclaration_Broadcast();
-
-		/**
-		 * The meta object literal for the '{@link org.muml.uppaal.declarations.impl.ClockVariableDeclarationImpl <em>Clock Variable Declaration</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see org.muml.uppaal.declarations.impl.ClockVariableDeclarationImpl
-		 * @see org.muml.uppaal.declarations.impl.DeclarationsPackageImpl#getClockVariableDeclaration()
-		 * @generated
-		 */
-		EClass CLOCK_VARIABLE_DECLARATION = eINSTANCE.getClockVariableDeclaration();
-
-		/**
-		 * The meta object literal for the '{@link org.muml.uppaal.declarations.impl.DataVariableDeclarationImpl <em>Data Variable Declaration</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see org.muml.uppaal.declarations.impl.DataVariableDeclarationImpl
-		 * @see org.muml.uppaal.declarations.impl.DeclarationsPackageImpl#getDataVariableDeclaration()
-		 * @generated
-		 */
-		EClass DATA_VARIABLE_DECLARATION = eINSTANCE.getDataVariableDeclaration();
-
-		/**
-		 * The meta object literal for the '<em><b>Prefix</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute DATA_VARIABLE_DECLARATION__PREFIX = eINSTANCE.getDataVariableDeclaration_Prefix();
-
-		/**
-		 * The meta object literal for the '{@link org.muml.uppaal.declarations.impl.FunctionDeclarationImpl <em>Function Declaration</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see org.muml.uppaal.declarations.impl.FunctionDeclarationImpl
-		 * @see org.muml.uppaal.declarations.impl.DeclarationsPackageImpl#getFunctionDeclaration()
-		 * @generated
-		 */
-		EClass FUNCTION_DECLARATION = eINSTANCE.getFunctionDeclaration();
-
-		/**
-		 * The meta object literal for the '<em><b>Function</b></em>' containment reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference FUNCTION_DECLARATION__FUNCTION = eINSTANCE.getFunctionDeclaration_Function();
-
-		/**
 		 * The meta object literal for the '{@link org.muml.uppaal.declarations.impl.FunctionImpl <em>Function</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1523,14 +1112,6 @@ public interface DeclarationsPackage extends EPackage {
 		 * @generated
 		 */
 		EClass FUNCTION = eINSTANCE.getFunction();
-
-		/**
-		 * The meta object literal for the '<em><b>Return Type</b></em>' containment reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference FUNCTION__RETURN_TYPE = eINSTANCE.getFunction_ReturnType();
 
 		/**
 		 * The meta object literal for the '<em><b>Block</b></em>' containment reference feature.
@@ -1593,22 +1174,6 @@ public interface DeclarationsPackage extends EPackage {
 		EReference VARIABLE__INDEX = eINSTANCE.getVariable_Index();
 
 		/**
-		 * The meta object literal for the '<em><b>Container</b></em>' container reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference VARIABLE__CONTAINER = eINSTANCE.getVariable_Container();
-
-		/**
-		 * The meta object literal for the '<em><b>Type Definition</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference VARIABLE__TYPE_DEFINITION = eINSTANCE.getVariable_TypeDefinition();
-
-		/**
 		 * The meta object literal for the '<em><b>Initializer</b></em>' containment reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1617,42 +1182,14 @@ public interface DeclarationsPackage extends EPackage {
 		EReference VARIABLE__INITIALIZER = eINSTANCE.getVariable_Initializer();
 
 		/**
-		 * The meta object literal for the '{@link org.muml.uppaal.declarations.impl.IndexImpl <em>Index</em>}' class.
+		 * The meta object literal for the '{@link org.muml.uppaal.declarations.impl.TypedElementContainerImpl <em>Typed Element Container</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see org.muml.uppaal.declarations.impl.IndexImpl
-		 * @see org.muml.uppaal.declarations.impl.DeclarationsPackageImpl#getIndex()
+		 * @see org.muml.uppaal.declarations.impl.TypedElementContainerImpl
+		 * @see org.muml.uppaal.declarations.impl.DeclarationsPackageImpl#getTypedElementContainer()
 		 * @generated
 		 */
-		EClass INDEX = eINSTANCE.getIndex();
-
-		/**
-		 * The meta object literal for the '{@link org.muml.uppaal.declarations.impl.ValueIndexImpl <em>Value Index</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see org.muml.uppaal.declarations.impl.ValueIndexImpl
-		 * @see org.muml.uppaal.declarations.impl.DeclarationsPackageImpl#getValueIndex()
-		 * @generated
-		 */
-		EClass VALUE_INDEX = eINSTANCE.getValueIndex();
-
-		/**
-		 * The meta object literal for the '<em><b>Size Expression</b></em>' containment reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference VALUE_INDEX__SIZE_EXPRESSION = eINSTANCE.getValueIndex_SizeExpression();
-
-		/**
-		 * The meta object literal for the '{@link org.muml.uppaal.declarations.impl.TypeIndexImpl <em>Type Index</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see org.muml.uppaal.declarations.impl.TypeIndexImpl
-		 * @see org.muml.uppaal.declarations.impl.DeclarationsPackageImpl#getTypeIndex()
-		 * @generated
-		 */
-		EClass TYPE_INDEX = eINSTANCE.getTypeIndex();
+		EClass TYPED_ELEMENT_CONTAINER = eINSTANCE.getTypedElementContainer();
 
 		/**
 		 * The meta object literal for the '<em><b>Type Definition</b></em>' containment reference feature.
@@ -1660,33 +1197,15 @@ public interface DeclarationsPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference TYPE_INDEX__TYPE_DEFINITION = eINSTANCE.getTypeIndex_TypeDefinition();
+		EReference TYPED_ELEMENT_CONTAINER__TYPE_DEFINITION = eINSTANCE.getTypedElementContainer_TypeDefinition();
 
 		/**
-		 * The meta object literal for the '{@link org.muml.uppaal.declarations.impl.VariableContainerImpl <em>Variable Container</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see org.muml.uppaal.declarations.impl.VariableContainerImpl
-		 * @see org.muml.uppaal.declarations.impl.DeclarationsPackageImpl#getVariableContainer()
-		 * @generated
-		 */
-		EClass VARIABLE_CONTAINER = eINSTANCE.getVariableContainer();
-
-		/**
-		 * The meta object literal for the '<em><b>Type Definition</b></em>' containment reference feature.
+		 * The meta object literal for the '<em><b>Elements</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference VARIABLE_CONTAINER__TYPE_DEFINITION = eINSTANCE.getVariableContainer_TypeDefinition();
-
-		/**
-		 * The meta object literal for the '<em><b>Variable</b></em>' containment reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference VARIABLE_CONTAINER__VARIABLE = eINSTANCE.getVariableContainer_Variable();
+		EReference TYPED_ELEMENT_CONTAINER__ELEMENTS = eINSTANCE.getTypedElementContainer_Elements();
 
 		/**
 		 * The meta object literal for the '{@link org.muml.uppaal.declarations.impl.ParameterImpl <em>Parameter</em>}' class.
@@ -1697,14 +1216,6 @@ public interface DeclarationsPackage extends EPackage {
 		 * @generated
 		 */
 		EClass PARAMETER = eINSTANCE.getParameter();
-
-		/**
-		 * The meta object literal for the '<em><b>Variable Declaration</b></em>' containment reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference PARAMETER__VARIABLE_DECLARATION = eINSTANCE.getParameter_VariableDeclaration();
 
 		/**
 		 * The meta object literal for the '<em><b>Call Type</b></em>' attribute feature.
@@ -1759,6 +1270,26 @@ public interface DeclarationsPackage extends EPackage {
 		 * @generated
 		 */
 		EReference ARRAY_INITIALIZER__INITIALIZER = eINSTANCE.getArrayInitializer_Initializer();
+
+		/**
+		 * The meta object literal for the '{@link org.muml.uppaal.declarations.impl.TypedDeclarationImpl <em>Typed Declaration</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.muml.uppaal.declarations.impl.TypedDeclarationImpl
+		 * @see org.muml.uppaal.declarations.impl.DeclarationsPackageImpl#getTypedDeclaration()
+		 * @generated
+		 */
+		EClass TYPED_DECLARATION = eINSTANCE.getTypedDeclaration();
+
+		/**
+		 * The meta object literal for the '{@link org.muml.uppaal.declarations.impl.ParameterContainerImpl <em>Parameter Container</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.muml.uppaal.declarations.impl.ParameterContainerImpl
+		 * @see org.muml.uppaal.declarations.impl.DeclarationsPackageImpl#getParameterContainer()
+		 * @generated
+		 */
+		EClass PARAMETER_CONTAINER = eINSTANCE.getParameterContainer();
 
 		/**
 		 * The meta object literal for the '{@link org.muml.uppaal.declarations.DataVariablePrefix <em>Data Variable Prefix</em>}' enum.

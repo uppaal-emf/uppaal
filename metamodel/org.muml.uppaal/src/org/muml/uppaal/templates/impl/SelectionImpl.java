@@ -3,7 +3,7 @@
 package org.muml.uppaal.templates.impl;
 
 import org.eclipse.emf.ecore.EClass;
-import org.muml.uppaal.declarations.impl.VariableContainerImpl;
+import org.muml.uppaal.declarations.impl.TypedElementContainerImpl;
 import org.muml.uppaal.templates.Selection;
 import org.muml.uppaal.templates.TemplatesPackage;
 
@@ -14,7 +14,7 @@ import org.muml.uppaal.templates.TemplatesPackage;
  *
  * @generated
  */
-public class SelectionImpl extends VariableContainerImpl implements Selection {
+public class SelectionImpl extends TypedElementContainerImpl implements Selection {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

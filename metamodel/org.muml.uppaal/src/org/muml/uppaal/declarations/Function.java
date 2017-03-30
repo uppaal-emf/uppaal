@@ -4,8 +4,8 @@ package org.muml.uppaal.declarations;
 
 import org.eclipse.emf.common.util.EList;
 import org.muml.uppaal.core.NamedElement;
+import org.muml.uppaal.core.TypedElement;
 import org.muml.uppaal.statements.Block;
-import org.muml.uppaal.types.TypeDefinition;
 
 /**
  * <!-- begin-user-doc -->
@@ -20,42 +20,16 @@ import org.muml.uppaal.types.TypeDefinition;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link org.muml.uppaal.declarations.Function#getReturnType <em>Return Type</em>}</li>
  *   <li>{@link org.muml.uppaal.declarations.Function#getBlock <em>Block</em>}</li>
  *   <li>{@link org.muml.uppaal.declarations.Function#getParameter <em>Parameter</em>}</li>
  * </ul>
  *
  * @see org.muml.uppaal.declarations.DeclarationsPackage#getFunction()
- * @model annotation="http://www.eclipse.org/emf/2002/Ecore/OCL ValidReturnType='(not returnType.oclIsUndefined())\r\nimplies\r\n(returnType.baseType = types::BuiltInType::VOID or\r\n returnType.baseType = types::BuiltInType::INT or\r\n returnType.baseType = types::BuiltInType::BOOL)' UniqueParameterNames='self.parameter->collect(variableDeclaration)->collect(variable)->isUnique(name)'"
+ * @model annotation="http://www.eclipse.org/emf/2002/Ecore/OCL ValidReturnType='(not typeDefinition.oclIsUndefined())\r\nimplies\r\n(\r\n\t(\r\n\t\ttypeDefinition.oclIsKindOf(uppaal::expressions::IdentifierExpression) and\r\n\t\ttypeDefinition.oclAsType(uppaal::expressions::IdentifierExpression).identifier.oclIsKindOf(uppaal::types::Type) and\r\n\t\t(\r\n\t\t\ttypeDefinition.oclAsType(uppaal::expressions::IdentifierExpression).identifier.oclAsType(uppaal::types::Type).baseType = uppaal::types::BuiltInType::VOID or\r\n\t\t\ttypeDefinition.oclAsType(uppaal::expressions::IdentifierExpression).identifier.oclAsType(uppaal::types::Type).baseType = uppaal::types::BuiltInType::INT or\r\n\t\t\ttypeDefinition.oclAsType(uppaal::expressions::IdentifierExpression).identifier.oclAsType(uppaal::types::Type).baseType = uppaal::types::BuiltInType::BOOL\r\n\t\t)\r\n\t)\r\n\tor\r\n\t\ttypeDefinition.oclIsKindOf(uppaal::types::RangeTypeSpecification)\r\n)' UniqueParameterNames='self.parameter->collect(elements)->select(e | e.oclIsKindOf(uppaal::core::NamedElement))->collect(oclAsType(uppaal::core::NamedElement))->isUnique(name)'"
  *        annotation="http://www.eclipse.org/emf/2002/Ecore constraints='ValidReturnType UniqueParameterNames'"
  * @generated
  */
-public interface Function extends NamedElement {
-	/**
-	 * Returns the value of the '<em><b>Return Type</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * The return type of this function.
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Return Type</em>' containment reference.
-	 * @see #setReturnType(TypeDefinition)
-	 * @see org.muml.uppaal.declarations.DeclarationsPackage#getFunction_ReturnType()
-	 * @model containment="true" required="true"
-	 * @generated
-	 */
-	TypeDefinition getReturnType();
-
-	/**
-	 * Sets the value of the '{@link org.muml.uppaal.declarations.Function#getReturnType <em>Return Type</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Return Type</em>' containment reference.
-	 * @see #getReturnType()
-	 * @generated
-	 */
-	void setReturnType(TypeDefinition value);
-
+public interface Function extends NamedElement, TypedElement {
 	/**
 	 * Returns the value of the '<em><b>Block</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
@@ -83,7 +57,7 @@ public interface Function extends NamedElement {
 
 	/**
 	 * Returns the value of the '<em><b>Parameter</b></em>' containment reference list.
-	 * The list contents are of type {@link org.muml.uppaal.declarations.Parameter}.
+	 * The list contents are of type {@link org.muml.uppaal.declarations.ParameterContainer}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
@@ -94,6 +68,6 @@ public interface Function extends NamedElement {
 	 * @model containment="true"
 	 * @generated
 	 */
-	EList<Parameter> getParameter();
+	EList<ParameterContainer> getParameter();
 
 } // Function

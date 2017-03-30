@@ -8,16 +8,21 @@ import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.util.InternalEList;
+import org.muml.uppaal.core.CorePackage;
+import org.muml.uppaal.core.TypedElement;
 import org.muml.uppaal.core.impl.NamedElementImpl;
 import org.muml.uppaal.declarations.DeclarationsPackage;
 import org.muml.uppaal.declarations.Function;
-import org.muml.uppaal.declarations.Parameter;
+import org.muml.uppaal.declarations.ParameterContainer;
+import org.muml.uppaal.declarations.TypedElementContainer;
+import org.muml.uppaal.expressions.Expression;
 import org.muml.uppaal.statements.Block;
-import org.muml.uppaal.types.TypeDefinition;
 
 /**
  * <!-- begin-user-doc -->
@@ -27,7 +32,8 @@ import org.muml.uppaal.types.TypeDefinition;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link org.muml.uppaal.declarations.impl.FunctionImpl#getReturnType <em>Return Type</em>}</li>
+ *   <li>{@link org.muml.uppaal.declarations.impl.FunctionImpl#getContainer <em>Container</em>}</li>
+ *   <li>{@link org.muml.uppaal.declarations.impl.FunctionImpl#getTypeDefinition <em>Type Definition</em>}</li>
  *   <li>{@link org.muml.uppaal.declarations.impl.FunctionImpl#getBlock <em>Block</em>}</li>
  *   <li>{@link org.muml.uppaal.declarations.impl.FunctionImpl#getParameter <em>Parameter</em>}</li>
  * </ul>
@@ -36,14 +42,14 @@ import org.muml.uppaal.types.TypeDefinition;
  */
 public class FunctionImpl extends NamedElementImpl implements Function {
 	/**
-	 * The cached value of the '{@link #getReturnType() <em>Return Type</em>}' containment reference.
+	 * The cached setting delegate for the '{@link #getTypeDefinition() <em>Type Definition</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getReturnType()
+	 * @see #getTypeDefinition()
 	 * @generated
 	 * @ordered
 	 */
-	protected TypeDefinition returnType;
+	protected EStructuralFeature.Internal.SettingDelegate TYPE_DEFINITION__ESETTING_DELEGATE = ((EStructuralFeature.Internal)CorePackage.Literals.TYPED_ELEMENT__TYPE_DEFINITION).getSettingDelegate();
 
 	/**
 	 * The cached value of the '{@link #getBlock() <em>Block</em>}' containment reference.
@@ -63,7 +69,7 @@ public class FunctionImpl extends NamedElementImpl implements Function {
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<Parameter> parameter;
+	protected EList<ParameterContainer> parameter;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -89,8 +95,9 @@ public class FunctionImpl extends NamedElementImpl implements Function {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public TypeDefinition getReturnType() {
-		return returnType;
+	public TypedElementContainer getContainer() {
+		if (eContainerFeatureID() != DeclarationsPackage.FUNCTION__CONTAINER) return null;
+		return (TypedElementContainer)eInternalContainer();
 	}
 
 	/**
@@ -98,13 +105,8 @@ public class FunctionImpl extends NamedElementImpl implements Function {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetReturnType(TypeDefinition newReturnType, NotificationChain msgs) {
-		TypeDefinition oldReturnType = returnType;
-		returnType = newReturnType;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, DeclarationsPackage.FUNCTION__RETURN_TYPE, oldReturnType, newReturnType);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
+	public NotificationChain basicSetContainer(TypedElementContainer newContainer, NotificationChain msgs) {
+		msgs = eBasicSetContainer((InternalEObject)newContainer, DeclarationsPackage.FUNCTION__CONTAINER, msgs);
 		return msgs;
 	}
 
@@ -113,18 +115,38 @@ public class FunctionImpl extends NamedElementImpl implements Function {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setReturnType(TypeDefinition newReturnType) {
-		if (newReturnType != returnType) {
+	public void setContainer(TypedElementContainer newContainer) {
+		if (newContainer != eInternalContainer() || (eContainerFeatureID() != DeclarationsPackage.FUNCTION__CONTAINER && newContainer != null)) {
+			if (EcoreUtil.isAncestor(this, newContainer))
+				throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
 			NotificationChain msgs = null;
-			if (returnType != null)
-				msgs = ((InternalEObject)returnType).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - DeclarationsPackage.FUNCTION__RETURN_TYPE, null, msgs);
-			if (newReturnType != null)
-				msgs = ((InternalEObject)newReturnType).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - DeclarationsPackage.FUNCTION__RETURN_TYPE, null, msgs);
-			msgs = basicSetReturnType(newReturnType, msgs);
+			if (eInternalContainer() != null)
+				msgs = eBasicRemoveFromContainer(msgs);
+			if (newContainer != null)
+				msgs = ((InternalEObject)newContainer).eInverseAdd(this, DeclarationsPackage.TYPED_ELEMENT_CONTAINER__ELEMENTS, TypedElementContainer.class, msgs);
+			msgs = basicSetContainer(newContainer, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, DeclarationsPackage.FUNCTION__RETURN_TYPE, newReturnType, newReturnType));
+			eNotify(new ENotificationImpl(this, Notification.SET, DeclarationsPackage.FUNCTION__CONTAINER, newContainer, newContainer));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Expression getTypeDefinition() {
+		return (Expression)TYPE_DEFINITION__ESETTING_DELEGATE.dynamicGet(this, null, 0, true, false);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Expression basicGetTypeDefinition() {
+		return (Expression)TYPE_DEFINITION__ESETTING_DELEGATE.dynamicGet(this, null, 0, false, false);
 	}
 
 	/**
@@ -175,9 +197,9 @@ public class FunctionImpl extends NamedElementImpl implements Function {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<Parameter> getParameter() {
+	public EList<ParameterContainer> getParameter() {
 		if (parameter == null) {
-			parameter = new EObjectContainmentEList<Parameter>(Parameter.class, this, DeclarationsPackage.FUNCTION__PARAMETER);
+			parameter = new EObjectContainmentEList<ParameterContainer>(ParameterContainer.class, this, DeclarationsPackage.FUNCTION__PARAMETER);
 		}
 		return parameter;
 	}
@@ -188,10 +210,26 @@ public class FunctionImpl extends NamedElementImpl implements Function {
 	 * @generated
 	 */
 	@Override
+	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case DeclarationsPackage.FUNCTION__CONTAINER:
+				if (eInternalContainer() != null)
+					msgs = eBasicRemoveFromContainer(msgs);
+				return basicSetContainer((TypedElementContainer)otherEnd, msgs);
+		}
+		return super.eInverseAdd(otherEnd, featureID, msgs);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case DeclarationsPackage.FUNCTION__RETURN_TYPE:
-				return basicSetReturnType(null, msgs);
+			case DeclarationsPackage.FUNCTION__CONTAINER:
+				return basicSetContainer(null, msgs);
 			case DeclarationsPackage.FUNCTION__BLOCK:
 				return basicSetBlock(null, msgs);
 			case DeclarationsPackage.FUNCTION__PARAMETER:
@@ -206,10 +244,27 @@ public class FunctionImpl extends NamedElementImpl implements Function {
 	 * @generated
 	 */
 	@Override
+	public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
+		switch (eContainerFeatureID()) {
+			case DeclarationsPackage.FUNCTION__CONTAINER:
+				return eInternalContainer().eInverseRemove(this, DeclarationsPackage.TYPED_ELEMENT_CONTAINER__ELEMENTS, TypedElementContainer.class, msgs);
+		}
+		return super.eBasicRemoveFromContainerFeature(msgs);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case DeclarationsPackage.FUNCTION__RETURN_TYPE:
-				return getReturnType();
+			case DeclarationsPackage.FUNCTION__CONTAINER:
+				return getContainer();
+			case DeclarationsPackage.FUNCTION__TYPE_DEFINITION:
+				if (resolve) return getTypeDefinition();
+				return basicGetTypeDefinition();
 			case DeclarationsPackage.FUNCTION__BLOCK:
 				return getBlock();
 			case DeclarationsPackage.FUNCTION__PARAMETER:
@@ -227,15 +282,15 @@ public class FunctionImpl extends NamedElementImpl implements Function {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case DeclarationsPackage.FUNCTION__RETURN_TYPE:
-				setReturnType((TypeDefinition)newValue);
+			case DeclarationsPackage.FUNCTION__CONTAINER:
+				setContainer((TypedElementContainer)newValue);
 				return;
 			case DeclarationsPackage.FUNCTION__BLOCK:
 				setBlock((Block)newValue);
 				return;
 			case DeclarationsPackage.FUNCTION__PARAMETER:
 				getParameter().clear();
-				getParameter().addAll((Collection<? extends Parameter>)newValue);
+				getParameter().addAll((Collection<? extends ParameterContainer>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -249,8 +304,8 @@ public class FunctionImpl extends NamedElementImpl implements Function {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case DeclarationsPackage.FUNCTION__RETURN_TYPE:
-				setReturnType((TypeDefinition)null);
+			case DeclarationsPackage.FUNCTION__CONTAINER:
+				setContainer((TypedElementContainer)null);
 				return;
 			case DeclarationsPackage.FUNCTION__BLOCK:
 				setBlock((Block)null);
@@ -270,14 +325,50 @@ public class FunctionImpl extends NamedElementImpl implements Function {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case DeclarationsPackage.FUNCTION__RETURN_TYPE:
-				return returnType != null;
+			case DeclarationsPackage.FUNCTION__CONTAINER:
+				return getContainer() != null;
+			case DeclarationsPackage.FUNCTION__TYPE_DEFINITION:
+				return TYPE_DEFINITION__ESETTING_DELEGATE.dynamicIsSet(this, null, 0);
 			case DeclarationsPackage.FUNCTION__BLOCK:
 				return block != null;
 			case DeclarationsPackage.FUNCTION__PARAMETER:
 				return parameter != null && !parameter.isEmpty();
 		}
 		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass) {
+		if (baseClass == TypedElement.class) {
+			switch (derivedFeatureID) {
+				case DeclarationsPackage.FUNCTION__CONTAINER: return CorePackage.TYPED_ELEMENT__CONTAINER;
+				case DeclarationsPackage.FUNCTION__TYPE_DEFINITION: return CorePackage.TYPED_ELEMENT__TYPE_DEFINITION;
+				default: return -1;
+			}
+		}
+		return super.eBaseStructuralFeatureID(derivedFeatureID, baseClass);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass) {
+		if (baseClass == TypedElement.class) {
+			switch (baseFeatureID) {
+				case CorePackage.TYPED_ELEMENT__CONTAINER: return DeclarationsPackage.FUNCTION__CONTAINER;
+				case CorePackage.TYPED_ELEMENT__TYPE_DEFINITION: return DeclarationsPackage.FUNCTION__TYPE_DEFINITION;
+				default: return -1;
+			}
+		}
+		return super.eDerivedStructuralFeatureID(baseFeatureID, baseClass);
 	}
 
 } //FunctionImpl

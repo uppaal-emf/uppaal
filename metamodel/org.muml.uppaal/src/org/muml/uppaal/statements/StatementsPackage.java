@@ -208,13 +208,13 @@ public interface StatementsPackage extends EPackage {
 	int ITERATION__TYPE_DEFINITION = STATEMENT_FEATURE_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Variable</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Elements</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ITERATION__VARIABLE = STATEMENT_FEATURE_COUNT + 1;
+	int ITERATION__ELEMENTS = STATEMENT_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Statement</b></em>' containment reference.

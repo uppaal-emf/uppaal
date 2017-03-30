@@ -22,16 +22,6 @@ import org.eclipse.emf.common.util.Enumerator;
  */
 public enum DataVariablePrefix implements Enumerator {
 	/**
-	 * The '<em><b>NONE</b></em>' literal object.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #NONE_VALUE
-	 * @generated
-	 * @ordered
-	 */
-	NONE(0, "NONE", ""),
-
-	/**
 	 * The '<em><b>CONST</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -39,7 +29,7 @@ public enum DataVariablePrefix implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	CONST(1, "CONST", "const"),
+	CONST(0, "CONST", "const"),
 
 	/**
 	 * The '<em><b>META</b></em>' literal object.
@@ -49,22 +39,7 @@ public enum DataVariablePrefix implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	META(2, "META", "meta");
-
-	/**
-	 * The '<em><b>NONE</b></em>' literal value.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of '<em><b>NONE</b></em>' literal object isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @see #NONE
-	 * @model literal=""
-	 * @generated
-	 * @ordered
-	 */
-	public static final int NONE_VALUE = 0;
+	META(1, "META", "meta");
 
 	/**
 	 * The '<em><b>CONST</b></em>' literal value.
@@ -79,7 +54,7 @@ public enum DataVariablePrefix implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final int CONST_VALUE = 1;
+	public static final int CONST_VALUE = 0;
 
 	/**
 	 * The '<em><b>META</b></em>' literal value.
@@ -94,7 +69,7 @@ public enum DataVariablePrefix implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final int META_VALUE = 2;
+	public static final int META_VALUE = 1;
 
 	/**
 	 * An array of all the '<em><b>Data Variable Prefix</b></em>' enumerators.
@@ -104,7 +79,6 @@ public enum DataVariablePrefix implements Enumerator {
 	 */
 	private static final DataVariablePrefix[] VALUES_ARRAY =
 		new DataVariablePrefix[] {
-			NONE,
 			CONST,
 			META,
 		};
@@ -163,7 +137,6 @@ public enum DataVariablePrefix implements Enumerator {
 	 */
 	public static DataVariablePrefix get(int value) {
 		switch (value) {
-			case NONE_VALUE: return NONE;
 			case CONST_VALUE: return CONST;
 			case META_VALUE: return META;
 		}

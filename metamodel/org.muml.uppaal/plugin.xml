@@ -62,7 +62,7 @@
    <extension point="org.eclipse.emf.ecore.generated_package">
       <!-- @generated uppaal -->
       <package
-            uri="http://www.muml.org/uppaal/declarations/global/1.0.0"
+            uri="http://www.muml.org/uppaal/declarations/global"
             class="org.muml.uppaal.declarations.global.GlobalPackage"
             genModel="model/uppaal.genmodel"/>
    </extension>
@@ -77,7 +77,7 @@
    <extension point="org.eclipse.emf.ecore.generated_package">
       <!-- @generated uppaal -->
       <package
-            uri="http://www.muml.org/uppaal/declarations/system/1.0.0"
+            uri="http://www.muml.org/uppaal/declarations/system"
             class="org.muml.uppaal.declarations.system.SystemPackage"
             genModel="model/uppaal.genmodel"/>
    </extension>

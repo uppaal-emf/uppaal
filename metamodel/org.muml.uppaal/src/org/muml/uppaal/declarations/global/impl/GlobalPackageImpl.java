@@ -11,12 +11,13 @@ import org.muml.uppaal.UppaalPackage;
 import org.muml.uppaal.core.CorePackage;
 import org.muml.uppaal.core.impl.CorePackageImpl;
 import org.muml.uppaal.declarations.DeclarationsPackage;
-import org.muml.uppaal.declarations.global.ChannelList;
-import org.muml.uppaal.declarations.global.ChannelPriority;
-import org.muml.uppaal.declarations.global.ChannelPriorityItem;
-import org.muml.uppaal.declarations.global.DefaultChannelPriority;
+import org.muml.uppaal.declarations.global.ChannelItem;
+import org.muml.uppaal.declarations.global.ChannelPriorityDeclaration;
+import org.muml.uppaal.declarations.global.ChannelPriorityGroup;
+import org.muml.uppaal.declarations.global.DefaultItem;
 import org.muml.uppaal.declarations.global.GlobalFactory;
 import org.muml.uppaal.declarations.global.GlobalPackage;
+import org.muml.uppaal.declarations.global.PriorityItem;
 import org.muml.uppaal.declarations.global.util.GlobalValidator;
 import org.muml.uppaal.declarations.impl.DeclarationsPackageImpl;
 import org.muml.uppaal.declarations.system.SystemPackage;
@@ -45,28 +46,35 @@ public class GlobalPackageImpl extends EPackageImpl implements GlobalPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass channelPriorityEClass = null;
+	private EClass channelPriorityDeclarationEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass channelPriorityItemEClass = null;
+	private EClass channelPriorityGroupEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass channelListEClass = null;
+	private EClass priorityItemEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass defaultChannelPriorityEClass = null;
+	private EClass channelItemEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass defaultItemEClass = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -172,8 +180,8 @@ public class GlobalPackageImpl extends EPackageImpl implements GlobalPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getChannelPriority() {
-		return channelPriorityEClass;
+	public EClass getChannelPriorityDeclaration() {
+		return channelPriorityDeclarationEClass;
 	}
 
 	/**
@@ -181,8 +189,8 @@ public class GlobalPackageImpl extends EPackageImpl implements GlobalPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getChannelPriority_Item() {
-		return (EReference)channelPriorityEClass.getEStructuralFeatures().get(0);
+	public EReference getChannelPriorityDeclaration_Groups() {
+		return (EReference)channelPriorityDeclarationEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -190,8 +198,8 @@ public class GlobalPackageImpl extends EPackageImpl implements GlobalPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getChannelPriorityItem() {
-		return channelPriorityItemEClass;
+	public EClass getChannelPriorityGroup() {
+		return channelPriorityGroupEClass;
 	}
 
 	/**
@@ -199,8 +207,8 @@ public class GlobalPackageImpl extends EPackageImpl implements GlobalPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getChannelList() {
-		return channelListEClass;
+	public EReference getChannelPriorityGroup_Items() {
+		return (EReference)channelPriorityGroupEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -208,8 +216,8 @@ public class GlobalPackageImpl extends EPackageImpl implements GlobalPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getChannelList_ChannelExpression() {
-		return (EReference)channelListEClass.getEStructuralFeatures().get(0);
+	public EClass getPriorityItem() {
+		return priorityItemEClass;
 	}
 
 	/**
@@ -217,8 +225,26 @@ public class GlobalPackageImpl extends EPackageImpl implements GlobalPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getDefaultChannelPriority() {
-		return defaultChannelPriorityEClass;
+	public EClass getChannelItem() {
+		return channelItemEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getChannelItem_ChannelExpression() {
+		return (EReference)channelItemEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getDefaultItem() {
+		return defaultItemEClass;
 	}
 
 	/**
@@ -249,15 +275,18 @@ public class GlobalPackageImpl extends EPackageImpl implements GlobalPackage {
 		isCreated = true;
 
 		// Create classes and their features
-		channelPriorityEClass = createEClass(CHANNEL_PRIORITY);
-		createEReference(channelPriorityEClass, CHANNEL_PRIORITY__ITEM);
+		channelPriorityDeclarationEClass = createEClass(CHANNEL_PRIORITY_DECLARATION);
+		createEReference(channelPriorityDeclarationEClass, CHANNEL_PRIORITY_DECLARATION__GROUPS);
 
-		channelPriorityItemEClass = createEClass(CHANNEL_PRIORITY_ITEM);
+		channelPriorityGroupEClass = createEClass(CHANNEL_PRIORITY_GROUP);
+		createEReference(channelPriorityGroupEClass, CHANNEL_PRIORITY_GROUP__ITEMS);
 
-		channelListEClass = createEClass(CHANNEL_LIST);
-		createEReference(channelListEClass, CHANNEL_LIST__CHANNEL_EXPRESSION);
+		priorityItemEClass = createEClass(PRIORITY_ITEM);
 
-		defaultChannelPriorityEClass = createEClass(DEFAULT_CHANNEL_PRIORITY);
+		channelItemEClass = createEClass(CHANNEL_ITEM);
+		createEReference(channelItemEClass, CHANNEL_ITEM__CHANNEL_EXPRESSION);
+
+		defaultItemEClass = createEClass(DEFAULT_ITEM);
 	}
 
 	/**
@@ -284,6 +313,7 @@ public class GlobalPackageImpl extends EPackageImpl implements GlobalPackage {
 		setNsURI(eNS_URI);
 
 		// Obtain other dependent packages
+		DeclarationsPackage theDeclarationsPackage = (DeclarationsPackage)EPackage.Registry.INSTANCE.getEPackage(DeclarationsPackage.eNS_URI);
 		ExpressionsPackage theExpressionsPackage = (ExpressionsPackage)EPackage.Registry.INSTANCE.getEPackage(ExpressionsPackage.eNS_URI);
 
 		// Create type parameters
@@ -291,19 +321,23 @@ public class GlobalPackageImpl extends EPackageImpl implements GlobalPackage {
 		// Set bounds for type parameters
 
 		// Add supertypes to classes
-		channelListEClass.getESuperTypes().add(this.getChannelPriorityItem());
-		defaultChannelPriorityEClass.getESuperTypes().add(this.getChannelPriorityItem());
+		channelPriorityDeclarationEClass.getESuperTypes().add(theDeclarationsPackage.getDeclaration());
+		channelItemEClass.getESuperTypes().add(this.getPriorityItem());
+		defaultItemEClass.getESuperTypes().add(this.getPriorityItem());
 
 		// Initialize classes and features; add operations and parameters
-		initEClass(channelPriorityEClass, ChannelPriority.class, "ChannelPriority", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getChannelPriority_Item(), this.getChannelPriorityItem(), null, "item", null, 1, -1, ChannelPriority.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(channelPriorityDeclarationEClass, ChannelPriorityDeclaration.class, "ChannelPriorityDeclaration", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getChannelPriorityDeclaration_Groups(), this.getChannelPriorityGroup(), null, "groups", null, 1, -1, ChannelPriorityDeclaration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(channelPriorityItemEClass, ChannelPriorityItem.class, "ChannelPriorityItem", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEClass(channelPriorityGroupEClass, ChannelPriorityGroup.class, "ChannelPriorityGroup", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getChannelPriorityGroup_Items(), this.getPriorityItem(), null, "items", null, 1, -1, ChannelPriorityGroup.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(channelListEClass, ChannelList.class, "ChannelList", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getChannelList_ChannelExpression(), theExpressionsPackage.getIdentifierExpression(), null, "channelExpression", null, 1, -1, ChannelList.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(priorityItemEClass, PriorityItem.class, "PriorityItem", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-		initEClass(defaultChannelPriorityEClass, DefaultChannelPriority.class, "DefaultChannelPriority", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEClass(channelItemEClass, ChannelItem.class, "ChannelItem", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getChannelItem_ChannelExpression(), theExpressionsPackage.getIdentifierExpression(), null, "channelExpression", null, 1, 1, ChannelItem.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(defaultItemEClass, DefaultItem.class, "DefaultItem", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		// Create annotations
 		// http://www.eclipse.org/emf/2002/Ecore
@@ -329,13 +363,13 @@ public class GlobalPackageImpl extends EPackageImpl implements GlobalPackage {
 			 "validationDelegates", "http://www.eclipse.org/emf/2002/Ecore/OCL"
 		   });	
 		addAnnotation
-		  (channelPriorityEClass, 
+		  (channelPriorityDeclarationEClass, 
 		   source, 
 		   new String[] {
 			 "constraints", "AtMostOneDefaultItem EachChannelContainedAtMostOnce"
 		   });	
 		addAnnotation
-		  (channelListEClass, 
+		  (channelItemEClass, 
 		   source, 
 		   new String[] {
 			 "constraints", "ChannelVariablesOnly"
@@ -351,17 +385,17 @@ public class GlobalPackageImpl extends EPackageImpl implements GlobalPackage {
 	protected void createOCLAnnotations() {
 		String source = "http://www.eclipse.org/emf/2002/Ecore/OCL";	
 		addAnnotation
-		  (channelPriorityEClass, 
+		  (channelPriorityDeclarationEClass, 
 		   source, 
 		   new String[] {
-			 "AtMostOneDefaultItem", "self.item->select(oclIsKindOf(DefaultChannelPriority))->size() <= 1",
-			 "EachChannelContainedAtMostOnce", "self.item->select(oclIsKindOf(ChannelList)).oclAsType(ChannelList)->collect(channelExpression)->isUnique(variable)"
+			 "AtMostOneDefaultItem", "self.groups.items->select(oclIsKindOf(uppaal::declarations::global::DefaultItem))->size() <= 1",
+			 "EachChannelContainedAtMostOnce", "self.groups.items\r\n->select(oclIsKindOf(uppaal::declarations::global::ChannelItem))\r\n->collect(oclAsType(uppaal::declarations::global::ChannelItem))\r\n->isUnique(channelExpression.identifier)"
 		   });	
 		addAnnotation
-		  (channelListEClass, 
+		  (channelItemEClass, 
 		   source, 
 		   new String[] {
-			 "ChannelVariablesOnly", "self.channelExpression->forAll(\r\n\t(not identifier.typeDefinition.oclIsUndefined()) implies identifier.typeDefinition.baseType = types::BuiltInType::CHAN\r\n)"
+			 "ChannelVariablesOnly", "\t(not self.channelExpression.oclIsUndefined())\r\nimplies\r\n\tself.channelExpression.identifier.oclIsKindOf(uppaal::declarations::Variable)\r\n\tand\r\n\t(\r\n\tlet typeDefinition : uppaal::expressions::Expression = self.channelExpression.identifier.oclAsType(uppaal::declarations::Variable).typeDefinition in\r\n\t\tif (\r\n\t\t\ttypeDefinition.oclIsKindOf(uppaal::expressions::IdentifierExpression) and\r\n\t\t\ttypeDefinition.oclAsType(uppaal::expressions::IdentifierExpression).identifier.oclIsKindOf(uppaal::types::Type)\r\n\t\t) then\r\n\t\t\ttypeDefinition.oclAsType(uppaal::expressions::IdentifierExpression).identifier.oclAsType(uppaal::types::Type).baseType=uppaal::types::BuiltInType::CHAN\r\n\t\telse\r\n\t\t\ttypeDefinition.oclIsKindOf(uppaal::expressions::ChannelPrefixExpression)\r\n\t\tendif\r\n\t)"
 		   });
 	}
 

@@ -40,15 +40,6 @@ public interface TypesFactory extends EFactory {
 	DeclaredType createDeclaredType();
 
 	/**
-	 * Returns a new object of class '<em>Type Reference</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Type Reference</em>'.
-	 * @generated
-	 */
-	TypeReference createTypeReference();
-
-	/**
 	 * Returns a new object of class '<em>Scalar Type Specification</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

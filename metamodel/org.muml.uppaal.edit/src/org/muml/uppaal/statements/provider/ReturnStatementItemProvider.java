@@ -14,6 +14,7 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
 import org.muml.uppaal.expressions.ExpressionsFactory;
 import org.muml.uppaal.statements.ReturnStatement;
 import org.muml.uppaal.statements.StatementsPackage;
+import org.muml.uppaal.types.TypesFactory;
 
 /**
  * This is the item provider adapter for a {@link org.muml.uppaal.statements.ReturnStatement} object.
@@ -133,6 +134,21 @@ public class ReturnStatementItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(StatementsPackage.Literals.RETURN_STATEMENT__RETURN_EXPRESSION,
+				 TypesFactory.eINSTANCE.createScalarTypeSpecification()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(StatementsPackage.Literals.RETURN_STATEMENT__RETURN_EXPRESSION,
+				 TypesFactory.eINSTANCE.createStructTypeSpecification()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(StatementsPackage.Literals.RETURN_STATEMENT__RETURN_EXPRESSION,
+				 TypesFactory.eINSTANCE.createRangeTypeSpecification()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(StatementsPackage.Literals.RETURN_STATEMENT__RETURN_EXPRESSION,
 				 ExpressionsFactory.eINSTANCE.createNegationExpression()));
 
 		newChildDescriptors.add
@@ -154,6 +170,11 @@ public class ReturnStatementItemProvider
 			(createChildParameter
 				(StatementsPackage.Literals.RETURN_STATEMENT__RETURN_EXPRESSION,
 				 ExpressionsFactory.eINSTANCE.createIdentifierExpression()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(StatementsPackage.Literals.RETURN_STATEMENT__RETURN_EXPRESSION,
+				 ExpressionsFactory.eINSTANCE.createScopedIdentifierExpression()));
 
 		newChildDescriptors.add
 			(createChildParameter
@@ -188,17 +209,17 @@ public class ReturnStatementItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(StatementsPackage.Literals.RETURN_STATEMENT__RETURN_EXPRESSION,
-				 ExpressionsFactory.eINSTANCE.createScopedIdentifierExpression()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(StatementsPackage.Literals.RETURN_STATEMENT__RETURN_EXPRESSION,
 				 ExpressionsFactory.eINSTANCE.createQuantificationExpression()));
 
 		newChildDescriptors.add
 			(createChildParameter
 				(StatementsPackage.Literals.RETURN_STATEMENT__RETURN_EXPRESSION,
-				 ExpressionsFactory.eINSTANCE.createIncrementDecrementExpression()));
+				 ExpressionsFactory.eINSTANCE.createPreIncrementDecrementExpression()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(StatementsPackage.Literals.RETURN_STATEMENT__RETURN_EXPRESSION,
+				 ExpressionsFactory.eINSTANCE.createPostIncrementDecrementExpression()));
 
 		newChildDescriptors.add
 			(createChildParameter
@@ -214,6 +235,16 @@ public class ReturnStatementItemProvider
 			(createChildParameter
 				(StatementsPackage.Literals.RETURN_STATEMENT__RETURN_EXPRESSION,
 				 ExpressionsFactory.eINSTANCE.createBitwiseExpression()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(StatementsPackage.Literals.RETURN_STATEMENT__RETURN_EXPRESSION,
+				 ExpressionsFactory.eINSTANCE.createChannelPrefixExpression()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(StatementsPackage.Literals.RETURN_STATEMENT__RETURN_EXPRESSION,
+				 ExpressionsFactory.eINSTANCE.createDataPrefixExpression()));
 	}
 
 }

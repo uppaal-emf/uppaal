@@ -12,28 +12,22 @@ import org.eclipse.emf.ecore.util.EObjectValidator;
 import org.muml.uppaal.core.util.CoreValidator;
 import org.muml.uppaal.declarations.ArrayInitializer;
 import org.muml.uppaal.declarations.CallType;
-import org.muml.uppaal.declarations.ChannelVariableDeclaration;
-import org.muml.uppaal.declarations.ClockVariableDeclaration;
-import org.muml.uppaal.declarations.DataVariableDeclaration;
 import org.muml.uppaal.declarations.DataVariablePrefix;
 import org.muml.uppaal.declarations.Declaration;
 import org.muml.uppaal.declarations.Declarations;
 import org.muml.uppaal.declarations.DeclarationsPackage;
 import org.muml.uppaal.declarations.ExpressionInitializer;
 import org.muml.uppaal.declarations.Function;
-import org.muml.uppaal.declarations.FunctionDeclaration;
 import org.muml.uppaal.declarations.GlobalDeclarations;
-import org.muml.uppaal.declarations.Index;
 import org.muml.uppaal.declarations.Initializer;
 import org.muml.uppaal.declarations.LocalDeclarations;
 import org.muml.uppaal.declarations.Parameter;
+import org.muml.uppaal.declarations.ParameterContainer;
 import org.muml.uppaal.declarations.SystemDeclarations;
 import org.muml.uppaal.declarations.TypeDeclaration;
-import org.muml.uppaal.declarations.TypeIndex;
-import org.muml.uppaal.declarations.ValueIndex;
+import org.muml.uppaal.declarations.TypedDeclaration;
+import org.muml.uppaal.declarations.TypedElementContainer;
 import org.muml.uppaal.declarations.Variable;
-import org.muml.uppaal.declarations.VariableContainer;
-import org.muml.uppaal.declarations.VariableDeclaration;
 
 /**
  * <!-- begin-user-doc -->
@@ -126,30 +120,14 @@ public class DeclarationsValidator extends EObjectValidator {
 				return validateSystemDeclarations((SystemDeclarations)value, diagnostics, context);
 			case DeclarationsPackage.DECLARATION:
 				return validateDeclaration((Declaration)value, diagnostics, context);
-			case DeclarationsPackage.VARIABLE_DECLARATION:
-				return validateVariableDeclaration((VariableDeclaration)value, diagnostics, context);
-			case DeclarationsPackage.CHANNEL_VARIABLE_DECLARATION:
-				return validateChannelVariableDeclaration((ChannelVariableDeclaration)value, diagnostics, context);
-			case DeclarationsPackage.CLOCK_VARIABLE_DECLARATION:
-				return validateClockVariableDeclaration((ClockVariableDeclaration)value, diagnostics, context);
-			case DeclarationsPackage.DATA_VARIABLE_DECLARATION:
-				return validateDataVariableDeclaration((DataVariableDeclaration)value, diagnostics, context);
-			case DeclarationsPackage.FUNCTION_DECLARATION:
-				return validateFunctionDeclaration((FunctionDeclaration)value, diagnostics, context);
 			case DeclarationsPackage.FUNCTION:
 				return validateFunction((Function)value, diagnostics, context);
 			case DeclarationsPackage.TYPE_DECLARATION:
 				return validateTypeDeclaration((TypeDeclaration)value, diagnostics, context);
 			case DeclarationsPackage.VARIABLE:
 				return validateVariable((Variable)value, diagnostics, context);
-			case DeclarationsPackage.INDEX:
-				return validateIndex((Index)value, diagnostics, context);
-			case DeclarationsPackage.VALUE_INDEX:
-				return validateValueIndex((ValueIndex)value, diagnostics, context);
-			case DeclarationsPackage.TYPE_INDEX:
-				return validateTypeIndex((TypeIndex)value, diagnostics, context);
-			case DeclarationsPackage.VARIABLE_CONTAINER:
-				return validateVariableContainer((VariableContainer)value, diagnostics, context);
+			case DeclarationsPackage.TYPED_ELEMENT_CONTAINER:
+				return validateTypedElementContainer((TypedElementContainer)value, diagnostics, context);
 			case DeclarationsPackage.PARAMETER:
 				return validateParameter((Parameter)value, diagnostics, context);
 			case DeclarationsPackage.INITIALIZER:
@@ -158,6 +136,10 @@ public class DeclarationsValidator extends EObjectValidator {
 				return validateExpressionInitializer((ExpressionInitializer)value, diagnostics, context);
 			case DeclarationsPackage.ARRAY_INITIALIZER:
 				return validateArrayInitializer((ArrayInitializer)value, diagnostics, context);
+			case DeclarationsPackage.TYPED_DECLARATION:
+				return validateTypedDeclaration((TypedDeclaration)value, diagnostics, context);
+			case DeclarationsPackage.PARAMETER_CONTAINER:
+				return validateParameterContainer((ParameterContainer)value, diagnostics, context);
 			case DeclarationsPackage.DATA_VARIABLE_PREFIX:
 				return validateDataVariablePrefix((DataVariablePrefix)value, diagnostics, context);
 			case DeclarationsPackage.CALL_TYPE:
@@ -182,68 +164,9 @@ public class DeclarationsValidator extends EObjectValidator {
 		if (result || diagnostics != null) result &= validate_UniqueID(declarations, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryKeyUnique(declarations, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(declarations, diagnostics, context);
-		if (result || diagnostics != null) result &= validateDeclarations_UniqueFunctionNames(declarations, diagnostics, context);
-		if (result || diagnostics != null) result &= validateDeclarations_UniqueVariableNames(declarations, diagnostics, context);
 		if (result || diagnostics != null) result &= validateDeclarations_UniqueTypeNames(declarations, diagnostics, context);
+		if (result || diagnostics != null) result &= validateDeclarations_UniqueTypedElementNames(declarations, diagnostics, context);
 		return result;
-	}
-
-	/**
-	 * The cached validation expression for the UniqueFunctionNames constraint of '<em>Declarations</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected static final String DECLARATIONS__UNIQUE_FUNCTION_NAMES__EEXPRESSION = "self.declaration->select(oclIsKindOf(FunctionDeclaration)).oclAsType(FunctionDeclaration)->collect(function)->isUnique(name)";
-
-	/**
-	 * Validates the UniqueFunctionNames constraint of '<em>Declarations</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public boolean validateDeclarations_UniqueFunctionNames(Declarations declarations, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return
-			validate
-				(DeclarationsPackage.Literals.DECLARATIONS,
-				 declarations,
-				 diagnostics,
-				 context,
-				 "http://www.eclipse.org/emf/2002/Ecore/OCL",
-				 "UniqueFunctionNames",
-				 DECLARATIONS__UNIQUE_FUNCTION_NAMES__EEXPRESSION,
-				 Diagnostic.ERROR,
-				 DIAGNOSTIC_SOURCE,
-				 0);
-	}
-
-	/**
-	 * The cached validation expression for the UniqueVariableNames constraint of '<em>Declarations</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected static final String DECLARATIONS__UNIQUE_VARIABLE_NAMES__EEXPRESSION = "self.declaration->select(oclIsKindOf(VariableDeclaration)).oclAsType(VariableDeclaration)->collect(variable)->isUnique(name)";
-
-	/**
-	 * Validates the UniqueVariableNames constraint of '<em>Declarations</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public boolean validateDeclarations_UniqueVariableNames(Declarations declarations, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return
-			validate
-				(DeclarationsPackage.Literals.DECLARATIONS,
-				 declarations,
-				 diagnostics,
-				 context,
-				 "http://www.eclipse.org/emf/2002/Ecore/OCL",
-				 "UniqueVariableNames",
-				 DECLARATIONS__UNIQUE_VARIABLE_NAMES__EEXPRESSION,
-				 Diagnostic.ERROR,
-				 DIAGNOSTIC_SOURCE,
-				 0);
 	}
 
 	/**
@@ -276,6 +199,35 @@ public class DeclarationsValidator extends EObjectValidator {
 	}
 
 	/**
+	 * The cached validation expression for the UniqueTypedElementNames constraint of '<em>Declarations</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected static final String DECLARATIONS__UNIQUE_TYPED_ELEMENT_NAMES__EEXPRESSION = "self.declaration->select(e | e.oclIsKindOf(uppaal::declarations::TypedDeclaration))->collect(oclAsType(uppaal::declarations::TypedDeclaration))->collect(elements)->select(e | e.oclIsKindOf(uppaal::core::NamedElement))->collect(oclAsType(uppaal::core::NamedElement))->isUnique(name)";
+
+	/**
+	 * Validates the UniqueTypedElementNames constraint of '<em>Declarations</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateDeclarations_UniqueTypedElementNames(Declarations declarations, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return
+			validate
+				(DeclarationsPackage.Literals.DECLARATIONS,
+				 declarations,
+				 diagnostics,
+				 context,
+				 "http://www.eclipse.org/emf/2002/Ecore/OCL",
+				 "UniqueTypedElementNames",
+				 DECLARATIONS__UNIQUE_TYPED_ELEMENT_NAMES__EEXPRESSION,
+				 Diagnostic.ERROR,
+				 DIAGNOSTIC_SOURCE,
+				 0);
+	}
+
+	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -290,9 +242,8 @@ public class DeclarationsValidator extends EObjectValidator {
 		if (result || diagnostics != null) result &= validate_UniqueID(globalDeclarations, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryKeyUnique(globalDeclarations, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(globalDeclarations, diagnostics, context);
-		if (result || diagnostics != null) result &= validateDeclarations_UniqueFunctionNames(globalDeclarations, diagnostics, context);
-		if (result || diagnostics != null) result &= validateDeclarations_UniqueVariableNames(globalDeclarations, diagnostics, context);
 		if (result || diagnostics != null) result &= validateDeclarations_UniqueTypeNames(globalDeclarations, diagnostics, context);
+		if (result || diagnostics != null) result &= validateDeclarations_UniqueTypedElementNames(globalDeclarations, diagnostics, context);
 		if (result || diagnostics != null) result &= validateGlobalDeclarations_NoTemplateDeclarations(globalDeclarations, diagnostics, context);
 		return result;
 	}
@@ -341,9 +292,8 @@ public class DeclarationsValidator extends EObjectValidator {
 		if (result || diagnostics != null) result &= validate_UniqueID(localDeclarations, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryKeyUnique(localDeclarations, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(localDeclarations, diagnostics, context);
-		if (result || diagnostics != null) result &= validateDeclarations_UniqueFunctionNames(localDeclarations, diagnostics, context);
-		if (result || diagnostics != null) result &= validateDeclarations_UniqueVariableNames(localDeclarations, diagnostics, context);
 		if (result || diagnostics != null) result &= validateDeclarations_UniqueTypeNames(localDeclarations, diagnostics, context);
+		if (result || diagnostics != null) result &= validateDeclarations_UniqueTypedElementNames(localDeclarations, diagnostics, context);
 		if (result || diagnostics != null) result &= validateLocalDeclarations_NoTemplateDeclarations(localDeclarations, diagnostics, context);
 		if (result || diagnostics != null) result &= validateLocalDeclarations_NoChannelDeclarations(localDeclarations, diagnostics, context);
 		return result;
@@ -384,7 +334,23 @@ public class DeclarationsValidator extends EObjectValidator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected static final String LOCAL_DECLARATIONS__NO_CHANNEL_DECLARATIONS__EEXPRESSION = "not self.declaration->exists(oclIsKindOf(ChannelVariableDeclaration))";
+	protected static final String LOCAL_DECLARATIONS__NO_CHANNEL_DECLARATIONS__EEXPRESSION = "not self.declaration->exists(\r\n" +
+		"\toclIsKindOf(uppaal::declarations::TypedDeclaration)\r\n" +
+		"\tand\r\n" +
+		"\tlet typeDefinition : uppaal::expressions::Expression = oclAsType(uppaal::declarations::TypedDeclaration).typeDefinition in\r\n" +
+		"\t(\r\n" +
+		"\t\t\r\n" +
+		"\t\ttypeDefinition.oclIsKindOf(uppaal::expressions::ChannelPrefixExpression)\r\n" +
+		"\t\tor\r\n" +
+		"\t\t(\r\n" +
+		"\t\t\ttypeDefinition.oclIsKindOf(uppaal::expressions::IdentifierExpression)\r\n" +
+		"\t\t\tand\r\n" +
+		"\t\t\ttypeDefinition.oclAsType(uppaal::expressions::IdentifierExpression).identifier.oclIsKindOf(uppaal::types::Type)\r\n" +
+		"\t\t\tand\r\n" +
+		"\t\t\ttypeDefinition.oclAsType(uppaal::expressions::IdentifierExpression).identifier.oclAsType(uppaal::types::Type).baseType=uppaal::types::BuiltInType::CHAN\r\n" +
+		"\t\t)\r\n" +
+		"\t)\r\n" +
+		")";
 
 	/**
 	 * Validates the NoChannelDeclarations constraint of '<em>Local Declarations</em>'.
@@ -422,11 +388,9 @@ public class DeclarationsValidator extends EObjectValidator {
 		if (result || diagnostics != null) result &= validate_UniqueID(systemDeclarations, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryKeyUnique(systemDeclarations, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(systemDeclarations, diagnostics, context);
-		if (result || diagnostics != null) result &= validateDeclarations_UniqueFunctionNames(systemDeclarations, diagnostics, context);
-		if (result || diagnostics != null) result &= validateDeclarations_UniqueVariableNames(systemDeclarations, diagnostics, context);
 		if (result || diagnostics != null) result &= validateDeclarations_UniqueTypeNames(systemDeclarations, diagnostics, context);
+		if (result || diagnostics != null) result &= validateDeclarations_UniqueTypedElementNames(systemDeclarations, diagnostics, context);
 		if (result || diagnostics != null) result &= validateSystemDeclarations_UniqueTemplateNames(systemDeclarations, diagnostics, context);
-		if (result || diagnostics != null) result &= validateSystemDeclarations_NoChannelDeclarations(systemDeclarations, diagnostics, context);
 		return result;
 	}
 
@@ -460,228 +424,12 @@ public class DeclarationsValidator extends EObjectValidator {
 	}
 
 	/**
-	 * The cached validation expression for the NoChannelDeclarations constraint of '<em>System Declarations</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected static final String SYSTEM_DECLARATIONS__NO_CHANNEL_DECLARATIONS__EEXPRESSION = "not self.declaration->exists(oclIsKindOf(ChannelVariableDeclaration))";
-
-	/**
-	 * Validates the NoChannelDeclarations constraint of '<em>System Declarations</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public boolean validateSystemDeclarations_NoChannelDeclarations(SystemDeclarations systemDeclarations, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return
-			validate
-				(DeclarationsPackage.Literals.SYSTEM_DECLARATIONS,
-				 systemDeclarations,
-				 diagnostics,
-				 context,
-				 "http://www.eclipse.org/emf/2002/Ecore/OCL",
-				 "NoChannelDeclarations",
-				 SYSTEM_DECLARATIONS__NO_CHANNEL_DECLARATIONS__EEXPRESSION,
-				 Diagnostic.ERROR,
-				 DIAGNOSTIC_SOURCE,
-				 0);
-	}
-
-	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public boolean validateDeclaration(Declaration declaration, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		return validate_EveryDefaultConstraint(declaration, diagnostics, context);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public boolean validateVariableDeclaration(VariableDeclaration variableDeclaration, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		if (!validate_NoCircularContainment(variableDeclaration, diagnostics, context)) return false;
-		boolean result = validate_EveryMultiplicityConforms(variableDeclaration, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryDataValueConforms(variableDeclaration, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(variableDeclaration, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryBidirectionalReferenceIsPaired(variableDeclaration, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryProxyResolves(variableDeclaration, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_UniqueID(variableDeclaration, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryKeyUnique(variableDeclaration, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(variableDeclaration, diagnostics, context);
-		if (result || diagnostics != null) result &= validateVariableContainer_NoVoidVariables(variableDeclaration, diagnostics, context);
-		if (result || diagnostics != null) result &= validateVariableContainer_UniqueVariableNames(variableDeclaration, diagnostics, context);
-		return result;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public boolean validateChannelVariableDeclaration(ChannelVariableDeclaration channelVariableDeclaration, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		if (!validate_NoCircularContainment(channelVariableDeclaration, diagnostics, context)) return false;
-		boolean result = validate_EveryMultiplicityConforms(channelVariableDeclaration, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryDataValueConforms(channelVariableDeclaration, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(channelVariableDeclaration, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryBidirectionalReferenceIsPaired(channelVariableDeclaration, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryProxyResolves(channelVariableDeclaration, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_UniqueID(channelVariableDeclaration, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryKeyUnique(channelVariableDeclaration, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(channelVariableDeclaration, diagnostics, context);
-		if (result || diagnostics != null) result &= validateVariableContainer_NoVoidVariables(channelVariableDeclaration, diagnostics, context);
-		if (result || diagnostics != null) result &= validateVariableContainer_UniqueVariableNames(channelVariableDeclaration, diagnostics, context);
-		if (result || diagnostics != null) result &= validateChannelVariableDeclaration_MatchingType(channelVariableDeclaration, diagnostics, context);
-		return result;
-	}
-
-	/**
-	 * The cached validation expression for the MatchingType constraint of '<em>Channel Variable Declaration</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected static final String CHANNEL_VARIABLE_DECLARATION__MATCHING_TYPE__EEXPRESSION = "(not self.typeDefinition.oclIsUndefined())\r\n" +
-		"implies\r\n" +
-		"self.typeDefinition.baseType = types::BuiltInType::CHAN";
-
-	/**
-	 * Validates the MatchingType constraint of '<em>Channel Variable Declaration</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public boolean validateChannelVariableDeclaration_MatchingType(ChannelVariableDeclaration channelVariableDeclaration, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return
-			validate
-				(DeclarationsPackage.Literals.CHANNEL_VARIABLE_DECLARATION,
-				 channelVariableDeclaration,
-				 diagnostics,
-				 context,
-				 "http://www.eclipse.org/emf/2002/Ecore/OCL",
-				 "MatchingType",
-				 CHANNEL_VARIABLE_DECLARATION__MATCHING_TYPE__EEXPRESSION,
-				 Diagnostic.ERROR,
-				 DIAGNOSTIC_SOURCE,
-				 0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public boolean validateClockVariableDeclaration(ClockVariableDeclaration clockVariableDeclaration, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		if (!validate_NoCircularContainment(clockVariableDeclaration, diagnostics, context)) return false;
-		boolean result = validate_EveryMultiplicityConforms(clockVariableDeclaration, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryDataValueConforms(clockVariableDeclaration, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(clockVariableDeclaration, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryBidirectionalReferenceIsPaired(clockVariableDeclaration, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryProxyResolves(clockVariableDeclaration, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_UniqueID(clockVariableDeclaration, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryKeyUnique(clockVariableDeclaration, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(clockVariableDeclaration, diagnostics, context);
-		if (result || diagnostics != null) result &= validateVariableContainer_NoVoidVariables(clockVariableDeclaration, diagnostics, context);
-		if (result || diagnostics != null) result &= validateVariableContainer_UniqueVariableNames(clockVariableDeclaration, diagnostics, context);
-		if (result || diagnostics != null) result &= validateClockVariableDeclaration_MatchingType(clockVariableDeclaration, diagnostics, context);
-		return result;
-	}
-
-	/**
-	 * The cached validation expression for the MatchingType constraint of '<em>Clock Variable Declaration</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected static final String CLOCK_VARIABLE_DECLARATION__MATCHING_TYPE__EEXPRESSION = "(not self.typeDefinition.oclIsUndefined())\r\n" +
-		"implies\r\n" +
-		"self.typeDefinition.baseType = types::BuiltInType::CLOCK";
-
-	/**
-	 * Validates the MatchingType constraint of '<em>Clock Variable Declaration</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public boolean validateClockVariableDeclaration_MatchingType(ClockVariableDeclaration clockVariableDeclaration, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return
-			validate
-				(DeclarationsPackage.Literals.CLOCK_VARIABLE_DECLARATION,
-				 clockVariableDeclaration,
-				 diagnostics,
-				 context,
-				 "http://www.eclipse.org/emf/2002/Ecore/OCL",
-				 "MatchingType",
-				 CLOCK_VARIABLE_DECLARATION__MATCHING_TYPE__EEXPRESSION,
-				 Diagnostic.ERROR,
-				 DIAGNOSTIC_SOURCE,
-				 0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public boolean validateDataVariableDeclaration(DataVariableDeclaration dataVariableDeclaration, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		if (!validate_NoCircularContainment(dataVariableDeclaration, diagnostics, context)) return false;
-		boolean result = validate_EveryMultiplicityConforms(dataVariableDeclaration, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryDataValueConforms(dataVariableDeclaration, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(dataVariableDeclaration, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryBidirectionalReferenceIsPaired(dataVariableDeclaration, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryProxyResolves(dataVariableDeclaration, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_UniqueID(dataVariableDeclaration, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryKeyUnique(dataVariableDeclaration, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(dataVariableDeclaration, diagnostics, context);
-		if (result || diagnostics != null) result &= validateVariableContainer_NoVoidVariables(dataVariableDeclaration, diagnostics, context);
-		if (result || diagnostics != null) result &= validateVariableContainer_UniqueVariableNames(dataVariableDeclaration, diagnostics, context);
-		if (result || diagnostics != null) result &= validateDataVariableDeclaration_MatchingType(dataVariableDeclaration, diagnostics, context);
-		return result;
-	}
-
-	/**
-	 * The cached validation expression for the MatchingType constraint of '<em>Data Variable Declaration</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected static final String DATA_VARIABLE_DECLARATION__MATCHING_TYPE__EEXPRESSION = "(not self.typeDefinition.oclIsUndefined())\r\n" +
-		"implies\r\n" +
-		"(self.typeDefinition.baseType <> types::BuiltInType::CHAN\r\n" +
-		"and\r\n" +
-		"self.typeDefinition.baseType <> types::BuiltInType::CLOCK)";
-
-	/**
-	 * Validates the MatchingType constraint of '<em>Data Variable Declaration</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public boolean validateDataVariableDeclaration_MatchingType(DataVariableDeclaration dataVariableDeclaration, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return
-			validate
-				(DeclarationsPackage.Literals.DATA_VARIABLE_DECLARATION,
-				 dataVariableDeclaration,
-				 diagnostics,
-				 context,
-				 "http://www.eclipse.org/emf/2002/Ecore/OCL",
-				 "MatchingType",
-				 DATA_VARIABLE_DECLARATION__MATCHING_TYPE__EEXPRESSION,
-				 Diagnostic.ERROR,
-				 DIAGNOSTIC_SOURCE,
-				 0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public boolean validateFunctionDeclaration(FunctionDeclaration functionDeclaration, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return validate_EveryDefaultConstraint(functionDeclaration, diagnostics, context);
 	}
 
 	/**
@@ -712,11 +460,21 @@ public class DeclarationsValidator extends EObjectValidator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected static final String FUNCTION__VALID_RETURN_TYPE__EEXPRESSION = "(not returnType.oclIsUndefined())\r\n" +
+	protected static final String FUNCTION__VALID_RETURN_TYPE__EEXPRESSION = "(not typeDefinition.oclIsUndefined())\r\n" +
 		"implies\r\n" +
-		"(returnType.baseType = types::BuiltInType::VOID or\r\n" +
-		" returnType.baseType = types::BuiltInType::INT or\r\n" +
-		" returnType.baseType = types::BuiltInType::BOOL)";
+		"(\r\n" +
+		"\t(\r\n" +
+		"\t\ttypeDefinition.oclIsKindOf(uppaal::expressions::IdentifierExpression) and\r\n" +
+		"\t\ttypeDefinition.oclAsType(uppaal::expressions::IdentifierExpression).identifier.oclIsKindOf(uppaal::types::Type) and\r\n" +
+		"\t\t(\r\n" +
+		"\t\t\ttypeDefinition.oclAsType(uppaal::expressions::IdentifierExpression).identifier.oclAsType(uppaal::types::Type).baseType = uppaal::types::BuiltInType::VOID or\r\n" +
+		"\t\t\ttypeDefinition.oclAsType(uppaal::expressions::IdentifierExpression).identifier.oclAsType(uppaal::types::Type).baseType = uppaal::types::BuiltInType::INT or\r\n" +
+		"\t\t\ttypeDefinition.oclAsType(uppaal::expressions::IdentifierExpression).identifier.oclAsType(uppaal::types::Type).baseType = uppaal::types::BuiltInType::BOOL\r\n" +
+		"\t\t)\r\n" +
+		"\t)\r\n" +
+		"\tor\r\n" +
+		"\t\ttypeDefinition.oclIsKindOf(uppaal::types::RangeTypeSpecification)\r\n" +
+		")";
 
 	/**
 	 * Validates the ValidReturnType constraint of '<em>Function</em>'.
@@ -745,7 +503,7 @@ public class DeclarationsValidator extends EObjectValidator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected static final String FUNCTION__UNIQUE_PARAMETER_NAMES__EEXPRESSION = "self.parameter->collect(variableDeclaration)->collect(variable)->isUnique(name)";
+	protected static final String FUNCTION__UNIQUE_PARAMETER_NAMES__EEXPRESSION = "self.parameter->collect(elements)->select(e | e.oclIsKindOf(uppaal::core::NamedElement))->collect(oclAsType(uppaal::core::NamedElement))->isUnique(name)";
 
 	/**
 	 * Validates the UniqueParameterNames constraint of '<em>Function</em>'.
@@ -843,10 +601,25 @@ public class DeclarationsValidator extends EObjectValidator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected static final String VARIABLE__NO_INITIALIZER_FOR_CLOCK_AND_CHANNEL_VARIABLES__EEXPRESSION = "((not self.typeDefinition.oclIsUndefined()) and\r\n" +
-		"(self.typeDefinition.baseType = types::BuiltInType::CHAN or\r\n" +
-		" self.typeDefinition.baseType = types::BuiltInType::CLOCK))\r\n" +
-		" implies self.initializer.oclIsUndefined()";
+	protected static final String VARIABLE__NO_INITIALIZER_FOR_CLOCK_AND_CHANNEL_VARIABLES__EEXPRESSION = "if (not self.typeDefinition.oclIsUndefined()) then\r\n" +
+		"\t-- No channels allowed.\r\n" +
+		"\tif (self.typeDefinition.oclIsKindOf(uppaal::expressions::ChannelPrefixExpression)) then\r\n" +
+		"\t\tself.initializer.oclIsUndefined()\r\n" +
+		"\telse if (self.typeDefinition.oclIsKindOf(uppaal::expressions::IdentifierExpression)) then\r\n" +
+		"\t\tif (self.typeDefinition.oclAsType(uppaal::expressions::IdentifierExpression).identifier.oclIsKindOf(uppaal::types::Type)) then\r\n" +
+		"\t\t\t(\r\n" +
+		"\t\t\t\t(\r\n" +
+		"\t\t\t\t\tself.typeDefinition.oclAsType(uppaal::expressions::IdentifierExpression).identifier.oclAsType(uppaal::types::Type).baseType=uppaal::types::BuiltInType::CHAN or\r\n" +
+		"\t\t\t\t\tself.typeDefinition.oclAsType(uppaal::expressions::IdentifierExpression).identifier.oclAsType(uppaal::types::Type).baseType=uppaal::types::BuiltInType::CLOCK\r\n" +
+		"\t\t\t\t)\r\n" +
+		"\t\t\t\timplies\r\n" +
+		"\t\t\t\t\tself.initializer.oclIsUndefined()\r\n" +
+		"\t\t\t)\r\n" +
+		"\t\telse true endif\r\n" +
+		"\telse true endif endif\r\n" +
+		"else\r\n" +
+		"\ttrue\r\n" +
+		"endif";
 
 	/**
 	 * Validates the NoInitializerForClockAndChannelVariables constraint of '<em>Variable</em>'.
@@ -874,144 +647,117 @@ public class DeclarationsValidator extends EObjectValidator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean validateIndex(Index index, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return validate_EveryDefaultConstraint(index, diagnostics, context);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public boolean validateValueIndex(ValueIndex valueIndex, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return validate_EveryDefaultConstraint(valueIndex, diagnostics, context);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public boolean validateTypeIndex(TypeIndex typeIndex, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		if (!validate_NoCircularContainment(typeIndex, diagnostics, context)) return false;
-		boolean result = validate_EveryMultiplicityConforms(typeIndex, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryDataValueConforms(typeIndex, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(typeIndex, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryBidirectionalReferenceIsPaired(typeIndex, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryProxyResolves(typeIndex, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_UniqueID(typeIndex, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryKeyUnique(typeIndex, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(typeIndex, diagnostics, context);
-		if (result || diagnostics != null) result &= validateTypeIndex_IntegerBasedIndex(typeIndex, diagnostics, context);
+	public boolean validateTypedElementContainer(TypedElementContainer typedElementContainer, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		if (!validate_NoCircularContainment(typedElementContainer, diagnostics, context)) return false;
+		boolean result = validate_EveryMultiplicityConforms(typedElementContainer, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryDataValueConforms(typedElementContainer, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(typedElementContainer, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryBidirectionalReferenceIsPaired(typedElementContainer, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryProxyResolves(typedElementContainer, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_UniqueID(typedElementContainer, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryKeyUnique(typedElementContainer, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(typedElementContainer, diagnostics, context);
+		if (result || diagnostics != null) result &= validateTypedElementContainer_ElementsMustHaveSameType(typedElementContainer, diagnostics, context);
+		if (result || diagnostics != null) result &= validateTypedElementContainer_TypeExpressionMustBeType(typedElementContainer, diagnostics, context);
+		if (result || diagnostics != null) result &= validateTypedElementContainer_UniqueElementNames(typedElementContainer, diagnostics, context);
 		return result;
 	}
 
 	/**
-	 * The cached validation expression for the IntegerBasedIndex constraint of '<em>Type Index</em>'.
+	 * The cached validation expression for the ElementsMustHaveSameType constraint of '<em>Typed Element Container</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected static final String TYPE_INDEX__INTEGER_BASED_INDEX__EEXPRESSION = "(not self.typeDefinition.oclIsUndefined())\r\n" +
-		"implies\r\n" +
-		"self.typeDefinition.baseType = types::BuiltInType::INT";
+	protected static final String TYPED_ELEMENT_CONTAINER__ELEMENTS_MUST_HAVE_SAME_TYPE__EEXPRESSION = "self.elements->forAll(oclIsKindOf(declarations::Parameter))\r\n" +
+		"or\r\n" +
+		"self.elements->forAll(oclIsKindOf(declarations::Variable))\r\n" +
+		"or\r\n" +
+		"self.elements->forAll(oclIsKindOf(declarations::Function))";
 
 	/**
-	 * Validates the IntegerBasedIndex constraint of '<em>Type Index</em>'.
+	 * Validates the ElementsMustHaveSameType constraint of '<em>Typed Element Container</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean validateTypeIndex_IntegerBasedIndex(TypeIndex typeIndex, DiagnosticChain diagnostics, Map<Object, Object> context) {
+	public boolean validateTypedElementContainer_ElementsMustHaveSameType(TypedElementContainer typedElementContainer, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		return
 			validate
-				(DeclarationsPackage.Literals.TYPE_INDEX,
-				 typeIndex,
+				(DeclarationsPackage.Literals.TYPED_ELEMENT_CONTAINER,
+				 typedElementContainer,
 				 diagnostics,
 				 context,
 				 "http://www.eclipse.org/emf/2002/Ecore/OCL",
-				 "IntegerBasedIndex",
-				 TYPE_INDEX__INTEGER_BASED_INDEX__EEXPRESSION,
+				 "ElementsMustHaveSameType",
+				 TYPED_ELEMENT_CONTAINER__ELEMENTS_MUST_HAVE_SAME_TYPE__EEXPRESSION,
 				 Diagnostic.ERROR,
 				 DIAGNOSTIC_SOURCE,
 				 0);
 	}
 
 	/**
+	 * The cached validation expression for the TypeExpressionMustBeType constraint of '<em>Typed Element Container</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean validateVariableContainer(VariableContainer variableContainer, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		if (!validate_NoCircularContainment(variableContainer, diagnostics, context)) return false;
-		boolean result = validate_EveryMultiplicityConforms(variableContainer, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryDataValueConforms(variableContainer, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(variableContainer, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryBidirectionalReferenceIsPaired(variableContainer, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryProxyResolves(variableContainer, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_UniqueID(variableContainer, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryKeyUnique(variableContainer, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(variableContainer, diagnostics, context);
-		if (result || diagnostics != null) result &= validateVariableContainer_NoVoidVariables(variableContainer, diagnostics, context);
-		if (result || diagnostics != null) result &= validateVariableContainer_UniqueVariableNames(variableContainer, diagnostics, context);
-		return result;
-	}
+	protected static final String TYPED_ELEMENT_CONTAINER__TYPE_EXPRESSION_MUST_BE_TYPE__EEXPRESSION = "typeDefinition.oclIsKindOf(types::TypeExpression)\r\n" +
+		"or\r\n" +
+		"(\r\n" +
+		"\ttypeDefinition.oclIsKindOf(expressions::IdentifierExpression) and\r\n" +
+		"\ttypeDefinition.oclAsType(expressions::IdentifierExpression).identifier.oclIsKindOf(types::Type)\r\n" +
+		")\r\n" +
+		"or\r\n" +
+		"typeDefinition.oclIsKindOf(expressions::ChannelPrefixExpression)\r\n" +
+		"or\r\n" +
+		"typeDefinition.oclIsKindOf(expressions::DataPrefixExpression)";
 
 	/**
-	 * The cached validation expression for the NoVoidVariables constraint of '<em>Variable Container</em>'.
+	 * Validates the TypeExpressionMustBeType constraint of '<em>Typed Element Container</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected static final String VARIABLE_CONTAINER__NO_VOID_VARIABLES__EEXPRESSION = "(not self.typeDefinition.oclIsUndefined())\r\n" +
-		"implies\r\n" +
-		"self.typeDefinition.baseType <> types::BuiltInType::VOID";
-
-	/**
-	 * Validates the NoVoidVariables constraint of '<em>Variable Container</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public boolean validateVariableContainer_NoVoidVariables(VariableContainer variableContainer, DiagnosticChain diagnostics, Map<Object, Object> context) {
+	public boolean validateTypedElementContainer_TypeExpressionMustBeType(TypedElementContainer typedElementContainer, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		return
 			validate
-				(DeclarationsPackage.Literals.VARIABLE_CONTAINER,
-				 variableContainer,
+				(DeclarationsPackage.Literals.TYPED_ELEMENT_CONTAINER,
+				 typedElementContainer,
 				 diagnostics,
 				 context,
 				 "http://www.eclipse.org/emf/2002/Ecore/OCL",
-				 "NoVoidVariables",
-				 VARIABLE_CONTAINER__NO_VOID_VARIABLES__EEXPRESSION,
+				 "TypeExpressionMustBeType",
+				 TYPED_ELEMENT_CONTAINER__TYPE_EXPRESSION_MUST_BE_TYPE__EEXPRESSION,
 				 Diagnostic.ERROR,
 				 DIAGNOSTIC_SOURCE,
 				 0);
 	}
 
 	/**
-	 * The cached validation expression for the UniqueVariableNames constraint of '<em>Variable Container</em>'.
+	 * The cached validation expression for the UniqueElementNames constraint of '<em>Typed Element Container</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected static final String VARIABLE_CONTAINER__UNIQUE_VARIABLE_NAMES__EEXPRESSION = "self.variable->isUnique(name)";
+	protected static final String TYPED_ELEMENT_CONTAINER__UNIQUE_ELEMENT_NAMES__EEXPRESSION = "self.elements->select(oclIsKindOf(core::NamedElement))->collect(oclAsType(core::NamedElement))->isUnique(name)";
 
 	/**
-	 * Validates the UniqueVariableNames constraint of '<em>Variable Container</em>'.
+	 * Validates the UniqueElementNames constraint of '<em>Typed Element Container</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean validateVariableContainer_UniqueVariableNames(VariableContainer variableContainer, DiagnosticChain diagnostics, Map<Object, Object> context) {
+	public boolean validateTypedElementContainer_UniqueElementNames(TypedElementContainer typedElementContainer, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		return
 			validate
-				(DeclarationsPackage.Literals.VARIABLE_CONTAINER,
-				 variableContainer,
+				(DeclarationsPackage.Literals.TYPED_ELEMENT_CONTAINER,
+				 typedElementContainer,
 				 diagnostics,
 				 context,
 				 "http://www.eclipse.org/emf/2002/Ecore/OCL",
-				 "UniqueVariableNames",
-				 VARIABLE_CONTAINER__UNIQUE_VARIABLE_NAMES__EEXPRESSION,
+				 "UniqueElementNames",
+				 TYPED_ELEMENT_CONTAINER__UNIQUE_ELEMENT_NAMES__EEXPRESSION,
 				 Diagnostic.ERROR,
 				 DIAGNOSTIC_SOURCE,
 				 0);
@@ -1032,39 +778,10 @@ public class DeclarationsValidator extends EObjectValidator {
 		if (result || diagnostics != null) result &= validate_UniqueID(parameter, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryKeyUnique(parameter, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(parameter, diagnostics, context);
-		if (result || diagnostics != null) result &= validateParameter_SingleVariable(parameter, diagnostics, context);
+		if (result || diagnostics != null) result &= coreValidator.validateNamedElement_NoWhitespace(parameter, diagnostics, context);
+		if (result || diagnostics != null) result &= coreValidator.validateNamedElement_NoDigitStart(parameter, diagnostics, context);
+		if (result || diagnostics != null) result &= validateVariable_NoInitializerForClockAndChannelVariables(parameter, diagnostics, context);
 		return result;
-	}
-
-	/**
-	 * The cached validation expression for the SingleVariable constraint of '<em>Parameter</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected static final String PARAMETER__SINGLE_VARIABLE__EEXPRESSION = "(not self.variableDeclaration.oclIsUndefined())\r\n" +
-		"implies\r\n" +
-		"self.variableDeclaration.variable->size() <= 1";
-
-	/**
-	 * Validates the SingleVariable constraint of '<em>Parameter</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public boolean validateParameter_SingleVariable(Parameter parameter, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return
-			validate
-				(DeclarationsPackage.Literals.PARAMETER,
-				 parameter,
-				 diagnostics,
-				 context,
-				 "http://www.eclipse.org/emf/2002/Ecore/OCL",
-				 "SingleVariable",
-				 PARAMETER__SINGLE_VARIABLE__EEXPRESSION,
-				 Diagnostic.ERROR,
-				 DIAGNOSTIC_SOURCE,
-				 0);
 	}
 
 	/**
@@ -1092,6 +809,108 @@ public class DeclarationsValidator extends EObjectValidator {
 	 */
 	public boolean validateArrayInitializer(ArrayInitializer arrayInitializer, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		return validate_EveryDefaultConstraint(arrayInitializer, diagnostics, context);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateTypedDeclaration(TypedDeclaration typedDeclaration, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		if (!validate_NoCircularContainment(typedDeclaration, diagnostics, context)) return false;
+		boolean result = validate_EveryMultiplicityConforms(typedDeclaration, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryDataValueConforms(typedDeclaration, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(typedDeclaration, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryBidirectionalReferenceIsPaired(typedDeclaration, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryProxyResolves(typedDeclaration, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_UniqueID(typedDeclaration, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryKeyUnique(typedDeclaration, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(typedDeclaration, diagnostics, context);
+		if (result || diagnostics != null) result &= validateTypedElementContainer_ElementsMustHaveSameType(typedDeclaration, diagnostics, context);
+		if (result || diagnostics != null) result &= validateTypedElementContainer_TypeExpressionMustBeType(typedDeclaration, diagnostics, context);
+		if (result || diagnostics != null) result &= validateTypedElementContainer_UniqueElementNames(typedDeclaration, diagnostics, context);
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateParameterContainer(ParameterContainer parameterContainer, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		if (!validate_NoCircularContainment(parameterContainer, diagnostics, context)) return false;
+		boolean result = validate_EveryMultiplicityConforms(parameterContainer, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryDataValueConforms(parameterContainer, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(parameterContainer, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryBidirectionalReferenceIsPaired(parameterContainer, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryProxyResolves(parameterContainer, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_UniqueID(parameterContainer, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryKeyUnique(parameterContainer, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(parameterContainer, diagnostics, context);
+		if (result || diagnostics != null) result &= validateTypedElementContainer_ElementsMustHaveSameType(parameterContainer, diagnostics, context);
+		if (result || diagnostics != null) result &= validateTypedElementContainer_TypeExpressionMustBeType(parameterContainer, diagnostics, context);
+		if (result || diagnostics != null) result &= validateTypedElementContainer_UniqueElementNames(parameterContainer, diagnostics, context);
+		if (result || diagnostics != null) result &= validateParameterContainer_SingleParameter(parameterContainer, diagnostics, context);
+		if (result || diagnostics != null) result &= validateParameterContainer_ParametersOnly(parameterContainer, diagnostics, context);
+		return result;
+	}
+
+	/**
+	 * The cached validation expression for the SingleParameter constraint of '<em>Parameter Container</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected static final String PARAMETER_CONTAINER__SINGLE_PARAMETER__EEXPRESSION = "self.elements->size() <= 1";
+
+	/**
+	 * Validates the SingleParameter constraint of '<em>Parameter Container</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateParameterContainer_SingleParameter(ParameterContainer parameterContainer, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return
+			validate
+				(DeclarationsPackage.Literals.PARAMETER_CONTAINER,
+				 parameterContainer,
+				 diagnostics,
+				 context,
+				 "http://www.eclipse.org/emf/2002/Ecore/OCL",
+				 "SingleParameter",
+				 PARAMETER_CONTAINER__SINGLE_PARAMETER__EEXPRESSION,
+				 Diagnostic.ERROR,
+				 DIAGNOSTIC_SOURCE,
+				 0);
+	}
+
+	/**
+	 * The cached validation expression for the ParametersOnly constraint of '<em>Parameter Container</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected static final String PARAMETER_CONTAINER__PARAMETERS_ONLY__EEXPRESSION = "self.elements->forAll(oclIsKindOf(declarations::Parameter))";
+
+	/**
+	 * Validates the ParametersOnly constraint of '<em>Parameter Container</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateParameterContainer_ParametersOnly(ParameterContainer parameterContainer, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return
+			validate
+				(DeclarationsPackage.Literals.PARAMETER_CONTAINER,
+				 parameterContainer,
+				 diagnostics,
+				 context,
+				 "http://www.eclipse.org/emf/2002/Ecore/OCL",
+				 "ParametersOnly",
+				 PARAMETER_CONTAINER__PARAMETERS_ONLY__EEXPRESSION,
+				 Diagnostic.ERROR,
+				 DIAGNOSTIC_SOURCE,
+				 0);
 	}
 
 	/**

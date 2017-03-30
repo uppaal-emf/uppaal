@@ -12,6 +12,7 @@ import org.eclipse.emf.ecore.util.EObjectValidator;
 import org.muml.uppaal.core.CommentableElement;
 import org.muml.uppaal.core.CorePackage;
 import org.muml.uppaal.core.NamedElement;
+import org.muml.uppaal.core.TypedElement;
 
 /**
  * <!-- begin-user-doc -->
@@ -89,6 +90,8 @@ public class CoreValidator extends EObjectValidator {
 				return validateNamedElement((NamedElement)value, diagnostics, context);
 			case CorePackage.COMMENTABLE_ELEMENT:
 				return validateCommentableElement((CommentableElement)value, diagnostics, context);
+			case CorePackage.TYPED_ELEMENT:
+				return validateTypedElement((TypedElement)value, diagnostics, context);
 			default:
 				return true;
 		}
@@ -120,7 +123,9 @@ public class CoreValidator extends EObjectValidator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected static final String NAMED_ELEMENT__NO_WHITESPACE__EEXPRESSION = "self.name.characters()->excludes(' ')";
+	protected static final String NAMED_ELEMENT__NO_WHITESPACE__EEXPRESSION = "(not self.name.oclIsUndefined())\r\n" +
+		"implies\r\n" +
+		"self.name.characters()->excludes(' ')";
 
 	/**
 	 * Validates the NoWhitespace constraint of '<em>Named Element</em>'.
@@ -149,7 +154,9 @@ public class CoreValidator extends EObjectValidator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected static final String NAMED_ELEMENT__NO_DIGIT_START__EEXPRESSION = "Set{0..9}->excludes(self.name.characters()->first())";
+	protected static final String NAMED_ELEMENT__NO_DIGIT_START__EEXPRESSION = "(not self.name.oclIsUndefined())\r\n" +
+		"implies\r\n" +
+		"Set{0..9}->excludes(self.name.characters()->first())";
 
 	/**
 	 * Validates the NoDigitStart constraint of '<em>Named Element</em>'.
@@ -179,6 +186,15 @@ public class CoreValidator extends EObjectValidator {
 	 */
 	public boolean validateCommentableElement(CommentableElement commentableElement, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		return validate_EveryDefaultConstraint(commentableElement, diagnostics, context);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateTypedElement(TypedElement typedElement, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return validate_EveryDefaultConstraint(typedElement, diagnostics, context);
 	}
 
 	/**

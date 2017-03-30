@@ -61,7 +61,7 @@
    <extension point="org.eclipse.emf.edit.itemProviderAdapterFactories">
       <!-- @generated uppaal -->
       <factory
-            uri="http://www.muml.org/uppaal/declarations/global/1.0.0"
+            uri="http://www.muml.org/uppaal/declarations/global"
             class="org.muml.uppaal.declarations.global.provider.GlobalItemProviderAdapterFactory"
             supportedTypes=
               "org.eclipse.emf.edit.provider.IEditingDomainItemProvider
@@ -74,7 +74,7 @@
    <extension point="org.eclipse.emf.edit.itemProviderAdapterFactories">
       <!-- @generated uppaal -->
       <factory
-            uri="http://www.muml.org/uppaal/declarations/system/1.0.0"
+            uri="http://www.muml.org/uppaal/declarations/system"
             class="org.muml.uppaal.declarations.system.provider.SystemItemProviderAdapterFactory"
             supportedTypes=
               "org.eclipse.emf.edit.provider.IEditingDomainItemProvider
@@ -135,4 +135,5 @@
                org.eclipse.emf.edit.provider.IItemLabelProvider
                org.eclipse.emf.edit.provider.IItemPropertySource"/>
    </extension>
+
 </plugin>

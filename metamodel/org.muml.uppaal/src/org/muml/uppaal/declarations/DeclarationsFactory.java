@@ -49,42 +49,6 @@ public interface DeclarationsFactory extends EFactory {
 	SystemDeclarations createSystemDeclarations();
 
 	/**
-	 * Returns a new object of class '<em>Channel Variable Declaration</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Channel Variable Declaration</em>'.
-	 * @generated
-	 */
-	ChannelVariableDeclaration createChannelVariableDeclaration();
-
-	/**
-	 * Returns a new object of class '<em>Clock Variable Declaration</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Clock Variable Declaration</em>'.
-	 * @generated
-	 */
-	ClockVariableDeclaration createClockVariableDeclaration();
-
-	/**
-	 * Returns a new object of class '<em>Data Variable Declaration</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Data Variable Declaration</em>'.
-	 * @generated
-	 */
-	DataVariableDeclaration createDataVariableDeclaration();
-
-	/**
-	 * Returns a new object of class '<em>Function Declaration</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Function Declaration</em>'.
-	 * @generated
-	 */
-	FunctionDeclaration createFunctionDeclaration();
-
-	/**
 	 * Returns a new object of class '<em>Function</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -112,24 +76,6 @@ public interface DeclarationsFactory extends EFactory {
 	Variable createVariable();
 
 	/**
-	 * Returns a new object of class '<em>Value Index</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Value Index</em>'.
-	 * @generated
-	 */
-	ValueIndex createValueIndex();
-
-	/**
-	 * Returns a new object of class '<em>Type Index</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Type Index</em>'.
-	 * @generated
-	 */
-	TypeIndex createTypeIndex();
-
-	/**
 	 * Returns a new object of class '<em>Parameter</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -155,6 +101,24 @@ public interface DeclarationsFactory extends EFactory {
 	 * @generated
 	 */
 	ArrayInitializer createArrayInitializer();
+
+	/**
+	 * Returns a new object of class '<em>Typed Declaration</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Typed Declaration</em>'.
+	 * @generated
+	 */
+	TypedDeclaration createTypedDeclaration();
+
+	/**
+	 * Returns a new object of class '<em>Parameter Container</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Parameter Container</em>'.
+	 * @generated
+	 */
+	ParameterContainer createParameterContainer();
 
 	/**
 	 * Returns the package supported by this factory.

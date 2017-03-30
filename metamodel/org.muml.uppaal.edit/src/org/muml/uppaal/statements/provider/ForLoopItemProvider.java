@@ -15,6 +15,7 @@ import org.muml.uppaal.expressions.ExpressionsFactory;
 import org.muml.uppaal.statements.ForLoop;
 import org.muml.uppaal.statements.StatementsFactory;
 import org.muml.uppaal.statements.StatementsPackage;
+import org.muml.uppaal.types.TypesFactory;
 
 /**
  * This is the item provider adapter for a {@link org.muml.uppaal.statements.ForLoop} object.
@@ -140,6 +141,21 @@ public class ForLoopItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(StatementsPackage.Literals.FOR_LOOP__INITIALIZATION,
+				 TypesFactory.eINSTANCE.createScalarTypeSpecification()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(StatementsPackage.Literals.FOR_LOOP__INITIALIZATION,
+				 TypesFactory.eINSTANCE.createStructTypeSpecification()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(StatementsPackage.Literals.FOR_LOOP__INITIALIZATION,
+				 TypesFactory.eINSTANCE.createRangeTypeSpecification()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(StatementsPackage.Literals.FOR_LOOP__INITIALIZATION,
 				 ExpressionsFactory.eINSTANCE.createNegationExpression()));
 
 		newChildDescriptors.add
@@ -161,6 +177,11 @@ public class ForLoopItemProvider
 			(createChildParameter
 				(StatementsPackage.Literals.FOR_LOOP__INITIALIZATION,
 				 ExpressionsFactory.eINSTANCE.createIdentifierExpression()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(StatementsPackage.Literals.FOR_LOOP__INITIALIZATION,
+				 ExpressionsFactory.eINSTANCE.createScopedIdentifierExpression()));
 
 		newChildDescriptors.add
 			(createChildParameter
@@ -195,17 +216,17 @@ public class ForLoopItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(StatementsPackage.Literals.FOR_LOOP__INITIALIZATION,
-				 ExpressionsFactory.eINSTANCE.createScopedIdentifierExpression()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(StatementsPackage.Literals.FOR_LOOP__INITIALIZATION,
 				 ExpressionsFactory.eINSTANCE.createQuantificationExpression()));
 
 		newChildDescriptors.add
 			(createChildParameter
 				(StatementsPackage.Literals.FOR_LOOP__INITIALIZATION,
-				 ExpressionsFactory.eINSTANCE.createIncrementDecrementExpression()));
+				 ExpressionsFactory.eINSTANCE.createPreIncrementDecrementExpression()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(StatementsPackage.Literals.FOR_LOOP__INITIALIZATION,
+				 ExpressionsFactory.eINSTANCE.createPostIncrementDecrementExpression()));
 
 		newChildDescriptors.add
 			(createChildParameter
@@ -221,6 +242,31 @@ public class ForLoopItemProvider
 			(createChildParameter
 				(StatementsPackage.Literals.FOR_LOOP__INITIALIZATION,
 				 ExpressionsFactory.eINSTANCE.createBitwiseExpression()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(StatementsPackage.Literals.FOR_LOOP__INITIALIZATION,
+				 ExpressionsFactory.eINSTANCE.createChannelPrefixExpression()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(StatementsPackage.Literals.FOR_LOOP__INITIALIZATION,
+				 ExpressionsFactory.eINSTANCE.createDataPrefixExpression()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(StatementsPackage.Literals.FOR_LOOP__CONDITION,
+				 TypesFactory.eINSTANCE.createScalarTypeSpecification()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(StatementsPackage.Literals.FOR_LOOP__CONDITION,
+				 TypesFactory.eINSTANCE.createStructTypeSpecification()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(StatementsPackage.Literals.FOR_LOOP__CONDITION,
+				 TypesFactory.eINSTANCE.createRangeTypeSpecification()));
 
 		newChildDescriptors.add
 			(createChildParameter
@@ -246,6 +292,11 @@ public class ForLoopItemProvider
 			(createChildParameter
 				(StatementsPackage.Literals.FOR_LOOP__CONDITION,
 				 ExpressionsFactory.eINSTANCE.createIdentifierExpression()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(StatementsPackage.Literals.FOR_LOOP__CONDITION,
+				 ExpressionsFactory.eINSTANCE.createScopedIdentifierExpression()));
 
 		newChildDescriptors.add
 			(createChildParameter
@@ -280,17 +331,17 @@ public class ForLoopItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(StatementsPackage.Literals.FOR_LOOP__CONDITION,
-				 ExpressionsFactory.eINSTANCE.createScopedIdentifierExpression()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(StatementsPackage.Literals.FOR_LOOP__CONDITION,
 				 ExpressionsFactory.eINSTANCE.createQuantificationExpression()));
 
 		newChildDescriptors.add
 			(createChildParameter
 				(StatementsPackage.Literals.FOR_LOOP__CONDITION,
-				 ExpressionsFactory.eINSTANCE.createIncrementDecrementExpression()));
+				 ExpressionsFactory.eINSTANCE.createPreIncrementDecrementExpression()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(StatementsPackage.Literals.FOR_LOOP__CONDITION,
+				 ExpressionsFactory.eINSTANCE.createPostIncrementDecrementExpression()));
 
 		newChildDescriptors.add
 			(createChildParameter
@@ -306,6 +357,31 @@ public class ForLoopItemProvider
 			(createChildParameter
 				(StatementsPackage.Literals.FOR_LOOP__CONDITION,
 				 ExpressionsFactory.eINSTANCE.createBitwiseExpression()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(StatementsPackage.Literals.FOR_LOOP__CONDITION,
+				 ExpressionsFactory.eINSTANCE.createChannelPrefixExpression()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(StatementsPackage.Literals.FOR_LOOP__CONDITION,
+				 ExpressionsFactory.eINSTANCE.createDataPrefixExpression()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(StatementsPackage.Literals.FOR_LOOP__ITERATION,
+				 TypesFactory.eINSTANCE.createScalarTypeSpecification()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(StatementsPackage.Literals.FOR_LOOP__ITERATION,
+				 TypesFactory.eINSTANCE.createStructTypeSpecification()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(StatementsPackage.Literals.FOR_LOOP__ITERATION,
+				 TypesFactory.eINSTANCE.createRangeTypeSpecification()));
 
 		newChildDescriptors.add
 			(createChildParameter
@@ -331,6 +407,11 @@ public class ForLoopItemProvider
 			(createChildParameter
 				(StatementsPackage.Literals.FOR_LOOP__ITERATION,
 				 ExpressionsFactory.eINSTANCE.createIdentifierExpression()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(StatementsPackage.Literals.FOR_LOOP__ITERATION,
+				 ExpressionsFactory.eINSTANCE.createScopedIdentifierExpression()));
 
 		newChildDescriptors.add
 			(createChildParameter
@@ -365,17 +446,17 @@ public class ForLoopItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(StatementsPackage.Literals.FOR_LOOP__ITERATION,
-				 ExpressionsFactory.eINSTANCE.createScopedIdentifierExpression()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(StatementsPackage.Literals.FOR_LOOP__ITERATION,
 				 ExpressionsFactory.eINSTANCE.createQuantificationExpression()));
 
 		newChildDescriptors.add
 			(createChildParameter
 				(StatementsPackage.Literals.FOR_LOOP__ITERATION,
-				 ExpressionsFactory.eINSTANCE.createIncrementDecrementExpression()));
+				 ExpressionsFactory.eINSTANCE.createPreIncrementDecrementExpression()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(StatementsPackage.Literals.FOR_LOOP__ITERATION,
+				 ExpressionsFactory.eINSTANCE.createPostIncrementDecrementExpression()));
 
 		newChildDescriptors.add
 			(createChildParameter
@@ -391,6 +472,16 @@ public class ForLoopItemProvider
 			(createChildParameter
 				(StatementsPackage.Literals.FOR_LOOP__ITERATION,
 				 ExpressionsFactory.eINSTANCE.createBitwiseExpression()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(StatementsPackage.Literals.FOR_LOOP__ITERATION,
+				 ExpressionsFactory.eINSTANCE.createChannelPrefixExpression()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(StatementsPackage.Literals.FOR_LOOP__ITERATION,
+				 ExpressionsFactory.eINSTANCE.createDataPrefixExpression()));
 
 		newChildDescriptors.add
 			(createChildParameter

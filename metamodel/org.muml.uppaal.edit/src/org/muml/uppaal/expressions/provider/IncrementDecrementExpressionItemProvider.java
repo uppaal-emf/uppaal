@@ -16,7 +16,8 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
 import org.muml.uppaal.expressions.ExpressionsFactory;
 import org.muml.uppaal.expressions.ExpressionsPackage;
 import org.muml.uppaal.expressions.IncrementDecrementExpression;
-import org.muml.uppaal.expressions.IncrementDecrementPosition;
+import org.muml.uppaal.expressions.IncrementDecrementOperator;
+import org.muml.uppaal.types.TypesFactory;
 
 /**
  * This is the item provider adapter for a {@link org.muml.uppaal.expressions.IncrementDecrementExpression} object.
@@ -47,32 +48,9 @@ public class IncrementDecrementExpressionItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addPositionPropertyDescriptor(object);
 			addOperatorPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
-	}
-
-	/**
-	 * This adds a property descriptor for the Position feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addPositionPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_IncrementDecrementExpression_position_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_IncrementDecrementExpression_position_feature", "_UI_IncrementDecrementExpression_type"),
-				 ExpressionsPackage.Literals.INCREMENT_DECREMENT_EXPRESSION__POSITION,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
-				 null));
 	}
 
 	/**
@@ -146,7 +124,7 @@ public class IncrementDecrementExpressionItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		IncrementDecrementPosition labelValue = ((IncrementDecrementExpression)object).getPosition();
+		IncrementDecrementOperator labelValue = ((IncrementDecrementExpression)object).getOperator();
 		String label = labelValue == null ? null : labelValue.toString();
 		return label == null || label.length() == 0 ?
 			getString("_UI_IncrementDecrementExpression_type") :
@@ -165,7 +143,6 @@ public class IncrementDecrementExpressionItemProvider
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(IncrementDecrementExpression.class)) {
-			case ExpressionsPackage.INCREMENT_DECREMENT_EXPRESSION__POSITION:
 			case ExpressionsPackage.INCREMENT_DECREMENT_EXPRESSION__OPERATOR:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
@@ -215,6 +192,11 @@ public class IncrementDecrementExpressionItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(ExpressionsPackage.Literals.INCREMENT_DECREMENT_EXPRESSION__EXPRESSION,
+				 ExpressionsFactory.eINSTANCE.createScopedIdentifierExpression()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(ExpressionsPackage.Literals.INCREMENT_DECREMENT_EXPRESSION__EXPRESSION,
 				 ExpressionsFactory.eINSTANCE.createLiteralExpression()));
 
 		newChildDescriptors.add
@@ -245,17 +227,17 @@ public class IncrementDecrementExpressionItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(ExpressionsPackage.Literals.INCREMENT_DECREMENT_EXPRESSION__EXPRESSION,
-				 ExpressionsFactory.eINSTANCE.createScopedIdentifierExpression()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(ExpressionsPackage.Literals.INCREMENT_DECREMENT_EXPRESSION__EXPRESSION,
 				 ExpressionsFactory.eINSTANCE.createQuantificationExpression()));
 
 		newChildDescriptors.add
 			(createChildParameter
 				(ExpressionsPackage.Literals.INCREMENT_DECREMENT_EXPRESSION__EXPRESSION,
-				 ExpressionsFactory.eINSTANCE.createIncrementDecrementExpression()));
+				 ExpressionsFactory.eINSTANCE.createPreIncrementDecrementExpression()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(ExpressionsPackage.Literals.INCREMENT_DECREMENT_EXPRESSION__EXPRESSION,
+				 ExpressionsFactory.eINSTANCE.createPostIncrementDecrementExpression()));
 
 		newChildDescriptors.add
 			(createChildParameter
@@ -271,6 +253,31 @@ public class IncrementDecrementExpressionItemProvider
 			(createChildParameter
 				(ExpressionsPackage.Literals.INCREMENT_DECREMENT_EXPRESSION__EXPRESSION,
 				 ExpressionsFactory.eINSTANCE.createBitwiseExpression()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(ExpressionsPackage.Literals.INCREMENT_DECREMENT_EXPRESSION__EXPRESSION,
+				 ExpressionsFactory.eINSTANCE.createChannelPrefixExpression()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(ExpressionsPackage.Literals.INCREMENT_DECREMENT_EXPRESSION__EXPRESSION,
+				 ExpressionsFactory.eINSTANCE.createDataPrefixExpression()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(ExpressionsPackage.Literals.INCREMENT_DECREMENT_EXPRESSION__EXPRESSION,
+				 TypesFactory.eINSTANCE.createScalarTypeSpecification()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(ExpressionsPackage.Literals.INCREMENT_DECREMENT_EXPRESSION__EXPRESSION,
+				 TypesFactory.eINSTANCE.createStructTypeSpecification()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(ExpressionsPackage.Literals.INCREMENT_DECREMENT_EXPRESSION__EXPRESSION,
+				 TypesFactory.eINSTANCE.createRangeTypeSpecification()));
 	}
 
 }

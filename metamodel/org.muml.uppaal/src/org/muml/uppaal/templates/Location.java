@@ -2,6 +2,7 @@
  */
 package org.muml.uppaal.templates;
 
+import org.eclipse.emf.common.util.EList;
 import org.muml.uppaal.core.CommentableElement;
 import org.muml.uppaal.core.NamedElement;
 import org.muml.uppaal.expressions.Expression;
@@ -24,6 +25,8 @@ import org.muml.uppaal.visuals.PlanarElement;
  *   <li>{@link org.muml.uppaal.templates.Location#getParentTemplate <em>Parent Template</em>}</li>
  *   <li>{@link org.muml.uppaal.templates.Location#getInvariant <em>Invariant</em>}</li>
  *   <li>{@link org.muml.uppaal.templates.Location#getLocationTimeKind <em>Location Time Kind</em>}</li>
+ *   <li>{@link org.muml.uppaal.templates.Location#getIncomingEdges <em>Incoming Edges</em>}</li>
+ *   <li>{@link org.muml.uppaal.templates.Location#getOutgoingEdges <em>Outgoing Edges</em>}</li>
  * </ul>
  *
  * @see org.muml.uppaal.templates.TemplatesPackage#getLocation()
@@ -110,5 +113,41 @@ public interface Location extends NamedElement, CommentableElement, PlanarElemen
 	 * @generated
 	 */
 	void setLocationTimeKind(LocationKind value);
+
+	/**
+	 * Returns the value of the '<em><b>Incoming Edges</b></em>' reference list.
+	 * The list contents are of type {@link org.muml.uppaal.templates.Edge}.
+	 * It is bidirectional and its opposite is '{@link org.muml.uppaal.templates.Edge#getTarget <em>Target</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Incoming Edges</em>' reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Incoming Edges</em>' reference list.
+	 * @see org.muml.uppaal.templates.TemplatesPackage#getLocation_IncomingEdges()
+	 * @see org.muml.uppaal.templates.Edge#getTarget
+	 * @model opposite="target"
+	 * @generated
+	 */
+	EList<Edge> getIncomingEdges();
+
+	/**
+	 * Returns the value of the '<em><b>Outgoing Edges</b></em>' reference list.
+	 * The list contents are of type {@link org.muml.uppaal.templates.Edge}.
+	 * It is bidirectional and its opposite is '{@link org.muml.uppaal.templates.Edge#getSource <em>Source</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Outgoing Edges</em>' reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Outgoing Edges</em>' reference list.
+	 * @see org.muml.uppaal.templates.TemplatesPackage#getLocation_OutgoingEdges()
+	 * @see org.muml.uppaal.templates.Edge#getSource
+	 * @model opposite="source"
+	 * @generated
+	 */
+	EList<Edge> getOutgoingEdges();
 
 } // Location

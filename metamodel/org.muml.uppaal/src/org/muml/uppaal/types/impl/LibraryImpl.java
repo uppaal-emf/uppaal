@@ -2,12 +2,15 @@
  */
 package org.muml.uppaal.types.impl;
 
-import org.eclipse.emf.common.notify.Notification;
+import java.util.Collection;
+
 import org.eclipse.emf.common.notify.NotificationChain;
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.InternalEList;
 import org.muml.uppaal.types.Library;
 import org.muml.uppaal.types.PredefinedType;
 import org.muml.uppaal.types.TypesPackage;
@@ -27,14 +30,14 @@ import org.muml.uppaal.types.TypesPackage;
  */
 public class LibraryImpl extends EObjectImpl implements Library {
 	/**
-	 * The cached value of the '{@link #getTypes() <em>Types</em>}' containment reference.
+	 * The cached value of the '{@link #getTypes() <em>Types</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getTypes()
 	 * @generated
 	 * @ordered
 	 */
-	protected PredefinedType types;
+	protected EList<PredefinedType> types;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -60,42 +63,11 @@ public class LibraryImpl extends EObjectImpl implements Library {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public PredefinedType getTypes() {
+	public EList<PredefinedType> getTypes() {
+		if (types == null) {
+			types = new EObjectContainmentEList<PredefinedType>(PredefinedType.class, this, TypesPackage.LIBRARY__TYPES);
+		}
 		return types;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetTypes(PredefinedType newTypes, NotificationChain msgs) {
-		PredefinedType oldTypes = types;
-		types = newTypes;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, TypesPackage.LIBRARY__TYPES, oldTypes, newTypes);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setTypes(PredefinedType newTypes) {
-		if (newTypes != types) {
-			NotificationChain msgs = null;
-			if (types != null)
-				msgs = ((InternalEObject)types).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - TypesPackage.LIBRARY__TYPES, null, msgs);
-			if (newTypes != null)
-				msgs = ((InternalEObject)newTypes).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - TypesPackage.LIBRARY__TYPES, null, msgs);
-			msgs = basicSetTypes(newTypes, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, TypesPackage.LIBRARY__TYPES, newTypes, newTypes));
 	}
 
 	/**
@@ -107,7 +79,7 @@ public class LibraryImpl extends EObjectImpl implements Library {
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case TypesPackage.LIBRARY__TYPES:
-				return basicSetTypes(null, msgs);
+				return ((InternalEList<?>)getTypes()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -131,11 +103,13 @@ public class LibraryImpl extends EObjectImpl implements Library {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case TypesPackage.LIBRARY__TYPES:
-				setTypes((PredefinedType)newValue);
+				getTypes().clear();
+				getTypes().addAll((Collection<? extends PredefinedType>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -150,7 +124,7 @@ public class LibraryImpl extends EObjectImpl implements Library {
 	public void eUnset(int featureID) {
 		switch (featureID) {
 			case TypesPackage.LIBRARY__TYPES:
-				setTypes((PredefinedType)null);
+				getTypes().clear();
 				return;
 		}
 		super.eUnset(featureID);
@@ -165,7 +139,7 @@ public class LibraryImpl extends EObjectImpl implements Library {
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case TypesPackage.LIBRARY__TYPES:
-				return types != null;
+				return types != null && !types.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

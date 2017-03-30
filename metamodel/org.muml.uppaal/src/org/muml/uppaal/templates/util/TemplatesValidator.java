@@ -162,7 +162,7 @@ public class TemplatesValidator extends EObjectValidator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected static final String ABSTRACT_TEMPLATE__UNIQUE_PARAMETER_NAMES__EEXPRESSION = "self.parameter->collect(variableDeclaration)->collect(variable)->isUnique(name)";
+	protected static final String ABSTRACT_TEMPLATE__UNIQUE_PARAMETER_NAMES__EEXPRESSION = "self.parameter->collect(elements)->collect(oclAsType(core::NamedElement))->isUnique(name)";
 
 	/**
 	 * Validates the UniqueParameterNames constraint of '<em>Abstract Template</em>'.
@@ -203,37 +203,7 @@ public class TemplatesValidator extends EObjectValidator {
 		if (result || diagnostics != null) result &= coreValidator.validateNamedElement_NoWhitespace(template, diagnostics, context);
 		if (result || diagnostics != null) result &= coreValidator.validateNamedElement_NoDigitStart(template, diagnostics, context);
 		if (result || diagnostics != null) result &= validateAbstractTemplate_UniqueParameterNames(template, diagnostics, context);
-		if (result || diagnostics != null) result &= validateTemplate_UniqueLocationNames(template, diagnostics, context);
 		return result;
-	}
-
-	/**
-	 * The cached validation expression for the UniqueLocationNames constraint of '<em>Template</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected static final String TEMPLATE__UNIQUE_LOCATION_NAMES__EEXPRESSION = "self.location->isUnique(name)";
-
-	/**
-	 * Validates the UniqueLocationNames constraint of '<em>Template</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public boolean validateTemplate_UniqueLocationNames(Template template, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return
-			validate
-				(TemplatesPackage.Literals.TEMPLATE,
-				 template,
-				 diagnostics,
-				 context,
-				 "http://www.eclipse.org/emf/2002/Ecore/OCL",
-				 "UniqueLocationNames",
-				 TEMPLATE__UNIQUE_LOCATION_NAMES__EEXPRESSION,
-				 Diagnostic.ERROR,
-				 DIAGNOSTIC_SOURCE,
-				 0);
 	}
 
 	/**
@@ -356,11 +326,22 @@ public class TemplatesValidator extends EObjectValidator {
 		"and\r\n" +
 		"(not self.channelExpression.identifier.oclIsUndefined())\r\n" +
 		"and\r\n" +
-		"(self.channelExpression.identifier.oclIsKindOf(declarations::Variable))\r\n" +
+		"(self.channelExpression.identifier.oclIsKindOf(uppaal::declarations::Variable))\r\n" +
 		"and\r\n" +
-		"(not self.channelExpression.identifier.oclAsType(declarations::Variable).typeDefinition.oclIsUndefined())\r\n" +
+		"(not self.channelExpression.identifier.oclAsType(uppaal::declarations::Variable).typeDefinition.oclIsUndefined())\r\n" +
 		"implies\r\n" +
-		"self.channelExpression.identifier.oclAsType(declarations::Variable).typeDefinition.baseType = types::BuiltInType::CHAN";
+		"(\r\n" +
+		"\t-- We either want Type or DeclaredType of baseType CHAN.\r\n" +
+		"\t(\r\n" +
+		"\t\tself.channelExpression.identifier.oclAsType(uppaal::declarations::Variable).typeDefinition.oclIsKindOf(uppaal::expressions::IdentifierExpression)\r\n" +
+		"\t\tand\r\n" +
+		"\t\tself.channelExpression.identifier.oclAsType(uppaal::declarations::Variable).typeDefinition.oclAsType(uppaal::expressions::IdentifierExpression).identifier.oclIsKindOf(uppaal::types::Type)\r\n" +
+		"\t\tand\r\n" +
+		"\t\tself.channelExpression.identifier.oclAsType(uppaal::declarations::Variable).typeDefinition.oclAsType(uppaal::expressions::IdentifierExpression).identifier.oclAsType(uppaal::types::Type).baseType=uppaal::types::BuiltInType::CHAN\r\n" +
+		"\t)\r\n" +
+		"\tor\r\n" +
+		"\t\tself.channelExpression.identifier.oclAsType(uppaal::declarations::Variable).typeDefinition.oclIsKindOf(uppaal::expressions::ChannelPrefixExpression)\r\n" +
+		")";
 
 	/**
 	 * Validates the ChannelVariablesOnly constraint of '<em>Synchronization</em>'.
@@ -398,10 +379,10 @@ public class TemplatesValidator extends EObjectValidator {
 		if (result || diagnostics != null) result &= validate_UniqueID(selection, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryKeyUnique(selection, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(selection, diagnostics, context);
-		if (result || diagnostics != null) result &= declarationsValidator.validateVariableContainer_NoVoidVariables(selection, diagnostics, context);
-		if (result || diagnostics != null) result &= declarationsValidator.validateVariableContainer_UniqueVariableNames(selection, diagnostics, context);
+		if (result || diagnostics != null) result &= declarationsValidator.validateTypedElementContainer_ElementsMustHaveSameType(selection, diagnostics, context);
+		if (result || diagnostics != null) result &= declarationsValidator.validateTypedElementContainer_TypeExpressionMustBeType(selection, diagnostics, context);
+		if (result || diagnostics != null) result &= declarationsValidator.validateTypedElementContainer_UniqueElementNames(selection, diagnostics, context);
 		if (result || diagnostics != null) result &= validateSelection_SingleVariable(selection, diagnostics, context);
-		if (result || diagnostics != null) result &= validateSelection_IntegerBasedType(selection, diagnostics, context);
 		return result;
 	}
 
@@ -411,7 +392,7 @@ public class TemplatesValidator extends EObjectValidator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected static final String SELECTION__SINGLE_VARIABLE__EEXPRESSION = "self.variable->size() <= 1";
+	protected static final String SELECTION__SINGLE_VARIABLE__EEXPRESSION = "self.elements->size() <= 1";
 
 	/**
 	 * Validates the SingleVariable constraint of '<em>Selection</em>'.
@@ -429,37 +410,6 @@ public class TemplatesValidator extends EObjectValidator {
 				 "http://www.eclipse.org/emf/2002/Ecore/OCL",
 				 "SingleVariable",
 				 SELECTION__SINGLE_VARIABLE__EEXPRESSION,
-				 Diagnostic.ERROR,
-				 DIAGNOSTIC_SOURCE,
-				 0);
-	}
-
-	/**
-	 * The cached validation expression for the IntegerBasedType constraint of '<em>Selection</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected static final String SELECTION__INTEGER_BASED_TYPE__EEXPRESSION = "(not self.typeDefinition.oclIsUndefined())\r\n" +
-		"implies\r\n" +
-		"self.typeDefinition.baseType = types::BuiltInType::INT";
-
-	/**
-	 * Validates the IntegerBasedType constraint of '<em>Selection</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public boolean validateSelection_IntegerBasedType(Selection selection, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return
-			validate
-				(TemplatesPackage.Literals.SELECTION,
-				 selection,
-				 diagnostics,
-				 context,
-				 "http://www.eclipse.org/emf/2002/Ecore/OCL",
-				 "IntegerBasedType",
-				 SELECTION__INTEGER_BASED_TYPE__EEXPRESSION,
 				 Diagnostic.ERROR,
 				 DIAGNOSTIC_SOURCE,
 				 0);

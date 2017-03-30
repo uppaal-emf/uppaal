@@ -340,6 +340,24 @@ public class TemplatesPackageImpl extends EPackageImpl implements TemplatesPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EReference getLocation_IncomingEdges() {
+		return (EReference)locationEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getLocation_OutgoingEdges() {
+		return (EReference)locationEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getEdge() {
 		return edgeEClass;
 	}
@@ -506,6 +524,8 @@ public class TemplatesPackageImpl extends EPackageImpl implements TemplatesPacka
 		createEReference(locationEClass, LOCATION__PARENT_TEMPLATE);
 		createEReference(locationEClass, LOCATION__INVARIANT);
 		createEAttribute(locationEClass, LOCATION__LOCATION_TIME_KIND);
+		createEReference(locationEClass, LOCATION__INCOMING_EDGES);
+		createEReference(locationEClass, LOCATION__OUTGOING_EDGES);
 
 		edgeEClass = createEClass(EDGE);
 		createEReference(edgeEClass, EDGE__SOURCE);
@@ -563,7 +583,6 @@ public class TemplatesPackageImpl extends EPackageImpl implements TemplatesPacka
 
 		// Add supertypes to classes
 		abstractTemplateEClass.getESuperTypes().add(theCorePackage.getNamedElement());
-		abstractTemplateEClass.getESuperTypes().add(theCorePackage.getCommentableElement());
 		templateEClass.getESuperTypes().add(this.getAbstractTemplate());
 		redefinedTemplateEClass.getESuperTypes().add(this.getAbstractTemplate());
 		locationEClass.getESuperTypes().add(theCorePackage.getNamedElement());
@@ -573,11 +592,11 @@ public class TemplatesPackageImpl extends EPackageImpl implements TemplatesPacka
 		edgeEClass.getESuperTypes().add(theVisualsPackage.getLinearElement());
 		edgeEClass.getESuperTypes().add(theCorePackage.getCommentableElement());
 		edgeEClass.getESuperTypes().add(theVisualsPackage.getColoredElement());
-		selectionEClass.getESuperTypes().add(theDeclarationsPackage.getVariableContainer());
+		selectionEClass.getESuperTypes().add(theDeclarationsPackage.getTypedElementContainer());
 
 		// Initialize classes and features; add operations and parameters
 		initEClass(abstractTemplateEClass, AbstractTemplate.class, "AbstractTemplate", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getAbstractTemplate_Parameter(), theDeclarationsPackage.getParameter(), null, "parameter", null, 0, -1, AbstractTemplate.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getAbstractTemplate_Parameter(), theDeclarationsPackage.getParameterContainer(), null, "parameter", null, 0, -1, AbstractTemplate.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(templateEClass, Template.class, "Template", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getTemplate_Declarations(), theDeclarationsPackage.getLocalDeclarations(), null, "declarations", null, 0, 1, Template.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -593,10 +612,12 @@ public class TemplatesPackageImpl extends EPackageImpl implements TemplatesPacka
 		initEReference(getLocation_ParentTemplate(), this.getTemplate(), this.getTemplate_Location(), "parentTemplate", null, 1, 1, Location.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getLocation_Invariant(), theExpressionsPackage.getExpression(), null, "invariant", null, 0, 1, Location.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getLocation_LocationTimeKind(), this.getLocationKind(), "locationTimeKind", null, 1, 1, Location.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getLocation_IncomingEdges(), this.getEdge(), this.getEdge_Target(), "incomingEdges", null, 0, -1, Location.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getLocation_OutgoingEdges(), this.getEdge(), this.getEdge_Source(), "outgoingEdges", null, 0, -1, Location.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(edgeEClass, Edge.class, "Edge", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getEdge_Source(), this.getLocation(), null, "source", null, 1, 1, Edge.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getEdge_Target(), this.getLocation(), null, "target", null, 1, 1, Edge.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getEdge_Source(), this.getLocation(), this.getLocation_OutgoingEdges(), "source", null, 1, 1, Edge.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getEdge_Target(), this.getLocation(), this.getLocation_IncomingEdges(), "target", null, 1, 1, Edge.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getEdge_ParentTemplate(), this.getTemplate(), this.getTemplate_Edge(), "parentTemplate", null, 1, 1, Edge.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getEdge_Guard(), theExpressionsPackage.getExpression(), null, "guard", null, 0, 1, Edge.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getEdge_Update(), theExpressionsPackage.getExpression(), null, "update", null, 0, -1, Edge.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -654,7 +675,7 @@ public class TemplatesPackageImpl extends EPackageImpl implements TemplatesPacka
 		  (templateEClass, 
 		   source, 
 		   new String[] {
-			 "constraints", "UniqueLocationNames"
+			 "constraints", ""
 		   });	
 		addAnnotation
 		  (edgeEClass, 
@@ -672,7 +693,7 @@ public class TemplatesPackageImpl extends EPackageImpl implements TemplatesPacka
 		  (selectionEClass, 
 		   source, 
 		   new String[] {
-			 "constraints", "SingleVariable IntegerBasedType"
+			 "constraints", "SingleVariable"
 		   });
 	}
 
@@ -688,7 +709,7 @@ public class TemplatesPackageImpl extends EPackageImpl implements TemplatesPacka
 		  (abstractTemplateEClass, 
 		   source, 
 		   new String[] {
-			 "UniqueParameterNames", "self.parameter->collect(variableDeclaration)->collect(variable)->isUnique(name)"
+			 "UniqueParameterNames", "self.parameter->collect(elements)->collect(oclAsType(core::NamedElement))->isUnique(name)"
 		   });	
 		addAnnotation
 		  (templateEClass, 
@@ -706,14 +727,13 @@ public class TemplatesPackageImpl extends EPackageImpl implements TemplatesPacka
 		  (synchronizationEClass, 
 		   source, 
 		   new String[] {
-			 "ChannelVariablesOnly", "(not self.channelExpression.oclIsUndefined())\r\nand\r\n(not self.channelExpression.identifier.oclIsUndefined())\r\nand\r\n(self.channelExpression.identifier.oclIsKindOf(declarations::Variable))\r\nand\r\n(not self.channelExpression.identifier.oclAsType(declarations::Variable).typeDefinition.oclIsUndefined())\r\nimplies\r\nself.channelExpression.identifier.oclAsType(declarations::Variable).typeDefinition.baseType = types::BuiltInType::CHAN"
+			 "ChannelVariablesOnly", "(not self.channelExpression.oclIsUndefined())\r\nand\r\n(not self.channelExpression.identifier.oclIsUndefined())\r\nand\r\n(self.channelExpression.identifier.oclIsKindOf(uppaal::declarations::Variable))\r\nand\r\n(not self.channelExpression.identifier.oclAsType(uppaal::declarations::Variable).typeDefinition.oclIsUndefined())\r\nimplies\r\n(\r\n\t-- We either want Type or DeclaredType of baseType CHAN.\r\n\t(\r\n\t\tself.channelExpression.identifier.oclAsType(uppaal::declarations::Variable).typeDefinition.oclIsKindOf(uppaal::expressions::IdentifierExpression)\r\n\t\tand\r\n\t\tself.channelExpression.identifier.oclAsType(uppaal::declarations::Variable).typeDefinition.oclAsType(uppaal::expressions::IdentifierExpression).identifier.oclIsKindOf(uppaal::types::Type)\r\n\t\tand\r\n\t\tself.channelExpression.identifier.oclAsType(uppaal::declarations::Variable).typeDefinition.oclAsType(uppaal::expressions::IdentifierExpression).identifier.oclAsType(uppaal::types::Type).baseType=uppaal::types::BuiltInType::CHAN\r\n\t)\r\n\tor\r\n\t\tself.channelExpression.identifier.oclAsType(uppaal::declarations::Variable).typeDefinition.oclIsKindOf(uppaal::expressions::ChannelPrefixExpression)\r\n)"
 		   });	
 		addAnnotation
 		  (selectionEClass, 
 		   source, 
 		   new String[] {
-			 "SingleVariable", "self.variable->size() <= 1",
-			 "IntegerBasedType", "(not self.typeDefinition.oclIsUndefined())\r\nimplies\r\nself.typeDefinition.baseType = types::BuiltInType::INT"
+			 "SingleVariable", "self.elements->size() <= 1"
 		   });
 	}
 

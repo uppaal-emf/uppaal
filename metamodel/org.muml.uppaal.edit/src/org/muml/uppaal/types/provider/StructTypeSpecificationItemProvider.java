@@ -12,7 +12,6 @@ import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 import org.muml.uppaal.declarations.DeclarationsFactory;
-import org.muml.uppaal.types.BuiltInType;
 import org.muml.uppaal.types.StructTypeSpecification;
 import org.muml.uppaal.types.TypesPackage;
 
@@ -23,7 +22,7 @@ import org.muml.uppaal.types.TypesPackage;
  * @generated
  */
 public class StructTypeSpecificationItemProvider
-	extends TypeSpecificationItemProvider {
+	extends TypeExpressionItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
@@ -98,11 +97,7 @@ public class StructTypeSpecificationItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		BuiltInType labelValue = ((StructTypeSpecification)object).getBaseType();
-		String label = labelValue == null ? null : labelValue.toString();
-		return label == null || label.length() == 0 ?
-			getString("_UI_StructTypeSpecification_type") :
-			getString("_UI_StructTypeSpecification_type") + " " + label;
+		return getString("_UI_StructTypeSpecification_type");
 	}
 
 	/**
@@ -138,7 +133,7 @@ public class StructTypeSpecificationItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(TypesPackage.Literals.STRUCT_TYPE_SPECIFICATION__DECLARATION,
-				 DeclarationsFactory.eINSTANCE.createDataVariableDeclaration()));
+				 DeclarationsFactory.eINSTANCE.createTypedDeclaration()));
 	}
 
 }

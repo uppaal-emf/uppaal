@@ -9,7 +9,7 @@ package org.muml.uppaal.expressions;
  * <!-- end-user-doc -->
  *
  * <!-- begin-model-doc -->
- * An expression describing increment (++) or decrement (---) of an integer-based expression. 
+ * Abstract base class for expressions describing increment (++) or decrement (--) of an integer-based expression. 
  * <!-- end-model-doc -->
  *
  * <p>
@@ -17,12 +17,11 @@ package org.muml.uppaal.expressions;
  * </p>
  * <ul>
  *   <li>{@link org.muml.uppaal.expressions.IncrementDecrementExpression#getExpression <em>Expression</em>}</li>
- *   <li>{@link org.muml.uppaal.expressions.IncrementDecrementExpression#getPosition <em>Position</em>}</li>
  *   <li>{@link org.muml.uppaal.expressions.IncrementDecrementExpression#getOperator <em>Operator</em>}</li>
  * </ul>
  *
  * @see org.muml.uppaal.expressions.ExpressionsPackage#getIncrementDecrementExpression()
- * @model
+ * @model abstract="true"
  * @generated
  */
 public interface IncrementDecrementExpression extends Expression {
@@ -50,34 +49,6 @@ public interface IncrementDecrementExpression extends Expression {
 	 * @generated
 	 */
 	void setExpression(Expression value);
-
-	/**
-	 * Returns the value of the '<em><b>Position</b></em>' attribute.
-	 * The literals are from the enumeration {@link org.muml.uppaal.expressions.IncrementDecrementPosition}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * Specifies pre- or post-evaluation.
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Position</em>' attribute.
-	 * @see org.muml.uppaal.expressions.IncrementDecrementPosition
-	 * @see #setPosition(IncrementDecrementPosition)
-	 * @see org.muml.uppaal.expressions.ExpressionsPackage#getIncrementDecrementExpression_Position()
-	 * @model required="true"
-	 * @generated
-	 */
-	IncrementDecrementPosition getPosition();
-
-	/**
-	 * Sets the value of the '{@link org.muml.uppaal.expressions.IncrementDecrementExpression#getPosition <em>Position</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Position</em>' attribute.
-	 * @see org.muml.uppaal.expressions.IncrementDecrementPosition
-	 * @see #getPosition()
-	 * @generated
-	 */
-	void setPosition(IncrementDecrementPosition value);
 
 	/**
 	 * Returns the value of the '<em><b>Operator</b></em>' attribute.

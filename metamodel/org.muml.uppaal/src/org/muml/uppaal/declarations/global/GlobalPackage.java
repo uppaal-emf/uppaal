@@ -5,6 +5,7 @@ package org.muml.uppaal.declarations.global;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
+import org.muml.uppaal.declarations.DeclarationsPackage;
 
 /**
  * <!-- begin-user-doc -->
@@ -40,7 +41,7 @@ public interface GlobalPackage extends EPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	String eNS_URI = "http://www.muml.org/uppaal/declarations/global/1.0.0";
+	String eNS_URI = "http://www.muml.org/uppaal/declarations/global";
 
 	/**
 	 * The package namespace name.
@@ -59,161 +60,210 @@ public interface GlobalPackage extends EPackage {
 	GlobalPackage eINSTANCE = org.muml.uppaal.declarations.global.impl.GlobalPackageImpl.init();
 
 	/**
-	 * The meta object id for the '{@link org.muml.uppaal.declarations.global.impl.ChannelPriorityImpl <em>Channel Priority</em>}' class.
+	 * The meta object id for the '{@link org.muml.uppaal.declarations.global.impl.ChannelPriorityDeclarationImpl <em>Channel Priority Declaration</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see org.muml.uppaal.declarations.global.impl.ChannelPriorityImpl
-	 * @see org.muml.uppaal.declarations.global.impl.GlobalPackageImpl#getChannelPriority()
+	 * @see org.muml.uppaal.declarations.global.impl.ChannelPriorityDeclarationImpl
+	 * @see org.muml.uppaal.declarations.global.impl.GlobalPackageImpl#getChannelPriorityDeclaration()
 	 * @generated
 	 */
-	int CHANNEL_PRIORITY = 0;
+	int CHANNEL_PRIORITY_DECLARATION = 0;
 
 	/**
-	 * The feature id for the '<em><b>Item</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Groups</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CHANNEL_PRIORITY__ITEM = 0;
+	int CHANNEL_PRIORITY_DECLARATION__GROUPS = DeclarationsPackage.DECLARATION_FEATURE_COUNT + 0;
 
 	/**
-	 * The number of structural features of the '<em>Channel Priority</em>' class.
+	 * The number of structural features of the '<em>Channel Priority Declaration</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CHANNEL_PRIORITY_FEATURE_COUNT = 1;
+	int CHANNEL_PRIORITY_DECLARATION_FEATURE_COUNT = DeclarationsPackage.DECLARATION_FEATURE_COUNT + 1;
 
 	/**
-	 * The meta object id for the '{@link org.muml.uppaal.declarations.global.impl.ChannelPriorityItemImpl <em>Channel Priority Item</em>}' class.
+	 * The meta object id for the '{@link org.muml.uppaal.declarations.global.impl.ChannelPriorityGroupImpl <em>Channel Priority Group</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see org.muml.uppaal.declarations.global.impl.ChannelPriorityItemImpl
-	 * @see org.muml.uppaal.declarations.global.impl.GlobalPackageImpl#getChannelPriorityItem()
+	 * @see org.muml.uppaal.declarations.global.impl.ChannelPriorityGroupImpl
+	 * @see org.muml.uppaal.declarations.global.impl.GlobalPackageImpl#getChannelPriorityGroup()
 	 * @generated
 	 */
-	int CHANNEL_PRIORITY_ITEM = 1;
+	int CHANNEL_PRIORITY_GROUP = 1;
 
 	/**
-	 * The number of structural features of the '<em>Channel Priority Item</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CHANNEL_PRIORITY_ITEM_FEATURE_COUNT = 0;
-
-	/**
-	 * The meta object id for the '{@link org.muml.uppaal.declarations.global.impl.ChannelListImpl <em>Channel List</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see org.muml.uppaal.declarations.global.impl.ChannelListImpl
-	 * @see org.muml.uppaal.declarations.global.impl.GlobalPackageImpl#getChannelList()
-	 * @generated
-	 */
-	int CHANNEL_LIST = 2;
-
-	/**
-	 * The feature id for the '<em><b>Channel Expression</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Items</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CHANNEL_LIST__CHANNEL_EXPRESSION = CHANNEL_PRIORITY_ITEM_FEATURE_COUNT + 0;
+	int CHANNEL_PRIORITY_GROUP__ITEMS = 0;
 
 	/**
-	 * The number of structural features of the '<em>Channel List</em>' class.
+	 * The number of structural features of the '<em>Channel Priority Group</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CHANNEL_LIST_FEATURE_COUNT = CHANNEL_PRIORITY_ITEM_FEATURE_COUNT + 1;
+	int CHANNEL_PRIORITY_GROUP_FEATURE_COUNT = 1;
 
 	/**
-	 * The meta object id for the '{@link org.muml.uppaal.declarations.global.impl.DefaultChannelPriorityImpl <em>Default Channel Priority</em>}' class.
+	 * The meta object id for the '{@link org.muml.uppaal.declarations.global.impl.PriorityItemImpl <em>Priority Item</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see org.muml.uppaal.declarations.global.impl.DefaultChannelPriorityImpl
-	 * @see org.muml.uppaal.declarations.global.impl.GlobalPackageImpl#getDefaultChannelPriority()
+	 * @see org.muml.uppaal.declarations.global.impl.PriorityItemImpl
+	 * @see org.muml.uppaal.declarations.global.impl.GlobalPackageImpl#getPriorityItem()
 	 * @generated
 	 */
-	int DEFAULT_CHANNEL_PRIORITY = 3;
+	int PRIORITY_ITEM = 2;
 
 	/**
-	 * The number of structural features of the '<em>Default Channel Priority</em>' class.
+	 * The number of structural features of the '<em>Priority Item</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DEFAULT_CHANNEL_PRIORITY_FEATURE_COUNT = CHANNEL_PRIORITY_ITEM_FEATURE_COUNT + 0;
+	int PRIORITY_ITEM_FEATURE_COUNT = 0;
+
+	/**
+	 * The meta object id for the '{@link org.muml.uppaal.declarations.global.impl.ChannelItemImpl <em>Channel Item</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.muml.uppaal.declarations.global.impl.ChannelItemImpl
+	 * @see org.muml.uppaal.declarations.global.impl.GlobalPackageImpl#getChannelItem()
+	 * @generated
+	 */
+	int CHANNEL_ITEM = 3;
+
+	/**
+	 * The feature id for the '<em><b>Channel Expression</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CHANNEL_ITEM__CHANNEL_EXPRESSION = PRIORITY_ITEM_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Channel Item</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CHANNEL_ITEM_FEATURE_COUNT = PRIORITY_ITEM_FEATURE_COUNT + 1;
+
+	/**
+	 * The meta object id for the '{@link org.muml.uppaal.declarations.global.impl.DefaultItemImpl <em>Default Item</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.muml.uppaal.declarations.global.impl.DefaultItemImpl
+	 * @see org.muml.uppaal.declarations.global.impl.GlobalPackageImpl#getDefaultItem()
+	 * @generated
+	 */
+	int DEFAULT_ITEM = 4;
+
+	/**
+	 * The number of structural features of the '<em>Default Item</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DEFAULT_ITEM_FEATURE_COUNT = PRIORITY_ITEM_FEATURE_COUNT + 0;
 
 
 	/**
-	 * Returns the meta object for class '{@link org.muml.uppaal.declarations.global.ChannelPriority <em>Channel Priority</em>}'.
+	 * Returns the meta object for class '{@link org.muml.uppaal.declarations.global.ChannelPriorityDeclaration <em>Channel Priority Declaration</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Channel Priority</em>'.
-	 * @see org.muml.uppaal.declarations.global.ChannelPriority
+	 * @return the meta object for class '<em>Channel Priority Declaration</em>'.
+	 * @see org.muml.uppaal.declarations.global.ChannelPriorityDeclaration
 	 * @generated
 	 */
-	EClass getChannelPriority();
+	EClass getChannelPriorityDeclaration();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link org.muml.uppaal.declarations.global.ChannelPriority#getItem <em>Item</em>}'.
+	 * Returns the meta object for the containment reference list '{@link org.muml.uppaal.declarations.global.ChannelPriorityDeclaration#getGroups <em>Groups</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Item</em>'.
-	 * @see org.muml.uppaal.declarations.global.ChannelPriority#getItem()
-	 * @see #getChannelPriority()
+	 * @return the meta object for the containment reference list '<em>Groups</em>'.
+	 * @see org.muml.uppaal.declarations.global.ChannelPriorityDeclaration#getGroups()
+	 * @see #getChannelPriorityDeclaration()
 	 * @generated
 	 */
-	EReference getChannelPriority_Item();
+	EReference getChannelPriorityDeclaration_Groups();
 
 	/**
-	 * Returns the meta object for class '{@link org.muml.uppaal.declarations.global.ChannelPriorityItem <em>Channel Priority Item</em>}'.
+	 * Returns the meta object for class '{@link org.muml.uppaal.declarations.global.ChannelPriorityGroup <em>Channel Priority Group</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Channel Priority Item</em>'.
-	 * @see org.muml.uppaal.declarations.global.ChannelPriorityItem
+	 * @return the meta object for class '<em>Channel Priority Group</em>'.
+	 * @see org.muml.uppaal.declarations.global.ChannelPriorityGroup
 	 * @generated
 	 */
-	EClass getChannelPriorityItem();
+	EClass getChannelPriorityGroup();
 
 	/**
-	 * Returns the meta object for class '{@link org.muml.uppaal.declarations.global.ChannelList <em>Channel List</em>}'.
+	 * Returns the meta object for the containment reference list '{@link org.muml.uppaal.declarations.global.ChannelPriorityGroup#getItems <em>Items</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Channel List</em>'.
-	 * @see org.muml.uppaal.declarations.global.ChannelList
+	 * @return the meta object for the containment reference list '<em>Items</em>'.
+	 * @see org.muml.uppaal.declarations.global.ChannelPriorityGroup#getItems()
+	 * @see #getChannelPriorityGroup()
 	 * @generated
 	 */
-	EClass getChannelList();
+	EReference getChannelPriorityGroup_Items();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link org.muml.uppaal.declarations.global.ChannelList#getChannelExpression <em>Channel Expression</em>}'.
+	 * Returns the meta object for class '{@link org.muml.uppaal.declarations.global.PriorityItem <em>Priority Item</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Channel Expression</em>'.
-	 * @see org.muml.uppaal.declarations.global.ChannelList#getChannelExpression()
-	 * @see #getChannelList()
+	 * @return the meta object for class '<em>Priority Item</em>'.
+	 * @see org.muml.uppaal.declarations.global.PriorityItem
 	 * @generated
 	 */
-	EReference getChannelList_ChannelExpression();
+	EClass getPriorityItem();
 
 	/**
-	 * Returns the meta object for class '{@link org.muml.uppaal.declarations.global.DefaultChannelPriority <em>Default Channel Priority</em>}'.
+	 * Returns the meta object for class '{@link org.muml.uppaal.declarations.global.ChannelItem <em>Channel Item</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Default Channel Priority</em>'.
-	 * @see org.muml.uppaal.declarations.global.DefaultChannelPriority
+	 * @return the meta object for class '<em>Channel Item</em>'.
+	 * @see org.muml.uppaal.declarations.global.ChannelItem
 	 * @generated
 	 */
-	EClass getDefaultChannelPriority();
+	EClass getChannelItem();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link org.muml.uppaal.declarations.global.ChannelItem#getChannelExpression <em>Channel Expression</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Channel Expression</em>'.
+	 * @see org.muml.uppaal.declarations.global.ChannelItem#getChannelExpression()
+	 * @see #getChannelItem()
+	 * @generated
+	 */
+	EReference getChannelItem_ChannelExpression();
+
+	/**
+	 * Returns the meta object for class '{@link org.muml.uppaal.declarations.global.DefaultItem <em>Default Item</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Default Item</em>'.
+	 * @see org.muml.uppaal.declarations.global.DefaultItem
+	 * @generated
+	 */
+	EClass getDefaultItem();
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -238,60 +288,78 @@ public interface GlobalPackage extends EPackage {
 	 */
 	interface Literals {
 		/**
-		 * The meta object literal for the '{@link org.muml.uppaal.declarations.global.impl.ChannelPriorityImpl <em>Channel Priority</em>}' class.
+		 * The meta object literal for the '{@link org.muml.uppaal.declarations.global.impl.ChannelPriorityDeclarationImpl <em>Channel Priority Declaration</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see org.muml.uppaal.declarations.global.impl.ChannelPriorityImpl
-		 * @see org.muml.uppaal.declarations.global.impl.GlobalPackageImpl#getChannelPriority()
+		 * @see org.muml.uppaal.declarations.global.impl.ChannelPriorityDeclarationImpl
+		 * @see org.muml.uppaal.declarations.global.impl.GlobalPackageImpl#getChannelPriorityDeclaration()
 		 * @generated
 		 */
-		EClass CHANNEL_PRIORITY = eINSTANCE.getChannelPriority();
+		EClass CHANNEL_PRIORITY_DECLARATION = eINSTANCE.getChannelPriorityDeclaration();
 
 		/**
-		 * The meta object literal for the '<em><b>Item</b></em>' containment reference list feature.
+		 * The meta object literal for the '<em><b>Groups</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference CHANNEL_PRIORITY__ITEM = eINSTANCE.getChannelPriority_Item();
+		EReference CHANNEL_PRIORITY_DECLARATION__GROUPS = eINSTANCE.getChannelPriorityDeclaration_Groups();
 
 		/**
-		 * The meta object literal for the '{@link org.muml.uppaal.declarations.global.impl.ChannelPriorityItemImpl <em>Channel Priority Item</em>}' class.
+		 * The meta object literal for the '{@link org.muml.uppaal.declarations.global.impl.ChannelPriorityGroupImpl <em>Channel Priority Group</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see org.muml.uppaal.declarations.global.impl.ChannelPriorityItemImpl
-		 * @see org.muml.uppaal.declarations.global.impl.GlobalPackageImpl#getChannelPriorityItem()
+		 * @see org.muml.uppaal.declarations.global.impl.ChannelPriorityGroupImpl
+		 * @see org.muml.uppaal.declarations.global.impl.GlobalPackageImpl#getChannelPriorityGroup()
 		 * @generated
 		 */
-		EClass CHANNEL_PRIORITY_ITEM = eINSTANCE.getChannelPriorityItem();
+		EClass CHANNEL_PRIORITY_GROUP = eINSTANCE.getChannelPriorityGroup();
 
 		/**
-		 * The meta object literal for the '{@link org.muml.uppaal.declarations.global.impl.ChannelListImpl <em>Channel List</em>}' class.
+		 * The meta object literal for the '<em><b>Items</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see org.muml.uppaal.declarations.global.impl.ChannelListImpl
-		 * @see org.muml.uppaal.declarations.global.impl.GlobalPackageImpl#getChannelList()
 		 * @generated
 		 */
-		EClass CHANNEL_LIST = eINSTANCE.getChannelList();
+		EReference CHANNEL_PRIORITY_GROUP__ITEMS = eINSTANCE.getChannelPriorityGroup_Items();
 
 		/**
-		 * The meta object literal for the '<em><b>Channel Expression</b></em>' containment reference list feature.
+		 * The meta object literal for the '{@link org.muml.uppaal.declarations.global.impl.PriorityItemImpl <em>Priority Item</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
+		 * @see org.muml.uppaal.declarations.global.impl.PriorityItemImpl
+		 * @see org.muml.uppaal.declarations.global.impl.GlobalPackageImpl#getPriorityItem()
 		 * @generated
 		 */
-		EReference CHANNEL_LIST__CHANNEL_EXPRESSION = eINSTANCE.getChannelList_ChannelExpression();
+		EClass PRIORITY_ITEM = eINSTANCE.getPriorityItem();
 
 		/**
-		 * The meta object literal for the '{@link org.muml.uppaal.declarations.global.impl.DefaultChannelPriorityImpl <em>Default Channel Priority</em>}' class.
+		 * The meta object literal for the '{@link org.muml.uppaal.declarations.global.impl.ChannelItemImpl <em>Channel Item</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see org.muml.uppaal.declarations.global.impl.DefaultChannelPriorityImpl
-		 * @see org.muml.uppaal.declarations.global.impl.GlobalPackageImpl#getDefaultChannelPriority()
+		 * @see org.muml.uppaal.declarations.global.impl.ChannelItemImpl
+		 * @see org.muml.uppaal.declarations.global.impl.GlobalPackageImpl#getChannelItem()
 		 * @generated
 		 */
-		EClass DEFAULT_CHANNEL_PRIORITY = eINSTANCE.getDefaultChannelPriority();
+		EClass CHANNEL_ITEM = eINSTANCE.getChannelItem();
+
+		/**
+		 * The meta object literal for the '<em><b>Channel Expression</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference CHANNEL_ITEM__CHANNEL_EXPRESSION = eINSTANCE.getChannelItem_ChannelExpression();
+
+		/**
+		 * The meta object literal for the '{@link org.muml.uppaal.declarations.global.impl.DefaultItemImpl <em>Default Item</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.muml.uppaal.declarations.global.impl.DefaultItemImpl
+		 * @see org.muml.uppaal.declarations.global.impl.GlobalPackageImpl#getDefaultItem()
+		 * @generated
+		 */
+		EClass DEFAULT_ITEM = eINSTANCE.getDefaultItem();
 
 	}
 

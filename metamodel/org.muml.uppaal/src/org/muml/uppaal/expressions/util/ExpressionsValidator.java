@@ -19,16 +19,17 @@ import org.muml.uppaal.expressions.BitShiftExpression;
 import org.muml.uppaal.expressions.BitShiftOperator;
 import org.muml.uppaal.expressions.BitwiseExpression;
 import org.muml.uppaal.expressions.BitwiseOperator;
+import org.muml.uppaal.expressions.ChannelPrefixExpression;
 import org.muml.uppaal.expressions.CompareExpression;
 import org.muml.uppaal.expressions.CompareOperator;
 import org.muml.uppaal.expressions.ConditionExpression;
+import org.muml.uppaal.expressions.DataPrefixExpression;
 import org.muml.uppaal.expressions.Expression;
 import org.muml.uppaal.expressions.ExpressionsPackage;
 import org.muml.uppaal.expressions.FunctionCallExpression;
 import org.muml.uppaal.expressions.IdentifierExpression;
 import org.muml.uppaal.expressions.IncrementDecrementExpression;
 import org.muml.uppaal.expressions.IncrementDecrementOperator;
-import org.muml.uppaal.expressions.IncrementDecrementPosition;
 import org.muml.uppaal.expressions.LiteralExpression;
 import org.muml.uppaal.expressions.LogicalExpression;
 import org.muml.uppaal.expressions.LogicalOperator;
@@ -37,6 +38,8 @@ import org.muml.uppaal.expressions.MinMaxOperator;
 import org.muml.uppaal.expressions.MinusExpression;
 import org.muml.uppaal.expressions.NegationExpression;
 import org.muml.uppaal.expressions.PlusExpression;
+import org.muml.uppaal.expressions.PostIncrementDecrementExpression;
+import org.muml.uppaal.expressions.PreIncrementDecrementExpression;
 import org.muml.uppaal.expressions.QuantificationExpression;
 import org.muml.uppaal.expressions.Quantifier;
 import org.muml.uppaal.expressions.ScopedIdentifierExpression;
@@ -136,6 +139,8 @@ public class ExpressionsValidator extends EObjectValidator {
 				return validateAssignmentExpression((AssignmentExpression)value, diagnostics, context);
 			case ExpressionsPackage.IDENTIFIER_EXPRESSION:
 				return validateIdentifierExpression((IdentifierExpression)value, diagnostics, context);
+			case ExpressionsPackage.SCOPED_IDENTIFIER_EXPRESSION:
+				return validateScopedIdentifierExpression((ScopedIdentifierExpression)value, diagnostics, context);
 			case ExpressionsPackage.LITERAL_EXPRESSION:
 				return validateLiteralExpression((LiteralExpression)value, diagnostics, context);
 			case ExpressionsPackage.ARITHMETIC_EXPRESSION:
@@ -148,18 +153,24 @@ public class ExpressionsValidator extends EObjectValidator {
 				return validateCompareExpression((CompareExpression)value, diagnostics, context);
 			case ExpressionsPackage.CONDITION_EXPRESSION:
 				return validateConditionExpression((ConditionExpression)value, diagnostics, context);
-			case ExpressionsPackage.SCOPED_IDENTIFIER_EXPRESSION:
-				return validateScopedIdentifierExpression((ScopedIdentifierExpression)value, diagnostics, context);
 			case ExpressionsPackage.QUANTIFICATION_EXPRESSION:
 				return validateQuantificationExpression((QuantificationExpression)value, diagnostics, context);
 			case ExpressionsPackage.INCREMENT_DECREMENT_EXPRESSION:
 				return validateIncrementDecrementExpression((IncrementDecrementExpression)value, diagnostics, context);
+			case ExpressionsPackage.PRE_INCREMENT_DECREMENT_EXPRESSION:
+				return validatePreIncrementDecrementExpression((PreIncrementDecrementExpression)value, diagnostics, context);
+			case ExpressionsPackage.POST_INCREMENT_DECREMENT_EXPRESSION:
+				return validatePostIncrementDecrementExpression((PostIncrementDecrementExpression)value, diagnostics, context);
 			case ExpressionsPackage.BIT_SHIFT_EXPRESSION:
 				return validateBitShiftExpression((BitShiftExpression)value, diagnostics, context);
 			case ExpressionsPackage.MIN_MAX_EXPRESSION:
 				return validateMinMaxExpression((MinMaxExpression)value, diagnostics, context);
 			case ExpressionsPackage.BITWISE_EXPRESSION:
 				return validateBitwiseExpression((BitwiseExpression)value, diagnostics, context);
+			case ExpressionsPackage.CHANNEL_PREFIX_EXPRESSION:
+				return validateChannelPrefixExpression((ChannelPrefixExpression)value, diagnostics, context);
+			case ExpressionsPackage.DATA_PREFIX_EXPRESSION:
+				return validateDataPrefixExpression((DataPrefixExpression)value, diagnostics, context);
 			case ExpressionsPackage.ASSIGNMENT_OPERATOR:
 				return validateAssignmentOperator((AssignmentOperator)value, diagnostics, context);
 			case ExpressionsPackage.ARITHMETIC_OPERATOR:
@@ -172,8 +183,6 @@ public class ExpressionsValidator extends EObjectValidator {
 				return validateQuantifier((Quantifier)value, diagnostics, context);
 			case ExpressionsPackage.INCREMENT_DECREMENT_OPERATOR:
 				return validateIncrementDecrementOperator((IncrementDecrementOperator)value, diagnostics, context);
-			case ExpressionsPackage.INCREMENT_DECREMENT_POSITION:
-				return validateIncrementDecrementPosition((IncrementDecrementPosition)value, diagnostics, context);
 			case ExpressionsPackage.BIT_SHIFT_OPERATOR:
 				return validateBitShiftOperator((BitShiftOperator)value, diagnostics, context);
 			case ExpressionsPackage.MIN_MAX_OPERATOR:
@@ -367,8 +376,9 @@ public class ExpressionsValidator extends EObjectValidator {
 		if (result || diagnostics != null) result &= validate_UniqueID(quantificationExpression, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryKeyUnique(quantificationExpression, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(quantificationExpression, diagnostics, context);
-		if (result || diagnostics != null) result &= declarationsValidator.validateVariableContainer_NoVoidVariables(quantificationExpression, diagnostics, context);
-		if (result || diagnostics != null) result &= declarationsValidator.validateVariableContainer_UniqueVariableNames(quantificationExpression, diagnostics, context);
+		if (result || diagnostics != null) result &= declarationsValidator.validateTypedElementContainer_ElementsMustHaveSameType(quantificationExpression, diagnostics, context);
+		if (result || diagnostics != null) result &= declarationsValidator.validateTypedElementContainer_TypeExpressionMustBeType(quantificationExpression, diagnostics, context);
+		if (result || diagnostics != null) result &= declarationsValidator.validateTypedElementContainer_UniqueElementNames(quantificationExpression, diagnostics, context);
 		if (result || diagnostics != null) result &= validateQuantificationExpression_SingleVariable(quantificationExpression, diagnostics, context);
 		return result;
 	}
@@ -379,7 +389,7 @@ public class ExpressionsValidator extends EObjectValidator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected static final String QUANTIFICATION_EXPRESSION__SINGLE_VARIABLE__EEXPRESSION = "self.variable->size() <= 1";
+	protected static final String QUANTIFICATION_EXPRESSION__SINGLE_VARIABLE__EEXPRESSION = "self.elements->size() <= 1";
 
 	/**
 	 * Validates the SingleVariable constraint of '<em>Quantification Expression</em>'.
@@ -416,6 +426,24 @@ public class ExpressionsValidator extends EObjectValidator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public boolean validatePreIncrementDecrementExpression(PreIncrementDecrementExpression preIncrementDecrementExpression, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return validate_EveryDefaultConstraint(preIncrementDecrementExpression, diagnostics, context);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validatePostIncrementDecrementExpression(PostIncrementDecrementExpression postIncrementDecrementExpression, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return validate_EveryDefaultConstraint(postIncrementDecrementExpression, diagnostics, context);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public boolean validateBitShiftExpression(BitShiftExpression bitShiftExpression, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		return validate_EveryDefaultConstraint(bitShiftExpression, diagnostics, context);
 	}
@@ -436,6 +464,139 @@ public class ExpressionsValidator extends EObjectValidator {
 	 */
 	public boolean validateBitwiseExpression(BitwiseExpression bitwiseExpression, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		return validate_EveryDefaultConstraint(bitwiseExpression, diagnostics, context);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateChannelPrefixExpression(ChannelPrefixExpression channelPrefixExpression, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		if (!validate_NoCircularContainment(channelPrefixExpression, diagnostics, context)) return false;
+		boolean result = validate_EveryMultiplicityConforms(channelPrefixExpression, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryDataValueConforms(channelPrefixExpression, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(channelPrefixExpression, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryBidirectionalReferenceIsPaired(channelPrefixExpression, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryProxyResolves(channelPrefixExpression, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_UniqueID(channelPrefixExpression, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryKeyUnique(channelPrefixExpression, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(channelPrefixExpression, diagnostics, context);
+		if (result || diagnostics != null) result &= validateChannelPrefixExpression_UrgentOrBroadcast(channelPrefixExpression, diagnostics, context);
+		if (result || diagnostics != null) result &= validateChannelPrefixExpression_ChannelTypeOnly(channelPrefixExpression, diagnostics, context);
+		return result;
+	}
+
+	/**
+	 * The cached validation expression for the UrgentOrBroadcast constraint of '<em>Channel Prefix Expression</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected static final String CHANNEL_PREFIX_EXPRESSION__URGENT_OR_BROADCAST__EEXPRESSION = "self.urgent or self.broadcast";
+
+	/**
+	 * Validates the UrgentOrBroadcast constraint of '<em>Channel Prefix Expression</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateChannelPrefixExpression_UrgentOrBroadcast(ChannelPrefixExpression channelPrefixExpression, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return
+			validate
+				(ExpressionsPackage.Literals.CHANNEL_PREFIX_EXPRESSION,
+				 channelPrefixExpression,
+				 diagnostics,
+				 context,
+				 "http://www.eclipse.org/emf/2002/Ecore/OCL",
+				 "UrgentOrBroadcast",
+				 CHANNEL_PREFIX_EXPRESSION__URGENT_OR_BROADCAST__EEXPRESSION,
+				 Diagnostic.ERROR,
+				 DIAGNOSTIC_SOURCE,
+				 0);
+	}
+
+	/**
+	 * The cached validation expression for the ChannelTypeOnly constraint of '<em>Channel Prefix Expression</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected static final String CHANNEL_PREFIX_EXPRESSION__CHANNEL_TYPE_ONLY__EEXPRESSION = "not self.channelType.oclIsUndefined()\r\n" +
+		"implies\r\n" +
+		"self.channelType.baseType=uppaal::types::BuiltInType::CHAN";
+
+	/**
+	 * Validates the ChannelTypeOnly constraint of '<em>Channel Prefix Expression</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateChannelPrefixExpression_ChannelTypeOnly(ChannelPrefixExpression channelPrefixExpression, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return
+			validate
+				(ExpressionsPackage.Literals.CHANNEL_PREFIX_EXPRESSION,
+				 channelPrefixExpression,
+				 diagnostics,
+				 context,
+				 "http://www.eclipse.org/emf/2002/Ecore/OCL",
+				 "ChannelTypeOnly",
+				 CHANNEL_PREFIX_EXPRESSION__CHANNEL_TYPE_ONLY__EEXPRESSION,
+				 Diagnostic.ERROR,
+				 DIAGNOSTIC_SOURCE,
+				 0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateDataPrefixExpression(DataPrefixExpression dataPrefixExpression, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		if (!validate_NoCircularContainment(dataPrefixExpression, diagnostics, context)) return false;
+		boolean result = validate_EveryMultiplicityConforms(dataPrefixExpression, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryDataValueConforms(dataPrefixExpression, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(dataPrefixExpression, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryBidirectionalReferenceIsPaired(dataPrefixExpression, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryProxyResolves(dataPrefixExpression, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_UniqueID(dataPrefixExpression, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryKeyUnique(dataPrefixExpression, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(dataPrefixExpression, diagnostics, context);
+		if (result || diagnostics != null) result &= validateDataPrefixExpression_TypeExpressionMustBeType(dataPrefixExpression, diagnostics, context);
+		return result;
+	}
+
+	/**
+	 * The cached validation expression for the TypeExpressionMustBeType constraint of '<em>Data Prefix Expression</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected static final String DATA_PREFIX_EXPRESSION__TYPE_EXPRESSION_MUST_BE_TYPE__EEXPRESSION = "self.dataTypeExpression.oclIsKindOf(types::TypeExpression)\r\n" +
+		"or\r\n" +
+		"(\r\n" +
+		"\tself.dataTypeExpression.oclIsKindOf(expressions::IdentifierExpression) and\r\n" +
+		"\tself.dataTypeExpression.oclAsType(expressions::IdentifierExpression).identifier.oclIsKindOf(types::Type)\r\n" +
+		")";
+
+	/**
+	 * Validates the TypeExpressionMustBeType constraint of '<em>Data Prefix Expression</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateDataPrefixExpression_TypeExpressionMustBeType(DataPrefixExpression dataPrefixExpression, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return
+			validate
+				(ExpressionsPackage.Literals.DATA_PREFIX_EXPRESSION,
+				 dataPrefixExpression,
+				 diagnostics,
+				 context,
+				 "http://www.eclipse.org/emf/2002/Ecore/OCL",
+				 "TypeExpressionMustBeType",
+				 DATA_PREFIX_EXPRESSION__TYPE_EXPRESSION_MUST_BE_TYPE__EEXPRESSION,
+				 Diagnostic.ERROR,
+				 DIAGNOSTIC_SOURCE,
+				 0);
 	}
 
 	/**
@@ -489,15 +650,6 @@ public class ExpressionsValidator extends EObjectValidator {
 	 * @generated
 	 */
 	public boolean validateIncrementDecrementOperator(IncrementDecrementOperator incrementDecrementOperator, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return true;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public boolean validateIncrementDecrementPosition(IncrementDecrementPosition incrementDecrementPosition, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		return true;
 	}
 

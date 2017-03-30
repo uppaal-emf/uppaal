@@ -6,7 +6,6 @@ import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
-import org.muml.uppaal.visuals.ColorKind;
 import org.muml.uppaal.visuals.ColoredElement;
 import org.muml.uppaal.visuals.VisualsPackage;
 
@@ -18,33 +17,12 @@ import org.muml.uppaal.visuals.VisualsPackage;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link org.muml.uppaal.visuals.impl.ColoredElementImpl#getColor <em>Color</em>}</li>
  *   <li>{@link org.muml.uppaal.visuals.impl.ColoredElementImpl#getColorCode <em>Color Code</em>}</li>
  * </ul>
  *
  * @generated
  */
 public abstract class ColoredElementImpl extends EObjectImpl implements ColoredElement {
-	/**
-	 * The default value of the '{@link #getColor() <em>Color</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getColor()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final ColorKind COLOR_EDEFAULT = ColorKind.DEFAULT;
-
-	/**
-	 * The cached value of the '{@link #getColor() <em>Color</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getColor()
-	 * @generated
-	 * @ordered
-	 */
-	protected ColorKind color = COLOR_EDEFAULT;
-
 	/**
 	 * The default value of the '{@link #getColorCode() <em>Color Code</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -89,27 +67,6 @@ public abstract class ColoredElementImpl extends EObjectImpl implements ColoredE
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ColorKind getColor() {
-		return color;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setColor(ColorKind newColor) {
-		ColorKind oldColor = color;
-		color = newColor == null ? COLOR_EDEFAULT : newColor;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, VisualsPackage.COLORED_ELEMENT__COLOR, oldColor, color));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public String getColorCode() {
 		return colorCode;
 	}
@@ -134,8 +91,6 @@ public abstract class ColoredElementImpl extends EObjectImpl implements ColoredE
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case VisualsPackage.COLORED_ELEMENT__COLOR:
-				return getColor();
 			case VisualsPackage.COLORED_ELEMENT__COLOR_CODE:
 				return getColorCode();
 		}
@@ -150,9 +105,6 @@ public abstract class ColoredElementImpl extends EObjectImpl implements ColoredE
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case VisualsPackage.COLORED_ELEMENT__COLOR:
-				setColor((ColorKind)newValue);
-				return;
 			case VisualsPackage.COLORED_ELEMENT__COLOR_CODE:
 				setColorCode((String)newValue);
 				return;
@@ -168,9 +120,6 @@ public abstract class ColoredElementImpl extends EObjectImpl implements ColoredE
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case VisualsPackage.COLORED_ELEMENT__COLOR:
-				setColor(COLOR_EDEFAULT);
-				return;
 			case VisualsPackage.COLORED_ELEMENT__COLOR_CODE:
 				setColorCode(COLOR_CODE_EDEFAULT);
 				return;
@@ -186,8 +135,6 @@ public abstract class ColoredElementImpl extends EObjectImpl implements ColoredE
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case VisualsPackage.COLORED_ELEMENT__COLOR:
-				return color != COLOR_EDEFAULT;
 			case VisualsPackage.COLORED_ELEMENT__COLOR_CODE:
 				return COLOR_CODE_EDEFAULT == null ? colorCode != null : !COLOR_CODE_EDEFAULT.equals(colorCode);
 		}
@@ -204,9 +151,7 @@ public abstract class ColoredElementImpl extends EObjectImpl implements ColoredE
 		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (color: ");
-		result.append(color);
-		result.append(", colorCode: ");
+		result.append(" (colorCode: ");
 		result.append(colorCode);
 		result.append(')');
 		return result.toString();

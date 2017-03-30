@@ -16,16 +16,16 @@ import org.muml.uppaal.expressions.BitShiftExpression;
 import org.muml.uppaal.expressions.BitShiftOperator;
 import org.muml.uppaal.expressions.BitwiseExpression;
 import org.muml.uppaal.expressions.BitwiseOperator;
+import org.muml.uppaal.expressions.ChannelPrefixExpression;
 import org.muml.uppaal.expressions.CompareExpression;
 import org.muml.uppaal.expressions.CompareOperator;
 import org.muml.uppaal.expressions.ConditionExpression;
+import org.muml.uppaal.expressions.DataPrefixExpression;
 import org.muml.uppaal.expressions.ExpressionsFactory;
 import org.muml.uppaal.expressions.ExpressionsPackage;
 import org.muml.uppaal.expressions.FunctionCallExpression;
 import org.muml.uppaal.expressions.IdentifierExpression;
-import org.muml.uppaal.expressions.IncrementDecrementExpression;
 import org.muml.uppaal.expressions.IncrementDecrementOperator;
-import org.muml.uppaal.expressions.IncrementDecrementPosition;
 import org.muml.uppaal.expressions.LiteralExpression;
 import org.muml.uppaal.expressions.LogicalExpression;
 import org.muml.uppaal.expressions.LogicalOperator;
@@ -34,6 +34,8 @@ import org.muml.uppaal.expressions.MinMaxOperator;
 import org.muml.uppaal.expressions.MinusExpression;
 import org.muml.uppaal.expressions.NegationExpression;
 import org.muml.uppaal.expressions.PlusExpression;
+import org.muml.uppaal.expressions.PostIncrementDecrementExpression;
+import org.muml.uppaal.expressions.PreIncrementDecrementExpression;
 import org.muml.uppaal.expressions.QuantificationExpression;
 import org.muml.uppaal.expressions.Quantifier;
 import org.muml.uppaal.expressions.ScopedIdentifierExpression;
@@ -87,18 +89,21 @@ public class ExpressionsFactoryImpl extends EFactoryImpl implements ExpressionsF
 			case ExpressionsPackage.MINUS_EXPRESSION: return createMinusExpression();
 			case ExpressionsPackage.ASSIGNMENT_EXPRESSION: return createAssignmentExpression();
 			case ExpressionsPackage.IDENTIFIER_EXPRESSION: return createIdentifierExpression();
+			case ExpressionsPackage.SCOPED_IDENTIFIER_EXPRESSION: return createScopedIdentifierExpression();
 			case ExpressionsPackage.LITERAL_EXPRESSION: return createLiteralExpression();
 			case ExpressionsPackage.ARITHMETIC_EXPRESSION: return createArithmeticExpression();
 			case ExpressionsPackage.LOGICAL_EXPRESSION: return createLogicalExpression();
 			case ExpressionsPackage.FUNCTION_CALL_EXPRESSION: return createFunctionCallExpression();
 			case ExpressionsPackage.COMPARE_EXPRESSION: return createCompareExpression();
 			case ExpressionsPackage.CONDITION_EXPRESSION: return createConditionExpression();
-			case ExpressionsPackage.SCOPED_IDENTIFIER_EXPRESSION: return createScopedIdentifierExpression();
 			case ExpressionsPackage.QUANTIFICATION_EXPRESSION: return createQuantificationExpression();
-			case ExpressionsPackage.INCREMENT_DECREMENT_EXPRESSION: return createIncrementDecrementExpression();
+			case ExpressionsPackage.PRE_INCREMENT_DECREMENT_EXPRESSION: return createPreIncrementDecrementExpression();
+			case ExpressionsPackage.POST_INCREMENT_DECREMENT_EXPRESSION: return createPostIncrementDecrementExpression();
 			case ExpressionsPackage.BIT_SHIFT_EXPRESSION: return createBitShiftExpression();
 			case ExpressionsPackage.MIN_MAX_EXPRESSION: return createMinMaxExpression();
 			case ExpressionsPackage.BITWISE_EXPRESSION: return createBitwiseExpression();
+			case ExpressionsPackage.CHANNEL_PREFIX_EXPRESSION: return createChannelPrefixExpression();
+			case ExpressionsPackage.DATA_PREFIX_EXPRESSION: return createDataPrefixExpression();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -124,8 +129,6 @@ public class ExpressionsFactoryImpl extends EFactoryImpl implements ExpressionsF
 				return createQuantifierFromString(eDataType, initialValue);
 			case ExpressionsPackage.INCREMENT_DECREMENT_OPERATOR:
 				return createIncrementDecrementOperatorFromString(eDataType, initialValue);
-			case ExpressionsPackage.INCREMENT_DECREMENT_POSITION:
-				return createIncrementDecrementPositionFromString(eDataType, initialValue);
 			case ExpressionsPackage.BIT_SHIFT_OPERATOR:
 				return createBitShiftOperatorFromString(eDataType, initialValue);
 			case ExpressionsPackage.MIN_MAX_OPERATOR:
@@ -157,8 +160,6 @@ public class ExpressionsFactoryImpl extends EFactoryImpl implements ExpressionsF
 				return convertQuantifierToString(eDataType, instanceValue);
 			case ExpressionsPackage.INCREMENT_DECREMENT_OPERATOR:
 				return convertIncrementDecrementOperatorToString(eDataType, instanceValue);
-			case ExpressionsPackage.INCREMENT_DECREMENT_POSITION:
-				return convertIncrementDecrementPositionToString(eDataType, instanceValue);
 			case ExpressionsPackage.BIT_SHIFT_OPERATOR:
 				return convertBitShiftOperatorToString(eDataType, instanceValue);
 			case ExpressionsPackage.MIN_MAX_OPERATOR:
@@ -305,9 +306,19 @@ public class ExpressionsFactoryImpl extends EFactoryImpl implements ExpressionsF
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public IncrementDecrementExpression createIncrementDecrementExpression() {
-		IncrementDecrementExpressionImpl incrementDecrementExpression = new IncrementDecrementExpressionImpl();
-		return incrementDecrementExpression;
+	public PreIncrementDecrementExpression createPreIncrementDecrementExpression() {
+		PreIncrementDecrementExpressionImpl preIncrementDecrementExpression = new PreIncrementDecrementExpressionImpl();
+		return preIncrementDecrementExpression;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public PostIncrementDecrementExpression createPostIncrementDecrementExpression() {
+		PostIncrementDecrementExpressionImpl postIncrementDecrementExpression = new PostIncrementDecrementExpressionImpl();
+		return postIncrementDecrementExpression;
 	}
 
 	/**
@@ -338,6 +349,26 @@ public class ExpressionsFactoryImpl extends EFactoryImpl implements ExpressionsF
 	public BitwiseExpression createBitwiseExpression() {
 		BitwiseExpressionImpl bitwiseExpression = new BitwiseExpressionImpl();
 		return bitwiseExpression;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ChannelPrefixExpression createChannelPrefixExpression() {
+		ChannelPrefixExpressionImpl channelPrefixExpression = new ChannelPrefixExpressionImpl();
+		return channelPrefixExpression;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public DataPrefixExpression createDataPrefixExpression() {
+		DataPrefixExpressionImpl dataPrefixExpression = new DataPrefixExpressionImpl();
+		return dataPrefixExpression;
 	}
 
 	/**
@@ -457,26 +488,6 @@ public class ExpressionsFactoryImpl extends EFactoryImpl implements ExpressionsF
 	 * @generated
 	 */
 	public String convertIncrementDecrementOperatorToString(EDataType eDataType, Object instanceValue) {
-		return instanceValue == null ? null : instanceValue.toString();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public IncrementDecrementPosition createIncrementDecrementPositionFromString(EDataType eDataType, String initialValue) {
-		IncrementDecrementPosition result = IncrementDecrementPosition.get(initialValue);
-		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
-		return result;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public String convertIncrementDecrementPositionToString(EDataType eDataType, Object instanceValue) {
 		return instanceValue == null ? null : instanceValue.toString();
 	}
 

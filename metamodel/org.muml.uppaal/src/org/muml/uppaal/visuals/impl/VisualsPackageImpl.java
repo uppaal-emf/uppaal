@@ -4,7 +4,6 @@ package org.muml.uppaal.visuals.impl;
 
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EEnum;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.impl.EPackageImpl;
@@ -26,7 +25,6 @@ import org.muml.uppaal.templates.TemplatesPackage;
 import org.muml.uppaal.templates.impl.TemplatesPackageImpl;
 import org.muml.uppaal.types.TypesPackage;
 import org.muml.uppaal.types.impl.TypesPackageImpl;
-import org.muml.uppaal.visuals.ColorKind;
 import org.muml.uppaal.visuals.ColoredElement;
 import org.muml.uppaal.visuals.LinearElement;
 import org.muml.uppaal.visuals.PlanarElement;
@@ -68,13 +66,6 @@ public class VisualsPackageImpl extends EPackageImpl implements VisualsPackage {
 	 * @generated
 	 */
 	private EClass pointEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EEnum colorKindEEnum = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -180,17 +171,8 @@ public class VisualsPackageImpl extends EPackageImpl implements VisualsPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getColoredElement_Color() {
-		return (EAttribute)coloredElementEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EAttribute getColoredElement_ColorCode() {
-		return (EAttribute)coloredElementEClass.getEStructuralFeatures().get(1);
+		return (EAttribute)coloredElementEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -261,15 +243,6 @@ public class VisualsPackageImpl extends EPackageImpl implements VisualsPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EEnum getColorKind() {
-		return colorKindEEnum;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public VisualsFactory getVisualsFactory() {
 		return (VisualsFactory)getEFactoryInstance();
 	}
@@ -294,7 +267,6 @@ public class VisualsPackageImpl extends EPackageImpl implements VisualsPackage {
 
 		// Create classes and their features
 		coloredElementEClass = createEClass(COLORED_ELEMENT);
-		createEAttribute(coloredElementEClass, COLORED_ELEMENT__COLOR);
 		createEAttribute(coloredElementEClass, COLORED_ELEMENT__COLOR_CODE);
 
 		planarElementEClass = createEClass(PLANAR_ELEMENT);
@@ -306,9 +278,6 @@ public class VisualsPackageImpl extends EPackageImpl implements VisualsPackage {
 		pointEClass = createEClass(POINT);
 		createEAttribute(pointEClass, POINT__X);
 		createEAttribute(pointEClass, POINT__Y);
-
-		// Create enums
-		colorKindEEnum = createEEnum(COLOR_KIND);
 	}
 
 	/**
@@ -342,7 +311,6 @@ public class VisualsPackageImpl extends EPackageImpl implements VisualsPackage {
 
 		// Initialize classes and features; add operations and parameters
 		initEClass(coloredElementEClass, ColoredElement.class, "ColoredElement", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getColoredElement_Color(), this.getColorKind(), "color", null, 0, 1, ColoredElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getColoredElement_ColorCode(), ecorePackage.getEString(), "colorCode", null, 0, 1, ColoredElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(planarElementEClass, PlanarElement.class, "PlanarElement", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -354,23 +322,6 @@ public class VisualsPackageImpl extends EPackageImpl implements VisualsPackage {
 		initEClass(pointEClass, Point.class, "Point", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getPoint_X(), ecorePackage.getEInt(), "x", "0", 1, 1, Point.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getPoint_Y(), ecorePackage.getEInt(), "y", "0", 1, 1, Point.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-		// Initialize enums and add enum literals
-		initEEnum(colorKindEEnum, ColorKind.class, "ColorKind");
-		addEEnumLiteral(colorKindEEnum, ColorKind.DEFAULT);
-		addEEnumLiteral(colorKindEEnum, ColorKind.WHITE);
-		addEEnumLiteral(colorKindEEnum, ColorKind.LIGHTGREY);
-		addEEnumLiteral(colorKindEEnum, ColorKind.DARKGREY);
-		addEEnumLiteral(colorKindEEnum, ColorKind.BLACK);
-		addEEnumLiteral(colorKindEEnum, ColorKind.BLUE);
-		addEEnumLiteral(colorKindEEnum, ColorKind.CYAN);
-		addEEnumLiteral(colorKindEEnum, ColorKind.GREEN);
-		addEEnumLiteral(colorKindEEnum, ColorKind.MAGENTA);
-		addEEnumLiteral(colorKindEEnum, ColorKind.ORANGE);
-		addEEnumLiteral(colorKindEEnum, ColorKind.PINK);
-		addEEnumLiteral(colorKindEEnum, ColorKind.RED);
-		addEEnumLiteral(colorKindEEnum, ColorKind.YELLOW);
-		addEEnumLiteral(colorKindEEnum, ColorKind.SELF_DEFINED);
 
 		// Create annotations
 		// http://www.eclipse.org/emf/2002/Ecore

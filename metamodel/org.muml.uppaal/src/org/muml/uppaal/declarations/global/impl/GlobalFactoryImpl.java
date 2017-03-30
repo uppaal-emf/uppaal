@@ -7,9 +7,10 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.impl.EFactoryImpl;
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
-import org.muml.uppaal.declarations.global.ChannelList;
-import org.muml.uppaal.declarations.global.ChannelPriority;
-import org.muml.uppaal.declarations.global.DefaultChannelPriority;
+import org.muml.uppaal.declarations.global.ChannelItem;
+import org.muml.uppaal.declarations.global.ChannelPriorityDeclaration;
+import org.muml.uppaal.declarations.global.ChannelPriorityGroup;
+import org.muml.uppaal.declarations.global.DefaultItem;
 import org.muml.uppaal.declarations.global.GlobalFactory;
 import org.muml.uppaal.declarations.global.GlobalPackage;
 
@@ -57,9 +58,10 @@ public class GlobalFactoryImpl extends EFactoryImpl implements GlobalFactory {
 	@Override
 	public EObject create(EClass eClass) {
 		switch (eClass.getClassifierID()) {
-			case GlobalPackage.CHANNEL_PRIORITY: return createChannelPriority();
-			case GlobalPackage.CHANNEL_LIST: return createChannelList();
-			case GlobalPackage.DEFAULT_CHANNEL_PRIORITY: return createDefaultChannelPriority();
+			case GlobalPackage.CHANNEL_PRIORITY_DECLARATION: return createChannelPriorityDeclaration();
+			case GlobalPackage.CHANNEL_PRIORITY_GROUP: return createChannelPriorityGroup();
+			case GlobalPackage.CHANNEL_ITEM: return createChannelItem();
+			case GlobalPackage.DEFAULT_ITEM: return createDefaultItem();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -70,9 +72,9 @@ public class GlobalFactoryImpl extends EFactoryImpl implements GlobalFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ChannelPriority createChannelPriority() {
-		ChannelPriorityImpl channelPriority = new ChannelPriorityImpl();
-		return channelPriority;
+	public ChannelPriorityDeclaration createChannelPriorityDeclaration() {
+		ChannelPriorityDeclarationImpl channelPriorityDeclaration = new ChannelPriorityDeclarationImpl();
+		return channelPriorityDeclaration;
 	}
 
 	/**
@@ -80,9 +82,9 @@ public class GlobalFactoryImpl extends EFactoryImpl implements GlobalFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ChannelList createChannelList() {
-		ChannelListImpl channelList = new ChannelListImpl();
-		return channelList;
+	public ChannelPriorityGroup createChannelPriorityGroup() {
+		ChannelPriorityGroupImpl channelPriorityGroup = new ChannelPriorityGroupImpl();
+		return channelPriorityGroup;
 	}
 
 	/**
@@ -90,9 +92,19 @@ public class GlobalFactoryImpl extends EFactoryImpl implements GlobalFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public DefaultChannelPriority createDefaultChannelPriority() {
-		DefaultChannelPriorityImpl defaultChannelPriority = new DefaultChannelPriorityImpl();
-		return defaultChannelPriority;
+	public ChannelItem createChannelItem() {
+		ChannelItemImpl channelItem = new ChannelItemImpl();
+		return channelItem;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public DefaultItem createDefaultItem() {
+		DefaultItemImpl defaultItem = new DefaultItemImpl();
+		return defaultItem;
 	}
 
 	/**

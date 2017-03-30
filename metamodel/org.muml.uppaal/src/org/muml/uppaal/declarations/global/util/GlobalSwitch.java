@@ -5,11 +5,13 @@ package org.muml.uppaal.declarations.global.util;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.util.Switch;
-import org.muml.uppaal.declarations.global.ChannelList;
-import org.muml.uppaal.declarations.global.ChannelPriority;
-import org.muml.uppaal.declarations.global.ChannelPriorityItem;
-import org.muml.uppaal.declarations.global.DefaultChannelPriority;
+import org.muml.uppaal.declarations.Declaration;
+import org.muml.uppaal.declarations.global.ChannelItem;
+import org.muml.uppaal.declarations.global.ChannelPriorityDeclaration;
+import org.muml.uppaal.declarations.global.ChannelPriorityGroup;
+import org.muml.uppaal.declarations.global.DefaultItem;
 import org.muml.uppaal.declarations.global.GlobalPackage;
+import org.muml.uppaal.declarations.global.PriorityItem;
 
 /**
  * <!-- begin-user-doc -->
@@ -68,29 +70,36 @@ public class GlobalSwitch<T> extends Switch<T> {
 	@Override
 	protected T doSwitch(int classifierID, EObject theEObject) {
 		switch (classifierID) {
-			case GlobalPackage.CHANNEL_PRIORITY: {
-				ChannelPriority channelPriority = (ChannelPriority)theEObject;
-				T result = caseChannelPriority(channelPriority);
+			case GlobalPackage.CHANNEL_PRIORITY_DECLARATION: {
+				ChannelPriorityDeclaration channelPriorityDeclaration = (ChannelPriorityDeclaration)theEObject;
+				T result = caseChannelPriorityDeclaration(channelPriorityDeclaration);
+				if (result == null) result = caseDeclaration(channelPriorityDeclaration);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case GlobalPackage.CHANNEL_PRIORITY_ITEM: {
-				ChannelPriorityItem channelPriorityItem = (ChannelPriorityItem)theEObject;
-				T result = caseChannelPriorityItem(channelPriorityItem);
+			case GlobalPackage.CHANNEL_PRIORITY_GROUP: {
+				ChannelPriorityGroup channelPriorityGroup = (ChannelPriorityGroup)theEObject;
+				T result = caseChannelPriorityGroup(channelPriorityGroup);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case GlobalPackage.CHANNEL_LIST: {
-				ChannelList channelList = (ChannelList)theEObject;
-				T result = caseChannelList(channelList);
-				if (result == null) result = caseChannelPriorityItem(channelList);
+			case GlobalPackage.PRIORITY_ITEM: {
+				PriorityItem priorityItem = (PriorityItem)theEObject;
+				T result = casePriorityItem(priorityItem);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case GlobalPackage.DEFAULT_CHANNEL_PRIORITY: {
-				DefaultChannelPriority defaultChannelPriority = (DefaultChannelPriority)theEObject;
-				T result = caseDefaultChannelPriority(defaultChannelPriority);
-				if (result == null) result = caseChannelPriorityItem(defaultChannelPriority);
+			case GlobalPackage.CHANNEL_ITEM: {
+				ChannelItem channelItem = (ChannelItem)theEObject;
+				T result = caseChannelItem(channelItem);
+				if (result == null) result = casePriorityItem(channelItem);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case GlobalPackage.DEFAULT_ITEM: {
+				DefaultItem defaultItem = (DefaultItem)theEObject;
+				T result = caseDefaultItem(defaultItem);
+				if (result == null) result = casePriorityItem(defaultItem);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -99,62 +108,92 @@ public class GlobalSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Channel Priority</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Channel Priority Declaration</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Channel Priority</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Channel Priority Declaration</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseChannelPriority(ChannelPriority object) {
+	public T caseChannelPriorityDeclaration(ChannelPriorityDeclaration object) {
 		return null;
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Channel Priority Item</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Channel Priority Group</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Channel Priority Item</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Channel Priority Group</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseChannelPriorityItem(ChannelPriorityItem object) {
+	public T caseChannelPriorityGroup(ChannelPriorityGroup object) {
 		return null;
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Channel List</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Priority Item</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Channel List</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Priority Item</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseChannelList(ChannelList object) {
+	public T casePriorityItem(PriorityItem object) {
 		return null;
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Default Channel Priority</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Channel Item</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Default Channel Priority</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Channel Item</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseDefaultChannelPriority(DefaultChannelPriority object) {
+	public T caseChannelItem(ChannelItem object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Default Item</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Default Item</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseDefaultItem(DefaultItem object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Declaration</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Declaration</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseDeclaration(Declaration object) {
 		return null;
 	}
 

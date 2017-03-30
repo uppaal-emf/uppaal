@@ -24,7 +24,7 @@ import org.muml.uppaal.expressions.Expression;
  * @model
  * @generated
  */
-public interface ScalarTypeSpecification extends TypeSpecification {
+public interface ScalarTypeSpecification extends TypeExpression {
 	/**
 	 * Returns the value of the '<em><b>Size Expression</b></em>' containment reference.
 	 * <!-- begin-user-doc -->

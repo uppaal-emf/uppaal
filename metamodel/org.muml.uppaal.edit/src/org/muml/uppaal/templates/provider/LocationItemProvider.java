@@ -20,6 +20,7 @@ import org.muml.uppaal.expressions.ExpressionsFactory;
 import org.muml.uppaal.provider.UppaalEditPlugin;
 import org.muml.uppaal.templates.Location;
 import org.muml.uppaal.templates.TemplatesPackage;
+import org.muml.uppaal.types.TypesFactory;
 import org.muml.uppaal.visuals.VisualsFactory;
 import org.muml.uppaal.visuals.VisualsPackage;
 
@@ -53,9 +54,10 @@ public class LocationItemProvider
 			super.getPropertyDescriptors(object);
 
 			addCommentPropertyDescriptor(object);
-			addColorPropertyDescriptor(object);
 			addColorCodePropertyDescriptor(object);
 			addLocationTimeKindPropertyDescriptor(object);
+			addIncomingEdgesPropertyDescriptor(object);
+			addOutgoingEdgesPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -74,28 +76,6 @@ public class LocationItemProvider
 				 getString("_UI_CommentableElement_comment_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_CommentableElement_comment_feature", "_UI_CommentableElement_type"),
 				 CorePackage.Literals.COMMENTABLE_ELEMENT__COMMENT,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Color feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addColorPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_ColoredElement_color_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_ColoredElement_color_feature", "_UI_ColoredElement_type"),
-				 VisualsPackage.Literals.COLORED_ELEMENT__COLOR,
 				 true,
 				 false,
 				 false,
@@ -144,6 +124,50 @@ public class LocationItemProvider
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Incoming Edges feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addIncomingEdgesPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Location_incomingEdges_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Location_incomingEdges_feature", "_UI_Location_type"),
+				 TemplatesPackage.Literals.LOCATION__INCOMING_EDGES,
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Outgoing Edges feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addOutgoingEdgesPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Location_outgoingEdges_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Location_outgoingEdges_feature", "_UI_Location_type"),
+				 TemplatesPackage.Literals.LOCATION__OUTGOING_EDGES,
+				 true,
+				 false,
+				 true,
+				 null,
 				 null,
 				 null));
 	}
@@ -217,7 +241,6 @@ public class LocationItemProvider
 
 		switch (notification.getFeatureID(Location.class)) {
 			case TemplatesPackage.LOCATION__COMMENT:
-			case TemplatesPackage.LOCATION__COLOR:
 			case TemplatesPackage.LOCATION__COLOR_CODE:
 			case TemplatesPackage.LOCATION__LOCATION_TIME_KIND:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
@@ -249,6 +272,21 @@ public class LocationItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(TemplatesPackage.Literals.LOCATION__INVARIANT,
+				 TypesFactory.eINSTANCE.createScalarTypeSpecification()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(TemplatesPackage.Literals.LOCATION__INVARIANT,
+				 TypesFactory.eINSTANCE.createStructTypeSpecification()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(TemplatesPackage.Literals.LOCATION__INVARIANT,
+				 TypesFactory.eINSTANCE.createRangeTypeSpecification()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(TemplatesPackage.Literals.LOCATION__INVARIANT,
 				 ExpressionsFactory.eINSTANCE.createNegationExpression()));
 
 		newChildDescriptors.add
@@ -270,6 +308,11 @@ public class LocationItemProvider
 			(createChildParameter
 				(TemplatesPackage.Literals.LOCATION__INVARIANT,
 				 ExpressionsFactory.eINSTANCE.createIdentifierExpression()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(TemplatesPackage.Literals.LOCATION__INVARIANT,
+				 ExpressionsFactory.eINSTANCE.createScopedIdentifierExpression()));
 
 		newChildDescriptors.add
 			(createChildParameter
@@ -304,17 +347,17 @@ public class LocationItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(TemplatesPackage.Literals.LOCATION__INVARIANT,
-				 ExpressionsFactory.eINSTANCE.createScopedIdentifierExpression()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(TemplatesPackage.Literals.LOCATION__INVARIANT,
 				 ExpressionsFactory.eINSTANCE.createQuantificationExpression()));
 
 		newChildDescriptors.add
 			(createChildParameter
 				(TemplatesPackage.Literals.LOCATION__INVARIANT,
-				 ExpressionsFactory.eINSTANCE.createIncrementDecrementExpression()));
+				 ExpressionsFactory.eINSTANCE.createPreIncrementDecrementExpression()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(TemplatesPackage.Literals.LOCATION__INVARIANT,
+				 ExpressionsFactory.eINSTANCE.createPostIncrementDecrementExpression()));
 
 		newChildDescriptors.add
 			(createChildParameter
@@ -330,6 +373,16 @@ public class LocationItemProvider
 			(createChildParameter
 				(TemplatesPackage.Literals.LOCATION__INVARIANT,
 				 ExpressionsFactory.eINSTANCE.createBitwiseExpression()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(TemplatesPackage.Literals.LOCATION__INVARIANT,
+				 ExpressionsFactory.eINSTANCE.createChannelPrefixExpression()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(TemplatesPackage.Literals.LOCATION__INVARIANT,
+				 ExpressionsFactory.eINSTANCE.createDataPrefixExpression()));
 	}
 
 	/**

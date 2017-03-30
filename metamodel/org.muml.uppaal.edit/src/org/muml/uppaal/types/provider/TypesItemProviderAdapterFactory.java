@@ -116,29 +116,6 @@ public class TypesItemProviderAdapterFactory extends TypesAdapterFactory impleme
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link org.muml.uppaal.types.TypeReference} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected TypeReferenceItemProvider typeReferenceItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link org.muml.uppaal.types.TypeReference}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createTypeReferenceAdapter() {
-		if (typeReferenceItemProvider == null) {
-			typeReferenceItemProvider = new TypeReferenceItemProvider(this);
-		}
-
-		return typeReferenceItemProvider;
-	}
-
-	/**
 	 * This keeps track of the one adapter used for all {@link org.muml.uppaal.types.ScalarTypeSpecification} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -354,7 +331,6 @@ public class TypesItemProviderAdapterFactory extends TypesAdapterFactory impleme
 	public void dispose() {
 		if (predefinedTypeItemProvider != null) predefinedTypeItemProvider.dispose();
 		if (declaredTypeItemProvider != null) declaredTypeItemProvider.dispose();
-		if (typeReferenceItemProvider != null) typeReferenceItemProvider.dispose();
 		if (scalarTypeSpecificationItemProvider != null) scalarTypeSpecificationItemProvider.dispose();
 		if (structTypeSpecificationItemProvider != null) structTypeSpecificationItemProvider.dispose();
 		if (rangeTypeSpecificationItemProvider != null) rangeTypeSpecificationItemProvider.dispose();

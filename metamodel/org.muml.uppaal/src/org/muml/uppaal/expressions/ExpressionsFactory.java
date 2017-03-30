@@ -139,13 +139,22 @@ public interface ExpressionsFactory extends EFactory {
 	QuantificationExpression createQuantificationExpression();
 
 	/**
-	 * Returns a new object of class '<em>Increment Decrement Expression</em>'.
+	 * Returns a new object of class '<em>Pre Increment Decrement Expression</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Increment Decrement Expression</em>'.
+	 * @return a new object of class '<em>Pre Increment Decrement Expression</em>'.
 	 * @generated
 	 */
-	IncrementDecrementExpression createIncrementDecrementExpression();
+	PreIncrementDecrementExpression createPreIncrementDecrementExpression();
+
+	/**
+	 * Returns a new object of class '<em>Post Increment Decrement Expression</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Post Increment Decrement Expression</em>'.
+	 * @generated
+	 */
+	PostIncrementDecrementExpression createPostIncrementDecrementExpression();
 
 	/**
 	 * Returns a new object of class '<em>Bit Shift Expression</em>'.
@@ -173,6 +182,24 @@ public interface ExpressionsFactory extends EFactory {
 	 * @generated
 	 */
 	BitwiseExpression createBitwiseExpression();
+
+	/**
+	 * Returns a new object of class '<em>Channel Prefix Expression</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Channel Prefix Expression</em>'.
+	 * @generated
+	 */
+	ChannelPrefixExpression createChannelPrefixExpression();
+
+	/**
+	 * Returns a new object of class '<em>Data Prefix Expression</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Data Prefix Expression</em>'.
+	 * @generated
+	 */
+	DataPrefixExpression createDataPrefixExpression();
 
 	/**
 	 * Returns the package supported by this factory.

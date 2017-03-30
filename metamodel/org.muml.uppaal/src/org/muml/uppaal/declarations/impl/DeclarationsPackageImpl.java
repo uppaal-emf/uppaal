@@ -14,9 +14,6 @@ import org.muml.uppaal.core.CorePackage;
 import org.muml.uppaal.core.impl.CorePackageImpl;
 import org.muml.uppaal.declarations.ArrayInitializer;
 import org.muml.uppaal.declarations.CallType;
-import org.muml.uppaal.declarations.ChannelVariableDeclaration;
-import org.muml.uppaal.declarations.ClockVariableDeclaration;
-import org.muml.uppaal.declarations.DataVariableDeclaration;
 import org.muml.uppaal.declarations.DataVariablePrefix;
 import org.muml.uppaal.declarations.Declaration;
 import org.muml.uppaal.declarations.Declarations;
@@ -24,19 +21,16 @@ import org.muml.uppaal.declarations.DeclarationsFactory;
 import org.muml.uppaal.declarations.DeclarationsPackage;
 import org.muml.uppaal.declarations.ExpressionInitializer;
 import org.muml.uppaal.declarations.Function;
-import org.muml.uppaal.declarations.FunctionDeclaration;
 import org.muml.uppaal.declarations.GlobalDeclarations;
-import org.muml.uppaal.declarations.Index;
 import org.muml.uppaal.declarations.Initializer;
 import org.muml.uppaal.declarations.LocalDeclarations;
 import org.muml.uppaal.declarations.Parameter;
+import org.muml.uppaal.declarations.ParameterContainer;
 import org.muml.uppaal.declarations.SystemDeclarations;
 import org.muml.uppaal.declarations.TypeDeclaration;
-import org.muml.uppaal.declarations.TypeIndex;
-import org.muml.uppaal.declarations.ValueIndex;
+import org.muml.uppaal.declarations.TypedDeclaration;
+import org.muml.uppaal.declarations.TypedElementContainer;
 import org.muml.uppaal.declarations.Variable;
-import org.muml.uppaal.declarations.VariableContainer;
-import org.muml.uppaal.declarations.VariableDeclaration;
 import org.muml.uppaal.declarations.global.GlobalPackage;
 import org.muml.uppaal.declarations.global.impl.GlobalPackageImpl;
 import org.muml.uppaal.declarations.system.SystemPackage;
@@ -101,41 +95,6 @@ public class DeclarationsPackageImpl extends EPackageImpl implements Declaration
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass variableDeclarationEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass channelVariableDeclarationEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass clockVariableDeclarationEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass dataVariableDeclarationEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass functionDeclarationEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	private EClass functionEClass = null;
 
 	/**
@@ -157,28 +116,7 @@ public class DeclarationsPackageImpl extends EPackageImpl implements Declaration
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass indexEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass valueIndexEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass typeIndexEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass variableContainerEClass = null;
+	private EClass typedElementContainerEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -207,6 +145,20 @@ public class DeclarationsPackageImpl extends EPackageImpl implements Declaration
 	 * @generated
 	 */
 	private EClass arrayInitializerEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass typedDeclarationEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass parameterContainerEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -407,87 +359,6 @@ public class DeclarationsPackageImpl extends EPackageImpl implements Declaration
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getVariableDeclaration() {
-		return variableDeclarationEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getChannelVariableDeclaration() {
-		return channelVariableDeclarationEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getChannelVariableDeclaration_Urgent() {
-		return (EAttribute)channelVariableDeclarationEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getChannelVariableDeclaration_Broadcast() {
-		return (EAttribute)channelVariableDeclarationEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getClockVariableDeclaration() {
-		return clockVariableDeclarationEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getDataVariableDeclaration() {
-		return dataVariableDeclarationEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getDataVariableDeclaration_Prefix() {
-		return (EAttribute)dataVariableDeclarationEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getFunctionDeclaration() {
-		return functionDeclarationEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getFunctionDeclaration_Function() {
-		return (EReference)functionDeclarationEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EClass getFunction() {
 		return functionEClass;
 	}
@@ -497,7 +368,7 @@ public class DeclarationsPackageImpl extends EPackageImpl implements Declaration
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getFunction_ReturnType() {
+	public EReference getFunction_Block() {
 		return (EReference)functionEClass.getEStructuralFeatures().get(0);
 	}
 
@@ -506,17 +377,8 @@ public class DeclarationsPackageImpl extends EPackageImpl implements Declaration
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getFunction_Block() {
-		return (EReference)functionEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EReference getFunction_Parameter() {
-		return (EReference)functionEClass.getEStructuralFeatures().get(2);
+		return (EReference)functionEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -569,7 +431,7 @@ public class DeclarationsPackageImpl extends EPackageImpl implements Declaration
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getVariable_Container() {
+	public EReference getVariable_Initializer() {
 		return (EReference)variableEClass.getEStructuralFeatures().get(1);
 	}
 
@@ -578,8 +440,8 @@ public class DeclarationsPackageImpl extends EPackageImpl implements Declaration
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getVariable_TypeDefinition() {
-		return (EReference)variableEClass.getEStructuralFeatures().get(2);
+	public EClass getTypedElementContainer() {
+		return typedElementContainerEClass;
 	}
 
 	/**
@@ -587,8 +449,8 @@ public class DeclarationsPackageImpl extends EPackageImpl implements Declaration
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getVariable_Initializer() {
-		return (EReference)variableEClass.getEStructuralFeatures().get(3);
+	public EReference getTypedElementContainer_TypeDefinition() {
+		return (EReference)typedElementContainerEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -596,71 +458,8 @@ public class DeclarationsPackageImpl extends EPackageImpl implements Declaration
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getIndex() {
-		return indexEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getValueIndex() {
-		return valueIndexEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getValueIndex_SizeExpression() {
-		return (EReference)valueIndexEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getTypeIndex() {
-		return typeIndexEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getTypeIndex_TypeDefinition() {
-		return (EReference)typeIndexEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getVariableContainer() {
-		return variableContainerEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getVariableContainer_TypeDefinition() {
-		return (EReference)variableContainerEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getVariableContainer_Variable() {
-		return (EReference)variableContainerEClass.getEStructuralFeatures().get(1);
+	public EReference getTypedElementContainer_Elements() {
+		return (EReference)typedElementContainerEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -677,17 +476,8 @@ public class DeclarationsPackageImpl extends EPackageImpl implements Declaration
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getParameter_VariableDeclaration() {
-		return (EReference)parameterEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EAttribute getParameter_CallType() {
-		return (EAttribute)parameterEClass.getEStructuralFeatures().get(1);
+		return (EAttribute)parameterEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -733,6 +523,24 @@ public class DeclarationsPackageImpl extends EPackageImpl implements Declaration
 	 */
 	public EReference getArrayInitializer_Initializer() {
 		return (EReference)arrayInitializerEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getTypedDeclaration() {
+		return typedDeclarationEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getParameterContainer() {
+		return parameterContainerEClass;
 	}
 
 	/**
@@ -795,22 +603,7 @@ public class DeclarationsPackageImpl extends EPackageImpl implements Declaration
 
 		declarationEClass = createEClass(DECLARATION);
 
-		variableDeclarationEClass = createEClass(VARIABLE_DECLARATION);
-
-		channelVariableDeclarationEClass = createEClass(CHANNEL_VARIABLE_DECLARATION);
-		createEAttribute(channelVariableDeclarationEClass, CHANNEL_VARIABLE_DECLARATION__URGENT);
-		createEAttribute(channelVariableDeclarationEClass, CHANNEL_VARIABLE_DECLARATION__BROADCAST);
-
-		clockVariableDeclarationEClass = createEClass(CLOCK_VARIABLE_DECLARATION);
-
-		dataVariableDeclarationEClass = createEClass(DATA_VARIABLE_DECLARATION);
-		createEAttribute(dataVariableDeclarationEClass, DATA_VARIABLE_DECLARATION__PREFIX);
-
-		functionDeclarationEClass = createEClass(FUNCTION_DECLARATION);
-		createEReference(functionDeclarationEClass, FUNCTION_DECLARATION__FUNCTION);
-
 		functionEClass = createEClass(FUNCTION);
-		createEReference(functionEClass, FUNCTION__RETURN_TYPE);
 		createEReference(functionEClass, FUNCTION__BLOCK);
 		createEReference(functionEClass, FUNCTION__PARAMETER);
 
@@ -820,24 +613,13 @@ public class DeclarationsPackageImpl extends EPackageImpl implements Declaration
 
 		variableEClass = createEClass(VARIABLE);
 		createEReference(variableEClass, VARIABLE__INDEX);
-		createEReference(variableEClass, VARIABLE__CONTAINER);
-		createEReference(variableEClass, VARIABLE__TYPE_DEFINITION);
 		createEReference(variableEClass, VARIABLE__INITIALIZER);
 
-		indexEClass = createEClass(INDEX);
-
-		valueIndexEClass = createEClass(VALUE_INDEX);
-		createEReference(valueIndexEClass, VALUE_INDEX__SIZE_EXPRESSION);
-
-		typeIndexEClass = createEClass(TYPE_INDEX);
-		createEReference(typeIndexEClass, TYPE_INDEX__TYPE_DEFINITION);
-
-		variableContainerEClass = createEClass(VARIABLE_CONTAINER);
-		createEReference(variableContainerEClass, VARIABLE_CONTAINER__TYPE_DEFINITION);
-		createEReference(variableContainerEClass, VARIABLE_CONTAINER__VARIABLE);
+		typedElementContainerEClass = createEClass(TYPED_ELEMENT_CONTAINER);
+		createEReference(typedElementContainerEClass, TYPED_ELEMENT_CONTAINER__TYPE_DEFINITION);
+		createEReference(typedElementContainerEClass, TYPED_ELEMENT_CONTAINER__ELEMENTS);
 
 		parameterEClass = createEClass(PARAMETER);
-		createEReference(parameterEClass, PARAMETER__VARIABLE_DECLARATION);
 		createEAttribute(parameterEClass, PARAMETER__CALL_TYPE);
 
 		initializerEClass = createEClass(INITIALIZER);
@@ -847,6 +629,10 @@ public class DeclarationsPackageImpl extends EPackageImpl implements Declaration
 
 		arrayInitializerEClass = createEClass(ARRAY_INITIALIZER);
 		createEReference(arrayInitializerEClass, ARRAY_INITIALIZER__INITIALIZER);
+
+		typedDeclarationEClass = createEClass(TYPED_DECLARATION);
+
+		parameterContainerEClass = createEClass(PARAMETER_CONTAINER);
 
 		// Create enums
 		dataVariablePrefixEEnum = createEEnum(DATA_VARIABLE_PREFIX);
@@ -880,8 +666,8 @@ public class DeclarationsPackageImpl extends EPackageImpl implements Declaration
 		GlobalPackage theGlobalPackage = (GlobalPackage)EPackage.Registry.INSTANCE.getEPackage(GlobalPackage.eNS_URI);
 		SystemPackage theSystemPackage = (SystemPackage)EPackage.Registry.INSTANCE.getEPackage(SystemPackage.eNS_URI);
 		CorePackage theCorePackage = (CorePackage)EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI);
-		TypesPackage theTypesPackage = (TypesPackage)EPackage.Registry.INSTANCE.getEPackage(TypesPackage.eNS_URI);
 		StatementsPackage theStatementsPackage = (StatementsPackage)EPackage.Registry.INSTANCE.getEPackage(StatementsPackage.eNS_URI);
+		TypesPackage theTypesPackage = (TypesPackage)EPackage.Registry.INSTANCE.getEPackage(TypesPackage.eNS_URI);
 		ExpressionsPackage theExpressionsPackage = (ExpressionsPackage)EPackage.Registry.INSTANCE.getEPackage(ExpressionsPackage.eNS_URI);
 
 		// Add subpackages
@@ -896,26 +682,24 @@ public class DeclarationsPackageImpl extends EPackageImpl implements Declaration
 		globalDeclarationsEClass.getESuperTypes().add(this.getDeclarations());
 		localDeclarationsEClass.getESuperTypes().add(this.getDeclarations());
 		systemDeclarationsEClass.getESuperTypes().add(this.getDeclarations());
-		variableDeclarationEClass.getESuperTypes().add(this.getDeclaration());
-		variableDeclarationEClass.getESuperTypes().add(this.getVariableContainer());
-		channelVariableDeclarationEClass.getESuperTypes().add(this.getVariableDeclaration());
-		clockVariableDeclarationEClass.getESuperTypes().add(this.getVariableDeclaration());
-		dataVariableDeclarationEClass.getESuperTypes().add(this.getVariableDeclaration());
-		functionDeclarationEClass.getESuperTypes().add(this.getDeclaration());
 		functionEClass.getESuperTypes().add(theCorePackage.getNamedElement());
+		functionEClass.getESuperTypes().add(theCorePackage.getTypedElement());
 		typeDeclarationEClass.getESuperTypes().add(this.getDeclaration());
 		variableEClass.getESuperTypes().add(theCorePackage.getNamedElement());
-		valueIndexEClass.getESuperTypes().add(this.getIndex());
-		typeIndexEClass.getESuperTypes().add(this.getIndex());
+		variableEClass.getESuperTypes().add(theCorePackage.getTypedElement());
+		parameterEClass.getESuperTypes().add(this.getVariable());
 		expressionInitializerEClass.getESuperTypes().add(this.getInitializer());
 		arrayInitializerEClass.getESuperTypes().add(this.getInitializer());
+		typedDeclarationEClass.getESuperTypes().add(this.getDeclaration());
+		typedDeclarationEClass.getESuperTypes().add(this.getTypedElementContainer());
+		parameterContainerEClass.getESuperTypes().add(this.getTypedElementContainer());
 
 		// Initialize classes and features; add operations and parameters
 		initEClass(declarationsEClass, Declarations.class, "Declarations", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getDeclarations_Declaration(), this.getDeclaration(), null, "declaration", null, 0, -1, Declarations.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(globalDeclarationsEClass, GlobalDeclarations.class, "GlobalDeclarations", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getGlobalDeclarations_ChannelPriority(), theGlobalPackage.getChannelPriority(), null, "channelPriority", null, 0, 1, GlobalDeclarations.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getGlobalDeclarations_ChannelPriority(), theGlobalPackage.getChannelPriorityDeclaration(), null, "channelPriority", null, 0, 1, GlobalDeclarations.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(localDeclarationsEClass, LocalDeclarations.class, "LocalDeclarations", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
@@ -925,49 +709,23 @@ public class DeclarationsPackageImpl extends EPackageImpl implements Declaration
 
 		initEClass(declarationEClass, Declaration.class, "Declaration", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-		initEClass(variableDeclarationEClass, VariableDeclaration.class, "VariableDeclaration", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-
-		initEClass(channelVariableDeclarationEClass, ChannelVariableDeclaration.class, "ChannelVariableDeclaration", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getChannelVariableDeclaration_Urgent(), ecorePackage.getEBoolean(), "urgent", "false", 1, 1, ChannelVariableDeclaration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getChannelVariableDeclaration_Broadcast(), ecorePackage.getEBoolean(), "broadcast", "false", 1, 1, ChannelVariableDeclaration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-		initEClass(clockVariableDeclarationEClass, ClockVariableDeclaration.class, "ClockVariableDeclaration", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-
-		initEClass(dataVariableDeclarationEClass, DataVariableDeclaration.class, "DataVariableDeclaration", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getDataVariableDeclaration_Prefix(), this.getDataVariablePrefix(), "prefix", null, 1, 1, DataVariableDeclaration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-		initEClass(functionDeclarationEClass, FunctionDeclaration.class, "FunctionDeclaration", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getFunctionDeclaration_Function(), this.getFunction(), null, "function", null, 1, 1, FunctionDeclaration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
 		initEClass(functionEClass, Function.class, "Function", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getFunction_ReturnType(), theTypesPackage.getTypeDefinition(), null, "returnType", null, 1, 1, Function.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getFunction_Block(), theStatementsPackage.getBlock(), null, "block", null, 1, 1, Function.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getFunction_Parameter(), this.getParameter(), null, "parameter", null, 0, -1, Function.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getFunction_Parameter(), this.getParameterContainer(), null, "parameter", null, 0, -1, Function.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(typeDeclarationEClass, TypeDeclaration.class, "TypeDeclaration", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getTypeDeclaration_Type(), theTypesPackage.getDeclaredType(), theTypesPackage.getDeclaredType_TypeDeclaration(), "type", null, 1, -1, TypeDeclaration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getTypeDeclaration_TypeDefinition(), theTypesPackage.getTypeDefinition(), null, "typeDefinition", null, 1, 1, TypeDeclaration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getTypeDeclaration_TypeDefinition(), theExpressionsPackage.getExpression(), null, "typeDefinition", null, 1, 1, TypeDeclaration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(variableEClass, Variable.class, "Variable", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getVariable_Index(), this.getIndex(), null, "index", null, 0, -1, Variable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getVariable_Container(), this.getVariableContainer(), this.getVariableContainer_Variable(), "container", null, 1, 1, Variable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getVariable_TypeDefinition(), theTypesPackage.getTypeDefinition(), null, "typeDefinition", null, 1, 1, Variable.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
+		initEReference(getVariable_Index(), theExpressionsPackage.getExpression(), null, "index", null, 0, -1, Variable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getVariable_Initializer(), this.getInitializer(), null, "initializer", null, 0, 1, Variable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(indexEClass, Index.class, "Index", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-
-		initEClass(valueIndexEClass, ValueIndex.class, "ValueIndex", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getValueIndex_SizeExpression(), theExpressionsPackage.getExpression(), null, "sizeExpression", null, 1, 1, ValueIndex.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-		initEClass(typeIndexEClass, TypeIndex.class, "TypeIndex", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getTypeIndex_TypeDefinition(), theTypesPackage.getTypeDefinition(), null, "typeDefinition", null, 1, 1, TypeIndex.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-		initEClass(variableContainerEClass, VariableContainer.class, "VariableContainer", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getVariableContainer_TypeDefinition(), theTypesPackage.getTypeDefinition(), null, "typeDefinition", null, 1, 1, VariableContainer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getVariableContainer_Variable(), this.getVariable(), this.getVariable_Container(), "variable", null, 1, -1, VariableContainer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(typedElementContainerEClass, TypedElementContainer.class, "TypedElementContainer", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getTypedElementContainer_TypeDefinition(), theExpressionsPackage.getExpression(), null, "typeDefinition", null, 1, 1, TypedElementContainer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getTypedElementContainer_Elements(), theCorePackage.getTypedElement(), theCorePackage.getTypedElement_Container(), "elements", null, 1, -1, TypedElementContainer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(parameterEClass, Parameter.class, "Parameter", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getParameter_VariableDeclaration(), this.getVariableDeclaration(), null, "variableDeclaration", null, 1, 1, Parameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getParameter_CallType(), this.getCallType(), "callType", "CALL_BY_VALUE", 0, 1, Parameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(initializerEClass, Initializer.class, "Initializer", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -978,9 +736,12 @@ public class DeclarationsPackageImpl extends EPackageImpl implements Declaration
 		initEClass(arrayInitializerEClass, ArrayInitializer.class, "ArrayInitializer", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getArrayInitializer_Initializer(), this.getInitializer(), null, "initializer", null, 1, -1, ArrayInitializer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
+		initEClass(typedDeclarationEClass, TypedDeclaration.class, "TypedDeclaration", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(parameterContainerEClass, ParameterContainer.class, "ParameterContainer", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
 		// Initialize enums and add enum literals
 		initEEnum(dataVariablePrefixEEnum, DataVariablePrefix.class, "DataVariablePrefix");
-		addEEnumLiteral(dataVariablePrefixEEnum, DataVariablePrefix.NONE);
 		addEEnumLiteral(dataVariablePrefixEEnum, DataVariablePrefix.CONST);
 		addEEnumLiteral(dataVariablePrefixEEnum, DataVariablePrefix.META);
 
@@ -1017,7 +778,7 @@ public class DeclarationsPackageImpl extends EPackageImpl implements Declaration
 		  (declarationsEClass, 
 		   source, 
 		   new String[] {
-			 "constraints", "UniqueFunctionNames UniqueVariableNames UniqueTypeNames"
+			 "constraints", "UniqueTypeNames UniqueTypedElementNames"
 		   });	
 		addAnnotation
 		  (globalDeclarationsEClass, 
@@ -1035,25 +796,7 @@ public class DeclarationsPackageImpl extends EPackageImpl implements Declaration
 		  (systemDeclarationsEClass, 
 		   source, 
 		   new String[] {
-			 "constraints", "UniqueTemplateNames NoChannelDeclarations"
-		   });	
-		addAnnotation
-		  (channelVariableDeclarationEClass, 
-		   source, 
-		   new String[] {
-			 "constraints", "MatchingType"
-		   });	
-		addAnnotation
-		  (clockVariableDeclarationEClass, 
-		   source, 
-		   new String[] {
-			 "constraints", "MatchingType"
-		   });	
-		addAnnotation
-		  (dataVariableDeclarationEClass, 
-		   source, 
-		   new String[] {
-			 "constraints", "MatchingType"
+			 "constraints", "UniqueTemplateNames"
 		   });	
 		addAnnotation
 		  (functionEClass, 
@@ -1074,22 +817,16 @@ public class DeclarationsPackageImpl extends EPackageImpl implements Declaration
 			 "constraints", "NoInitializerForClockAndChannelVariables"
 		   });	
 		addAnnotation
-		  (typeIndexEClass, 
+		  (typedElementContainerEClass, 
 		   source, 
 		   new String[] {
-			 "constraints", "IntegerBasedIndex"
+			 "constraints", "ElementsMustHaveSameType TypeExpressionMustBeType UniqueElementNames"
 		   });	
 		addAnnotation
-		  (variableContainerEClass, 
+		  (parameterContainerEClass, 
 		   source, 
 		   new String[] {
-			 "constraints", "NoVoidVariables UniqueVariableNames"
-		   });	
-		addAnnotation
-		  (parameterEClass, 
-		   source, 
-		   new String[] {
-			 "constraints", "SingleVariable"
+			 "constraints", "SingleParameter ParametersOnly"
 		   });
 	}
 
@@ -1109,13 +846,6 @@ public class DeclarationsPackageImpl extends EPackageImpl implements Declaration
 			 "kind", "elementOnly"
 		   });	
 		addAnnotation
-		  (variableDeclarationEClass, 
-		   source, 
-		   new String[] {
-			 "name", "VariableDeclaration",
-			 "kind", "elementOnly"
-		   });	
-		addAnnotation
 		  (variableEClass, 
 		   source, 
 		   new String[] {
@@ -1123,7 +853,7 @@ public class DeclarationsPackageImpl extends EPackageImpl implements Declaration
 			 "kind", "empty"
 		   });	
 		addAnnotation
-		  (getVariableContainer_Variable(), 
+		  (getTypedElementContainer_Elements(), 
 		   source, 
 		   new String[] {
 			 "kind", "element",
@@ -1143,9 +873,8 @@ public class DeclarationsPackageImpl extends EPackageImpl implements Declaration
 		  (declarationsEClass, 
 		   source, 
 		   new String[] {
-			 "UniqueFunctionNames", "self.declaration->select(oclIsKindOf(FunctionDeclaration)).oclAsType(FunctionDeclaration)->collect(function)->isUnique(name)",
-			 "UniqueVariableNames", "self.declaration->select(oclIsKindOf(VariableDeclaration)).oclAsType(VariableDeclaration)->collect(variable)->isUnique(name)",
-			 "UniqueTypeNames", "self.declaration->select(oclIsKindOf(TypeDeclaration)).oclAsType(TypeDeclaration)->collect(type)->isUnique(name)"
+			 "UniqueTypeNames", "self.declaration->select(oclIsKindOf(TypeDeclaration)).oclAsType(TypeDeclaration)->collect(type)->isUnique(name)",
+			 "UniqueTypedElementNames", "self.declaration->select(e | e.oclIsKindOf(uppaal::declarations::TypedDeclaration))->collect(oclAsType(uppaal::declarations::TypedDeclaration))->collect(elements)->select(e | e.oclIsKindOf(uppaal::core::NamedElement))->collect(oclAsType(uppaal::core::NamedElement))->isUnique(name)"
 		   });	
 		addAnnotation
 		  (globalDeclarationsEClass, 
@@ -1158,39 +887,20 @@ public class DeclarationsPackageImpl extends EPackageImpl implements Declaration
 		   source, 
 		   new String[] {
 			 "NoTemplateDeclarations", "not self.declaration->exists(oclIsKindOf(system::TemplateDeclaration))",
-			 "NoChannelDeclarations", "not self.declaration->exists(oclIsKindOf(ChannelVariableDeclaration))"
+			 "NoChannelDeclarations", "not self.declaration->exists(\r\n\toclIsKindOf(uppaal::declarations::TypedDeclaration)\r\n\tand\r\n\tlet typeDefinition : uppaal::expressions::Expression = oclAsType(uppaal::declarations::TypedDeclaration).typeDefinition in\r\n\t(\r\n\t\t\r\n\t\ttypeDefinition.oclIsKindOf(uppaal::expressions::ChannelPrefixExpression)\r\n\t\tor\r\n\t\t(\r\n\t\t\ttypeDefinition.oclIsKindOf(uppaal::expressions::IdentifierExpression)\r\n\t\t\tand\r\n\t\t\ttypeDefinition.oclAsType(uppaal::expressions::IdentifierExpression).identifier.oclIsKindOf(uppaal::types::Type)\r\n\t\t\tand\r\n\t\t\ttypeDefinition.oclAsType(uppaal::expressions::IdentifierExpression).identifier.oclAsType(uppaal::types::Type).baseType=uppaal::types::BuiltInType::CHAN\r\n\t\t)\r\n\t)\r\n)"
 		   });	
 		addAnnotation
 		  (systemDeclarationsEClass, 
 		   source, 
 		   new String[] {
-			 "UniqueTemplateNames", "self.declaration->select(oclIsKindOf(system::TemplateDeclaration)).oclAsType(system::TemplateDeclaration)->collect(declaredTemplate)->isUnique(name)",
-			 "NoChannelDeclarations", "not self.declaration->exists(oclIsKindOf(ChannelVariableDeclaration))"
-		   });	
-		addAnnotation
-		  (channelVariableDeclarationEClass, 
-		   source, 
-		   new String[] {
-			 "MatchingType", "(not self.typeDefinition.oclIsUndefined())\r\nimplies\r\nself.typeDefinition.baseType = types::BuiltInType::CHAN"
-		   });	
-		addAnnotation
-		  (clockVariableDeclarationEClass, 
-		   source, 
-		   new String[] {
-			 "MatchingType", "(not self.typeDefinition.oclIsUndefined())\r\nimplies\r\nself.typeDefinition.baseType = types::BuiltInType::CLOCK"
-		   });	
-		addAnnotation
-		  (dataVariableDeclarationEClass, 
-		   source, 
-		   new String[] {
-			 "MatchingType", "(not self.typeDefinition.oclIsUndefined())\r\nimplies\r\n(self.typeDefinition.baseType <> types::BuiltInType::CHAN\r\nand\r\nself.typeDefinition.baseType <> types::BuiltInType::CLOCK)"
+			 "UniqueTemplateNames", "self.declaration->select(oclIsKindOf(system::TemplateDeclaration)).oclAsType(system::TemplateDeclaration)->collect(declaredTemplate)->isUnique(name)"
 		   });	
 		addAnnotation
 		  (functionEClass, 
 		   source, 
 		   new String[] {
-			 "ValidReturnType", "(not returnType.oclIsUndefined())\r\nimplies\r\n(returnType.baseType = types::BuiltInType::VOID or\r\n returnType.baseType = types::BuiltInType::INT or\r\n returnType.baseType = types::BuiltInType::BOOL)",
-			 "UniqueParameterNames", "self.parameter->collect(variableDeclaration)->collect(variable)->isUnique(name)"
+			 "ValidReturnType", "(not typeDefinition.oclIsUndefined())\r\nimplies\r\n(\r\n\t(\r\n\t\ttypeDefinition.oclIsKindOf(uppaal::expressions::IdentifierExpression) and\r\n\t\ttypeDefinition.oclAsType(uppaal::expressions::IdentifierExpression).identifier.oclIsKindOf(uppaal::types::Type) and\r\n\t\t(\r\n\t\t\ttypeDefinition.oclAsType(uppaal::expressions::IdentifierExpression).identifier.oclAsType(uppaal::types::Type).baseType = uppaal::types::BuiltInType::VOID or\r\n\t\t\ttypeDefinition.oclAsType(uppaal::expressions::IdentifierExpression).identifier.oclAsType(uppaal::types::Type).baseType = uppaal::types::BuiltInType::INT or\r\n\t\t\ttypeDefinition.oclAsType(uppaal::expressions::IdentifierExpression).identifier.oclAsType(uppaal::types::Type).baseType = uppaal::types::BuiltInType::BOOL\r\n\t\t)\r\n\t)\r\n\tor\r\n\t\ttypeDefinition.oclIsKindOf(uppaal::types::RangeTypeSpecification)\r\n)",
+			 "UniqueParameterNames", "self.parameter->collect(elements)->select(e | e.oclIsKindOf(uppaal::core::NamedElement))->collect(oclAsType(uppaal::core::NamedElement))->isUnique(name)"
 		   });	
 		addAnnotation
 		  (typeDeclarationEClass, 
@@ -1202,32 +912,22 @@ public class DeclarationsPackageImpl extends EPackageImpl implements Declaration
 		  (variableEClass, 
 		   source, 
 		   new String[] {
-			 "NoInitializerForClockAndChannelVariables", "((not self.typeDefinition.oclIsUndefined()) and\r\n(self.typeDefinition.baseType = types::BuiltInType::CHAN or\r\n self.typeDefinition.baseType = types::BuiltInType::CLOCK))\r\n implies self.initializer.oclIsUndefined()"
+			 "NoInitializerForClockAndChannelVariables", "if (not self.typeDefinition.oclIsUndefined()) then\r\n\t-- No channels allowed.\r\n\tif (self.typeDefinition.oclIsKindOf(uppaal::expressions::ChannelPrefixExpression)) then\r\n\t\tself.initializer.oclIsUndefined()\r\n\telse if (self.typeDefinition.oclIsKindOf(uppaal::expressions::IdentifierExpression)) then\r\n\t\tif (self.typeDefinition.oclAsType(uppaal::expressions::IdentifierExpression).identifier.oclIsKindOf(uppaal::types::Type)) then\r\n\t\t\t(\r\n\t\t\t\t(\r\n\t\t\t\t\tself.typeDefinition.oclAsType(uppaal::expressions::IdentifierExpression).identifier.oclAsType(uppaal::types::Type).baseType=uppaal::types::BuiltInType::CHAN or\r\n\t\t\t\t\tself.typeDefinition.oclAsType(uppaal::expressions::IdentifierExpression).identifier.oclAsType(uppaal::types::Type).baseType=uppaal::types::BuiltInType::CLOCK\r\n\t\t\t\t)\r\n\t\t\t\timplies\r\n\t\t\t\t\tself.initializer.oclIsUndefined()\r\n\t\t\t)\r\n\t\telse true endif\r\n\telse true endif endif\r\nelse\r\n\ttrue\r\nendif"
 		   });	
 		addAnnotation
-		  (getVariable_TypeDefinition(), 
+		  (typedElementContainerEClass, 
 		   source, 
 		   new String[] {
-			 "derivation", "if self.container.oclIsUndefined()\r\nthen null \r\nelse \r\nself.container.typeDefinition \r\nendif"
+			 "UniqueElementNames", "self.elements->select(oclIsKindOf(core::NamedElement))->collect(oclAsType(core::NamedElement))->isUnique(name)",
+			 "ElementsMustHaveSameType", "self.elements->forAll(oclIsKindOf(declarations::Parameter))\r\nor\r\nself.elements->forAll(oclIsKindOf(declarations::Variable))\r\nor\r\nself.elements->forAll(oclIsKindOf(declarations::Function))",
+			 "TypeExpressionMustBeType", "typeDefinition.oclIsKindOf(types::TypeExpression)\r\nor\r\n(\r\n\ttypeDefinition.oclIsKindOf(expressions::IdentifierExpression) and\r\n\ttypeDefinition.oclAsType(expressions::IdentifierExpression).identifier.oclIsKindOf(types::Type)\r\n)\r\nor\r\ntypeDefinition.oclIsKindOf(expressions::ChannelPrefixExpression)\r\nor\r\ntypeDefinition.oclIsKindOf(expressions::DataPrefixExpression)"
 		   });	
 		addAnnotation
-		  (typeIndexEClass, 
+		  (parameterContainerEClass, 
 		   source, 
 		   new String[] {
-			 "IntegerBasedIndex", "(not self.typeDefinition.oclIsUndefined())\r\nimplies\r\nself.typeDefinition.baseType = types::BuiltInType::INT"
-		   });	
-		addAnnotation
-		  (variableContainerEClass, 
-		   source, 
-		   new String[] {
-			 "NoVoidVariables", "(not self.typeDefinition.oclIsUndefined())\r\nimplies\r\nself.typeDefinition.baseType <> types::BuiltInType::VOID",
-			 "UniqueVariableNames", "self.variable->isUnique(name)"
-		   });	
-		addAnnotation
-		  (parameterEClass, 
-		   source, 
-		   new String[] {
-			 "SingleVariable", "(not self.variableDeclaration.oclIsUndefined())\r\nimplies\r\nself.variableDeclaration.variable->size() <= 1"
+			 "SingleParameter", "self.elements->size() <= 1",
+			 "ParametersOnly", "self.elements->forAll(oclIsKindOf(declarations::Parameter))"
 		   });
 	}
 

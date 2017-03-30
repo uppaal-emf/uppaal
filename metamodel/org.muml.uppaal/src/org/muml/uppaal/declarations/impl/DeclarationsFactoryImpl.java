@@ -10,22 +10,18 @@ import org.eclipse.emf.ecore.impl.EFactoryImpl;
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
 import org.muml.uppaal.declarations.ArrayInitializer;
 import org.muml.uppaal.declarations.CallType;
-import org.muml.uppaal.declarations.ChannelVariableDeclaration;
-import org.muml.uppaal.declarations.ClockVariableDeclaration;
-import org.muml.uppaal.declarations.DataVariableDeclaration;
 import org.muml.uppaal.declarations.DataVariablePrefix;
 import org.muml.uppaal.declarations.DeclarationsFactory;
 import org.muml.uppaal.declarations.DeclarationsPackage;
 import org.muml.uppaal.declarations.ExpressionInitializer;
 import org.muml.uppaal.declarations.Function;
-import org.muml.uppaal.declarations.FunctionDeclaration;
 import org.muml.uppaal.declarations.GlobalDeclarations;
 import org.muml.uppaal.declarations.LocalDeclarations;
 import org.muml.uppaal.declarations.Parameter;
+import org.muml.uppaal.declarations.ParameterContainer;
 import org.muml.uppaal.declarations.SystemDeclarations;
 import org.muml.uppaal.declarations.TypeDeclaration;
-import org.muml.uppaal.declarations.TypeIndex;
-import org.muml.uppaal.declarations.ValueIndex;
+import org.muml.uppaal.declarations.TypedDeclaration;
 import org.muml.uppaal.declarations.Variable;
 
 /**
@@ -75,18 +71,14 @@ public class DeclarationsFactoryImpl extends EFactoryImpl implements Declaration
 			case DeclarationsPackage.GLOBAL_DECLARATIONS: return createGlobalDeclarations();
 			case DeclarationsPackage.LOCAL_DECLARATIONS: return createLocalDeclarations();
 			case DeclarationsPackage.SYSTEM_DECLARATIONS: return createSystemDeclarations();
-			case DeclarationsPackage.CHANNEL_VARIABLE_DECLARATION: return createChannelVariableDeclaration();
-			case DeclarationsPackage.CLOCK_VARIABLE_DECLARATION: return createClockVariableDeclaration();
-			case DeclarationsPackage.DATA_VARIABLE_DECLARATION: return createDataVariableDeclaration();
-			case DeclarationsPackage.FUNCTION_DECLARATION: return createFunctionDeclaration();
 			case DeclarationsPackage.FUNCTION: return createFunction();
 			case DeclarationsPackage.TYPE_DECLARATION: return createTypeDeclaration();
 			case DeclarationsPackage.VARIABLE: return createVariable();
-			case DeclarationsPackage.VALUE_INDEX: return createValueIndex();
-			case DeclarationsPackage.TYPE_INDEX: return createTypeIndex();
 			case DeclarationsPackage.PARAMETER: return createParameter();
 			case DeclarationsPackage.EXPRESSION_INITIALIZER: return createExpressionInitializer();
 			case DeclarationsPackage.ARRAY_INITIALIZER: return createArrayInitializer();
+			case DeclarationsPackage.TYPED_DECLARATION: return createTypedDeclaration();
+			case DeclarationsPackage.PARAMETER_CONTAINER: return createParameterContainer();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -161,46 +153,6 @@ public class DeclarationsFactoryImpl extends EFactoryImpl implements Declaration
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ChannelVariableDeclaration createChannelVariableDeclaration() {
-		ChannelVariableDeclarationImpl channelVariableDeclaration = new ChannelVariableDeclarationImpl();
-		return channelVariableDeclaration;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public ClockVariableDeclaration createClockVariableDeclaration() {
-		ClockVariableDeclarationImpl clockVariableDeclaration = new ClockVariableDeclarationImpl();
-		return clockVariableDeclaration;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public DataVariableDeclaration createDataVariableDeclaration() {
-		DataVariableDeclarationImpl dataVariableDeclaration = new DataVariableDeclarationImpl();
-		return dataVariableDeclaration;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public FunctionDeclaration createFunctionDeclaration() {
-		FunctionDeclarationImpl functionDeclaration = new FunctionDeclarationImpl();
-		return functionDeclaration;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public Function createFunction() {
 		FunctionImpl function = new FunctionImpl();
 		return function;
@@ -231,26 +183,6 @@ public class DeclarationsFactoryImpl extends EFactoryImpl implements Declaration
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ValueIndex createValueIndex() {
-		ValueIndexImpl valueIndex = new ValueIndexImpl();
-		return valueIndex;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public TypeIndex createTypeIndex() {
-		TypeIndexImpl typeIndex = new TypeIndexImpl();
-		return typeIndex;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public Parameter createParameter() {
 		ParameterImpl parameter = new ParameterImpl();
 		return parameter;
@@ -274,6 +206,26 @@ public class DeclarationsFactoryImpl extends EFactoryImpl implements Declaration
 	public ArrayInitializer createArrayInitializer() {
 		ArrayInitializerImpl arrayInitializer = new ArrayInitializerImpl();
 		return arrayInitializer;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public TypedDeclaration createTypedDeclaration() {
+		TypedDeclarationImpl typedDeclaration = new TypedDeclarationImpl();
+		return typedDeclaration;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ParameterContainer createParameterContainer() {
+		ParameterContainerImpl parameterContainer = new ParameterContainerImpl();
+		return parameterContainer;
 	}
 
 	/**

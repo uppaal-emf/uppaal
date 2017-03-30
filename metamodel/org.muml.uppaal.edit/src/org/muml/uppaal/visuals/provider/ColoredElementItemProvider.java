@@ -20,7 +20,6 @@ import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 import org.muml.uppaal.provider.UppaalEditPlugin;
-import org.muml.uppaal.visuals.ColorKind;
 import org.muml.uppaal.visuals.ColoredElement;
 import org.muml.uppaal.visuals.VisualsPackage;
 
@@ -59,32 +58,9 @@ public class ColoredElementItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addColorPropertyDescriptor(object);
 			addColorCodePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
-	}
-
-	/**
-	 * This adds a property descriptor for the Color feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addColorPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_ColoredElement_color_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_ColoredElement_color_feature", "_UI_ColoredElement_type"),
-				 VisualsPackage.Literals.COLORED_ELEMENT__COLOR,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
-				 null));
 	}
 
 	/**
@@ -117,8 +93,7 @@ public class ColoredElementItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		ColorKind labelValue = ((ColoredElement)object).getColor();
-		String label = labelValue == null ? null : labelValue.toString();
+		String label = ((ColoredElement)object).getColorCode();
 		return label == null || label.length() == 0 ?
 			getString("_UI_ColoredElement_type") :
 			getString("_UI_ColoredElement_type") + " " + label;
@@ -136,7 +111,6 @@ public class ColoredElementItemProvider
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(ColoredElement.class)) {
-			case VisualsPackage.COLORED_ELEMENT__COLOR:
 			case VisualsPackage.COLORED_ELEMENT__COLOR_CODE:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;

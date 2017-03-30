@@ -8,6 +8,7 @@ import org.eclipse.emf.ecore.EEnum;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 import org.muml.uppaal.core.CorePackage;
+import org.muml.uppaal.expressions.ExpressionsPackage;
 
 /**
  * <!-- begin-user-doc -->
@@ -81,31 +82,13 @@ public interface TypesPackage extends EPackage {
 	int TYPE__NAME = CorePackage.NAMED_ELEMENT__NAME;
 
 	/**
-	 * The feature id for the '<em><b>Index</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TYPE__INDEX = CorePackage.NAMED_ELEMENT_FEATURE_COUNT + 0;
-
-	/**
 	 * The feature id for the '<em><b>Base Type</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TYPE__BASE_TYPE = CorePackage.NAMED_ELEMENT_FEATURE_COUNT + 1;
-
-	/**
-	 * The feature id for the '<em><b>Type Specification</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TYPE__TYPE_SPECIFICATION = CorePackage.NAMED_ELEMENT_FEATURE_COUNT + 2;
+	int TYPE__BASE_TYPE = CorePackage.NAMED_ELEMENT_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of structural features of the '<em>Type</em>' class.
@@ -114,7 +97,7 @@ public interface TypesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TYPE_FEATURE_COUNT = CorePackage.NAMED_ELEMENT_FEATURE_COUNT + 3;
+	int TYPE_FEATURE_COUNT = CorePackage.NAMED_ELEMENT_FEATURE_COUNT + 1;
 
 	/**
 	 * The meta object id for the '{@link org.muml.uppaal.types.impl.PredefinedTypeImpl <em>Predefined Type</em>}' class.
@@ -136,15 +119,6 @@ public interface TypesPackage extends EPackage {
 	int PREDEFINED_TYPE__NAME = TYPE__NAME;
 
 	/**
-	 * The feature id for the '<em><b>Index</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PREDEFINED_TYPE__INDEX = TYPE__INDEX;
-
-	/**
 	 * The feature id for the '<em><b>Base Type</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -152,15 +126,6 @@ public interface TypesPackage extends EPackage {
 	 * @ordered
 	 */
 	int PREDEFINED_TYPE__BASE_TYPE = TYPE__BASE_TYPE;
-
-	/**
-	 * The feature id for the '<em><b>Type Specification</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PREDEFINED_TYPE__TYPE_SPECIFICATION = TYPE__TYPE_SPECIFICATION;
 
 	/**
 	 * The feature id for the '<em><b>Type</b></em>' attribute.
@@ -200,15 +165,6 @@ public interface TypesPackage extends EPackage {
 	int DECLARED_TYPE__NAME = TYPE__NAME;
 
 	/**
-	 * The feature id for the '<em><b>Index</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DECLARED_TYPE__INDEX = TYPE__INDEX;
-
-	/**
 	 * The feature id for the '<em><b>Base Type</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -216,15 +172,6 @@ public interface TypesPackage extends EPackage {
 	 * @ordered
 	 */
 	int DECLARED_TYPE__BASE_TYPE = TYPE__BASE_TYPE;
-
-	/**
-	 * The feature id for the '<em><b>Type Specification</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DECLARED_TYPE__TYPE_SPECIFICATION = TYPE__TYPE_SPECIFICATION;
 
 	/**
 	 * The feature id for the '<em><b>Type Declaration</b></em>' container reference.
@@ -254,124 +201,23 @@ public interface TypesPackage extends EPackage {
 	int DECLARED_TYPE_FEATURE_COUNT = TYPE_FEATURE_COUNT + 2;
 
 	/**
-	 * The meta object id for the '{@link org.muml.uppaal.types.impl.TypeDefinitionImpl <em>Type Definition</em>}' class.
+	 * The meta object id for the '{@link org.muml.uppaal.types.impl.TypeExpressionImpl <em>Type Expression</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see org.muml.uppaal.types.impl.TypeDefinitionImpl
-	 * @see org.muml.uppaal.types.impl.TypesPackageImpl#getTypeDefinition()
+	 * @see org.muml.uppaal.types.impl.TypeExpressionImpl
+	 * @see org.muml.uppaal.types.impl.TypesPackageImpl#getTypeExpression()
 	 * @generated
 	 */
-	int TYPE_DEFINITION = 3;
+	int TYPE_EXPRESSION = 3;
 
 	/**
-	 * The feature id for the '<em><b>Base Type</b></em>' attribute.
+	 * The number of structural features of the '<em>Type Expression</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TYPE_DEFINITION__BASE_TYPE = 0;
-
-	/**
-	 * The feature id for the '<em><b>Type Specification</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TYPE_DEFINITION__TYPE_SPECIFICATION = 1;
-
-	/**
-	 * The number of structural features of the '<em>Type Definition</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TYPE_DEFINITION_FEATURE_COUNT = 2;
-
-	/**
-	 * The meta object id for the '{@link org.muml.uppaal.types.impl.TypeReferenceImpl <em>Type Reference</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see org.muml.uppaal.types.impl.TypeReferenceImpl
-	 * @see org.muml.uppaal.types.impl.TypesPackageImpl#getTypeReference()
-	 * @generated
-	 */
-	int TYPE_REFERENCE = 4;
-
-	/**
-	 * The feature id for the '<em><b>Base Type</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TYPE_REFERENCE__BASE_TYPE = TYPE_DEFINITION__BASE_TYPE;
-
-	/**
-	 * The feature id for the '<em><b>Type Specification</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TYPE_REFERENCE__TYPE_SPECIFICATION = TYPE_DEFINITION__TYPE_SPECIFICATION;
-
-	/**
-	 * The feature id for the '<em><b>Referred Type</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TYPE_REFERENCE__REFERRED_TYPE = TYPE_DEFINITION_FEATURE_COUNT + 0;
-
-	/**
-	 * The number of structural features of the '<em>Type Reference</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TYPE_REFERENCE_FEATURE_COUNT = TYPE_DEFINITION_FEATURE_COUNT + 1;
-
-	/**
-	 * The meta object id for the '{@link org.muml.uppaal.types.impl.TypeSpecificationImpl <em>Type Specification</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see org.muml.uppaal.types.impl.TypeSpecificationImpl
-	 * @see org.muml.uppaal.types.impl.TypesPackageImpl#getTypeSpecification()
-	 * @generated
-	 */
-	int TYPE_SPECIFICATION = 5;
-
-	/**
-	 * The feature id for the '<em><b>Base Type</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TYPE_SPECIFICATION__BASE_TYPE = TYPE_DEFINITION__BASE_TYPE;
-
-	/**
-	 * The feature id for the '<em><b>Type Specification</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TYPE_SPECIFICATION__TYPE_SPECIFICATION = TYPE_DEFINITION__TYPE_SPECIFICATION;
-
-	/**
-	 * The number of structural features of the '<em>Type Specification</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TYPE_SPECIFICATION_FEATURE_COUNT = TYPE_DEFINITION_FEATURE_COUNT + 0;
+	int TYPE_EXPRESSION_FEATURE_COUNT = ExpressionsPackage.EXPRESSION_FEATURE_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link org.muml.uppaal.types.impl.ScalarTypeSpecificationImpl <em>Scalar Type Specification</em>}' class.
@@ -381,25 +227,7 @@ public interface TypesPackage extends EPackage {
 	 * @see org.muml.uppaal.types.impl.TypesPackageImpl#getScalarTypeSpecification()
 	 * @generated
 	 */
-	int SCALAR_TYPE_SPECIFICATION = 6;
-
-	/**
-	 * The feature id for the '<em><b>Base Type</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SCALAR_TYPE_SPECIFICATION__BASE_TYPE = TYPE_SPECIFICATION__BASE_TYPE;
-
-	/**
-	 * The feature id for the '<em><b>Type Specification</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SCALAR_TYPE_SPECIFICATION__TYPE_SPECIFICATION = TYPE_SPECIFICATION__TYPE_SPECIFICATION;
+	int SCALAR_TYPE_SPECIFICATION = 4;
 
 	/**
 	 * The feature id for the '<em><b>Size Expression</b></em>' containment reference.
@@ -408,7 +236,7 @@ public interface TypesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SCALAR_TYPE_SPECIFICATION__SIZE_EXPRESSION = TYPE_SPECIFICATION_FEATURE_COUNT + 0;
+	int SCALAR_TYPE_SPECIFICATION__SIZE_EXPRESSION = TYPE_EXPRESSION_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of structural features of the '<em>Scalar Type Specification</em>' class.
@@ -417,7 +245,7 @@ public interface TypesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SCALAR_TYPE_SPECIFICATION_FEATURE_COUNT = TYPE_SPECIFICATION_FEATURE_COUNT + 1;
+	int SCALAR_TYPE_SPECIFICATION_FEATURE_COUNT = TYPE_EXPRESSION_FEATURE_COUNT + 1;
 
 	/**
 	 * The meta object id for the '{@link org.muml.uppaal.types.impl.StructTypeSpecificationImpl <em>Struct Type Specification</em>}' class.
@@ -427,25 +255,7 @@ public interface TypesPackage extends EPackage {
 	 * @see org.muml.uppaal.types.impl.TypesPackageImpl#getStructTypeSpecification()
 	 * @generated
 	 */
-	int STRUCT_TYPE_SPECIFICATION = 7;
-
-	/**
-	 * The feature id for the '<em><b>Base Type</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int STRUCT_TYPE_SPECIFICATION__BASE_TYPE = TYPE_SPECIFICATION__BASE_TYPE;
-
-	/**
-	 * The feature id for the '<em><b>Type Specification</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int STRUCT_TYPE_SPECIFICATION__TYPE_SPECIFICATION = TYPE_SPECIFICATION__TYPE_SPECIFICATION;
+	int STRUCT_TYPE_SPECIFICATION = 5;
 
 	/**
 	 * The feature id for the '<em><b>Declaration</b></em>' containment reference list.
@@ -454,7 +264,7 @@ public interface TypesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int STRUCT_TYPE_SPECIFICATION__DECLARATION = TYPE_SPECIFICATION_FEATURE_COUNT + 0;
+	int STRUCT_TYPE_SPECIFICATION__DECLARATION = TYPE_EXPRESSION_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of structural features of the '<em>Struct Type Specification</em>' class.
@@ -463,7 +273,7 @@ public interface TypesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int STRUCT_TYPE_SPECIFICATION_FEATURE_COUNT = TYPE_SPECIFICATION_FEATURE_COUNT + 1;
+	int STRUCT_TYPE_SPECIFICATION_FEATURE_COUNT = TYPE_EXPRESSION_FEATURE_COUNT + 1;
 
 	/**
 	 * The meta object id for the '{@link org.muml.uppaal.types.impl.RangeTypeSpecificationImpl <em>Range Type Specification</em>}' class.
@@ -473,25 +283,7 @@ public interface TypesPackage extends EPackage {
 	 * @see org.muml.uppaal.types.impl.TypesPackageImpl#getRangeTypeSpecification()
 	 * @generated
 	 */
-	int RANGE_TYPE_SPECIFICATION = 8;
-
-	/**
-	 * The feature id for the '<em><b>Base Type</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int RANGE_TYPE_SPECIFICATION__BASE_TYPE = TYPE_SPECIFICATION__BASE_TYPE;
-
-	/**
-	 * The feature id for the '<em><b>Type Specification</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int RANGE_TYPE_SPECIFICATION__TYPE_SPECIFICATION = TYPE_SPECIFICATION__TYPE_SPECIFICATION;
+	int RANGE_TYPE_SPECIFICATION = 6;
 
 	/**
 	 * The feature id for the '<em><b>Bounds</b></em>' containment reference.
@@ -500,7 +292,7 @@ public interface TypesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RANGE_TYPE_SPECIFICATION__BOUNDS = TYPE_SPECIFICATION_FEATURE_COUNT + 0;
+	int RANGE_TYPE_SPECIFICATION__BOUNDS = TYPE_EXPRESSION_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of structural features of the '<em>Range Type Specification</em>' class.
@@ -509,7 +301,7 @@ public interface TypesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RANGE_TYPE_SPECIFICATION_FEATURE_COUNT = TYPE_SPECIFICATION_FEATURE_COUNT + 1;
+	int RANGE_TYPE_SPECIFICATION_FEATURE_COUNT = TYPE_EXPRESSION_FEATURE_COUNT + 1;
 
 	/**
 	 * The meta object id for the '{@link org.muml.uppaal.types.impl.IntegerBoundsImpl <em>Integer Bounds</em>}' class.
@@ -519,7 +311,7 @@ public interface TypesPackage extends EPackage {
 	 * @see org.muml.uppaal.types.impl.TypesPackageImpl#getIntegerBounds()
 	 * @generated
 	 */
-	int INTEGER_BOUNDS = 9;
+	int INTEGER_BOUNDS = 7;
 
 	/**
 	 * The feature id for the '<em><b>Lower Bound</b></em>' containment reference.
@@ -556,10 +348,10 @@ public interface TypesPackage extends EPackage {
 	 * @see org.muml.uppaal.types.impl.TypesPackageImpl#getLibrary()
 	 * @generated
 	 */
-	int LIBRARY = 10;
+	int LIBRARY = 8;
 
 	/**
-	 * The feature id for the '<em><b>Types</b></em>' containment reference.
+	 * The feature id for the '<em><b>Types</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -584,7 +376,7 @@ public interface TypesPackage extends EPackage {
 	 * @see org.muml.uppaal.types.impl.TypesPackageImpl#getBuiltInType()
 	 * @generated
 	 */
-	int BUILT_IN_TYPE = 11;
+	int BUILT_IN_TYPE = 9;
 
 
 	/**
@@ -598,17 +390,6 @@ public interface TypesPackage extends EPackage {
 	EClass getType();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link org.muml.uppaal.types.Type#getIndex <em>Index</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Index</em>'.
-	 * @see org.muml.uppaal.types.Type#getIndex()
-	 * @see #getType()
-	 * @generated
-	 */
-	EReference getType_Index();
-
-	/**
 	 * Returns the meta object for the attribute '{@link org.muml.uppaal.types.Type#getBaseType <em>Base Type</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -618,17 +399,6 @@ public interface TypesPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getType_BaseType();
-
-	/**
-	 * Returns the meta object for the reference '{@link org.muml.uppaal.types.Type#getTypeSpecification <em>Type Specification</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Type Specification</em>'.
-	 * @see org.muml.uppaal.types.Type#getTypeSpecification()
-	 * @see #getType()
-	 * @generated
-	 */
-	EReference getType_TypeSpecification();
 
 	/**
 	 * Returns the meta object for class '{@link org.muml.uppaal.types.PredefinedType <em>Predefined Type</em>}'.
@@ -684,67 +454,14 @@ public interface TypesPackage extends EPackage {
 	EReference getDeclaredType_TypeDefinition();
 
 	/**
-	 * Returns the meta object for class '{@link org.muml.uppaal.types.TypeDefinition <em>Type Definition</em>}'.
+	 * Returns the meta object for class '{@link org.muml.uppaal.types.TypeExpression <em>Type Expression</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Type Definition</em>'.
-	 * @see org.muml.uppaal.types.TypeDefinition
+	 * @return the meta object for class '<em>Type Expression</em>'.
+	 * @see org.muml.uppaal.types.TypeExpression
 	 * @generated
 	 */
-	EClass getTypeDefinition();
-
-	/**
-	 * Returns the meta object for the attribute '{@link org.muml.uppaal.types.TypeDefinition#getBaseType <em>Base Type</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Base Type</em>'.
-	 * @see org.muml.uppaal.types.TypeDefinition#getBaseType()
-	 * @see #getTypeDefinition()
-	 * @generated
-	 */
-	EAttribute getTypeDefinition_BaseType();
-
-	/**
-	 * Returns the meta object for the reference '{@link org.muml.uppaal.types.TypeDefinition#getTypeSpecification <em>Type Specification</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Type Specification</em>'.
-	 * @see org.muml.uppaal.types.TypeDefinition#getTypeSpecification()
-	 * @see #getTypeDefinition()
-	 * @generated
-	 */
-	EReference getTypeDefinition_TypeSpecification();
-
-	/**
-	 * Returns the meta object for class '{@link org.muml.uppaal.types.TypeReference <em>Type Reference</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Type Reference</em>'.
-	 * @see org.muml.uppaal.types.TypeReference
-	 * @generated
-	 */
-	EClass getTypeReference();
-
-	/**
-	 * Returns the meta object for the reference '{@link org.muml.uppaal.types.TypeReference#getReferredType <em>Referred Type</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Referred Type</em>'.
-	 * @see org.muml.uppaal.types.TypeReference#getReferredType()
-	 * @see #getTypeReference()
-	 * @generated
-	 */
-	EReference getTypeReference_ReferredType();
-
-	/**
-	 * Returns the meta object for class '{@link org.muml.uppaal.types.TypeSpecification <em>Type Specification</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Type Specification</em>'.
-	 * @see org.muml.uppaal.types.TypeSpecification
-	 * @generated
-	 */
-	EClass getTypeSpecification();
+	EClass getTypeExpression();
 
 	/**
 	 * Returns the meta object for class '{@link org.muml.uppaal.types.ScalarTypeSpecification <em>Scalar Type Specification</em>}'.
@@ -852,10 +569,10 @@ public interface TypesPackage extends EPackage {
 	EClass getLibrary();
 
 	/**
-	 * Returns the meta object for the containment reference '{@link org.muml.uppaal.types.Library#getTypes <em>Types</em>}'.
+	 * Returns the meta object for the containment reference list '{@link org.muml.uppaal.types.Library#getTypes <em>Types</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Types</em>'.
+	 * @return the meta object for the containment reference list '<em>Types</em>'.
 	 * @see org.muml.uppaal.types.Library#getTypes()
 	 * @see #getLibrary()
 	 * @generated
@@ -905,28 +622,12 @@ public interface TypesPackage extends EPackage {
 		EClass TYPE = eINSTANCE.getType();
 
 		/**
-		 * The meta object literal for the '<em><b>Index</b></em>' containment reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference TYPE__INDEX = eINSTANCE.getType_Index();
-
-		/**
 		 * The meta object literal for the '<em><b>Base Type</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
 		EAttribute TYPE__BASE_TYPE = eINSTANCE.getType_BaseType();
-
-		/**
-		 * The meta object literal for the '<em><b>Type Specification</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference TYPE__TYPE_SPECIFICATION = eINSTANCE.getType_TypeSpecification();
 
 		/**
 		 * The meta object literal for the '{@link org.muml.uppaal.types.impl.PredefinedTypeImpl <em>Predefined Type</em>}' class.
@@ -973,58 +674,14 @@ public interface TypesPackage extends EPackage {
 		EReference DECLARED_TYPE__TYPE_DEFINITION = eINSTANCE.getDeclaredType_TypeDefinition();
 
 		/**
-		 * The meta object literal for the '{@link org.muml.uppaal.types.impl.TypeDefinitionImpl <em>Type Definition</em>}' class.
+		 * The meta object literal for the '{@link org.muml.uppaal.types.impl.TypeExpressionImpl <em>Type Expression</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see org.muml.uppaal.types.impl.TypeDefinitionImpl
-		 * @see org.muml.uppaal.types.impl.TypesPackageImpl#getTypeDefinition()
+		 * @see org.muml.uppaal.types.impl.TypeExpressionImpl
+		 * @see org.muml.uppaal.types.impl.TypesPackageImpl#getTypeExpression()
 		 * @generated
 		 */
-		EClass TYPE_DEFINITION = eINSTANCE.getTypeDefinition();
-
-		/**
-		 * The meta object literal for the '<em><b>Base Type</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute TYPE_DEFINITION__BASE_TYPE = eINSTANCE.getTypeDefinition_BaseType();
-
-		/**
-		 * The meta object literal for the '<em><b>Type Specification</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference TYPE_DEFINITION__TYPE_SPECIFICATION = eINSTANCE.getTypeDefinition_TypeSpecification();
-
-		/**
-		 * The meta object literal for the '{@link org.muml.uppaal.types.impl.TypeReferenceImpl <em>Type Reference</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see org.muml.uppaal.types.impl.TypeReferenceImpl
-		 * @see org.muml.uppaal.types.impl.TypesPackageImpl#getTypeReference()
-		 * @generated
-		 */
-		EClass TYPE_REFERENCE = eINSTANCE.getTypeReference();
-
-		/**
-		 * The meta object literal for the '<em><b>Referred Type</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference TYPE_REFERENCE__REFERRED_TYPE = eINSTANCE.getTypeReference_ReferredType();
-
-		/**
-		 * The meta object literal for the '{@link org.muml.uppaal.types.impl.TypeSpecificationImpl <em>Type Specification</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see org.muml.uppaal.types.impl.TypeSpecificationImpl
-		 * @see org.muml.uppaal.types.impl.TypesPackageImpl#getTypeSpecification()
-		 * @generated
-		 */
-		EClass TYPE_SPECIFICATION = eINSTANCE.getTypeSpecification();
+		EClass TYPE_EXPRESSION = eINSTANCE.getTypeExpression();
 
 		/**
 		 * The meta object literal for the '{@link org.muml.uppaal.types.impl.ScalarTypeSpecificationImpl <em>Scalar Type Specification</em>}' class.
@@ -1117,7 +774,7 @@ public interface TypesPackage extends EPackage {
 		EClass LIBRARY = eINSTANCE.getLibrary();
 
 		/**
-		 * The meta object literal for the '<em><b>Types</b></em>' containment reference feature.
+		 * The meta object literal for the '<em><b>Types</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated

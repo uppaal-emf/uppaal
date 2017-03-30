@@ -2,6 +2,7 @@
  */
 package org.muml.uppaal.types;
 
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 
 /**
@@ -23,28 +24,18 @@ import org.eclipse.emf.ecore.EObject;
 public interface Library extends EObject {
 
 	/**
-	 * Returns the value of the '<em><b>Types</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Types</b></em>' containment reference list.
+	 * The list contents are of type {@link org.muml.uppaal.types.PredefinedType}.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Types</em>' containment reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Types</em>' containment reference.
-	 * @see #setTypes(PredefinedType)
+	 * @return the value of the '<em>Types</em>' containment reference list.
 	 * @see org.muml.uppaal.types.TypesPackage#getLibrary_Types()
 	 * @model containment="true"
 	 * @generated
 	 */
-	PredefinedType getTypes();
-
-	/**
-	 * Sets the value of the '{@link org.muml.uppaal.types.Library#getTypes <em>Types</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Types</em>' containment reference.
-	 * @see #getTypes()
-	 * @generated
-	 */
-	void setTypes(PredefinedType value);
+	EList<PredefinedType> getTypes();
 } // Library

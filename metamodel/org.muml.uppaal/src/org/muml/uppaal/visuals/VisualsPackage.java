@@ -4,7 +4,6 @@ package org.muml.uppaal.visuals;
 
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EEnum;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 
@@ -71,22 +70,13 @@ public interface VisualsPackage extends EPackage {
 	int COLORED_ELEMENT = 0;
 
 	/**
-	 * The feature id for the '<em><b>Color</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int COLORED_ELEMENT__COLOR = 0;
-
-	/**
 	 * The feature id for the '<em><b>Color Code</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COLORED_ELEMENT__COLOR_CODE = 1;
+	int COLORED_ELEMENT__COLOR_CODE = 0;
 
 	/**
 	 * The number of structural features of the '<em>Colored Element</em>' class.
@@ -95,7 +85,7 @@ public interface VisualsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COLORED_ELEMENT_FEATURE_COUNT = 2;
+	int COLORED_ELEMENT_FEATURE_COUNT = 1;
 
 	/**
 	 * The meta object id for the '{@link org.muml.uppaal.visuals.impl.PlanarElementImpl <em>Planar Element</em>}' class.
@@ -191,17 +181,6 @@ public interface VisualsPackage extends EPackage {
 	int POINT_FEATURE_COUNT = 2;
 
 	/**
-	 * The meta object id for the '{@link org.muml.uppaal.visuals.ColorKind <em>Color Kind</em>}' enum.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see org.muml.uppaal.visuals.ColorKind
-	 * @see org.muml.uppaal.visuals.impl.VisualsPackageImpl#getColorKind()
-	 * @generated
-	 */
-	int COLOR_KIND = 4;
-
-
-	/**
 	 * Returns the meta object for class '{@link org.muml.uppaal.visuals.ColoredElement <em>Colored Element</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -210,17 +189,6 @@ public interface VisualsPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getColoredElement();
-
-	/**
-	 * Returns the meta object for the attribute '{@link org.muml.uppaal.visuals.ColoredElement#getColor <em>Color</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Color</em>'.
-	 * @see org.muml.uppaal.visuals.ColoredElement#getColor()
-	 * @see #getColoredElement()
-	 * @generated
-	 */
-	EAttribute getColoredElement_Color();
 
 	/**
 	 * Returns the meta object for the attribute '{@link org.muml.uppaal.visuals.ColoredElement#getColorCode <em>Color Code</em>}'.
@@ -308,16 +276,6 @@ public interface VisualsPackage extends EPackage {
 	EAttribute getPoint_Y();
 
 	/**
-	 * Returns the meta object for enum '{@link org.muml.uppaal.visuals.ColorKind <em>Color Kind</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for enum '<em>Color Kind</em>'.
-	 * @see org.muml.uppaal.visuals.ColorKind
-	 * @generated
-	 */
-	EEnum getColorKind();
-
-	/**
 	 * Returns the factory that creates the instances of the model.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -348,14 +306,6 @@ public interface VisualsPackage extends EPackage {
 		 * @generated
 		 */
 		EClass COLORED_ELEMENT = eINSTANCE.getColoredElement();
-
-		/**
-		 * The meta object literal for the '<em><b>Color</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute COLORED_ELEMENT__COLOR = eINSTANCE.getColoredElement_Color();
 
 		/**
 		 * The meta object literal for the '<em><b>Color Code</b></em>' attribute feature.
@@ -426,16 +376,6 @@ public interface VisualsPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute POINT__Y = eINSTANCE.getPoint_Y();
-
-		/**
-		 * The meta object literal for the '{@link org.muml.uppaal.visuals.ColorKind <em>Color Kind</em>}' enum.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see org.muml.uppaal.visuals.ColorKind
-		 * @see org.muml.uppaal.visuals.impl.VisualsPackageImpl#getColorKind()
-		 * @generated
-		 */
-		EEnum COLOR_KIND = eINSTANCE.getColorKind();
 
 	}
 

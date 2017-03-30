@@ -12,8 +12,8 @@ import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 import org.muml.uppaal.expressions.ExpressionsFactory;
-import org.muml.uppaal.types.BuiltInType;
 import org.muml.uppaal.types.ScalarTypeSpecification;
+import org.muml.uppaal.types.TypesFactory;
 import org.muml.uppaal.types.TypesPackage;
 
 /**
@@ -23,7 +23,7 @@ import org.muml.uppaal.types.TypesPackage;
  * @generated
  */
 public class ScalarTypeSpecificationItemProvider
-	extends TypeSpecificationItemProvider {
+	extends TypeExpressionItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
@@ -98,11 +98,7 @@ public class ScalarTypeSpecificationItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		BuiltInType labelValue = ((ScalarTypeSpecification)object).getBaseType();
-		String label = labelValue == null ? null : labelValue.toString();
-		return label == null || label.length() == 0 ?
-			getString("_UI_ScalarTypeSpecification_type") :
-			getString("_UI_ScalarTypeSpecification_type") + " " + label;
+		return getString("_UI_ScalarTypeSpecification_type");
 	}
 
 	/**
@@ -138,6 +134,21 @@ public class ScalarTypeSpecificationItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(TypesPackage.Literals.SCALAR_TYPE_SPECIFICATION__SIZE_EXPRESSION,
+				 TypesFactory.eINSTANCE.createScalarTypeSpecification()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(TypesPackage.Literals.SCALAR_TYPE_SPECIFICATION__SIZE_EXPRESSION,
+				 TypesFactory.eINSTANCE.createStructTypeSpecification()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(TypesPackage.Literals.SCALAR_TYPE_SPECIFICATION__SIZE_EXPRESSION,
+				 TypesFactory.eINSTANCE.createRangeTypeSpecification()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(TypesPackage.Literals.SCALAR_TYPE_SPECIFICATION__SIZE_EXPRESSION,
 				 ExpressionsFactory.eINSTANCE.createNegationExpression()));
 
 		newChildDescriptors.add
@@ -159,6 +170,11 @@ public class ScalarTypeSpecificationItemProvider
 			(createChildParameter
 				(TypesPackage.Literals.SCALAR_TYPE_SPECIFICATION__SIZE_EXPRESSION,
 				 ExpressionsFactory.eINSTANCE.createIdentifierExpression()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(TypesPackage.Literals.SCALAR_TYPE_SPECIFICATION__SIZE_EXPRESSION,
+				 ExpressionsFactory.eINSTANCE.createScopedIdentifierExpression()));
 
 		newChildDescriptors.add
 			(createChildParameter
@@ -193,17 +209,17 @@ public class ScalarTypeSpecificationItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(TypesPackage.Literals.SCALAR_TYPE_SPECIFICATION__SIZE_EXPRESSION,
-				 ExpressionsFactory.eINSTANCE.createScopedIdentifierExpression()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(TypesPackage.Literals.SCALAR_TYPE_SPECIFICATION__SIZE_EXPRESSION,
 				 ExpressionsFactory.eINSTANCE.createQuantificationExpression()));
 
 		newChildDescriptors.add
 			(createChildParameter
 				(TypesPackage.Literals.SCALAR_TYPE_SPECIFICATION__SIZE_EXPRESSION,
-				 ExpressionsFactory.eINSTANCE.createIncrementDecrementExpression()));
+				 ExpressionsFactory.eINSTANCE.createPreIncrementDecrementExpression()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(TypesPackage.Literals.SCALAR_TYPE_SPECIFICATION__SIZE_EXPRESSION,
+				 ExpressionsFactory.eINSTANCE.createPostIncrementDecrementExpression()));
 
 		newChildDescriptors.add
 			(createChildParameter
@@ -219,6 +235,16 @@ public class ScalarTypeSpecificationItemProvider
 			(createChildParameter
 				(TypesPackage.Literals.SCALAR_TYPE_SPECIFICATION__SIZE_EXPRESSION,
 				 ExpressionsFactory.eINSTANCE.createBitwiseExpression()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(TypesPackage.Literals.SCALAR_TYPE_SPECIFICATION__SIZE_EXPRESSION,
+				 ExpressionsFactory.eINSTANCE.createChannelPrefixExpression()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(TypesPackage.Literals.SCALAR_TYPE_SPECIFICATION__SIZE_EXPRESSION,
+				 ExpressionsFactory.eINSTANCE.createDataPrefixExpression()));
 	}
 
 }

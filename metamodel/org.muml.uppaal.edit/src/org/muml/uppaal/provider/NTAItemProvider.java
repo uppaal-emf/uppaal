@@ -20,7 +20,6 @@ import org.muml.uppaal.core.CorePackage;
 import org.muml.uppaal.core.provider.NamedElementItemProvider;
 import org.muml.uppaal.declarations.DeclarationsFactory;
 import org.muml.uppaal.templates.TemplatesFactory;
-import org.muml.uppaal.types.TypesFactory;
 
 /**
  * This is the item provider adapter for a {@link org.muml.uppaal.NTA} object.
@@ -93,11 +92,6 @@ public class NTAItemProvider
 			childrenFeatures.add(UppaalPackage.Literals.NTA__GLOBAL_DECLARATIONS);
 			childrenFeatures.add(UppaalPackage.Literals.NTA__TEMPLATE);
 			childrenFeatures.add(UppaalPackage.Literals.NTA__SYSTEM_DECLARATIONS);
-			childrenFeatures.add(UppaalPackage.Literals.NTA__INT);
-			childrenFeatures.add(UppaalPackage.Literals.NTA__BOOL);
-			childrenFeatures.add(UppaalPackage.Literals.NTA__CLOCK);
-			childrenFeatures.add(UppaalPackage.Literals.NTA__CHAN);
-			childrenFeatures.add(UppaalPackage.Literals.NTA__VOID);
 		}
 		return childrenFeatures;
 	}
@@ -158,11 +152,6 @@ public class NTAItemProvider
 			case UppaalPackage.NTA__GLOBAL_DECLARATIONS:
 			case UppaalPackage.NTA__TEMPLATE:
 			case UppaalPackage.NTA__SYSTEM_DECLARATIONS:
-			case UppaalPackage.NTA__INT:
-			case UppaalPackage.NTA__BOOL:
-			case UppaalPackage.NTA__CLOCK:
-			case UppaalPackage.NTA__CHAN:
-			case UppaalPackage.NTA__VOID:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -194,57 +183,6 @@ public class NTAItemProvider
 			(createChildParameter
 				(UppaalPackage.Literals.NTA__SYSTEM_DECLARATIONS,
 				 DeclarationsFactory.eINSTANCE.createSystemDeclarations()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(UppaalPackage.Literals.NTA__INT,
-				 TypesFactory.eINSTANCE.createPredefinedType()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(UppaalPackage.Literals.NTA__BOOL,
-				 TypesFactory.eINSTANCE.createPredefinedType()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(UppaalPackage.Literals.NTA__CLOCK,
-				 TypesFactory.eINSTANCE.createPredefinedType()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(UppaalPackage.Literals.NTA__CHAN,
-				 TypesFactory.eINSTANCE.createPredefinedType()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(UppaalPackage.Literals.NTA__VOID,
-				 TypesFactory.eINSTANCE.createPredefinedType()));
-	}
-
-	/**
-	 * This returns the label text for {@link org.eclipse.emf.edit.command.CreateChildCommand}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public String getCreateChildText(Object owner, Object feature, Object child, Collection<?> selection) {
-		Object childFeature = feature;
-		Object childObject = child;
-
-		boolean qualify =
-			childFeature == UppaalPackage.Literals.NTA__INT ||
-			childFeature == UppaalPackage.Literals.NTA__BOOL ||
-			childFeature == UppaalPackage.Literals.NTA__CLOCK ||
-			childFeature == UppaalPackage.Literals.NTA__CHAN ||
-			childFeature == UppaalPackage.Literals.NTA__VOID;
-
-		if (qualify) {
-			return getString
-				("_UI_CreateChild_text2",
-				 new Object[] { getTypeText(childObject), getFeatureText(childFeature), getTypeText(owner) });
-		}
-		return super.getCreateChildText(owner, feature, child, selection);
 	}
 
 	/**
