@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><feature id="org.muml.uppaal.feature" label="%featureName" provider-name="%providerName" version="1.0.0.qualifier">
+
+   <description>
+      %description
+   </description>
+
+   <copyright url="%copyrightURL">
+      %copyright
+   </copyright>
+
+   <license url="%licenseURL">
+      %license
+   </license>
+
+   <requires>
+      <import match="greaterOrEqual" plugin="org.eclipse.core.runtime" version="3.8.0"/>
+      <import plugin="org.eclipse.emf.ecore"/>
+      <import plugin="org.eclipse.emf.ecore.xmi"/>
+      <import plugin="org.eclipse.emf.edit"/>
+      <import plugin="org.eclipse.emf.ecore.edit"/>
+      <import match="greaterOrEqual" plugin="org.eclipse.core.resources" version="3.8.1"/>
+      <import plugin="org.eclipse.emf.edit.ui"/>
+      <import match="greaterOrEqual" plugin="org.eclipse.ui.ide" version="3.6.2"/>
+      <import plugin="org.eclipse.ui"/>
+      <import match="greaterOrEqual" plugin="org.antlr.runtime" version="3.2.0"/>
+      <import match="greaterOrEqual" plugin="org.eclipse.ocl.ecore" version="3.1.2"/>
+      <import match="greaterOrEqual" plugin="org.eclipse.xtend.lib" version="2.4.3"/>
+      <import plugin="org.eclipse.xtext.xbase.lib"/>
+      <import match="greaterOrEqual" plugin="org.muml.uppaal.requirements" version="0.4.0"/>
+      <import match="greaterOrEqual" plugin="org.eclipse.xtext" version="2.6.0"/>
+      <import plugin="org.eclipse.xtext.util"/>
+      <import plugin="org.eclipse.emf.common"/>
+      <import plugin="org.eclipse.xtext.common.types"/>
+      <import match="greaterOrEqual" plugin="org.muml.uppaal" version="0.4.0"/>
+      <import plugin="org.apache.log4j"/>
+      <import match="greaterOrEqual" plugin="org.eclipse.xtext.ui" version="2.6.0"/>
+      <import match="greaterOrEqual" plugin="org.eclipse.ui.editors" version="3.5.0"/>
+      <import plugin="org.eclipse.xtext.ui.shared"/>
+      <import plugin="org.eclipse.xtext.builder"/>
+      <import plugin="org.eclipse.xtext.common.types.ui"/>
+      <import plugin="org.eclipse.xtext.ui.codetemplates.ui"/>
+      <import plugin="org.eclipse.compare"/>
+      <import match="greaterOrEqual" plugin="org.eclipse.emf" version="2.6.0"/>
+      <import match="greaterOrEqual" plugin="org.eclipse.xpand" version="1.2.0"/>
+      <import match="greaterOrEqual" plugin="org.eclipse.xtend" version="1.2.0"/>
+      <import match="greaterOrEqual" plugin="org.eclipse.xtend.typesystem.emf" version="1.2.0"/>
+      <import match="greaterOrEqual" plugin="org.muml.uppaal.trace" version="0.4.0"/>
+      <import match="greaterOrEqual" plugin="org.muml.uppaal.serialization" version="0.1.0"/>
+      <import match="greaterOrEqual" plugin="org.muml.core.common" version="0.5.0"/>
+      <import match="greaterOrEqual" plugin="org.muml.core" version="1.0.0"/>
+      <import plugin="org.eclipse.gmf.runtime.diagram.ui"/>
+      <import plugin="org.eclipse.jface"/>
+      <import match="greaterOrEqual" plugin="org.muml.core.export" version="0.4.0"/>
+      <import plugin="org.eclipse.core.filesystem"/>
+      <import plugin="org.muml.core.edit"/>
+      <import plugin="org.muml.ape.runtime"/>
+      <import plugin="org.muml.core.edit.properties"/>
+      <import feature="org.muml.core.feature" version="0.5.0"/>
+      <import feature="org.muml.graphviz.feature" version="0.5.0"/>
+      <import feature="org.muml.ape.feature" version="0.5.0"/>
+   </requires>
+
+   <plugin download-size="0" id="org.muml.uppaal" install-size="0" unpack="false" version="0.0.0"/>
+
+   <plugin download-size="0" id="org.muml.uppaal.edit" install-size="0" unpack="false" version="0.0.0"/>
+
+   <plugin download-size="0" id="org.muml.uppaal.editor" install-size="0" unpack="false" version="0.0.0"/>
+
+   <plugin download-size="0" id="org.muml.uppaal.serialization" install-size="0" unpack="false" version="0.0.0"/>
+
+   <plugin download-size="0" id="org.muml.uppaal.trace" install-size="0" unpack="false" version="0.0.0"/>
+
+   <plugin download-size="0" id="org.muml.uppaal.trace.ui" install-size="0" unpack="false" version="0.0.0"/>
+
+   <plugin download-size="0" id="org.muml.uppaal.requirements" install-size="0" unpack="false" version="0.0.0"/>
+
+   <plugin download-size="0" id="org.muml.uppaal.requirements.edit" install-size="0" unpack="false" version="0.0.0"/>
+
+   <plugin download-size="0" id="org.muml.uppaal.requirements.editor" install-size="0" unpack="false" version="0.0.0"/>
+
+</feature>

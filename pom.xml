@@ -26,6 +26,8 @@
     <module>serializer/org.muml.uppaal.serialization</module>
     <module>trace/org.muml.uppaal.trace</module>
     <module>trace/org.muml.uppaal.trace.ui</module>
+	<module>repository/org.muml.uppaal.feature</module>
+	<module>repository/org.muml.uppaal.repository</module>
   </modules>
 	
   <build>
