@@ -14,7 +14,7 @@
 		<maven.compiler.target>1.8</maven.compiler.target>
 		<jacoco.version>0.7.4.201502262128</jacoco.version>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-	</properties>
+</properties>
     
   <modules>
     <module>metamodel/org.muml.uppaal</module>
@@ -26,11 +26,11 @@
     <module>serializer/org.muml.uppaal.serialization</module>
     <module>trace/org.muml.uppaal.trace</module>
     <module>trace/org.muml.uppaal.trace.ui</module>
-	<module>repository/org.muml.uppaal.feature</module>
-	<module>repository/org.muml.uppaal.repository</module>
+    <module>repository/org.muml.uppaal.feature</module>
+    <module>repository/org.muml.uppaal.repository</module>
   </modules>
 	
-  <build>
+<build>
  <plugins>
       <plugin>
         <groupId>org.eclipse.tycho</groupId>
@@ -80,7 +80,6 @@
 		 <excludes>
 		   <!--provide plug-ins not containing any source code -->
 		  <plugin id="org.muml.uppaal.repository" />
-		  <plugin id="org.muml.uppaal.sdk.feature" />
 		 </excludes>
 		</configuration>
 	   </plugin>
