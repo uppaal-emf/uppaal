@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<site>
+   <feature url="features/org.muml.uppaal.feature_1.0.0.qualifier.jar" id="org.muml.uppaal.feature" version="1.0.0.qualifier">
+      <category name="org.muml.uppaal.category"/>
+   </feature>
+   <feature url="features/org.muml.uppaal.feature_1.0.0.qualifier.jar" id="org.muml.uppaal.feature.source" version="1.0.0.qualifier">
+      <category name="org.muml.uppaal.category"/>
+   </feature>
+   <category-def name="org.muml.uppaal.category" label="Uppaal"/>
+</site>
