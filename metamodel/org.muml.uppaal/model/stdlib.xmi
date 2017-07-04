@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="ASCII"?>
+<types:Library xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:types="http://www.muml.org/uppaal/types/1.0.0" xsi:schemaLocation="http://www.muml.org/uppaal/types/1.0.0 http://www.muml.org/uppaal/types/1.0.0#//types">
+  <types name="int"/>
+  <types name="bool" type="bool"/>
+  <types name="clock" type="clock"/>
+  <types name="chan" type="chan"/>
+  <types name="void" type="void"/>
+</types:Library>

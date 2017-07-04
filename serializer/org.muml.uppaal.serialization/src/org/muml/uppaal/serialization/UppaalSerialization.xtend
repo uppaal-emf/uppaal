@@ -4,25 +4,14 @@ import org.muml.uppaal.NTA
 import org.muml.uppaal.core.NamedElement
 import org.muml.uppaal.declarations.ArrayInitializer
 import org.muml.uppaal.declarations.CallType
-import org.muml.uppaal.declarations.ChannelVariableDeclaration
-import org.muml.uppaal.declarations.ClockVariableDeclaration
-import org.muml.uppaal.declarations.DataVariableDeclaration
-import org.muml.uppaal.declarations.DataVariablePrefix
 import org.muml.uppaal.declarations.ExpressionInitializer
 import org.muml.uppaal.declarations.Function
-import org.muml.uppaal.declarations.FunctionDeclaration
 import org.muml.uppaal.declarations.GlobalDeclarations
 import org.muml.uppaal.declarations.LocalDeclarations
 import org.muml.uppaal.declarations.Parameter
 import org.muml.uppaal.declarations.SystemDeclarations
 import org.muml.uppaal.declarations.TypeDeclaration
-import org.muml.uppaal.declarations.TypeIndex
-import org.muml.uppaal.declarations.ValueIndex
 import org.muml.uppaal.declarations.Variable
-import org.muml.uppaal.declarations.VariableDeclaration
-import org.muml.uppaal.declarations.global.ChannelList
-import org.muml.uppaal.declarations.global.ChannelPriority
-import org.muml.uppaal.declarations.global.DefaultChannelPriority
 import org.muml.uppaal.declarations.system.InstantiationList
 import org.muml.uppaal.declarations.system.ProgressMeasure
 import org.muml.uppaal.declarations.system.System
@@ -43,7 +32,6 @@ import org.muml.uppaal.expressions.FunctionCallExpression
 import org.muml.uppaal.expressions.IdentifierExpression
 import org.muml.uppaal.expressions.IncrementDecrementExpression
 import org.muml.uppaal.expressions.IncrementDecrementOperator
-import org.muml.uppaal.expressions.IncrementDecrementPosition
 import org.muml.uppaal.expressions.LiteralExpression
 import org.muml.uppaal.expressions.LogicalExpression
 import org.muml.uppaal.expressions.LogicalOperator
@@ -77,8 +65,20 @@ import org.muml.uppaal.types.RangeTypeSpecification
 import org.muml.uppaal.types.ScalarTypeSpecification
 import org.muml.uppaal.types.StructTypeSpecification
 import org.muml.uppaal.types.Type
-import org.muml.uppaal.types.TypeReference
-import org.muml.uppaal.visuals.ColorKind
+import org.muml.uppaal.declarations.TypedDeclaration
+import org.muml.uppaal.core.TypedElement
+import org.muml.uppaal.expressions.DataPrefixExpression
+import org.muml.uppaal.declarations.Declaration
+import org.muml.uppaal.declarations.ParameterContainer
+import org.muml.uppaal.expressions.PostIncrementDecrementExpression
+import org.muml.uppaal.expressions.PreIncrementDecrementExpression
+import org.muml.uppaal.declarations.global.ChannelPriorityDeclaration
+import org.muml.uppaal.declarations.global.ChannelPriorityGroup
+import org.muml.uppaal.declarations.global.DefaultItem
+import org.muml.uppaal.declarations.global.ChannelItem
+import org.muml.uppaal.declarations.global.PriorityItem
+import org.muml.uppaal.expressions.ChannelPrefixExpression
+import org.muml.uppaal.types.TypeExpression
 
 class UppaalSerialization {
 	var moveEdgeLabelsAway = false;
@@ -125,11 +125,36 @@ class UppaalSerialization {
 	«system(system)»
 	«IF progressMeasure != null»«progressMeasure(progressMeasure)»«ENDIF»'''
 	
-	def dispatch declaration(Void it) ''''''
+	def dispatch declaration(Declaration it) ''''''
 	
-	def dispatch declaration(FunctionDeclaration it) '''«function(function)»'''
+	def dispatch declaration(TypedDeclaration it) '''«expression(typeDefinition)» «FOR i : elements ?:emptyList SEPARATOR ', '»«typed(i)»«ENDFOR»«IF !(elements.get(0) instanceof Function)»;«ENDIF»'''
 	
-	def function(Function it) '''«typedefinition(returnType)» «name»(«FOR i : parameter ?:emptyList SEPARATOR ', '»«parameter(i)»«ENDFOR») «block(block)»'''
+	def dispatch declaration(TypeDeclaration it) '''typedef «expression(typeDefinition)» «FOR DeclaredType i : type ?:emptyList SEPARATOR ', '»«typedeclaration(i)»«ENDFOR»;'''
+	
+	def dispatch declaration(TemplateDeclaration it) '''«name(declaredTemplate)»«IF declaredTemplate.parameter.size > 0»(«FOR i : declaredTemplate.parameter ?:emptyList SEPARATOR ', '»«parametercontainer(i)»«ENDFOR»)«ENDIF» = «name(declaredTemplate.referredTemplate)»(«FOR i : argument ?:emptyList SEPARATOR ', '»«expression(i)»«ENDFOR»);'''
+	
+	
+//	def dispatch declaration(TypedDeclaration it) '''«declaration(it, false)»;'''
+	
+//	def declaration(TypedDeclaration it, Boolean callByReference)'''«typedefinition(typeDefinition)» «IF callByReference»&amp;«ENDIF»«FOR i : elements ?:emptyList SEPARATOR ', '»«variable(i)»«ENDFOR»'''
+	
+	
+	def dispatch typed(TypedElement it) ''''''
+	
+	def dispatch typed(Function it) '''«name»(«FOR i : parameter ?:emptyList SEPARATOR ', '»«parametercontainer(i)»«ENDFOR») «block(block)»'''
+	
+	def dispatch typed(Variable it) '''«name(it)»«FOR i : index ?:emptyList»«index(i)»«ENDFOR»«IF initializer != null» = «initializer(initializer)»«ENDIF»'''
+	
+	def dispatch typed(Parameter it) '''«calltype(callType)»«name(it)»«FOR i : index ?:emptyList»«index(i)»«ENDFOR»''' //«IF initializer != null» = «initializer(initializer)»«ENDIF»'''
+	
+	def index(Expression e) '''[«expression(e)»]'''
+	
+	def calltype(CallType ct) {
+		switch (ct) {
+			case CallType::CALL_BY_REFERENCE : '&amp;'
+			default: ""
+		}
+	}
 	
 	def dispatch block(Block it) '''{
 	«FOR i : if (declarations == null) emptyList else (declarations.declaration ?: emptyList)»
@@ -140,56 +165,44 @@ class UppaalSerialization {
 	«ENDFOR»
 }'''
 	
-	def dispatch declaration(TypeDeclaration it) '''typedef «typedefinition(typeDefinition)» «FOR DeclaredType i : type ?:emptyList SEPARATOR ', '»«typedeclaration(i)»«ENDFOR»;'''
 	
-	def typedeclaration(Type it) '''«typename(it)»«FOR i : index ?:emptyList»«index(i)»«ENDFOR»'''
-	
-	def dispatch declaration(VariableDeclaration it) '''«declaration(it, false)»;'''
-	
-	def declaration(VariableDeclaration it, Boolean callByReference)'''«prefix(it)»«typedefinition(typeDefinition)» «IF callByReference»&amp;«ENDIF»«FOR i : variable ?:emptyList SEPARATOR ', '»«variable(i)»«ENDFOR»'''
-	
-	def dispatch prefix(ClockVariableDeclaration it) ''''''
-	
-	def dispatch prefix(DataVariableDeclaration it) '''«IF prefix != DataVariablePrefix::NONE»«prefix.toString()» «ENDIF»'''
-	
-	def dispatch prefix(ChannelVariableDeclaration it) '''«IF broadcast»broadcast «ENDIF»«IF urgent»urgent «ENDIF»'''
-	
-	def dispatch declaration(TemplateDeclaration it) '''«name(declaredTemplate)»«IF declaredTemplate.parameter.size > 0»(«FOR i : declaredTemplate.parameter ?:emptyList SEPARATOR ', '»«parameter(i)»«ENDFOR»)«ENDIF» = «name(declaredTemplate.referredTemplate)»(«FOR i : argument ?:emptyList SEPARATOR ', '»«expression(i)»«ENDFOR»);'''
-	
-	def dispatch channelPriority(ChannelPriority it) '''chan priority «FOR i : item ?:emptyList SEPARATOR ' < '»«item(i)»«ENDFOR»;'''
+	def typedeclaration(Type it) '''«typename(it)»'''
+		
+	def dispatch channelPriority(ChannelPriorityDeclaration it) '''chan priority «FOR i : groups ?:emptyList SEPARATOR ' < '»«group(i)»«ENDFOR»;'''
 	
 	def dispatch channelPriority(Void it) ''''''
 	
 	def dispatch item(Void it) ''''''
 	
-	def dispatch item(ChannelList it) '''«FOR IdentifierExpression i : channelExpression ?:emptyList SEPARATOR ', '»«expression(i)»«ENDFOR»'''
+	def group(ChannelPriorityGroup it) '''«FOR i : items ?:emptyList SEPARATOR ', '»«item(i)»«ENDFOR»'''
 	
-	def dispatch item(DefaultChannelPriority it) '''default'''
+	def dispatch item (PriorityItem it) ''''''
 	
-	def dispatch typedefinition(Void it) '''
-	'''
+	def dispatch item(ChannelItem it) '''«expression(channelExpression)»'''
 	
-	def dispatch typedefinition(TypeReference it) '''«typename(referredType)»'''
+	def dispatch item(DefaultItem it) '''default'''
 	
-	def dispatch typedefinition(RangeTypeSpecification it) '''«baseType.toString()»[«expression(bounds.lowerBound)»,«expression(bounds.upperBound)»]'''
+	def dispatch expression(TypeExpression it) ''''''	
+		
+//	def dispatch typedefinition(IdentifierExpression it) '''«identifier.name»'''
 	
-	def dispatch typedefinition(ScalarTypeSpecification it) '''scalar [«expression(sizeExpression)»]'''
+	def dispatch expression(RangeTypeSpecification it) '''int[«expression(bounds.lowerBound)»,«expression(bounds.upperBound)»]'''
 	
-	def dispatch typedefinition(StructTypeSpecification it) '''struct {
-	«FOR DataVariableDeclaration i : declaration ?:emptyList»
-	«declaration(i)»
-	«ENDFOR»
-}'''
+	def dispatch expression(ScalarTypeSpecification it) '''scalar [«expression(sizeExpression)»]'''
+	
+	def dispatch expression(StructTypeSpecification it) '''struct {
+	«FOR TypedDeclaration i : declaration ?:emptyList»
+		«declaration(i)»
+	«ENDFOR»}'''
 	
 	def typename(Type it) '''«name»'''
 	
-	def variable(Variable it) '''«name(it)»«FOR i : index ?:emptyList»«index(i)»«ENDFOR»«IF initializer != null» = «initializer(initializer)»«ENDIF»'''
-	
-	def dispatch index(Void it) ''''''
-	
-	def dispatch index(ValueIndex it) '''[«expression(sizeExpression)»]'''
-	
-	def dispatch index(TypeIndex it) '''[«typedefinition(typeDefinition)»]'''
+		
+//	def dispatch index(Void it) ''''''
+//	
+//	def dispatch index(ValueIndex it) '''[«expression(sizeExpression)»]'''
+//	
+//	def dispatch index(TypeIndex it) '''[«typedefinition(typeDefinition)»]'''
 	
 	def dispatch initializer(Void it) ''''''
 	
@@ -203,7 +216,7 @@ class UppaalSerialization {
 	<name>«name(it)»</name>
 	«IF (parameter.size > 0)»
 	<parameter>
-	«FOR i : parameter ?:emptyList SEPARATOR ', '»«parameter(i)»«ENDFOR»
+	«FOR i : parameter ?:emptyList SEPARATOR ', '»«parametercontainer(i)»«ENDFOR»
 	</parameter>
 	«ENDIF»
 	<declaration>
@@ -215,8 +228,12 @@ class UppaalSerialization {
 	</template>
 	'''
 	
-	def parameter(Parameter it) '''«declaration(variableDeclaration, callType == CallType::CALL_BY_REFERENCE)»'''
+		
+	def parametercontainer(ParameterContainer it) '''«expression(typeDefinition)» «FOR i : elements ?:emptyList SEPARATOR ', '»«typed(i)»«ENDFOR»'''
 	
+	
+//	def parameter(Parameter it) '''«declaration(variableDeclaration, callType == CallType::CALL_BY_REFERENCE)»'''
+//	
 	def id(Location it) '''«name»_«parentTemplate.name»'''
 	
 	def name(NamedElement it) '''«name.replaceAll('\\.','')»'''
@@ -231,25 +248,9 @@ class UppaalSerialization {
 	'''
 	
 	def colorToString(Location it) {
-		if (color == null)
+		if (colorCode == null)
 			return null;
-		switch (color) {
-			case ColorKind.BLACK: return "#000000"
-			case ColorKind.BLUE: return "#0000ff"
-			case ColorKind.CYAN: return "#00ffff"
-			case ColorKind.DARKGREY: return "#a9a9a9"
-			case ColorKind.DEFAULT: return null
-			case ColorKind.GREEN: return "#00ff00"
-			case ColorKind.LIGHTGREY: return "#c0c0c0"
-			case ColorKind.MAGENTA: return "#ff00ff"
-			case ColorKind.ORANGE: return "#ffa500"
-			case ColorKind.PINK: return "#ffc0cb"
-			case ColorKind.RED: return "#ff0000"
-			case ColorKind.SELF_DEFINED: return colorCode
-			case ColorKind.WHITE: return "#ffffff"
-			case ColorKind.YELLOW: return "#ffff00"
-			default: return null
-		}
+		return colorCode
 	}
 	
 	def edge(Edge it) '''
@@ -268,7 +269,8 @@ class UppaalSerialization {
 	</transition>
 	'''
 	
-	def selection(Selection it) '''«variable(variable.get(0))» : «typedefinition(typeDefinition)»'''
+	def selection(Selection it) '''«FOR i : elements ?:emptyList SEPARATOR ', '»«typed(i)»«ENDFOR» : «expression(typeDefinition)»'''
+	
 	
 	def synchronization(Synchronization it) '''«expression(channelExpression)»«IF kind == SynchronizationKind::RECEIVE»?«ELSE»!«ENDIF»'''
 	
@@ -283,7 +285,7 @@ class UppaalSerialization {
 	def dispatch statement(ForLoop it) '''for(«expression(initialization)»; «expression(condition)»; «expression(iteration)») «IF !(statement instanceof Block)»
 	«ENDIF»«statement(statement)»'''
 	
-	def dispatch statement(Iteration it) '''for(«variable(variable.get(0))» : «typedefinition(typeDefinition)») «IF !(statement instanceof Block)»
+	def dispatch statement(Iteration it) '''for(«typed(elements.get(0))» : «expression(typeDefinition)») «IF !(statement instanceof Block)»
 	«ENDIF»«statement(statement)»'''
 	
 	def dispatch statement(WhileLoop it) '''while(«expression(expression)») «IF !(statement instanceof Block)»
@@ -324,7 +326,11 @@ class UppaalSerialization {
 	
 	def dispatch expression(LiteralExpression it) '''«text»'''
 	
-	def dispatch expression(IncrementDecrementExpression it) '''«IF position==IncrementDecrementPosition::PRE»«operator(operator)»«ENDIF»«expressionOptionalParentheses(expression)»«IF position==IncrementDecrementPosition::POST»«operator(operator)»«ENDIF»'''
+	def dispatch expression(IncrementDecrementExpression it) ''''''
+		
+	def dispatch expression(PreIncrementDecrementExpression it) '''«operator(operator)»«expressionOptionalParentheses(expression)»'''
+		
+	def dispatch expression(PostIncrementDecrementExpression it) '''«expressionOptionalParentheses(expression)»«operator(operator)»'''
 	
 	def operator(IncrementDecrementOperator it) '''«IF it==IncrementDecrementOperator::INCREMENT»++«ENDIF»«IF it==IncrementDecrementOperator::DECREMENT»--«ENDIF»'''
 	
@@ -332,7 +338,7 @@ class UppaalSerialization {
 	
 	def dispatch expression(ScopedIdentifierExpression it) '''«expressionOptionalParentheses(scope)».«expressionOptionalParentheses(identifier)»'''
 	
-	def dispatch expression(QuantificationExpression it) '''«quantifier(quantifier)» («variable(variable.get(0))» : «typedefinition(typeDefinition)») «expressionOptionalParentheses(expression)»'''
+	def dispatch expression(QuantificationExpression it) '''«quantifier(quantifier)» («typed(elements.get(0))» : «expression(typeDefinition)») «expressionOptionalParentheses(expression)»'''
 	
 	def quantifier(Quantifier it) '''«IF it==Quantifier::UNIVERSAL»forall«ENDIF»«IF it==Quantifier::EXISTENTIAL»exists«ENDIF»'''
 	
@@ -345,6 +351,16 @@ class UppaalSerialization {
 	def dispatch expression(BitwiseExpression it) '''«expressionOptionalParentheses(firstExpr)» «IF operator==BitwiseOperator::AND»&«ENDIF»«IF operator==BitwiseOperator::OR»|«ENDIF»«IF operator==BitwiseOperator::XOR»^«ENDIF» «expressionOptionalParentheses(secondExpr)»'''
 	
 	def dispatch expression(BitShiftExpression it) '''«expressionOptionalParentheses(firstExpr)» «IF operator==BitShiftOperator::LEFT»<<«ENDIF»«IF operator==BitShiftOperator::RIGHT»>>«ENDIF» «expressionOptionalParenthesesNonAssoc(secondExpr)»'''
+	
+	def dispatch expression(DataPrefixExpression it) '''«prefix.toString()» «expression(dataTypeExpression)»'''
+	
+	def dispatch expression(ChannelPrefixExpression it) '''«IF broadcast»broadcast «ENDIF»«IF urgent»urgent «ENDIF»«typedeclaration(channelType)»'''
+	
+	//	def dispatch prefix(ClockVariableDeclaration it) ''''''
+	
+//	def dispatch prefix(ChannelVariableDeclaration it) '''«IF broadcast»broadcast «ENDIF»«IF urgent»urgent «ENDIF»'''
+
+
 	
 	/* define system */
 	def system(System it) '''system «FOR i : instantiationList ?:emptyList SEPARATOR ' < '»«instantiationList(i)»«ENDFOR»;'''
@@ -442,7 +458,7 @@ class UppaalSerialization {
 			
 			case it instanceof NegationExpression: return 190
 			case it instanceof LogicalExpression && (it as LogicalExpression).operator == LogicalOperator::AND: return 180
-			case it instanceof LogicalExpression && (it as LogicalExpression).operator == LogicalOperator::OR: return 170
+			case it instanceof LogicalExpression && (it as LogicalExpression).operator == LogicalOperator::OR: return 160
 			case it instanceof LogicalExpression && (it as LogicalExpression).operator == LogicalOperator::IMPLY: return 170
 			case it instanceof QuantificationExpression: return 160
 		}

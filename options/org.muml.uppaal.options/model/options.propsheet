@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="ASCII"?>
+<org.muml:PropertyGenerator xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:org.muml="http://www.muml.org/ape/1.0.0" xmi:id="_RnViUM1gEeSIgPDefa6ZBw" contributorId="">
+  <reconciler xmi:id="_RnViUc1gEeSIgPDefa6ZBw"/>
+  <genModel href="options.genmodel#/"/>
+  <referencedGenerators href="../../org.muml.core/model/core.propsheet#_i_I4kOHNEeS5Putgio2lkg"/>
+  <plugin xmi:id="_RnViUs1gEeSIgPDefa6ZBw" id="org.muml.uppaal.options.edit.properties" name="Properties" vendor="Software Engineering Group, Heinz Nixdorf Institute, University of Paderborn" version="0.5.0.qualifier">
+    <requiredBundles>org.eclipse.emf.ecore</requiredBundles>
+    <requiredBundles>org.eclipse.core.runtime</requiredBundles>
+    <requiredBundles>org.eclipse.emf.edit</requiredBundles>
+    <requiredBundles>org.eclipse.ui</requiredBundles>
+    <requiredBundles>org.muml.uppaal.options.edit</requiredBundles>
+    <requiredBundles>org.muml.ape.runtime</requiredBundles>
+    <requiredBundles>org.muml.uppaal.options</requiredBundles>
+    <requiredBundles>org.muml.core.edit</requiredBundles>
+    <requiredBundles>org.muml.core.edit.properties</requiredBundles>
+  </plugin>
+  <tabs xmi:id="_RnWJYM1gEeSIgPDefa6ZBw" id="options" name="Options" afterTab=""/>
+  <packages xmi:id="_RnWJYc1gEeSIgPDefa6ZBw">
+    <genPackage href="options.genmodel#//options"/>
+    <classes xmi:id="_RnWJYs1gEeSIgPDefa6ZBw">
+      <genClass href="options.genmodel#//options/Options"/>
+      <orderedElements xsi:type="org.muml:Property" xmi:id="_RnWwcM1gEeSIgPDefa6ZBw" tab="_RnWJYM1gEeSIgPDefa6ZBw" tooltip="" initializeOCLExpression="">
+        <genFeature href="options.genmodel#//options/Options/connectorOutBufferSize"/>
+        <visibilityFilters xsi:type="org.muml:OCLFilter" xmi:id="_RnWwcc1gEeSIgPDefa6ZBw" expression="not self.extensions->exists(ext | ext.oclAsType(HideOptionExtension).option = 'connectorOutBufferSize')"/>
+        <editor xsi:type="org.muml:SpinnerPropertyEditor" xmi:id="_RnWwcs1gEeSIgPDefa6ZBw"/>
+      </orderedElements>
+      <orderedElements xsi:type="org.muml:Property" xmi:id="_RnWwc81gEeSIgPDefa6ZBw" tab="_RnWJYM1gEeSIgPDefa6ZBw" tooltip="" initializeOCLExpression="">
+        <genFeature href="options.genmodel#//options/Options/hashTableSize"/>
+        <visibilityFilters xsi:type="org.muml:OCLFilter" xmi:id="_RnWwdM1gEeSIgPDefa6ZBw" expression="not self.extensions->exists(ext | ext.oclAsType(HideOptionExtension).option = 'hashTableSize')"/>
+        <editor xsi:type="org.muml:SpinnerPropertyEditor" xmi:id="_RnWwdc1gEeSIgPDefa6ZBw"/>
+      </orderedElements>
+      <orderedElements xsi:type="org.muml:Property" xmi:id="_RnXXgM1gEeSIgPDefa6ZBw" tab="_RnWJYM1gEeSIgPDefa6ZBw" tooltip="" initializeOCLExpression="">
+        <genFeature href="options.genmodel#//options/Options/stateSpaceReduction"/>
+        <visibilityFilters xsi:type="org.muml:OCLFilter" xmi:id="_RnXXgc1gEeSIgPDefa6ZBw" expression="not self.extensions->exists(ext | ext.oclAsType(HideOptionExtension).option = 'stateSpaceReduction')"/>
+        <editor xsi:type="org.muml:RadioPropertyEditor" xmi:id="_RnXXgs1gEeSIgPDefa6ZBw"/>
+      </orderedElements>
+      <orderedElements xsi:type="org.muml:Property" xmi:id="_RnXXg81gEeSIgPDefa6ZBw" tab="_RnWJYM1gEeSIgPDefa6ZBw" tooltip="" initializeOCLExpression="">
+        <genFeature href="options.genmodel#//options/Options/traceOptions"/>
+        <visibilityFilters xsi:type="org.muml:OCLFilter" xmi:id="_RnXXhM1gEeSIgPDefa6ZBw" expression="not self.extensions->exists(ext | ext.oclAsType(HideOptionExtension).option = 'traceOptions')"/>
+        <editor xsi:type="org.muml:RadioPropertyEditor" xmi:id="_RnXXhc1gEeSIgPDefa6ZBw"/>
+      </orderedElements>
+      <superClasses href="../../org.muml.core/model/core.propsheet#_i_PmQuHNEeS5Putgio2lkg"/>
+    </classes>
+    <classes xmi:id="_RnXXhs1gEeSIgPDefa6ZBw" superClasses="_RnWJYs1gEeSIgPDefa6ZBw">
+      <genClass href="options.genmodel#//options/CoordinationProtocolOptions"/>
+      <orderedElements xsi:type="org.muml:Property" xmi:id="_RnXXh81gEeSIgPDefa6ZBw" tab="_RnWJYM1gEeSIgPDefa6ZBw" tooltip="" initializeOCLExpression="">
+        <genFeature href="options.genmodel#//options/CoordinationProtocolOptions/roleMultiplicity"/>
+        <visibilityFilters xsi:type="org.muml:OCLFilter" xmi:id="_RnXXiM1gEeSIgPDefa6ZBw" expression="not self.extensions->exists(ext | ext.oclAsType(HideOptionExtension).option = 'roleMultiplicity')"/>
+        <editor xsi:type="org.muml:SpinnerPropertyEditor" xmi:id="_RnXXic1gEeSIgPDefa6ZBw"/>
+      </orderedElements>
+    </classes>
+    <classes xmi:id="_RnXXis1gEeSIgPDefa6ZBw">
+      <genClass href="options.genmodel#//options/HideOptionExtension"/>
+      <orderedElements xsi:type="org.muml:Property" xmi:id="_RnX-kM1gEeSIgPDefa6ZBw" tab="_RnWJYM1gEeSIgPDefa6ZBw" tooltip="" initializeOCLExpression="">
+        <genFeature href="options.genmodel#//options/HideOptionExtension/option"/>
+        <editor xsi:type="org.muml:TextPropertyEditor" xmi:id="_RnX-kc1gEeSIgPDefa6ZBw"/>
+      </orderedElements>
+      <orderedElements xsi:type="org.muml:Property">
+        <genFeature href="../../org.muml.core/model/core.genmodel#//core/Extension/extendableBase"/>
+        <tab href="../../org.muml.core/model/core.propsheet#_i_NxEOHNEeS5Putgio2lkg"/>
+        <editor xsi:type="org.muml:ComboBoxPropertyEditor"/>
+        <creationOppositeConstraint>
+          <filters xsi:type="org.muml:OCLFilter" expression="false"/>
+        </creationOppositeConstraint>
+      </orderedElements>
+      <superClasses href="../../org.muml.core/model/core.propsheet#_i_QNUeHNEeS5Putgio2lkg"/>
+    </classes>
+  </packages>
+</org.muml:PropertyGenerator>

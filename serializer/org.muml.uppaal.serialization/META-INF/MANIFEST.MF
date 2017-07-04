@@ -7,12 +7,11 @@ Require-Bundle: org.muml.uppaal;visibility:=reexport,
  org.eclipse.ui,
  org.eclipse.core.resources,
  org.eclipse.core.runtime;bundle-version="3.7.0";visibility:=reexport,
- org.eclipse.xtend;bundle-version="1.1.0";visibility:=reexport,
  org.antlr.runtime;bundle-version="3.2.0";visibility:=reexport,
  org.eclipse.ocl.ecore;bundle-version="3.1.2";visibility:=reexport,
- org.eclipse.xtend.lib;bundle-version="2.4.3";visibility:=reexport,
  org.eclipse.xtext.xbase.lib,
- org.muml.uppaal.requirements
+ org.muml.uppaal.requirements,
+ org.eclipse.xtend2.lib;bundle-version="2.10.0"
 Bundle-RequiredExecutionEnvironment: J2SE-1.5
 Bundle-ClassPath: .
 Bundle-ActivationPolicy: lazy

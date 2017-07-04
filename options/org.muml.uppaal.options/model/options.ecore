@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="options" nsURI="http://www.muml.org/uppaal/options/1.0.0" nsPrefix="options">
+  <eClassifiers xsi:type="ecore:EClass" name="Options" eSuperTypes="../../org.muml.core/model/core.ecore#//ExtendableElement">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="connectorOutBufferSize"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt" defaultValueLiteral="5">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="the size of the outgoing connector buffers"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="hashTableSize" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt" defaultValueLiteral="27">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="the hash table size for bit state hashing will be 2^hashTableSize"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="stateSpaceReduction" eType="#//StateSpaceReduction"
+        defaultValueLiteral="conservative">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="options for the state space consumption"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="traceOptions" eType="#//TraceOptions"
+        defaultValueLiteral="some">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="options for the generated traces"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="CoordinationProtocolOptions" eSuperTypes="#//Options">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="roleMultiplicity" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"
+        defaultValueLiteral="1"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="StateSpaceReduction">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="NONE stores all reachable states. Uses most memory, but avoids that any state is&#xD;&#xA;explored more than once.&#xD;&#xA;CONSERVATIVE stores all non-committed states. Less memory when committed locations are&#xD;&#xA;used, and for most models states are only explored once.&#xD;&#xA;AGGRESSIVE tries hard to reduce the number of states stored. Uses much less memory, but&#xD;&#xA;might take much more time."/>
+    </eAnnotations>
+    <eLiterals name="NONE" literal="none"/>
+    <eLiterals name="CONSERVATIVE" value="1" literal="conservative"/>
+    <eLiterals name="AGGRESSIVE" value="2" literal="aggressive"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="TraceOptions">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="SOME will generate some diagnostic trace.&#xD;&#xA;SHORTEST generates the shortest (in number of steps) trace.&#xD;&#xA;FASTEST generates the fastest (smallest time delay) trace.&#xD;&#xA;NONE generates no trace."/>
+    </eAnnotations>
+    <eLiterals name="SOME" literal="some"/>
+    <eLiterals name="SHORTEST" value="1" literal="shortest"/>
+    <eLiterals name="FASTEST" value="2" literal="fastest"/>
+    <eLiterals name="NONE" value="3" literal="none"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="HideOptionExtension" eSuperTypes="../../org.muml.core/model/core.ecore#//Extension">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="An options extension used to specify for what options an editor should be shown in the verification wizard."/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="option" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        defaultValueLiteral="">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="indicates which option should be hidden"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+</ecore:EPackage>

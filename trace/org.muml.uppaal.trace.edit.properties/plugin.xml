@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+
+
+  <extension
+         point="org.eclipse.ui.views.properties.tabbed.propertyContributor">
+    <propertyContributor
+          contributorId="org.muml.ape.contributor">
+       <propertyCategory
+             category="domain">
+       </propertyCategory>
+       <propertyCategory
+             category="default">
+       </propertyCategory>
+       <propertyCategory
+             category="extended">
+       </propertyCategory>
+       <propertyCategory
+             category="advanced">
+       </propertyCategory>
+    </propertyContributor>
+  </extension>
+
+
+
+
+
+
+
+
+ <extension point="org.muml.ape.runtime.propertyEditors">
+    <propertyEditors>
+    
+       <propertyEditor
+             factory="org.muml.uppaal.trace.properties.trace.editor.TraceRepositoryEditor$Factory"
+             type="http://www.muml.org/uppaal/trace/1.0.0#TraceRepository">
+       </propertyEditor>
+    
+       <propertyEditor
+             factory="org.muml.uppaal.trace.properties.trace.editor.TraceEditor$Factory"
+             type="http://www.muml.org/uppaal/trace/1.0.0#Trace">
+       </propertyEditor>
+    
+       <propertyEditor
+             factory="org.muml.uppaal.trace.properties.trace.editor.ProcessIdentifierEditor$Factory"
+             type="http://www.muml.org/uppaal/trace/1.0.0#ProcessIdentifier">
+       </propertyEditor>
+    
+       <propertyEditor
+             factory="org.muml.uppaal.trace.properties.trace.editor.LocationActivityEditor$Factory"
+             type="http://www.muml.org/uppaal/trace/1.0.0#LocationActivity">
+       </propertyEditor>
+    
+       <propertyEditor
+             factory="org.muml.uppaal.trace.properties.trace.editor.VariableValueEditor$Factory"
+             type="http://www.muml.org/uppaal/trace/1.0.0#VariableValue">
+       </propertyEditor>
+    
+       <propertyEditor
+             factory="org.muml.uppaal.trace.properties.trace.editor.SingleNamedElementReferenceEditor$Factory"
+             type="http://www.muml.org/uppaal/trace/1.0.0#SingleNamedElementReference">
+       </propertyEditor>
+    
+       <propertyEditor
+             factory="org.muml.uppaal.trace.properties.trace.editor.NamedElementReferenceEditor$Factory"
+             type="http://www.muml.org/uppaal/trace/1.0.0#NamedElementReference">
+       </propertyEditor>
+    
+       <propertyEditor
+             factory="org.muml.uppaal.trace.properties.trace.editor.TraceItemEditor$Factory"
+             type="http://www.muml.org/uppaal/trace/1.0.0#TraceItem">
+       </propertyEditor>
+    
+       <propertyEditor
+             factory="org.muml.uppaal.trace.properties.trace.editor.StateEditor$Factory"
+             type="http://www.muml.org/uppaal/trace/1.0.0#State">
+       </propertyEditor>
+    
+       <propertyEditor
+             factory="org.muml.uppaal.trace.properties.trace.editor.EdgeActivityEditor$Factory"
+             type="http://www.muml.org/uppaal/trace/1.0.0#EdgeActivity">
+       </propertyEditor>
+    
+       <propertyEditor
+             factory="org.muml.uppaal.trace.properties.trace.editor.SynchronizationEditor$Factory"
+             type="http://www.muml.org/uppaal/trace/1.0.0#Synchronization">
+       </propertyEditor>
+    
+       <propertyEditor
+             factory="org.muml.uppaal.trace.properties.trace.editor.ChannelSynchronizationEditor$Factory"
+             type="http://www.muml.org/uppaal/trace/1.0.0#ChannelSynchronization">
+       </propertyEditor>
+    
+       <propertyEditor
+             factory="org.muml.uppaal.trace.properties.trace.editor.DelayTransitionEditor$Factory"
+             type="http://www.muml.org/uppaal/trace/1.0.0#DelayTransition">
+       </propertyEditor>
+    
+       <propertyEditor
+             factory="org.muml.uppaal.trace.properties.trace.editor.ActionTransitionEditor$Factory"
+             type="http://www.muml.org/uppaal/trace/1.0.0#ActionTransition">
+       </propertyEditor>
+    
+       <propertyEditor
+             factory="org.muml.uppaal.trace.properties.trace.editor.TransitionEditor$Factory"
+             type="http://www.muml.org/uppaal/trace/1.0.0#Transition">
+       </propertyEditor>
+    
+    </propertyEditors>
+ </extension>
+
+
+ <extension
+       point="org.muml.ape.runtime.metamodelContributor">
+    <metamodel
+          contributor="org.muml.uppaal.trace.properties.metamodel.MetamodelContributor">
+    </metamodel>
+ </extension>
+
+
+ <extension
+       point="org.muml.ape.runtime.creationConstraintContributor">
+    <constraint
+          contributor="org.muml.uppaal.trace.properties.constraint.CreationConstraintContributor">
+    </constraint>
+ </extension>
+
+</plugin>

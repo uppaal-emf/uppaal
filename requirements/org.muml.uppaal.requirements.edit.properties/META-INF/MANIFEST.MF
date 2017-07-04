@@ -1,0 +1,17 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Properties
+Bundle-SymbolicName: org.muml.uppaal.requirements.edit.properties; singleton:=true
+Bundle-Version: 1.0.0.qualifier
+Require-Bundle: org.eclipse.emf.ecore,
+ org.eclipse.ui,
+ org.eclipse.core.runtime,
+ org.muml.uppaal.requirements.edit,
+ org.muml.ape.runtime,
+ org.eclipse.emf.edit,
+ org.muml.uppaal.requirements
+Bundle-ActivationPolicy: lazy
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Export-Package: org.muml.uppaal.requirements.properties.metamodel, org.muml.uppaal.requirements.properties.constraint,
+ org.muml.uppaal.requirements.properties.requirements.editor
+Bundle-Vendor: Software Engineering Group, Heinz Nixdorf Institute, Paderborn University, and Fraunhofer Research Institution for Mechatronic Systems Design IEM, Germany

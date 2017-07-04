@@ -214,9 +214,9 @@ public class TracePackageImpl extends EPackageImpl implements TracePackage
     CorePackage.eINSTANCE.eClass();
     DeclarationsPackage.eINSTANCE.eClass();
     TemplatesPackage.eINSTANCE.eClass();
-    TypesPackage.eINSTANCE.eClass();
-    StatementsPackage.eINSTANCE.eClass();
     ExpressionsPackage.eINSTANCE.eClass();
+    StatementsPackage.eINSTANCE.eClass();
+    TypesPackage.eINSTANCE.eClass();
     VisualsPackage.eINSTANCE.eClass();
 
     // Create package meta-data objects

@@ -1,0 +1,24 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: %pluginName
+Bundle-SymbolicName: org.muml.uppaal.ui;singleton:=true
+Bundle-Version: 1.0.0.qualifier
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Require-Bundle: org.eclipse.ui.ide;bundle-version="3.6.2",
+ org.eclipse.gmf.runtime.diagram.ui,
+ org.muml.uppaal.trace,
+ org.eclipse.jface,
+ org.muml.core.export,
+ org.muml.uppaal,
+ org.muml.core.common,
+ org.muml.graphviz;resolution:=optional,
+ org.muml.graphviz.blackbox;resolution:=optional,
+ org.muml.uppaal.serialization,
+ org.muml.core,
+ org.eclipse.core.filesystem,
+ org.muml.uppaal.job
+Export-Package: org.muml.uppaal.ui.wizard
+Bundle-ActivationPolicy: lazy
+Bundle-Vendor: Software Engineering Group, Heinz Nixdorf Institute, Paderborn University, and Fraunhofer Research Institution for Mechatronic Systems Design IEM, Germany
+Bundle-Localization: plugin
+Import-Package: org.muml.uppaal.requirements

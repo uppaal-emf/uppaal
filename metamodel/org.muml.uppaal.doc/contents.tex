@@ -1,0 +1,4401 @@
+
+		
+		\section{Package \bfseries \texttt{uppaal}\normalfont}
+		
+		% Here comes the package documentation
+		\begin{longdescription}
+		\item[Overview]			
+				
+
+	
+
+		Contains Uppaal-specific sub-packages.		
+		\end{longdescription}
+	% Here a manual modifiable file is included: uppaal/graphics.tex
+	\input{img/uppaal/graphics}
+			%\subsection{Package Documentation}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Class \bfseries \texttt{NTA}\normalfont}
+\label{cls:uppaal::NTA} \index{0}
+	
+	\begin{longdescription}
+		\item[Overview] 		
+				
+
+	
+
+		A 'Network of Timed Automata' as basic input to Uppaal.		
+		\item[Super Types of \texttt{NTA}] ~
+			\begin{longdescription}
+				\item[\texttt{NamedElement}] see Section~\ref{cls:uppaal::core::NamedElement} on Page~\pageref{cls:uppaal::core::NamedElement}			, 				\item[\texttt{CommentableElement}] see Section~\ref{cls:uppaal::core::CommentableElement} on Page~\pageref{cls:uppaal::core::CommentableElement}						\end{longdescription}
+		
+	
+			\item[\textbf{References of} \texttt{NTA}] ~
+			\begin{longdescription}
+	\item[\texttt{bool : PredefinedType 	\symbol{"5B}1..1\symbol{"5D}
+}] ~
+	see Section~\ref{cls:uppaal::types::PredefinedType} on Page~\pageref{cls:uppaal::types::PredefinedType}
+	
+	\nopagebreak
+		
+				
+
+	
+
+		The predefined type 'bool'.		
+	\item[\texttt{chan : PredefinedType 	\symbol{"5B}1..1\symbol{"5D}
+}] ~
+	see Section~\ref{cls:uppaal::types::PredefinedType} on Page~\pageref{cls:uppaal::types::PredefinedType}
+	
+	\nopagebreak
+		
+				
+
+	
+
+		The predefined type 'chan'.		
+	\item[\texttt{clock : PredefinedType 	\symbol{"5B}1..1\symbol{"5D}
+}] ~
+	see Section~\ref{cls:uppaal::types::PredefinedType} on Page~\pageref{cls:uppaal::types::PredefinedType}
+	
+	\nopagebreak
+		
+				
+
+	
+
+		The predefined type 'clock'.		
+	\item[\texttt{globalDeclarations : GlobalDeclarations 	}] ~
+	see Section~\ref{cls:uppaal::declarations::GlobalDeclarations} on Page~\pageref{cls:uppaal::declarations::GlobalDeclarations}
+	
+	\nopagebreak
+		
+				
+
+	
+
+		The global declarations for the NTA.		
+	\item[\texttt{int : PredefinedType 	\symbol{"5B}1..1\symbol{"5D}
+}] ~
+	see Section~\ref{cls:uppaal::types::PredefinedType} on Page~\pageref{cls:uppaal::types::PredefinedType}
+	
+	\nopagebreak
+		
+				
+
+	
+
+		The predefined type 'int'.		
+	\item[\texttt{systemDeclarations : SystemDeclarations 	\symbol{"5B}1..1\symbol{"5D}
+}] ~
+	see Section~\ref{cls:uppaal::declarations::SystemDeclarations} on Page~\pageref{cls:uppaal::declarations::SystemDeclarations}
+	
+	\nopagebreak
+		
+				
+
+	
+
+		The declarations of process instantiations.		
+	\item[\texttt{template : Template 	\symbol{"5B}1..$*$\symbol{"5D}
+}] ~
+	see Section~\ref{cls:uppaal::templates::Template} on Page~\pageref{cls:uppaal::templates::Template}
+	
+	\nopagebreak
+		
+				
+
+	
+
+		The Timed Automata templates of the NTA.		
+	\item[\texttt{void : PredefinedType 	\symbol{"5B}1..1\symbol{"5D}
+}] ~
+	see Section~\ref{cls:uppaal::types::PredefinedType} on Page~\pageref{cls:uppaal::types::PredefinedType}
+	
+	\nopagebreak
+		
+				
+
+	
+
+		The predefined dummy type 'void'.		
+			\end{longdescription}
+			\item[\textbf{OCL Constraints of} \texttt{NTA}] ~
+			\begin{longdescription}
+	\item[\small\textit{MatchingIntDetails}] ~ 
+	\nopagebreak
+	
+		\begin{lstlisting}[breaklines=true]
+(not self.int.oclIsUndefined())
+implies
+((self.int.type = types::BuiltInType::INT) and (self.int.name.equalsIgnoreCase('int')))		\end{lstlisting}
+	\item[\small\textit{MatchingBoolDetails}] ~ 
+	\nopagebreak
+	
+		\begin{lstlisting}[breaklines=true]
+(not self.bool.oclIsUndefined())
+implies
+((self.bool.type = types::BuiltInType::BOOL) and (self.bool.name.equalsIgnoreCase('bool')))		\end{lstlisting}
+	\item[\small\textit{MatchingClockDetails}] ~ 
+	\nopagebreak
+	
+		\begin{lstlisting}[breaklines=true]
+(not self.clock.oclIsUndefined())
+implies
+((self.clock.type = types::BuiltInType::CLOCK) and (self.clock.name.equalsIgnoreCase('clock')))		\end{lstlisting}
+	\item[\small\textit{MatchingChanDetails}] ~ 
+	\nopagebreak
+	
+		\begin{lstlisting}[breaklines=true]
+(not self.chan.oclIsUndefined())
+implies
+((self.chan.type = types::BuiltInType::CHAN) and (self.chan.name.equalsIgnoreCase('chan')))		\end{lstlisting}
+	\item[\small\textit{MatchingVoidDetails}] ~ 
+	\nopagebreak
+	
+		\begin{lstlisting}[breaklines=true]
+(not self.void.oclIsUndefined())
+implies
+((self.void.type = types::BuiltInType::VOID) and (self.void.name.equalsIgnoreCase('void')))		\end{lstlisting}
+	\item[\small\textit{UniqueTemplateNames}] ~ 
+	\nopagebreak
+	
+		\begin{lstlisting}[breaklines=true]
+self.template->isUnique(name)		\end{lstlisting}
+			\end{longdescription}
+	
+	\end{longdescription}
+	
+			\newpage
+		\section{Package \bfseries \texttt{uppaal::core}\normalfont}
+		
+		% Here comes the package documentation
+		\begin{longdescription}
+		\item[Overview]			
+				
+
+	
+
+		Contains abstract general purpose classes.		
+		\end{longdescription}
+	% Here a manual modifiable file is included: uppaal_core/graphics.tex
+	\input{img/uppaal_core/graphics}
+			%\subsection{Package Documentation}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Abstract Class \bfseries \texttt{CommentableElement}\normalfont}
+\label{cls:uppaal::core::CommentableElement} \index{1}
+	
+	\begin{longdescription}
+		\item[Overview] 		
+				
+
+	
+
+		Abstract base class for commentable model elements.		
+		
+	
+			\item[\textbf{Attributes of} \texttt{CommentableElement}] ~
+			\begin{longdescription}
+	\item[\texttt{comment : EString 	}] ~
+	
+	
+	\nopagebreak
+		
+				
+
+	
+
+		The comment for the model element.
+\todocg{Change cardinality to 1..1?}		
+			\end{longdescription}
+	
+	\end{longdescription}
+	
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Abstract Class \bfseries \texttt{NamedElement}\normalfont}
+\label{cls:uppaal::core::NamedElement} \index{0}
+	
+	\begin{longdescription}
+		\item[Overview] 		
+				
+
+	
+
+		Abstract base class for named model elements.		
+		
+	
+			\item[\textbf{Attributes of} \texttt{NamedElement}] ~
+			\begin{longdescription}
+	\item[\texttt{name : EString 	\symbol{"5B}1..1\symbol{"5D}
+}] ~
+	
+	
+	\nopagebreak
+		
+				
+
+	
+
+		The name of the model element..		
+			\end{longdescription}
+			\item[\textbf{OCL Constraints of} \texttt{NamedElement}] ~
+			\begin{longdescription}
+	\item[\small\textit{NoWhitespace}] ~ 
+	\nopagebreak
+	
+		\begin{lstlisting}[breaklines=true]
+self.name.characters()->excludes(' ')		\end{lstlisting}
+	\item[\small\textit{NoDigitStart}] ~ 
+	\nopagebreak
+	
+		\begin{lstlisting}[breaklines=true]
+Set{0..9}->excludes(self.name.characters()->first())		\end{lstlisting}
+			\end{longdescription}
+	
+	\end{longdescription}
+	
+			\newpage
+		\section{Package \bfseries \texttt{uppaal::declarations}\normalfont}
+		
+		% Here comes the package documentation
+		\begin{longdescription}
+		\item[Overview]			
+				
+
+	
+
+		Support for all kinds of declarations, e.g. types, functions, or variables.		
+		\end{longdescription}
+	% Here a manual modifiable file is included: uppaal_declarations/graphics.tex
+	\input{img/uppaal_declarations/graphics}
+			%\subsection{Package Documentation}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Class \bfseries \texttt{ArrayInitializer}\normalfont}
+\label{cls:uppaal::declarations::ArrayInitializer} \index{22}
+	
+	\begin{longdescription}
+		\item[Overview] 		
+				
+
+	
+
+		An initializer for array variables, referring to multiple sub-initializers.		
+		\item[Super Types of \texttt{ArrayInitializer}] ~
+			\begin{longdescription}
+				\item[\texttt{Initializer}] see Section~\ref{cls:uppaal::declarations::Initializer} on Page~\pageref{cls:uppaal::declarations::Initializer}						\end{longdescription}
+		
+	
+			\item[\textbf{References of} \texttt{ArrayInitializer}] ~
+			\begin{longdescription}
+	\item[\texttt{initializer : Initializer 	\symbol{"5B}1..$*$\symbol{"5D}
+}] ~
+	see Section~\ref{cls:uppaal::declarations::Initializer} on Page~\pageref{cls:uppaal::declarations::Initializer}
+	
+	\nopagebreak
+		
+				
+
+	
+
+		A number of sub-initializers, each one representing the initial value for one array index.		
+			\end{longdescription}
+	
+	\end{longdescription}
+	
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Enumeration \bfseries \texttt{CallType}\normalfont}
+\label{cls:uppaal::declarations::CallType} \index{uppaal::declarations!CallType}
+
+	\begin{longdescription}
+		\item[Overview] 		
+				
+
+	
+
+		Represents call-by-value or call-by-reference parameters.		
+	
+		\item[\textbf{Literals of} \texttt{CallType}] ~
+		\begin{longdescription}
+			
+\item[\texttt{CALL\_BY\_VALUE = 0}] ~
+\nopagebreak
+
+\item[\texttt{CALL\_BY\_REFERENCE = 1}] ~
+\nopagebreak
+		\end{longdescription}
+	\end{longdescription}
+	
+	
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Class \bfseries \texttt{ChannelVariableDeclaration}\normalfont}
+\label{cls:uppaal::declarations::ChannelVariableDeclaration} \index{6}
+	
+	\begin{longdescription}
+		\item[Overview] 		
+				
+
+	
+
+		A declaration of synchronization channel variables.		
+		\item[Super Types of \texttt{ChannelVariableDeclaration}] ~
+			\begin{longdescription}
+				\item[\texttt{VariableDeclaration}] see Section~\ref{cls:uppaal::declarations::VariableDeclaration} on Page~\pageref{cls:uppaal::declarations::VariableDeclaration}						\end{longdescription}
+		
+	
+			\item[\textbf{Attributes of} \texttt{ChannelVariableDeclaration}] ~
+			\begin{longdescription}
+	\item[\texttt{broadcast : EBoolean 	\symbol{"5B}1..1\symbol{"5D}
+}] ~
+	
+	
+	\nopagebreak
+		
+				
+
+	
+
+		Specifies whether the declared synchronization channels use broadcast.		
+	\item[\texttt{urgent : EBoolean 	\symbol{"5B}1..1\symbol{"5D}
+}] ~
+	
+	
+	\nopagebreak
+		
+				
+
+	
+
+		Specifies the urgency of the declared synchronization channels.		
+			\end{longdescription}
+			\item[\textbf{OCL Constraints of} \texttt{ChannelVariableDeclaration}] ~
+			\begin{longdescription}
+	\item[\small\textit{MatchingType}] ~ 
+	\nopagebreak
+	
+		\begin{lstlisting}[breaklines=true]
+(not self.typeDefinition.oclIsUndefined())
+implies
+self.typeDefinition.baseType = types::BuiltInType::CHAN		\end{lstlisting}
+			\end{longdescription}
+	
+	\end{longdescription}
+	
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Class \bfseries \texttt{ClockVariableDeclaration}\normalfont}
+\label{cls:uppaal::declarations::ClockVariableDeclaration} \index{7}
+	
+	\begin{longdescription}
+		\item[Overview] 		
+				
+
+	
+
+		A declaration of clock variables.		
+		\item[Super Types of \texttt{ClockVariableDeclaration}] ~
+			\begin{longdescription}
+				\item[\texttt{VariableDeclaration}] see Section~\ref{cls:uppaal::declarations::VariableDeclaration} on Page~\pageref{cls:uppaal::declarations::VariableDeclaration}						\end{longdescription}
+		
+	
+			\item[\textbf{OCL Constraints of} \texttt{ClockVariableDeclaration}] ~
+			\begin{longdescription}
+	\item[\small\textit{MatchingType}] ~ 
+	\nopagebreak
+	
+		\begin{lstlisting}[breaklines=true]
+(not self.typeDefinition.oclIsUndefined())
+implies
+self.typeDefinition.baseType = types::BuiltInType::CLOCK		\end{lstlisting}
+			\end{longdescription}
+	
+	\end{longdescription}
+	
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Class \bfseries \texttt{DataVariableDeclaration}\normalfont}
+\label{cls:uppaal::declarations::DataVariableDeclaration} \index{8}
+	
+	\begin{longdescription}
+		\item[Overview] 		
+				
+
+	
+
+		A declaration of data variables.		
+		\item[Super Types of \texttt{DataVariableDeclaration}] ~
+			\begin{longdescription}
+				\item[\texttt{VariableDeclaration}] see Section~\ref{cls:uppaal::declarations::VariableDeclaration} on Page~\pageref{cls:uppaal::declarations::VariableDeclaration}						\end{longdescription}
+		
+	
+			\item[\textbf{Attributes of} \texttt{DataVariableDeclaration}] ~
+			\begin{longdescription}
+	\item[\texttt{prefix : DataVariablePrefix 	\symbol{"5B}1..1\symbol{"5D}
+}] ~
+	see Section~\ref{cls:uppaal::declarations::DataVariablePrefix} on Page~\pageref{cls:uppaal::declarations::DataVariablePrefix}
+	
+	\nopagebreak
+		
+				
+
+	
+
+		The prefix of the data variable declaration.		
+			\end{longdescription}
+			\item[\textbf{OCL Constraints of} \texttt{DataVariableDeclaration}] ~
+			\begin{longdescription}
+	\item[\small\textit{MatchingType}] ~ 
+	\nopagebreak
+	
+		\begin{lstlisting}[breaklines=true]
+(not self.typeDefinition.oclIsUndefined())
+implies
+(self.typeDefinition.baseType <> types::BuiltInType::CHAN
+and
+self.typeDefinition.baseType <> types::BuiltInType::CLOCK)		\end{lstlisting}
+			\end{longdescription}
+	
+	\end{longdescription}
+	
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Enumeration \bfseries \texttt{DataVariablePrefix}\normalfont}
+\label{cls:uppaal::declarations::DataVariablePrefix} \index{uppaal::declarations!DataVariablePrefix}
+
+	\begin{longdescription}
+		\item[Overview] 		
+				
+
+	
+
+		Prefixes for data variables with base type 'int' or 'bool'.		
+	
+		\item[\textbf{Literals of} \texttt{DataVariablePrefix}] ~
+		\begin{longdescription}
+			
+\item[\texttt{NONE = 0}] ~
+\nopagebreak
+
+\item[\texttt{CONST = 1}] ~
+\nopagebreak
+
+\item[\texttt{META = 2}] ~
+\nopagebreak
+		\end{longdescription}
+	\end{longdescription}
+	
+	
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Abstract Class \bfseries \texttt{Declaration}\normalfont}
+\label{cls:uppaal::declarations::Declaration} \index{4}
+	
+	\begin{longdescription}
+		\item[Overview] 		
+				
+
+	
+
+		Abstract base class representing a variable, function, or type declaration.		
+		
+	
+	
+	\end{longdescription}
+	
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Abstract Class \bfseries \texttt{Declarations}\normalfont}
+\label{cls:uppaal::declarations::Declarations} \index{0}
+	
+	\begin{longdescription}
+		\item[Overview] 		
+				
+
+	
+
+		Represents a set of variable, type, function, or template declarations, that are either global, local to a template, local to a block, or system declarations.		
+		
+	
+			\item[\textbf{References of} \texttt{Declarations}] ~
+			\begin{longdescription}
+	\item[\texttt{declaration : Declaration 	\symbol{"5B}0..$*$\symbol{"5D}
+}] ~
+	see Section~\ref{cls:uppaal::declarations::Declaration} on Page~\pageref{cls:uppaal::declarations::Declaration}
+	
+	\nopagebreak
+		
+				
+
+	
+
+		The single declarations.		
+			\end{longdescription}
+			\item[\textbf{OCL Constraints of} \texttt{Declarations}] ~
+			\begin{longdescription}
+	\item[\small\textit{UniqueFunctionNames}] ~ 
+	\nopagebreak
+	
+		\begin{lstlisting}[breaklines=true]
+self.declaration->select(oclIsKindOf(FunctionDeclaration)).oclAsType(FunctionDeclaration)->collect(function)->isUnique(name)		\end{lstlisting}
+	\item[\small\textit{UniqueVariableNames}] ~ 
+	\nopagebreak
+	
+		\begin{lstlisting}[breaklines=true]
+self.declaration->select(oclIsKindOf(VariableDeclaration)).oclAsType(VariableDeclaration)->collect(variable)->isUnique(name)		\end{lstlisting}
+	\item[\small\textit{UniqueTypeNames}] ~ 
+	\nopagebreak
+	
+		\begin{lstlisting}[breaklines=true]
+self.declaration->select(oclIsKindOf(TypeDeclaration)).oclAsType(TypeDeclaration)->collect(type)->isUnique(name)		\end{lstlisting}
+			\end{longdescription}
+	
+	\end{longdescription}
+	
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Class \bfseries \texttt{ExpressionInitializer}\normalfont}
+\label{cls:uppaal::declarations::ExpressionInitializer} \index{21}
+	
+	\begin{longdescription}
+		\item[Overview] 		
+				
+
+	
+
+		An initializer that represents a single initial value by means of an expression.		
+		\item[Super Types of \texttt{ExpressionInitializer}] ~
+			\begin{longdescription}
+				\item[\texttt{Initializer}] see Section~\ref{cls:uppaal::declarations::Initializer} on Page~\pageref{cls:uppaal::declarations::Initializer}						\end{longdescription}
+		
+	
+			\item[\textbf{References of} \texttt{ExpressionInitializer}] ~
+			\begin{longdescription}
+	\item[\texttt{expression : Expression 	\symbol{"5B}1..1\symbol{"5D}
+}] ~
+	see Section~\ref{cls:uppaal::expressions::Expression} on Page~\pageref{cls:uppaal::expressions::Expression}
+	
+	\nopagebreak
+		
+				
+
+	
+
+		The expression representing the initial value.		
+			\end{longdescription}
+	
+	\end{longdescription}
+	
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Class \bfseries \texttt{Function}\normalfont}
+\label{cls:uppaal::declarations::Function} \index{11}
+	
+	\begin{longdescription}
+		\item[Overview] 		
+				
+
+	
+
+		A function with a return type and optional parameters.		
+		\item[Super Types of \texttt{Function}] ~
+			\begin{longdescription}
+				\item[\texttt{NamedElement}] see Section~\ref{cls:uppaal::core::NamedElement} on Page~\pageref{cls:uppaal::core::NamedElement}						\end{longdescription}
+		
+	
+			\item[\textbf{References of} \texttt{Function}] ~
+			\begin{longdescription}
+	\item[\texttt{block : Block 	\symbol{"5B}1..1\symbol{"5D}
+}] ~
+	see Section~\ref{cls:uppaal::statements::Block} on Page~\pageref{cls:uppaal::statements::Block}
+	
+	\nopagebreak
+		
+				
+
+	
+
+		The block of statements representing the function body.		
+	\item[\texttt{parameter : Parameter 	\symbol{"5B}0..$*$\symbol{"5D}
+}] ~
+	see Section~\ref{cls:uppaal::declarations::Parameter} on Page~\pageref{cls:uppaal::declarations::Parameter}
+	
+	\nopagebreak
+		
+				
+
+	
+
+		The function's parameters.		
+	\item[\texttt{returnType : TypeDefinition 	\symbol{"5B}1..1\symbol{"5D}
+}] ~
+	see Section~\ref{cls:uppaal::types::TypeDefinition} on Page~\pageref{cls:uppaal::types::TypeDefinition}
+	
+	\nopagebreak
+		
+				
+
+	
+
+		The return type of this function.		
+			\end{longdescription}
+			\item[\textbf{OCL Constraints of} \texttt{Function}] ~
+			\begin{longdescription}
+	\item[\small\textit{ReturnStatementExistsIfRequired}] ~ 
+	\nopagebreak
+	
+		\begin{lstlisting}[breaklines=true]
+((not self.returnType.oclIsUndefined()) and
+self.returnType.baseType <> types::BuiltInType::VOID) 
+implies
+((not self.block.oclIsUndefined()) and 
+self.block.statement->exists(oclIsKindOf(statements::ReturnStatement)))		\end{lstlisting}
+	\item[\small\textit{ValidReturnType}] ~ 
+	\nopagebreak
+	
+		\begin{lstlisting}[breaklines=true]
+(not returnType.oclIsUndefined())
+implies
+(returnType.baseType = types::BuiltInType::VOID or
+ returnType.baseType = types::BuiltInType::INT or
+ returnType.baseType = types::BuiltInType::BOOL)		\end{lstlisting}
+	\item[\small\textit{UniqueParameterNames}] ~ 
+	\nopagebreak
+	
+		\begin{lstlisting}[breaklines=true]
+self.parameter->collect(variableDeclaration)->collect(variable)->isUnique(name)		\end{lstlisting}
+			\end{longdescription}
+	
+	\end{longdescription}
+	
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Class \bfseries \texttt{FunctionDeclaration}\normalfont}
+\label{cls:uppaal::declarations::FunctionDeclaration} \index{10}
+	
+	\begin{longdescription}
+		\item[Overview] 		
+				
+
+	
+
+		Declaration of a single function.		
+		\item[Super Types of \texttt{FunctionDeclaration}] ~
+			\begin{longdescription}
+				\item[\texttt{Declaration}] see Section~\ref{cls:uppaal::declarations::Declaration} on Page~\pageref{cls:uppaal::declarations::Declaration}						\end{longdescription}
+		
+	
+			\item[\textbf{References of} \texttt{FunctionDeclaration}] ~
+			\begin{longdescription}
+	\item[\texttt{function : Function 	\symbol{"5B}1..1\symbol{"5D}
+}] ~
+	see Section~\ref{cls:uppaal::declarations::Function} on Page~\pageref{cls:uppaal::declarations::Function}
+	
+	\nopagebreak
+		
+				
+
+	
+
+		The return type of this function.		
+			\end{longdescription}
+	
+	\end{longdescription}
+	
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Class \bfseries \texttt{GlobalDeclarations}\normalfont}
+\label{cls:uppaal::declarations::GlobalDeclarations} \index{1}
+	
+	\begin{longdescription}
+		\item[Overview] 		
+				
+
+	
+
+		Global declarations of an NTA.		
+		\item[Super Types of \texttt{GlobalDeclarations}] ~
+			\begin{longdescription}
+				\item[\texttt{Declarations}] see Section~\ref{cls:uppaal::declarations::Declarations} on Page~\pageref{cls:uppaal::declarations::Declarations}						\end{longdescription}
+		
+	
+			\item[\textbf{References of} \texttt{GlobalDeclarations}] ~
+			\begin{longdescription}
+	\item[\texttt{channelPriority : ChannelPriority 	}] ~
+	see Section~\ref{cls:uppaal::declarations::global::ChannelPriority} on Page~\pageref{cls:uppaal::declarations::global::ChannelPriority}
+	
+	\nopagebreak
+		
+				
+
+	
+
+		The declaration of the synchronization channel priorities.		
+			\end{longdescription}
+			\item[\textbf{OCL Constraints of} \texttt{GlobalDeclarations}] ~
+			\begin{longdescription}
+	\item[\small\textit{NoTemplateDeclarations}] ~ 
+	\nopagebreak
+	
+		\begin{lstlisting}[breaklines=true]
+not self.declaration->exists(oclIsKindOf(system::TemplateDeclaration))		\end{lstlisting}
+			\end{longdescription}
+	
+	\end{longdescription}
+	
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Abstract Class \bfseries \texttt{Index}\normalfont}
+\label{cls:uppaal::declarations::Index} \index{14}
+	
+	\begin{longdescription}
+		\item[Overview] 		
+				
+
+	
+
+		Abstract base-class for indexing variables or types.		
+		
+	
+	
+	\end{longdescription}
+	
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Abstract Class \bfseries \texttt{Initializer}\normalfont}
+\label{cls:uppaal::declarations::Initializer} \index{20}
+	
+	\begin{longdescription}
+		\item[Overview] 		
+				
+
+	
+
+		An initializer specifies a variable's initial value.		
+		
+	
+	
+	\end{longdescription}
+	
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Class \bfseries \texttt{LocalDeclarations}\normalfont}
+\label{cls:uppaal::declarations::LocalDeclarations} \index{2}
+	
+	\begin{longdescription}
+		\item[Overview] 		
+				
+
+	
+
+		Local declarations inside a template or block of statements.		
+		\item[Super Types of \texttt{LocalDeclarations}] ~
+			\begin{longdescription}
+				\item[\texttt{Declarations}] see Section~\ref{cls:uppaal::declarations::Declarations} on Page~\pageref{cls:uppaal::declarations::Declarations}						\end{longdescription}
+		
+	
+			\item[\textbf{OCL Constraints of} \texttt{LocalDeclarations}] ~
+			\begin{longdescription}
+	\item[\small\textit{NoTemplateDeclarations}] ~ 
+	\nopagebreak
+	
+		\begin{lstlisting}[breaklines=true]
+not self.declaration->exists(oclIsKindOf(system::TemplateDeclaration))		\end{lstlisting}
+	\item[\small\textit{NoChannelDeclarations}] ~ 
+	\nopagebreak
+	
+		\begin{lstlisting}[breaklines=true]
+not self.declaration->exists(oclIsKindOf(ChannelVariableDeclaration))		\end{lstlisting}
+			\end{longdescription}
+	
+	\end{longdescription}
+	
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Class \bfseries \texttt{Parameter}\normalfont}
+\label{cls:uppaal::declarations::Parameter} \index{18}
+	
+	\begin{longdescription}
+		\item[Overview] 		
+				
+
+	
+
+		A parameter of a function or template.		
+		
+	
+			\item[\textbf{Attributes of} \texttt{Parameter}] ~
+			\begin{longdescription}
+	\item[\texttt{callType : CallType 	}] ~
+	see Section~\ref{cls:uppaal::declarations::CallType} on Page~\pageref{cls:uppaal::declarations::CallType}
+	
+	\nopagebreak
+		
+				
+
+	
+
+		Specifies whether call-by-value or call-by-reference semantics should be applied.		
+			\end{longdescription}
+			\item[\textbf{References of} \texttt{Parameter}] ~
+			\begin{longdescription}
+	\item[\texttt{variableDeclaration : VariableDeclaration 	\symbol{"5B}1..1\symbol{"5D}
+}] ~
+	see Section~\ref{cls:uppaal::declarations::VariableDeclaration} on Page~\pageref{cls:uppaal::declarations::VariableDeclaration}
+	
+	\nopagebreak
+		
+				
+
+	
+
+		A variable declaration containing the variable that represents the parameter.		
+			\end{longdescription}
+			\item[\textbf{OCL Constraints of} \texttt{Parameter}] ~
+			\begin{longdescription}
+	\item[\small\textit{SingleVariable}] ~ 
+	\nopagebreak
+	
+		\begin{lstlisting}[breaklines=true]
+(not self.variableDeclaration.oclIsUndefined())
+implies
+self.variableDeclaration.variable->size() <= 1		\end{lstlisting}
+			\end{longdescription}
+	
+	\end{longdescription}
+	
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Class \bfseries \texttt{SystemDeclarations}\normalfont}
+\label{cls:uppaal::declarations::SystemDeclarations} \index{3}
+	
+	\begin{longdescription}
+		\item[Overview] 		
+				
+
+	
+
+		System declarations consisting of process instantiations.		
+		\item[Super Types of \texttt{SystemDeclarations}] ~
+			\begin{longdescription}
+				\item[\texttt{Declarations}] see Section~\ref{cls:uppaal::declarations::Declarations} on Page~\pageref{cls:uppaal::declarations::Declarations}						\end{longdescription}
+		
+	
+			\item[\textbf{References of} \texttt{SystemDeclarations}] ~
+			\begin{longdescription}
+	\item[\texttt{progressMeasure : ProgressMeasure 	}] ~
+	see Section~\ref{cls:uppaal::declarations::system::ProgressMeasure} on Page~\pageref{cls:uppaal::declarations::system::ProgressMeasure}
+	
+	\nopagebreak
+		
+				
+
+	
+
+		The optional progress measure section.		
+	\item[\texttt{system : System 	\symbol{"5B}1..1\symbol{"5D}
+}] ~
+	see Section~\ref{cls:uppaal::declarations::system::System} on Page~\pageref{cls:uppaal::declarations::system::System}
+	
+	\nopagebreak
+		
+				
+
+	
+
+		The system section describing the process instantiations.		
+			\end{longdescription}
+			\item[\textbf{OCL Constraints of} \texttt{SystemDeclarations}] ~
+			\begin{longdescription}
+	\item[\small\textit{UniqueTemplateNames}] ~ 
+	\nopagebreak
+	
+		\begin{lstlisting}[breaklines=true]
+self.declaration->select(oclIsKindOf(system::TemplateDeclaration)).oclAsType(system::TemplateDeclaration)->collect(declaredTemplate)->isUnique(name)		\end{lstlisting}
+	\item[\small\textit{NoChannelDeclarations}] ~ 
+	\nopagebreak
+	
+		\begin{lstlisting}[breaklines=true]
+not self.declaration->exists(oclIsKindOf(ChannelVariableDeclaration))		\end{lstlisting}
+			\end{longdescription}
+	
+	\end{longdescription}
+	
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Class \bfseries \texttt{TypeDeclaration}\normalfont}
+\label{cls:uppaal::declarations::TypeDeclaration} \index{12}
+	
+	\begin{longdescription}
+		\item[Overview] 		
+				
+
+	
+
+		A declaration of one or more types.		
+		\item[Super Types of \texttt{TypeDeclaration}] ~
+			\begin{longdescription}
+				\item[\texttt{Declaration}] see Section~\ref{cls:uppaal::declarations::Declaration} on Page~\pageref{cls:uppaal::declarations::Declaration}						\end{longdescription}
+		
+	
+			\item[\textbf{References of} \texttt{TypeDeclaration}] ~
+			\begin{longdescription}
+	\item[\texttt{type : DeclaredType 	\symbol{"5B}1..$*$\symbol{"5D}
+}] ~
+	see Section~\ref{cls:uppaal::types::DeclaredType} on Page~\pageref{cls:uppaal::types::DeclaredType}
+	
+	\nopagebreak
+		
+				
+
+	
+
+		The types declared by this type declaration.		
+	\item[\texttt{typeDefinition : TypeDefinition 	\symbol{"5B}1..1\symbol{"5D}
+}] ~
+	see Section~\ref{cls:uppaal::types::TypeDefinition} on Page~\pageref{cls:uppaal::types::TypeDefinition}
+	
+	\nopagebreak
+		
+				
+
+	
+
+		The type definition for declared types.		
+			\end{longdescription}
+			\item[\textbf{OCL Constraints of} \texttt{TypeDeclaration}] ~
+			\begin{longdescription}
+	\item[\small\textit{UniqueTypeNames}] ~ 
+	\nopagebreak
+	
+		\begin{lstlisting}[breaklines=true]
+self.type->isUnique(name)		\end{lstlisting}
+			\end{longdescription}
+	
+	\end{longdescription}
+	
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Class \bfseries \texttt{TypeIndex}\normalfont}
+\label{cls:uppaal::declarations::TypeIndex} \index{16}
+	
+	\begin{longdescription}
+		\item[Overview] 		
+				
+
+	
+
+		An index specified by a bounded integer-based type.		
+		\item[Super Types of \texttt{TypeIndex}] ~
+			\begin{longdescription}
+				\item[\texttt{Index}] see Section~\ref{cls:uppaal::declarations::Index} on Page~\pageref{cls:uppaal::declarations::Index}						\end{longdescription}
+		
+	
+			\item[\textbf{References of} \texttt{TypeIndex}] ~
+			\begin{longdescription}
+	\item[\texttt{typeDefinition : TypeDefinition 	\symbol{"5B}1..1\symbol{"5D}
+}] ~
+	see Section~\ref{cls:uppaal::types::TypeDefinition} on Page~\pageref{cls:uppaal::types::TypeDefinition}
+	
+	\nopagebreak
+		
+				
+
+	
+
+		An integer-based type representing size and range of the indexed type or variable.		
+			\end{longdescription}
+			\item[\textbf{OCL Constraints of} \texttt{TypeIndex}] ~
+			\begin{longdescription}
+	\item[\small\textit{IntegerBasedIndex}] ~ 
+	\nopagebreak
+	
+		\begin{lstlisting}[breaklines=true]
+(not self.typeDefinition.oclIsUndefined())
+implies
+self.typeDefinition.baseType = types::BuiltInType::INT		\end{lstlisting}
+			\end{longdescription}
+	
+	\end{longdescription}
+	
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Class \bfseries \texttt{ValueIndex}\normalfont}
+\label{cls:uppaal::declarations::ValueIndex} \index{15}
+	
+	\begin{longdescription}
+		\item[Overview] 		
+				
+
+	
+
+		An index specified by an expression value.		
+		\item[Super Types of \texttt{ValueIndex}] ~
+			\begin{longdescription}
+				\item[\texttt{Index}] see Section~\ref{cls:uppaal::declarations::Index} on Page~\pageref{cls:uppaal::declarations::Index}						\end{longdescription}
+		
+	
+			\item[\textbf{References of} \texttt{ValueIndex}] ~
+			\begin{longdescription}
+	\item[\texttt{sizeExpression : Expression 	\symbol{"5B}1..1\symbol{"5D}
+}] ~
+	see Section~\ref{cls:uppaal::expressions::Expression} on Page~\pageref{cls:uppaal::expressions::Expression}
+	
+	\nopagebreak
+		
+				
+
+	
+
+		An integer-based expression representing size and range of the indexed type or variable.		
+			\end{longdescription}
+	
+	\end{longdescription}
+	
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Class \bfseries \texttt{Variable}\normalfont}
+\label{cls:uppaal::declarations::Variable} \index{13}
+	
+	\begin{longdescription}
+		\item[Overview] 		
+				
+
+	
+
+		A typed variable.		
+		\item[Super Types of \texttt{Variable}] ~
+			\begin{longdescription}
+				\item[\texttt{NamedElement}] see Section~\ref{cls:uppaal::core::NamedElement} on Page~\pageref{cls:uppaal::core::NamedElement}						\end{longdescription}
+		
+	
+			\item[\textbf{References of} \texttt{Variable}] ~
+			\begin{longdescription}
+	\item[\texttt{container : VariableContainer 	\symbol{"5B}1..1\symbol{"5D}
+}] ~
+	see Section~\ref{cls:uppaal::declarations::VariableContainer} on Page~\pageref{cls:uppaal::declarations::VariableContainer}
+	
+	\nopagebreak
+		
+				
+
+	
+
+		The container of this variable.		
+	\item[\texttt{index : Index 	\symbol{"5B}0..$*$\symbol{"5D}
+}] ~
+	see Section~\ref{cls:uppaal::declarations::Index} on Page~\pageref{cls:uppaal::declarations::Index}
+	
+	\nopagebreak
+		
+				
+
+	
+
+		A set of array indexes for the variable.		
+	\item[\texttt{initializer : Initializer 	}] ~
+	see Section~\ref{cls:uppaal::declarations::Initializer} on Page~\pageref{cls:uppaal::declarations::Initializer}
+	
+	\nopagebreak
+		
+				
+
+	
+
+		Represents the variable's initial value.		
+	\item[\texttt{/typeDefinition : TypeDefinition 	\symbol{"5B}1..1\symbol{"5D}
+}] ~
+	see Section~\ref{cls:uppaal::types::TypeDefinition} on Page~\pageref{cls:uppaal::types::TypeDefinition}
+	
+	\nopagebreak
+		
+				
+
+	
+
+		The type definition of this variable.		
+		\begin{longdescription}
+	\item[\small\textit{derivation}] ~ 
+	\nopagebreak
+		\begin{lstlisting}[language=OCL, breaklines=true]
+if self.container.oclIsUndefined()
+then null 
+else 
+self.container.typeDefinition 
+endif		\end{lstlisting}
+		\end{longdescription}
+			\end{longdescription}
+			\item[\textbf{OCL Constraints of} \texttt{Variable}] ~
+			\begin{longdescription}
+	\item[\small\textit{NoInitializerForClockAndChannelVariables}] ~ 
+	\nopagebreak
+	
+		\begin{lstlisting}[breaklines=true]
+((not self.typeDefinition.oclIsUndefined()) and
+(self.typeDefinition.baseType = types::BuiltInType::CHAN or
+ self.typeDefinition.baseType = types::BuiltInType::CLOCK))
+ implies self.initializer.oclIsUndefined()		\end{lstlisting}
+			\end{longdescription}
+	
+	\end{longdescription}
+	
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Abstract Class \bfseries \texttt{VariableContainer}\normalfont}
+\label{cls:uppaal::declarations::VariableContainer} \index{17}
+	
+	\begin{longdescription}
+		\item[Overview] 		
+				
+
+	
+
+		Abstract base class for objects containing variables like variable declarations, iterations, quantifications or selections.		
+		
+	
+			\item[\textbf{References of} \texttt{VariableContainer}] ~
+			\begin{longdescription}
+	\item[\texttt{typeDefinition : TypeDefinition 	\symbol{"5B}1..1\symbol{"5D}
+}] ~
+	see Section~\ref{cls:uppaal::types::TypeDefinition} on Page~\pageref{cls:uppaal::types::TypeDefinition}
+	
+	\nopagebreak
+		
+				
+
+	
+
+		The type definition for the contained variables.		
+	\item[\texttt{variable : Variable 	\symbol{"5B}1..$*$\symbol{"5D}
+}] ~
+	see Section~\ref{cls:uppaal::declarations::Variable} on Page~\pageref{cls:uppaal::declarations::Variable}
+	
+	\nopagebreak
+		
+				
+
+	
+
+		The contained variables.		
+			\end{longdescription}
+			\item[\textbf{OCL Constraints of} \texttt{VariableContainer}] ~
+			\begin{longdescription}
+	\item[\small\textit{NoVoidVariables}] ~ 
+	\nopagebreak
+	
+		\begin{lstlisting}[breaklines=true]
+(not self.typeDefinition.oclIsUndefined())
+implies
+self.typeDefinition.baseType <> types::BuiltInType::VOID		\end{lstlisting}
+	\item[\small\textit{UniqueVariableNames}] ~ 
+	\nopagebreak
+	
+		\begin{lstlisting}[breaklines=true]
+self.variable->isUnique(name)		\end{lstlisting}
+			\end{longdescription}
+	
+	\end{longdescription}
+	
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Abstract Class \bfseries \texttt{VariableDeclaration}\normalfont}
+\label{cls:uppaal::declarations::VariableDeclaration} \index{5}
+	
+	\begin{longdescription}
+		\item[Overview] 		
+				
+
+	
+
+		A declaration of one or more variables.		
+		\item[Super Types of \texttt{VariableDeclaration}] ~
+			\begin{longdescription}
+				\item[\texttt{Declaration}] see Section~\ref{cls:uppaal::declarations::Declaration} on Page~\pageref{cls:uppaal::declarations::Declaration}			, 				\item[\texttt{VariableContainer}] see Section~\ref{cls:uppaal::declarations::VariableContainer} on Page~\pageref{cls:uppaal::declarations::VariableContainer}						\end{longdescription}
+		
+	
+	
+	\end{longdescription}
+	
+			\newpage
+		\section{Package \bfseries \texttt{uppaal::declarations::global}\normalfont}
+		
+		% Here comes the package documentation
+		\begin{longdescription}
+		\item[Overview]			
+				
+
+	
+
+		Contains special classes that are relevant for the global declarations.		
+		\end{longdescription}
+	% Here a manual modifiable file is included: uppaal_declarations_global/graphics.tex
+	\input{img/uppaal_declarations_global/graphics}
+			%\subsection{Package Documentation}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Class \bfseries \texttt{ChannelList}\normalfont}
+\label{cls:uppaal::declarations::global::ChannelList} \index{2}
+	
+	\begin{longdescription}
+		\item[Overview] 		
+				
+
+	
+
+		A list of synchronization channel variables, used to assign these channels a common priority.		
+		\item[Super Types of \texttt{ChannelList}] ~
+			\begin{longdescription}
+				\item[\texttt{ChannelPriorityItem}] see Section~\ref{cls:uppaal::declarations::global::ChannelPriorityItem} on Page~\pageref{cls:uppaal::declarations::global::ChannelPriorityItem}						\end{longdescription}
+		
+	
+			\item[\textbf{References of} \texttt{ChannelList}] ~
+			\begin{longdescription}
+	\item[\texttt{channelExpression : IdentifierExpression 	\symbol{"5B}1..$*$\symbol{"5D}
+}] ~
+	see Section~\ref{cls:uppaal::expressions::IdentifierExpression} on Page~\pageref{cls:uppaal::expressions::IdentifierExpression}
+	
+	\nopagebreak
+		
+				
+
+	
+
+		The variable expressions representing the synchronization channels inside the channel list.		
+			\end{longdescription}
+			\item[\textbf{OCL Constraints of} \texttt{ChannelList}] ~
+			\begin{longdescription}
+	\item[\small\textit{ChannelVariablesOnly}] ~ 
+	\nopagebreak
+	
+		\begin{lstlisting}[breaklines=true]
+self.channelExpression->forAll(
+	(not identifier.typeDefinition.oclIsUndefined()) implies identifier.typeDefinition.baseType = types::BuiltInType::CHAN
+)		\end{lstlisting}
+			\end{longdescription}
+	
+	\end{longdescription}
+	
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Class \bfseries \texttt{ChannelPriority}\normalfont}
+\label{cls:uppaal::declarations::global::ChannelPriority} \index{0}
+	
+	\begin{longdescription}
+		\item[Overview] 		
+				
+
+	
+
+		A priority ordering for synchronization channels.		
+		
+	
+			\item[\textbf{References of} \texttt{ChannelPriority}] ~
+			\begin{longdescription}
+	\item[\texttt{item : ChannelPriorityItem 	\symbol{"5B}1..$*$\symbol{"5D}
+}] ~
+	see Section~\ref{cls:uppaal::declarations::global::ChannelPriorityItem} on Page~\pageref{cls:uppaal::declarations::global::ChannelPriorityItem}
+	
+	\nopagebreak
+		
+				
+
+	
+
+		The items of the channel priority ordering.		
+			\end{longdescription}
+			\item[\textbf{OCL Constraints of} \texttt{ChannelPriority}] ~
+			\begin{longdescription}
+	\item[\small\textit{AtMostOneDefaultItem}] ~ 
+	\nopagebreak
+	
+		\begin{lstlisting}[breaklines=true]
+self.item->select(oclIsKindOf(DefaultChannelPriority))->size() <= 1		\end{lstlisting}
+	\item[\small\textit{EachChannelContainedAtMostOnce}] ~ 
+	\nopagebreak
+	
+		\begin{lstlisting}[breaklines=true]
+self.item->select(oclIsKindOf(ChannelList)).oclAsType(ChannelList)->collect(channelExpression)->isUnique(variable)		\end{lstlisting}
+			\end{longdescription}
+	
+	\end{longdescription}
+	
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Abstract Class \bfseries \texttt{ChannelPriorityItem}\normalfont}
+\label{cls:uppaal::declarations::global::ChannelPriorityItem} \index{1}
+	
+	\begin{longdescription}
+		\item[Overview] 		
+				
+
+	
+
+		Abstract base class for items inside a channel priority.		
+		
+	
+	
+	\end{longdescription}
+	
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Class \bfseries \texttt{DefaultChannelPriority}\normalfont}
+\label{cls:uppaal::declarations::global::DefaultChannelPriority} \index{3}
+	
+	\begin{longdescription}
+		\item[Overview] 		
+				
+
+	
+
+		A 'default' item inside a channel priority, representing all channels not listed explicitly.		
+		\item[Super Types of \texttt{DefaultChannelPriority}] ~
+			\begin{longdescription}
+				\item[\texttt{ChannelPriorityItem}] see Section~\ref{cls:uppaal::declarations::global::ChannelPriorityItem} on Page~\pageref{cls:uppaal::declarations::global::ChannelPriorityItem}						\end{longdescription}
+		
+	
+	
+	\end{longdescription}
+	
+			\newpage
+		\section{Package \bfseries \texttt{uppaal::declarations::system}\normalfont}
+		
+		% Here comes the package documentation
+		\begin{longdescription}
+		\item[Overview]			
+				
+
+	
+
+		Contains special classes that are relevant for the system declarations.		
+		\end{longdescription}
+	% Here a manual modifiable file is included: uppaal_declarations_system/graphics.tex
+	\input{img/uppaal_declarations_system/graphics}
+			%\subsection{Package Documentation}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Class \bfseries \texttt{InstantiationList}\normalfont}
+\label{cls:uppaal::declarations::system::InstantiationList} \index{2}
+	
+	\begin{longdescription}
+		\item[Overview] 		
+				
+
+	
+
+		Represents a list of templates to be instantiated using a common priority.		
+		
+	
+			\item[\textbf{References of} \texttt{InstantiationList}] ~
+			\begin{longdescription}
+	\item[\texttt{template : AbstractTemplate 	\symbol{"5B}1..$*$\symbol{"5D}
+}] ~
+	see Section~\ref{cls:uppaal::templates::AbstractTemplate} on Page~\pageref{cls:uppaal::templates::AbstractTemplate}
+	
+	\nopagebreak
+		
+				
+
+	
+
+		The list of instantiations.		
+			\end{longdescription}
+			\item[\textbf{OCL Constraints of} \texttt{InstantiationList}] ~
+			\begin{longdescription}
+	\item[\small\textit{OnlyLegalParamsForPartialInstantiation}] ~ 
+	\nopagebreak
+	
+		\begin{lstlisting}[breaklines=true]
+self.template->forAll(
+	parameter->forAll(
+		callType = declarations::CallType::CALL\_BY\_VALUE
+		and
+		((not variableDeclaration.oclIsUndefined())
+			implies
+		 (variableDeclaration.typeDefinition.oclIsKindOf(types::RangeTypeSpecification) or
+		  variableDeclaration.typeDefinition.oclIsKindOf(types::ScalarTypeSpecification)))
+	)
+)		\end{lstlisting}
+			\end{longdescription}
+	
+	\end{longdescription}
+	
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Class \bfseries \texttt{ProgressMeasure}\normalfont}
+\label{cls:uppaal::declarations::system::ProgressMeasure} \index{3}
+	
+	\begin{longdescription}
+		\item[Overview] 		
+				
+
+	
+
+		A progress measure consisting of monotonically increasing expressions.		
+		
+	
+			\item[\textbf{References of} \texttt{ProgressMeasure}] ~
+			\begin{longdescription}
+	\item[\texttt{expression : Expression 	\symbol{"5B}1..$*$\symbol{"5D}
+}] ~
+	see Section~\ref{cls:uppaal::expressions::Expression} on Page~\pageref{cls:uppaal::expressions::Expression}
+	
+	\nopagebreak
+		
+				
+
+	
+
+		The progress measure expressions.		
+			\end{longdescription}
+	
+	\end{longdescription}
+	
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Class \bfseries \texttt{System}\normalfont}
+\label{cls:uppaal::declarations::system::System} \index{1}
+	
+	\begin{longdescription}
+		\item[Overview] 		
+				
+
+	
+
+		A system contains declarations of template instantiations.		
+		
+	
+			\item[\textbf{References of} \texttt{System}] ~
+			\begin{longdescription}
+	\item[\texttt{instantiationList : InstantiationList 	\symbol{"5B}1..$*$\symbol{"5D}
+}] ~
+	see Section~\ref{cls:uppaal::declarations::system::InstantiationList} on Page~\pageref{cls:uppaal::declarations::system::InstantiationList}
+	
+	\nopagebreak
+		
+				
+
+	
+
+		A list of process instantiation sublists, ordered by decreasing priority. The templates referenced inside the sublists are instantiated to be part of the system at runtime.		
+			\end{longdescription}
+			\item[\textbf{OCL Constraints of} \texttt{System}] ~
+			\begin{longdescription}
+	\item[\small\textit{EachTemplateReferencedAtMostOnce}] ~ 
+	\nopagebreak
+	
+		\begin{lstlisting}[breaklines=true]
+self.instantiationList->collect(template)->isUnique(t : templates::AbstractTemplate | t)		\end{lstlisting}
+			\end{longdescription}
+	
+	\end{longdescription}
+	
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Class \bfseries \texttt{TemplateDeclaration}\normalfont}
+\label{cls:uppaal::declarations::system::TemplateDeclaration} \index{0}
+	
+	\begin{longdescription}
+		\item[Overview] 		
+				
+
+	
+
+		A declaration of a template redefinition.		
+		\item[Super Types of \texttt{TemplateDeclaration}] ~
+			\begin{longdescription}
+				\item[\texttt{Declaration}] see Section~\ref{cls:uppaal::declarations::Declaration} on Page~\pageref{cls:uppaal::declarations::Declaration}						\end{longdescription}
+		
+	
+			\item[\textbf{References of} \texttt{TemplateDeclaration}] ~
+			\begin{longdescription}
+	\item[\texttt{argument : Expression 	\symbol{"5B}0..$*$\symbol{"5D}
+}] ~
+	see Section~\ref{cls:uppaal::expressions::Expression} on Page~\pageref{cls:uppaal::expressions::Expression}
+	
+	\nopagebreak
+		
+				
+
+	
+
+		A number of arguments that describe how the referred template's parameters should be mapped towards the declared template's parameters.		
+	\item[\texttt{declaredTemplate : RedefinedTemplate 	\symbol{"5B}1..1\symbol{"5D}
+}] ~
+	see Section~\ref{cls:uppaal::templates::RedefinedTemplate} on Page~\pageref{cls:uppaal::templates::RedefinedTemplate}
+	
+	\nopagebreak
+		
+				
+
+	
+
+		The template being declared.		
+			\end{longdescription}
+			\item[\textbf{OCL Constraints of} \texttt{TemplateDeclaration}] ~
+			\begin{longdescription}
+	\item[\small\textit{NumberOfArgumentsMatchesDeclaration}] ~ 
+	\nopagebreak
+	
+		\begin{lstlisting}[breaklines=true]
+(not self.declaredTemplate.oclIsUndefined() and not self.declaredTemplate.referredTemplate.oclIsUndefined())
+implies
+self.argument->size() = self.declaredTemplate.referredTemplate.parameter->size()		\end{lstlisting}
+			\end{longdescription}
+	
+	\end{longdescription}
+	
+			\newpage
+		\section{Package \bfseries \texttt{uppaal::expressions}\normalfont}
+		
+		% Here comes the package documentation
+		\begin{longdescription}
+		\item[Overview]			
+				
+
+	
+
+		Introduces all kinds of expressions.		
+		\end{longdescription}
+	% Here a manual modifiable file is included: uppaal_expressions/graphics.tex
+	\input{img/uppaal_expressions/graphics}
+			%\subsection{Package Documentation}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Class \bfseries \texttt{ArithmeticExpression}\normalfont}
+\label{cls:uppaal::expressions::ArithmeticExpression} \index{9}
+	
+	\begin{longdescription}
+		\item[Overview] 		
+				
+
+	
+
+		A binary expression representing an arithemtic operation.		
+		\item[Super Types of \texttt{ArithmeticExpression}] ~
+			\begin{longdescription}
+				\item[\texttt{BinaryExpression}] see Section~\ref{cls:uppaal::expressions::BinaryExpression} on Page~\pageref{cls:uppaal::expressions::BinaryExpression}						\end{longdescription}
+		
+	
+			\item[\textbf{Attributes of} \texttt{ArithmeticExpression}] ~
+			\begin{longdescription}
+	\item[\texttt{operator : ArithmeticOperator 	\symbol{"5B}1..1\symbol{"5D}
+}] ~
+	see Section~\ref{cls:uppaal::expressions::ArithmeticOperator} on Page~\pageref{cls:uppaal::expressions::ArithmeticOperator}
+	
+	\nopagebreak
+		
+				
+
+	
+
+		The arithmetic operator to be applied.		
+			\end{longdescription}
+	
+	\end{longdescription}
+	
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Enumeration \bfseries \texttt{ArithmeticOperator}\normalfont}
+\label{cls:uppaal::expressions::ArithmeticOperator} \index{uppaal::expressions!ArithmeticOperator}
+
+	\begin{longdescription}
+		\item[Overview] 		
+				
+
+	
+
+		Representing all arithmetic operators.		
+	
+		\item[\textbf{Literals of} \texttt{ArithmeticOperator}] ~
+		\begin{longdescription}
+			
+\item[\texttt{ADD = 0}] ~
+\nopagebreak
+
+\item[\texttt{SUBTRACT = 1}] ~
+\nopagebreak
+
+\item[\texttt{MULTIPLICATE = 2}] ~
+\nopagebreak
+
+\item[\texttt{DIVIDE = 3}] ~
+\nopagebreak
+
+\item[\texttt{MODULO = 4}] ~
+\nopagebreak
+		\end{longdescription}
+	\end{longdescription}
+	
+	
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Class \bfseries \texttt{AssignmentExpression}\normalfont}
+\label{cls:uppaal::expressions::AssignmentExpression} \index{5}
+	
+	\begin{longdescription}
+		\item[Overview] 		
+				
+
+	
+
+		A binary assignment expression using a specific assignment operator.		
+		\item[Super Types of \texttt{AssignmentExpression}] ~
+			\begin{longdescription}
+				\item[\texttt{BinaryExpression}] see Section~\ref{cls:uppaal::expressions::BinaryExpression} on Page~\pageref{cls:uppaal::expressions::BinaryExpression}						\end{longdescription}
+		
+	
+			\item[\textbf{Attributes of} \texttt{AssignmentExpression}] ~
+			\begin{longdescription}
+	\item[\texttt{operator : AssignmentOperator 	\symbol{"5B}1..1\symbol{"5D}
+}] ~
+	see Section~\ref{cls:uppaal::expressions::AssignmentOperator} on Page~\pageref{cls:uppaal::expressions::AssignmentOperator}
+	
+	\nopagebreak
+		
+				
+
+	
+
+		The operator for the assignment.		
+			\end{longdescription}
+	
+	\end{longdescription}
+	
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Enumeration \bfseries \texttt{AssignmentOperator}\normalfont}
+\label{cls:uppaal::expressions::AssignmentOperator} \index{uppaal::expressions!AssignmentOperator}
+
+	\begin{longdescription}
+		\item[Overview] 		
+				
+
+	
+
+		Representing all assignment operators.		
+	
+		\item[\textbf{Literals of} \texttt{AssignmentOperator}] ~
+		\begin{longdescription}
+			
+\item[\texttt{EQUAL = 0}] ~
+\nopagebreak
+
+\item[\texttt{PLUS\_EQUAL = 1}] ~
+\nopagebreak
+
+\item[\texttt{MINUS\_EQUAL = 2}] ~
+\nopagebreak
+
+\item[\texttt{TIMES\_EQUAL = 3}] ~
+\nopagebreak
+
+\item[\texttt{DIVIDE\_EQUAL = 4}] ~
+\nopagebreak
+
+\item[\texttt{MODULO\_EQUAL = 5}] ~
+\nopagebreak
+
+\item[\texttt{BIT\_AND\_EQUAL = 6}] ~
+\nopagebreak
+
+\item[\texttt{BIT\_OR\_EQUAL = 7}] ~
+\nopagebreak
+
+\item[\texttt{BIT\_LEFT\_EQUAL = 8}] ~
+\nopagebreak
+
+\item[\texttt{BIT\_RIGHT\_EQUAL = 9}] ~
+\nopagebreak
+
+\item[\texttt{BIT\_XOR\_EQUAL = 10}] ~
+\nopagebreak
+		\end{longdescription}
+	\end{longdescription}
+	
+	
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Abstract Class \bfseries \texttt{BinaryExpression}\normalfont}
+\label{cls:uppaal::expressions::BinaryExpression} \index{4}
+	
+	\begin{longdescription}
+		\item[Overview] 		
+				
+
+	
+
+		Abstract base class for all binary expressions connecting two sub-expressions.		
+		\item[Super Types of \texttt{BinaryExpression}] ~
+			\begin{longdescription}
+				\item[\texttt{Expression}] see Section~\ref{cls:uppaal::expressions::Expression} on Page~\pageref{cls:uppaal::expressions::Expression}						\end{longdescription}
+		
+	
+			\item[\textbf{References of} \texttt{BinaryExpression}] ~
+			\begin{longdescription}
+	\item[\texttt{firstExpr : Expression 	\symbol{"5B}1..1\symbol{"5D}
+}] ~
+	see Section~\ref{cls:uppaal::expressions::Expression} on Page~\pageref{cls:uppaal::expressions::Expression}
+	
+	\nopagebreak
+		
+				
+
+	
+
+		The first sub-expression.		
+	\item[\texttt{secondExpr : Expression 	\symbol{"5B}1..1\symbol{"5D}
+}] ~
+	see Section~\ref{cls:uppaal::expressions::Expression} on Page~\pageref{cls:uppaal::expressions::Expression}
+	
+	\nopagebreak
+		
+				
+
+	
+
+		The second sub-expression.		
+			\end{longdescription}
+	
+	\end{longdescription}
+	
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Class \bfseries \texttt{BitShiftExpression}\normalfont}
+\label{cls:uppaal::expressions::BitShiftExpression} \index{23}
+	
+	\begin{longdescription}
+		\item[Overview] 		
+				
+
+	
+
+		A binary expression representing an arithemtic operation.		
+		\item[Super Types of \texttt{BitShiftExpression}] ~
+			\begin{longdescription}
+				\item[\texttt{BinaryExpression}] see Section~\ref{cls:uppaal::expressions::BinaryExpression} on Page~\pageref{cls:uppaal::expressions::BinaryExpression}						\end{longdescription}
+		
+	
+			\item[\textbf{Attributes of} \texttt{BitShiftExpression}] ~
+			\begin{longdescription}
+	\item[\texttt{operator : BitShiftOperator 	\symbol{"5B}1..1\symbol{"5D}
+}] ~
+	see Section~\ref{cls:uppaal::expressions::BitShiftOperator} on Page~\pageref{cls:uppaal::expressions::BitShiftOperator}
+	
+	\nopagebreak
+		
+				
+
+	
+
+		The arithmetic operator to be applied.		
+			\end{longdescription}
+	
+	\end{longdescription}
+	
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Enumeration \bfseries \texttt{BitShiftOperator}\normalfont}
+\label{cls:uppaal::expressions::BitShiftOperator} \index{uppaal::expressions!BitShiftOperator}
+
+	\begin{longdescription}
+		\item[Overview] 		
+				
+
+	
+
+		Representing all arithmetic operators.		
+	
+		\item[\textbf{Literals of} \texttt{BitShiftOperator}] ~
+		\begin{longdescription}
+			
+\item[\texttt{LEFT = 0}] ~
+\nopagebreak
+
+\item[\texttt{RIGHT = 1}] ~
+\nopagebreak
+		\end{longdescription}
+	\end{longdescription}
+	
+	
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Class \bfseries \texttt{BitwiseExpression}\normalfont}
+\label{cls:uppaal::expressions::BitwiseExpression} \index{27}
+	
+	\begin{longdescription}
+		\item[Overview] 		
+				
+
+	
+
+		A binary expression representing an arithemtic operation.		
+		\item[Super Types of \texttt{BitwiseExpression}] ~
+			\begin{longdescription}
+				\item[\texttt{BinaryExpression}] see Section~\ref{cls:uppaal::expressions::BinaryExpression} on Page~\pageref{cls:uppaal::expressions::BinaryExpression}						\end{longdescription}
+		
+	
+			\item[\textbf{Attributes of} \texttt{BitwiseExpression}] ~
+			\begin{longdescription}
+	\item[\texttt{operator : BitwiseOperator 	\symbol{"5B}1..1\symbol{"5D}
+}] ~
+	see Section~\ref{cls:uppaal::expressions::BitwiseOperator} on Page~\pageref{cls:uppaal::expressions::BitwiseOperator}
+	
+	\nopagebreak
+		
+				
+
+	
+
+		The arithmetic operator to be applied.		
+			\end{longdescription}
+	
+	\end{longdescription}
+	
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Enumeration \bfseries \texttt{BitwiseOperator}\normalfont}
+\label{cls:uppaal::expressions::BitwiseOperator} \index{uppaal::expressions!BitwiseOperator}
+
+	\begin{longdescription}
+		\item[Overview] 		
+				
+
+	
+
+		Representing all arithmetic operators.		
+	
+		\item[\textbf{Literals of} \texttt{BitwiseOperator}] ~
+		\begin{longdescription}
+			
+\item[\texttt{AND = 0}] ~
+\nopagebreak
+
+\item[\texttt{XOR = 1}] ~
+\nopagebreak
+
+\item[\texttt{OR = 2}] ~
+\nopagebreak
+		\end{longdescription}
+	\end{longdescription}
+	
+	
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Class \bfseries \texttt{CompareExpression}\normalfont}
+\label{cls:uppaal::expressions::CompareExpression} \index{14}
+	
+	\begin{longdescription}
+		\item[Overview] 		
+				
+
+	
+
+		A comparison between two expression values using a specific comparison operator.		
+		\item[Super Types of \texttt{CompareExpression}] ~
+			\begin{longdescription}
+				\item[\texttt{BinaryExpression}] see Section~\ref{cls:uppaal::expressions::BinaryExpression} on Page~\pageref{cls:uppaal::expressions::BinaryExpression}						\end{longdescription}
+		
+	
+			\item[\textbf{Attributes of} \texttt{CompareExpression}] ~
+			\begin{longdescription}
+	\item[\texttt{operator : CompareOperator 	\symbol{"5B}1..1\symbol{"5D}
+}] ~
+	see Section~\ref{cls:uppaal::expressions::CompareOperator} on Page~\pageref{cls:uppaal::expressions::CompareOperator}
+	
+	\nopagebreak
+		
+				
+
+	
+
+		The comparison operator to be applied.		
+			\end{longdescription}
+	
+	\end{longdescription}
+	
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Enumeration \bfseries \texttt{CompareOperator}\normalfont}
+\label{cls:uppaal::expressions::CompareOperator} \index{uppaal::expressions!CompareOperator}
+
+	\begin{longdescription}
+		\item[Overview] 		
+				
+
+	
+
+		Representing all comparison operators.		
+	
+		\item[\textbf{Literals of} \texttt{CompareOperator}] ~
+		\begin{longdescription}
+			
+\item[\texttt{EQUAL = 0}] ~
+\nopagebreak
+
+\item[\texttt{GREATER = 1}] ~
+\nopagebreak
+
+\item[\texttt{GREATER\_OR\_EQUAL = 2}] ~
+\nopagebreak
+
+\item[\texttt{LESS = 3}] ~
+\nopagebreak
+
+\item[\texttt{LESS\_OR\_EQUAL = 4}] ~
+\nopagebreak
+
+\item[\texttt{UNEQUAL = 5}] ~
+\nopagebreak
+		\end{longdescription}
+	\end{longdescription}
+	
+	
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Class \bfseries \texttt{ConditionExpression}\normalfont}
+\label{cls:uppaal::expressions::ConditionExpression} \index{16}
+	
+	\begin{longdescription}
+		\item[Overview] 		
+				
+
+	
+
+		An expression representing a conditional redirection to one of the sub-expressions. Uses tokens '?' and ':' for delimitation.		
+		\item[Super Types of \texttt{ConditionExpression}] ~
+			\begin{longdescription}
+				\item[\texttt{Expression}] see Section~\ref{cls:uppaal::expressions::Expression} on Page~\pageref{cls:uppaal::expressions::Expression}						\end{longdescription}
+		
+	
+			\item[\textbf{References of} \texttt{ConditionExpression}] ~
+			\begin{longdescription}
+	\item[\texttt{elseExpression : Expression 	\symbol{"5B}1..1\symbol{"5D}
+}] ~
+	see Section~\ref{cls:uppaal::expressions::Expression} on Page~\pageref{cls:uppaal::expressions::Expression}
+	
+	\nopagebreak
+		
+				
+
+	
+
+		The else-expression.		
+	\item[\texttt{ifExpression : Expression 	\symbol{"5B}1..1\symbol{"5D}
+}] ~
+	see Section~\ref{cls:uppaal::expressions::Expression} on Page~\pageref{cls:uppaal::expressions::Expression}
+	
+	\nopagebreak
+		
+				
+
+	
+
+		The boolean if-expression.		
+	\item[\texttt{thenExpression : Expression 	\symbol{"5B}1..1\symbol{"5D}
+}] ~
+	see Section~\ref{cls:uppaal::expressions::Expression} on Page~\pageref{cls:uppaal::expressions::Expression}
+	
+	\nopagebreak
+		
+				
+
+	
+
+		The then-expression.		
+			\end{longdescription}
+	
+	\end{longdescription}
+	
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Abstract Class \bfseries \texttt{Expression}\normalfont}
+\label{cls:uppaal::expressions::Expression} \index{0}
+	
+	\begin{longdescription}
+		\item[Overview] 		
+				
+
+	
+
+		Abstract base class for all kinds of expressions.		
+		
+	
+	
+	\end{longdescription}
+	
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Class \bfseries \texttt{FunctionCallExpression}\normalfont}
+\label{cls:uppaal::expressions::FunctionCallExpression} \index{13}
+	
+	\begin{longdescription}
+		\item[Overview] 		
+				
+
+	
+
+		An expression representing a call to a function.		
+		\item[Super Types of \texttt{FunctionCallExpression}] ~
+			\begin{longdescription}
+				\item[\texttt{Expression}] see Section~\ref{cls:uppaal::expressions::Expression} on Page~\pageref{cls:uppaal::expressions::Expression}						\end{longdescription}
+		
+	
+			\item[\textbf{References of} \texttt{FunctionCallExpression}] ~
+			\begin{longdescription}
+	\item[\texttt{argument : Expression 	\symbol{"5B}0..$*$\symbol{"5D}
+}] ~
+	see Section~\ref{cls:uppaal::expressions::Expression} on Page~\pageref{cls:uppaal::expressions::Expression}
+	
+	\nopagebreak
+		
+				
+
+	
+
+		A set of expressions representing the argument values for the function call. Must conform to the parameters of the function declaration.		
+	\item[\texttt{function : Function 	\symbol{"5B}1..1\symbol{"5D}
+}] ~
+	see Section~\ref{cls:uppaal::declarations::Function} on Page~\pageref{cls:uppaal::declarations::Function}
+	
+	\nopagebreak
+		
+				
+
+	
+
+		The function to be called.		
+			\end{longdescription}
+			\item[\textbf{OCL Constraints of} \texttt{FunctionCallExpression}] ~
+			\begin{longdescription}
+	\item[\small\textit{NumberOfArgumentsMatchesDeclaration}] ~ 
+	\nopagebreak
+	
+		\begin{lstlisting}[breaklines=true]
+(not self.function.oclIsUndefined())
+implies
+self.argument->size() = self.function.parameter->size()		\end{lstlisting}
+			\end{longdescription}
+	
+	\end{longdescription}
+	
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Class \bfseries \texttt{IdentifierExpression}\normalfont}
+\label{cls:uppaal::expressions::IdentifierExpression} \index{7}
+	
+	\begin{longdescription}
+		\item[Overview] 		
+				
+
+	
+
+		An expression referring to a variable.		
+		\item[Super Types of \texttt{IdentifierExpression}] ~
+			\begin{longdescription}
+				\item[\texttt{Expression}] see Section~\ref{cls:uppaal::expressions::Expression} on Page~\pageref{cls:uppaal::expressions::Expression}						\end{longdescription}
+		
+	
+			\item[\textbf{References of} \texttt{IdentifierExpression}] ~
+			\begin{longdescription}
+	\item[\texttt{identifier : NamedElement 	\symbol{"5B}1..1\symbol{"5D}
+}] ~
+	see Section~\ref{cls:uppaal::core::NamedElement} on Page~\pageref{cls:uppaal::core::NamedElement}
+	
+	\nopagebreak
+		
+				
+
+	
+
+		The referred variable.		
+	\item[\texttt{index : Expression 	\symbol{"5B}0..$*$\symbol{"5D}
+}] ~
+	see Section~\ref{cls:uppaal::expressions::Expression} on Page~\pageref{cls:uppaal::expressions::Expression}
+	
+	\nopagebreak
+		
+				
+
+	
+
+		A set of expressions that refer to the array indexes of the variable.		
+			\end{longdescription}
+	
+	\end{longdescription}
+	
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Class \bfseries \texttt{IncrementDecrementExpression}\normalfont}
+\label{cls:uppaal::expressions::IncrementDecrementExpression} \index{20}
+	
+	\begin{longdescription}
+		\item[Overview] 		
+				
+
+	
+
+		An expression describing increment (++) or decrement (---) of an integer-based expression. 		
+		\item[Super Types of \texttt{IncrementDecrementExpression}] ~
+			\begin{longdescription}
+				\item[\texttt{Expression}] see Section~\ref{cls:uppaal::expressions::Expression} on Page~\pageref{cls:uppaal::expressions::Expression}						\end{longdescription}
+		
+	
+			\item[\textbf{Attributes of} \texttt{IncrementDecrementExpression}] ~
+			\begin{longdescription}
+	\item[\texttt{operator : IncrementDecrementOperator 	\symbol{"5B}1..1\symbol{"5D}
+}] ~
+	see Section~\ref{cls:uppaal::expressions::IncrementDecrementOperator} on Page~\pageref{cls:uppaal::expressions::IncrementDecrementOperator}
+	
+	\nopagebreak
+		
+				
+
+	
+
+		Specifies increment or decrement.		
+	\item[\texttt{position : IncrementDecrementPosition 	\symbol{"5B}1..1\symbol{"5D}
+}] ~
+	see Section~\ref{cls:uppaal::expressions::IncrementDecrementPosition} on Page~\pageref{cls:uppaal::expressions::IncrementDecrementPosition}
+	
+	\nopagebreak
+		
+				
+
+	
+
+		Specifies pre- or post-evaluation.		
+			\end{longdescription}
+			\item[\textbf{References of} \texttt{IncrementDecrementExpression}] ~
+			\begin{longdescription}
+	\item[\texttt{expression : Expression 	\symbol{"5B}1..1\symbol{"5D}
+}] ~
+	see Section~\ref{cls:uppaal::expressions::Expression} on Page~\pageref{cls:uppaal::expressions::Expression}
+	
+	\nopagebreak
+		
+				
+
+	
+
+		The expression to be incremented or decremented.		
+			\end{longdescription}
+	
+	\end{longdescription}
+	
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Enumeration \bfseries \texttt{IncrementDecrementOperator}\normalfont}
+\label{cls:uppaal::expressions::IncrementDecrementOperator} \index{uppaal::expressions!IncrementDecrementOperator}
+
+	\begin{longdescription}
+		\item[Overview] 		
+				
+
+	
+
+		Representing increment and decrement operators.		
+	
+		\item[\textbf{Literals of} \texttt{IncrementDecrementOperator}] ~
+		\begin{longdescription}
+			
+\item[\texttt{INCREMENT = 0}] ~
+\nopagebreak
+
+\item[\texttt{DECREMENT = 1}] ~
+\nopagebreak
+		\end{longdescription}
+	\end{longdescription}
+	
+	
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Enumeration \bfseries \texttt{IncrementDecrementPosition}\normalfont}
+\label{cls:uppaal::expressions::IncrementDecrementPosition} \index{uppaal::expressions!IncrementDecrementPosition}
+
+	\begin{longdescription}
+		\item[Overview] 		
+				
+
+	
+
+		Representing pre- or post-processing inside increment/decrement expressions.		
+	
+		\item[\textbf{Literals of} \texttt{IncrementDecrementPosition}] ~
+		\begin{longdescription}
+			
+\item[\texttt{PRE = 0}] ~
+\nopagebreak
+
+\item[\texttt{POST = 1}] ~
+\nopagebreak
+		\end{longdescription}
+	\end{longdescription}
+	
+	
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Class \bfseries \texttt{LiteralExpression}\normalfont}
+\label{cls:uppaal::expressions::LiteralExpression} \index{8}
+	
+	\begin{longdescription}
+		\item[Overview] 		
+				
+
+	
+
+		An expression referring to a literal of any type.		
+		\item[Super Types of \texttt{LiteralExpression}] ~
+			\begin{longdescription}
+				\item[\texttt{Expression}] see Section~\ref{cls:uppaal::expressions::Expression} on Page~\pageref{cls:uppaal::expressions::Expression}						\end{longdescription}
+		
+	
+			\item[\textbf{Attributes of} \texttt{LiteralExpression}] ~
+			\begin{longdescription}
+	\item[\texttt{text : EString 	\symbol{"5B}1..1\symbol{"5D}
+}] ~
+	
+	
+	\nopagebreak
+		
+				
+
+	
+
+		The textual description of the literal.		
+			\end{longdescription}
+	
+	\end{longdescription}
+	
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Class \bfseries \texttt{LogicalExpression}\normalfont}
+\label{cls:uppaal::expressions::LogicalExpression} \index{11}
+	
+	\begin{longdescription}
+		\item[Overview] 		
+				
+
+	
+
+		A logical expression.		
+		\item[Super Types of \texttt{LogicalExpression}] ~
+			\begin{longdescription}
+				\item[\texttt{BinaryExpression}] see Section~\ref{cls:uppaal::expressions::BinaryExpression} on Page~\pageref{cls:uppaal::expressions::BinaryExpression}						\end{longdescription}
+		
+	
+			\item[\textbf{Attributes of} \texttt{LogicalExpression}] ~
+			\begin{longdescription}
+	\item[\texttt{operator : LogicalOperator 	\symbol{"5B}1..1\symbol{"5D}
+}] ~
+	see Section~\ref{cls:uppaal::expressions::LogicalOperator} on Page~\pageref{cls:uppaal::expressions::LogicalOperator}
+	
+	\nopagebreak
+		
+			~\todoo{Documentation missing (GenModel is not defined)}	
+			\end{longdescription}
+	
+	\end{longdescription}
+	
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Enumeration \bfseries \texttt{LogicalOperator}\normalfont}
+\label{cls:uppaal::expressions::LogicalOperator} \index{uppaal::expressions!LogicalOperator}
+
+	\begin{longdescription}
+		\item[Overview] 		
+			~\todoo{Documentation missing (GenModel is not defined)}	
+	
+		\item[\textbf{Literals of} \texttt{LogicalOperator}] ~
+		\begin{longdescription}
+			
+\item[\texttt{AND = 0}] ~
+\nopagebreak
+
+\item[\texttt{OR = 1}] ~
+\nopagebreak
+
+\item[\texttt{IMPLY = 2}] ~
+\nopagebreak
+		\end{longdescription}
+	\end{longdescription}
+	
+	
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Class \bfseries \texttt{MinMaxExpression}\normalfont}
+\label{cls:uppaal::expressions::MinMaxExpression} \index{25}
+	
+	\begin{longdescription}
+		\item[Overview] 		
+				
+
+	
+
+		A binary expression representing an arithemtic operation.		
+		\item[Super Types of \texttt{MinMaxExpression}] ~
+			\begin{longdescription}
+				\item[\texttt{BinaryExpression}] see Section~\ref{cls:uppaal::expressions::BinaryExpression} on Page~\pageref{cls:uppaal::expressions::BinaryExpression}						\end{longdescription}
+		
+	
+			\item[\textbf{Attributes of} \texttt{MinMaxExpression}] ~
+			\begin{longdescription}
+	\item[\texttt{operator : MinMaxOperator 	\symbol{"5B}1..1\symbol{"5D}
+}] ~
+	see Section~\ref{cls:uppaal::expressions::MinMaxOperator} on Page~\pageref{cls:uppaal::expressions::MinMaxOperator}
+	
+	\nopagebreak
+		
+				
+
+	
+
+		The arithmetic operator to be applied.		
+			\end{longdescription}
+	
+	\end{longdescription}
+	
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Enumeration \bfseries \texttt{MinMaxOperator}\normalfont}
+\label{cls:uppaal::expressions::MinMaxOperator} \index{uppaal::expressions!MinMaxOperator}
+
+	\begin{longdescription}
+		\item[Overview] 		
+				
+
+	
+
+		Representing all arithmetic operators.		
+	
+		\item[\textbf{Literals of} \texttt{MinMaxOperator}] ~
+		\begin{longdescription}
+			
+\item[\texttt{MIN = 0}] ~
+\nopagebreak
+
+\item[\texttt{MAX = 1}] ~
+\nopagebreak
+		\end{longdescription}
+	\end{longdescription}
+	
+	
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Class \bfseries \texttt{MinusExpression}\normalfont}
+\label{cls:uppaal::expressions::MinusExpression} \index{3}
+	
+	\begin{longdescription}
+		\item[Overview] 		
+				
+
+	
+
+		An inversion of an integer-based expression using the '-' token.		
+		\item[Super Types of \texttt{MinusExpression}] ~
+			\begin{longdescription}
+				\item[\texttt{Expression}] see Section~\ref{cls:uppaal::expressions::Expression} on Page~\pageref{cls:uppaal::expressions::Expression}						\end{longdescription}
+		
+	
+			\item[\textbf{References of} \texttt{MinusExpression}] ~
+			\begin{longdescription}
+	\item[\texttt{invertedExpression : Expression 	\symbol{"5B}1..1\symbol{"5D}
+}] ~
+	see Section~\ref{cls:uppaal::expressions::Expression} on Page~\pageref{cls:uppaal::expressions::Expression}
+	
+	\nopagebreak
+		
+				
+
+	
+
+		The expression negated by this negation.		
+			\end{longdescription}
+	
+	\end{longdescription}
+	
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Class \bfseries \texttt{NegationExpression}\normalfont}
+\label{cls:uppaal::expressions::NegationExpression} \index{1}
+	
+	\begin{longdescription}
+		\item[Overview] 		
+				
+
+	
+
+		A negation of an expression.		
+		\item[Super Types of \texttt{NegationExpression}] ~
+			\begin{longdescription}
+				\item[\texttt{Expression}] see Section~\ref{cls:uppaal::expressions::Expression} on Page~\pageref{cls:uppaal::expressions::Expression}						\end{longdescription}
+		
+	
+			\item[\textbf{References of} \texttt{NegationExpression}] ~
+			\begin{longdescription}
+	\item[\texttt{negatedExpression : Expression 	\symbol{"5B}1..1\symbol{"5D}
+}] ~
+	see Section~\ref{cls:uppaal::expressions::Expression} on Page~\pageref{cls:uppaal::expressions::Expression}
+	
+	\nopagebreak
+		
+				
+
+	
+
+		The expression negated by this negation.		
+			\end{longdescription}
+	
+	\end{longdescription}
+	
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Class \bfseries \texttt{PlusExpression}\normalfont}
+\label{cls:uppaal::expressions::PlusExpression} \index{2}
+	
+	\begin{longdescription}
+		\item[Overview] 		
+				
+
+	
+
+		A confirmation of an integer-based expression using the '+' token.		
+		\item[Super Types of \texttt{PlusExpression}] ~
+			\begin{longdescription}
+				\item[\texttt{Expression}] see Section~\ref{cls:uppaal::expressions::Expression} on Page~\pageref{cls:uppaal::expressions::Expression}						\end{longdescription}
+		
+	
+			\item[\textbf{References of} \texttt{PlusExpression}] ~
+			\begin{longdescription}
+	\item[\texttt{confirmedExpression : Expression 	\symbol{"5B}1..1\symbol{"5D}
+}] ~
+	see Section~\ref{cls:uppaal::expressions::Expression} on Page~\pageref{cls:uppaal::expressions::Expression}
+	
+	\nopagebreak
+		
+				
+
+	
+
+		The expression negated by this negation.		
+			\end{longdescription}
+	
+	\end{longdescription}
+	
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Class \bfseries \texttt{QuantificationExpression}\normalfont}
+\label{cls:uppaal::expressions::QuantificationExpression} \index{19}
+	
+	\begin{longdescription}
+		\item[Overview] 		
+				
+
+	
+
+		A quantification expression introducing a quantified variable.		
+		\item[Super Types of \texttt{QuantificationExpression}] ~
+			\begin{longdescription}
+				\item[\texttt{Expression}] see Section~\ref{cls:uppaal::expressions::Expression} on Page~\pageref{cls:uppaal::expressions::Expression}			, 				\item[\texttt{VariableContainer}] see Section~\ref{cls:uppaal::declarations::VariableContainer} on Page~\pageref{cls:uppaal::declarations::VariableContainer}						\end{longdescription}
+		
+	
+			\item[\textbf{Attributes of} \texttt{QuantificationExpression}] ~
+			\begin{longdescription}
+	\item[\texttt{quantifier : Quantifier 	\symbol{"5B}1..1\symbol{"5D}
+}] ~
+	see Section~\ref{cls:uppaal::expressions::Quantifier} on Page~\pageref{cls:uppaal::expressions::Quantifier}
+	
+	\nopagebreak
+		
+				
+
+	
+
+		The quantifier to be applied.		
+			\end{longdescription}
+			\item[\textbf{References of} \texttt{QuantificationExpression}] ~
+			\begin{longdescription}
+	\item[\texttt{expression : Expression 	\symbol{"5B}1..1\symbol{"5D}
+}] ~
+	see Section~\ref{cls:uppaal::expressions::Expression} on Page~\pageref{cls:uppaal::expressions::Expression}
+	
+	\nopagebreak
+		
+				
+
+	
+
+		The quantified expression.		
+			\end{longdescription}
+			\item[\textbf{OCL Constraints of} \texttt{QuantificationExpression}] ~
+			\begin{longdescription}
+	\item[\small\textit{SingleVariable}] ~ 
+	\nopagebreak
+	
+		\begin{lstlisting}[breaklines=true]
+self.variable->size() <= 1		\end{lstlisting}
+			\end{longdescription}
+	
+	\end{longdescription}
+	
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Enumeration \bfseries \texttt{Quantifier}\normalfont}
+\label{cls:uppaal::expressions::Quantifier} \index{uppaal::expressions!Quantifier}
+
+	\begin{longdescription}
+		\item[Overview] 		
+				
+
+	
+
+		Representing existential and universal quantification.		
+	
+		\item[\textbf{Literals of} \texttt{Quantifier}] ~
+		\begin{longdescription}
+			
+\item[\texttt{EXISTENTIAL = 0}] ~
+\nopagebreak
+
+\item[\texttt{UNIVERSAL = 1}] ~
+\nopagebreak
+		\end{longdescription}
+	\end{longdescription}
+	
+	
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Class \bfseries \texttt{ScopedIdentifierExpression}\normalfont}
+\label{cls:uppaal::expressions::ScopedIdentifierExpression} \index{17}
+	
+	\begin{longdescription}
+		\item[Overview] 		
+				
+
+	
+
+		An expression used to access a scoped identifier. Uses a dot for delimination between scope and identifier.		
+		\item[Super Types of \texttt{ScopedIdentifierExpression}] ~
+			\begin{longdescription}
+				\item[\texttt{Expression}] see Section~\ref{cls:uppaal::expressions::Expression} on Page~\pageref{cls:uppaal::expressions::Expression}						\end{longdescription}
+		
+	
+			\item[\textbf{References of} \texttt{ScopedIdentifierExpression}] ~
+			\begin{longdescription}
+	\item[\texttt{identifier : IdentifierExpression 	\symbol{"5B}1..1\symbol{"5D}
+}] ~
+	see Section~\ref{cls:uppaal::expressions::IdentifierExpression} on Page~\pageref{cls:uppaal::expressions::IdentifierExpression}
+	
+	\nopagebreak
+		
+				
+
+	
+
+		An expression that refers to a member of the scope.		
+	\item[\texttt{scope : Expression 	\symbol{"5B}1..1\symbol{"5D}
+}] ~
+	see Section~\ref{cls:uppaal::expressions::Expression} on Page~\pageref{cls:uppaal::expressions::Expression}
+	
+	\nopagebreak
+		
+				
+
+	
+
+		An expression that refers to a certain identifier scope.		
+			\end{longdescription}
+	
+	\end{longdescription}
+	
+			\newpage
+		\section{Package \bfseries \texttt{uppaal::statements}\normalfont}
+		
+		% Here comes the package documentation
+		\begin{longdescription}
+		\item[Overview]			
+				
+
+	
+
+		Support for statements inside functions.		
+		\end{longdescription}
+	% Here a manual modifiable file is included: uppaal_statements/graphics.tex
+	\input{img/uppaal_statements/graphics}
+			%\subsection{Package Documentation}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Class \bfseries \texttt{Block}\normalfont}
+\label{cls:uppaal::statements::Block} \index{1}
+	
+	\begin{longdescription}
+		\item[Overview] 		
+				
+
+	
+
+		A block of one or more statements.		
+		\item[Super Types of \texttt{Block}] ~
+			\begin{longdescription}
+				\item[\texttt{Statement}] see Section~\ref{cls:uppaal::statements::Statement} on Page~\pageref{cls:uppaal::statements::Statement}						\end{longdescription}
+		
+	
+			\item[\textbf{References of} \texttt{Block}] ~
+			\begin{longdescription}
+	\item[\texttt{declarations : LocalDeclarations 	}] ~
+	see Section~\ref{cls:uppaal::declarations::LocalDeclarations} on Page~\pageref{cls:uppaal::declarations::LocalDeclarations}
+	
+	\nopagebreak
+		
+				
+
+	
+
+		The local declarations for the function's body.		
+	\item[\texttt{statement : Statement 	\symbol{"5B}1..$*$\symbol{"5D}
+}] ~
+	see Section~\ref{cls:uppaal::statements::Statement} on Page~\pageref{cls:uppaal::statements::Statement}
+	
+	\nopagebreak
+		
+				
+
+	
+
+		The statements inside the funtion's body.		
+			\end{longdescription}
+			\item[\textbf{OCL Constraints of} \texttt{Block}] ~
+			\begin{longdescription}
+	\item[\small\textit{DataVariableDeclarationsOnly}] ~ 
+	\nopagebreak
+	
+		\begin{lstlisting}[breaklines=true]
+(not self.declarations.oclIsUndefined())
+implies
+(self.declarations.declaration->forAll(oclIsKindOf(declarations::DataVariableDeclaration)))		\end{lstlisting}
+			\end{longdescription}
+	
+	\end{longdescription}
+	
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Class \bfseries \texttt{DoWhileLoop}\normalfont}
+\label{cls:uppaal::statements::DoWhileLoop} \index{6}
+	
+	\begin{longdescription}
+		\item[Overview] 		
+				
+
+	
+
+		A do-while-loop statement.		
+		\item[Super Types of \texttt{DoWhileLoop}] ~
+			\begin{longdescription}
+				\item[\texttt{Statement}] see Section~\ref{cls:uppaal::statements::Statement} on Page~\pageref{cls:uppaal::statements::Statement}						\end{longdescription}
+		
+	
+			\item[\textbf{References of} \texttt{DoWhileLoop}] ~
+			\begin{longdescription}
+	\item[\texttt{expression : Expression 	\symbol{"5B}1..1\symbol{"5D}
+}] ~
+	see Section~\ref{cls:uppaal::expressions::Expression} on Page~\pageref{cls:uppaal::expressions::Expression}
+	
+	\nopagebreak
+		
+				
+
+	
+
+		A boolean expression for the while loop.		
+	\item[\texttt{statement : Statement 	\symbol{"5B}1..1\symbol{"5D}
+}] ~
+	see Section~\ref{cls:uppaal::statements::Statement} on Page~\pageref{cls:uppaal::statements::Statement}
+	
+	\nopagebreak
+		
+				
+
+	
+
+		The statement to be evaluated for every value.		
+			\end{longdescription}
+	
+	\end{longdescription}
+	
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Class \bfseries \texttt{EmptyStatement}\normalfont}
+\label{cls:uppaal::statements::EmptyStatement} \index{2}
+	
+	\begin{longdescription}
+		\item[Overview] 		
+				
+
+	
+
+		An empty statement represented by a semicolon only.		
+		\item[Super Types of \texttt{EmptyStatement}] ~
+			\begin{longdescription}
+				\item[\texttt{Statement}] see Section~\ref{cls:uppaal::statements::Statement} on Page~\pageref{cls:uppaal::statements::Statement}						\end{longdescription}
+		
+	
+	
+	\end{longdescription}
+	
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Class \bfseries \texttt{ExpressionStatement}\normalfont}
+\label{cls:uppaal::statements::ExpressionStatement} \index{9}
+	
+	\begin{longdescription}
+		\item[Overview] 		
+				
+
+	
+
+		A statement that refers to an arbitrary expression.		
+		\item[Super Types of \texttt{ExpressionStatement}] ~
+			\begin{longdescription}
+				\item[\texttt{Statement}] see Section~\ref{cls:uppaal::statements::Statement} on Page~\pageref{cls:uppaal::statements::Statement}						\end{longdescription}
+		
+	
+			\item[\textbf{References of} \texttt{ExpressionStatement}] ~
+			\begin{longdescription}
+	\item[\texttt{expression : Expression 	\symbol{"5B}1..1\symbol{"5D}
+}] ~
+	see Section~\ref{cls:uppaal::expressions::Expression} on Page~\pageref{cls:uppaal::expressions::Expression}
+	
+	\nopagebreak
+		
+				
+
+	
+
+		The expression this statement refers to.		
+			\end{longdescription}
+	
+	\end{longdescription}
+	
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Class \bfseries \texttt{ForLoop}\normalfont}
+\label{cls:uppaal::statements::ForLoop} \index{3}
+	
+	\begin{longdescription}
+		\item[Overview] 		
+				
+
+	
+
+		A for-loop statement.		
+		\item[Super Types of \texttt{ForLoop}] ~
+			\begin{longdescription}
+				\item[\texttt{Statement}] see Section~\ref{cls:uppaal::statements::Statement} on Page~\pageref{cls:uppaal::statements::Statement}						\end{longdescription}
+		
+	
+			\item[\textbf{References of} \texttt{ForLoop}] ~
+			\begin{longdescription}
+	\item[\texttt{condition : Expression 	\symbol{"5B}1..1\symbol{"5D}
+}] ~
+	see Section~\ref{cls:uppaal::expressions::Expression} on Page~\pageref{cls:uppaal::expressions::Expression}
+	
+	\nopagebreak
+		
+				
+
+	
+
+		The condition of the for loop, represented by a boolean expression.		
+	\item[\texttt{initialization : Expression 	\symbol{"5B}1..1\symbol{"5D}
+}] ~
+	see Section~\ref{cls:uppaal::expressions::Expression} on Page~\pageref{cls:uppaal::expressions::Expression}
+	
+	\nopagebreak
+		
+				
+
+	
+
+		The initialization expression of the for loop.		
+	\item[\texttt{iteration : Expression 	\symbol{"5B}1..1\symbol{"5D}
+}] ~
+	see Section~\ref{cls:uppaal::expressions::Expression} on Page~\pageref{cls:uppaal::expressions::Expression}
+	
+	\nopagebreak
+		
+				
+
+	
+
+		The iteration statements of the for loop.		
+	\item[\texttt{statement : Statement 	\symbol{"5B}1..1\symbol{"5D}
+}] ~
+	see Section~\ref{cls:uppaal::statements::Statement} on Page~\pageref{cls:uppaal::statements::Statement}
+	
+	\nopagebreak
+		
+				
+
+	
+
+		The statement to be evaluated for every value.		
+			\end{longdescription}
+	
+	\end{longdescription}
+	
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Class \bfseries \texttt{IfStatement}\normalfont}
+\label{cls:uppaal::statements::IfStatement} \index{7}
+	
+	\begin{longdescription}
+		\item[Overview] 		
+				
+
+	
+
+		An if-then-else statement.		
+		\item[Super Types of \texttt{IfStatement}] ~
+			\begin{longdescription}
+				\item[\texttt{Statement}] see Section~\ref{cls:uppaal::statements::Statement} on Page~\pageref{cls:uppaal::statements::Statement}						\end{longdescription}
+		
+	
+			\item[\textbf{References of} \texttt{IfStatement}] ~
+			\begin{longdescription}
+	\item[\texttt{elseStatement : Statement 	}] ~
+	see Section~\ref{cls:uppaal::statements::Statement} on Page~\pageref{cls:uppaal::statements::Statement}
+	
+	\nopagebreak
+		
+				
+
+	
+
+		The else-statement.		
+	\item[\texttt{ifExpression : Expression 	\symbol{"5B}1..1\symbol{"5D}
+}] ~
+	see Section~\ref{cls:uppaal::expressions::Expression} on Page~\pageref{cls:uppaal::expressions::Expression}
+	
+	\nopagebreak
+		
+				
+
+	
+
+		The boolean if-expression.		
+	\item[\texttt{thenStatement : Statement 	\symbol{"5B}1..1\symbol{"5D}
+}] ~
+	see Section~\ref{cls:uppaal::statements::Statement} on Page~\pageref{cls:uppaal::statements::Statement}
+	
+	\nopagebreak
+		
+				
+
+	
+
+		The then-statement.		
+			\end{longdescription}
+	
+	\end{longdescription}
+	
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Class \bfseries \texttt{Iteration}\normalfont}
+\label{cls:uppaal::statements::Iteration} \index{4}
+	
+	\begin{longdescription}
+		\item[Overview] 		
+				
+
+	
+
+		An iteration over all possible values of a bounded type using the 'for' keyword.		
+		\item[Super Types of \texttt{Iteration}] ~
+			\begin{longdescription}
+				\item[\texttt{Statement}] see Section~\ref{cls:uppaal::statements::Statement} on Page~\pageref{cls:uppaal::statements::Statement}			, 				\item[\texttt{VariableContainer}] see Section~\ref{cls:uppaal::declarations::VariableContainer} on Page~\pageref{cls:uppaal::declarations::VariableContainer}						\end{longdescription}
+		
+	
+			\item[\textbf{References of} \texttt{Iteration}] ~
+			\begin{longdescription}
+	\item[\texttt{statement : Statement 	\symbol{"5B}1..1\symbol{"5D}
+}] ~
+	see Section~\ref{cls:uppaal::statements::Statement} on Page~\pageref{cls:uppaal::statements::Statement}
+	
+	\nopagebreak
+		
+				
+
+	
+
+		The statement to be evaluated for every value.		
+			\end{longdescription}
+			\item[\textbf{OCL Constraints of} \texttt{Iteration}] ~
+			\begin{longdescription}
+	\item[\small\textit{SingleVariable}] ~ 
+	\nopagebreak
+	
+		\begin{lstlisting}[breaklines=true]
+self.variable->size() <= 1		\end{lstlisting}
+			\end{longdescription}
+	
+	\end{longdescription}
+	
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Class \bfseries \texttt{ReturnStatement}\normalfont}
+\label{cls:uppaal::statements::ReturnStatement} \index{8}
+	
+	\begin{longdescription}
+		\item[Overview] 		
+				
+
+	
+
+		A statement used to return from a function's body, optionally carrying a return value.		
+		\item[Super Types of \texttt{ReturnStatement}] ~
+			\begin{longdescription}
+				\item[\texttt{Statement}] see Section~\ref{cls:uppaal::statements::Statement} on Page~\pageref{cls:uppaal::statements::Statement}						\end{longdescription}
+		
+	
+			\item[\textbf{References of} \texttt{ReturnStatement}] ~
+			\begin{longdescription}
+	\item[\texttt{returnExpression : Expression 	}] ~
+	see Section~\ref{cls:uppaal::expressions::Expression} on Page~\pageref{cls:uppaal::expressions::Expression}
+	
+	\nopagebreak
+		
+				
+
+	
+
+		The expression representing the return value.		
+			\end{longdescription}
+	
+	\end{longdescription}
+	
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Abstract Class \bfseries \texttt{Statement}\normalfont}
+\label{cls:uppaal::statements::Statement} \index{0}
+	
+	\begin{longdescription}
+		\item[Overview] 		
+				
+
+	
+
+		Abstract base-class for all statements inside a function's body.		
+		
+	
+	
+	\end{longdescription}
+	
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Class \bfseries \texttt{WhileLoop}\normalfont}
+\label{cls:uppaal::statements::WhileLoop} \index{5}
+	
+	\begin{longdescription}
+		\item[Overview] 		
+				
+
+	
+
+		A while-loop statement.		
+		\item[Super Types of \texttt{WhileLoop}] ~
+			\begin{longdescription}
+				\item[\texttt{Statement}] see Section~\ref{cls:uppaal::statements::Statement} on Page~\pageref{cls:uppaal::statements::Statement}						\end{longdescription}
+		
+	
+			\item[\textbf{References of} \texttt{WhileLoop}] ~
+			\begin{longdescription}
+	\item[\texttt{expression : Expression 	\symbol{"5B}1..1\symbol{"5D}
+}] ~
+	see Section~\ref{cls:uppaal::expressions::Expression} on Page~\pageref{cls:uppaal::expressions::Expression}
+	
+	\nopagebreak
+		
+				
+
+	
+
+		A boolean expression for the while loop.		
+	\item[\texttt{statement : Statement 	\symbol{"5B}1..1\symbol{"5D}
+}] ~
+	see Section~\ref{cls:uppaal::statements::Statement} on Page~\pageref{cls:uppaal::statements::Statement}
+	
+	\nopagebreak
+		
+				
+
+	
+
+		The statement to be evaluated for every value.		
+			\end{longdescription}
+	
+	\end{longdescription}
+	
+			\newpage
+		\section{Package \bfseries \texttt{uppaal::templates}\normalfont}
+		
+		% Here comes the package documentation
+		\begin{longdescription}
+		\item[Overview]			
+				
+
+	
+
+		Support for Timed Automata templates consisting of locations and edges.		
+		\end{longdescription}
+	% Here a manual modifiable file is included: uppaal_templates/graphics.tex
+	\input{img/uppaal_templates/graphics}
+			%\subsection{Package Documentation}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Abstract Class \bfseries \texttt{AbstractTemplate}\normalfont}
+\label{cls:uppaal::templates::AbstractTemplate} \index{0}
+	
+	\begin{longdescription}
+		\item[Overview] 		
+				
+
+	
+
+		Abstract base class for ordinary timed automata templates as well as redefined templates.		
+		\item[Super Types of \texttt{AbstractTemplate}] ~
+			\begin{longdescription}
+				\item[\texttt{NamedElement}] see Section~\ref{cls:uppaal::core::NamedElement} on Page~\pageref{cls:uppaal::core::NamedElement}			, 				\item[\texttt{CommentableElement}] see Section~\ref{cls:uppaal::core::CommentableElement} on Page~\pageref{cls:uppaal::core::CommentableElement}						\end{longdescription}
+		
+	
+			\item[\textbf{References of} \texttt{AbstractTemplate}] ~
+			\begin{longdescription}
+	\item[\texttt{parameter : Parameter 	\symbol{"5B}0..$*$\symbol{"5D}
+}] ~
+	see Section~\ref{cls:uppaal::declarations::Parameter} on Page~\pageref{cls:uppaal::declarations::Parameter}
+	
+	\nopagebreak
+		
+				
+
+	
+
+		The parameter declarations of the template.		
+			\end{longdescription}
+			\item[\textbf{OCL Constraints of} \texttt{AbstractTemplate}] ~
+			\begin{longdescription}
+	\item[\small\textit{UniqueParameterNames}] ~ 
+	\nopagebreak
+	
+		\begin{lstlisting}[breaklines=true]
+self.parameter->collect(variableDeclaration)->collect(variable)->isUnique(name)		\end{lstlisting}
+			\end{longdescription}
+	
+	\end{longdescription}
+	
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Class \bfseries \texttt{Edge}\normalfont}
+\label{cls:uppaal::templates::Edge} \index{5}
+	
+	\begin{longdescription}
+		\item[Overview] 		
+				
+
+	
+
+		An edge connecting two locations inside a template.		
+		\item[Super Types of \texttt{Edge}] ~
+			\begin{longdescription}
+				\item[\texttt{LinearElement}] see Section~\ref{cls:uppaal::visuals::LinearElement} on Page~\pageref{cls:uppaal::visuals::LinearElement}			, 				\item[\texttt{CommentableElement}] see Section~\ref{cls:uppaal::core::CommentableElement} on Page~\pageref{cls:uppaal::core::CommentableElement}			, 				\item[\texttt{ColoredElement}] see Section~\ref{cls:uppaal::visuals::ColoredElement} on Page~\pageref{cls:uppaal::visuals::ColoredElement}						\end{longdescription}
+		
+	
+			\item[\textbf{References of} \texttt{Edge}] ~
+			\begin{longdescription}
+	\item[\texttt{guard : Expression 	}] ~
+	see Section~\ref{cls:uppaal::expressions::Expression} on Page~\pageref{cls:uppaal::expressions::Expression}
+	
+	\nopagebreak
+		
+				
+
+	
+
+		The guard expression of the edge.		
+	\item[\texttt{parentTemplate : Template 	\symbol{"5B}1..1\symbol{"5D}
+}] ~
+	see Section~\ref{cls:uppaal::templates::Template} on Page~\pageref{cls:uppaal::templates::Template}
+	
+	\nopagebreak
+		
+				
+
+	
+
+		The parent template containing the edge.		
+	\item[\texttt{selection : Selection 	\symbol{"5B}0..$*$\symbol{"5D}
+}] ~
+	see Section~\ref{cls:uppaal::templates::Selection} on Page~\pageref{cls:uppaal::templates::Selection}
+	
+	\nopagebreak
+		
+				
+
+	
+
+		A set of non-deterministic value selections.		
+	\item[\texttt{source : Location 	\symbol{"5B}1..1\symbol{"5D}
+}] ~
+	see Section~\ref{cls:uppaal::templates::Location} on Page~\pageref{cls:uppaal::templates::Location}
+	
+	\nopagebreak
+		
+				
+
+	
+
+		The source location of the edge.		
+	\item[\texttt{synchronization : Synchronization 	}] ~
+	see Section~\ref{cls:uppaal::templates::Synchronization} on Page~\pageref{cls:uppaal::templates::Synchronization}
+	
+	\nopagebreak
+		
+				
+
+	
+
+		A synchronization performed when the edge fires.		
+	\item[\texttt{target : Location 	\symbol{"5B}1..1\symbol{"5D}
+}] ~
+	see Section~\ref{cls:uppaal::templates::Location} on Page~\pageref{cls:uppaal::templates::Location}
+	
+	\nopagebreak
+		
+				
+
+	
+
+		The target location of the edge.		
+	\item[\texttt{update : Expression 	\symbol{"5B}0..$*$\symbol{"5D}
+}] ~
+	see Section~\ref{cls:uppaal::expressions::Expression} on Page~\pageref{cls:uppaal::expressions::Expression}
+	
+	\nopagebreak
+		
+				
+
+	
+
+		A set of update expressions for the edge, evaluated if the edge fires.		
+			\end{longdescription}
+			\item[\textbf{OCL Constraints of} \texttt{Edge}] ~
+			\begin{longdescription}
+	\item[\small\textit{UniqueParentTemplate}] ~ 
+	\nopagebreak
+	
+		\begin{lstlisting}[breaklines=true]
+(not (self.source.oclIsUndefined() or self.target.oclIsUndefined()))
+implies
+self.source.parentTemplate = self.target.parentTemplate		\end{lstlisting}
+			\end{longdescription}
+	
+	\end{longdescription}
+	
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Class \bfseries \texttt{Location}\normalfont}
+\label{cls:uppaal::templates::Location} \index{3}
+	
+	\begin{longdescription}
+		\item[Overview] 		
+				
+
+	
+
+		A location inside a template.		
+		\item[Super Types of \texttt{Location}] ~
+			\begin{longdescription}
+				\item[\texttt{NamedElement}] see Section~\ref{cls:uppaal::core::NamedElement} on Page~\pageref{cls:uppaal::core::NamedElement}			, 				\item[\texttt{CommentableElement}] see Section~\ref{cls:uppaal::core::CommentableElement} on Page~\pageref{cls:uppaal::core::CommentableElement}			, 				\item[\texttt{PlanarElement}] see Section~\ref{cls:uppaal::visuals::PlanarElement} on Page~\pageref{cls:uppaal::visuals::PlanarElement}			, 				\item[\texttt{ColoredElement}] see Section~\ref{cls:uppaal::visuals::ColoredElement} on Page~\pageref{cls:uppaal::visuals::ColoredElement}						\end{longdescription}
+		
+	
+			\item[\textbf{Attributes of} \texttt{Location}] ~
+			\begin{longdescription}
+	\item[\texttt{locationTimeKind : LocationKind 	\symbol{"5B}1..1\symbol{"5D}
+}] ~
+	see Section~\ref{cls:uppaal::templates::LocationKind} on Page~\pageref{cls:uppaal::templates::LocationKind}
+	
+	\nopagebreak
+		
+				
+
+	
+
+		Specifies the kind of location (default, urgent, or committed).		
+			\end{longdescription}
+			\item[\textbf{References of} \texttt{Location}] ~
+			\begin{longdescription}
+	\item[\texttt{invariant : Expression 	}] ~
+	see Section~\ref{cls:uppaal::expressions::Expression} on Page~\pageref{cls:uppaal::expressions::Expression}
+	
+	\nopagebreak
+		
+				
+
+	
+
+		A boolean expression representing the location's invariant.		
+	\item[\texttt{parentTemplate : Template 	\symbol{"5B}1..1\symbol{"5D}
+}] ~
+	see Section~\ref{cls:uppaal::templates::Template} on Page~\pageref{cls:uppaal::templates::Template}
+	
+	\nopagebreak
+		
+				
+
+	
+
+		The parent template containing the location.		
+			\end{longdescription}
+	
+	\end{longdescription}
+	
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Enumeration \bfseries \texttt{LocationKind}\normalfont}
+\label{cls:uppaal::templates::LocationKind} \index{uppaal::templates!LocationKind}
+
+	\begin{longdescription}
+		\item[Overview] 		
+				
+
+	
+
+		Location types.		
+	
+		\item[\textbf{Literals of} \texttt{LocationKind}] ~
+		\begin{longdescription}
+			
+\item[\texttt{NORMAL = 0}] ~
+\nopagebreak
+
+\item[\texttt{URGENT = 1}] ~
+\nopagebreak
+
+\item[\texttt{COMMITED = 2}] ~
+\nopagebreak
+		\end{longdescription}
+	\end{longdescription}
+	
+	
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Class \bfseries \texttt{RedefinedTemplate}\normalfont}
+\label{cls:uppaal::templates::RedefinedTemplate} \index{2}
+	
+	\begin{longdescription}
+		\item[Overview] 		
+				
+
+	
+
+		A template resulting from redefinition of another referred template, altering its name and parametrization.		
+		\item[Super Types of \texttt{RedefinedTemplate}] ~
+			\begin{longdescription}
+				\item[\texttt{AbstractTemplate}] see Section~\ref{cls:uppaal::templates::AbstractTemplate} on Page~\pageref{cls:uppaal::templates::AbstractTemplate}						\end{longdescription}
+		
+	
+			\item[\textbf{References of} \texttt{RedefinedTemplate}] ~
+			\begin{longdescription}
+	\item[\texttt{declaration : TemplateDeclaration 	\symbol{"5B}1..1\symbol{"5D}
+}] ~
+	see Section~\ref{cls:uppaal::declarations::system::TemplateDeclaration} on Page~\pageref{cls:uppaal::declarations::system::TemplateDeclaration}
+	
+	\nopagebreak
+		
+				
+
+	
+
+		The declaration of this template.		
+	\item[\texttt{referredTemplate : AbstractTemplate 	\symbol{"5B}1..1\symbol{"5D}
+}] ~
+	see Section~\ref{cls:uppaal::templates::AbstractTemplate} on Page~\pageref{cls:uppaal::templates::AbstractTemplate}
+	
+	\nopagebreak
+		
+				
+
+	
+
+		The template that serves as basis for redefinition.		
+			\end{longdescription}
+	
+	\end{longdescription}
+	
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Class \bfseries \texttt{Selection}\normalfont}
+\label{cls:uppaal::templates::Selection} \index{8}
+	
+	\begin{longdescription}
+		\item[Overview] 		
+				
+
+	
+
+		A non-deterministic selection of a value from a range. The range is specified by a bounded type.		
+		\item[Super Types of \texttt{Selection}] ~
+			\begin{longdescription}
+				\item[\texttt{VariableContainer}] see Section~\ref{cls:uppaal::declarations::VariableContainer} on Page~\pageref{cls:uppaal::declarations::VariableContainer}						\end{longdescription}
+		
+	
+			\item[\textbf{OCL Constraints of} \texttt{Selection}] ~
+			\begin{longdescription}
+	\item[\small\textit{SingleVariable}] ~ 
+	\nopagebreak
+	
+		\begin{lstlisting}[breaklines=true]
+self.variable->size() <= 1		\end{lstlisting}
+	\item[\small\textit{IntegerBasedType}] ~ 
+	\nopagebreak
+	
+		\begin{lstlisting}[breaklines=true]
+(not self.typeDefinition.oclIsUndefined())
+implies
+self.typeDefinition.baseType = types::BuiltInType::INT		\end{lstlisting}
+			\end{longdescription}
+	
+	\end{longdescription}
+	
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Class \bfseries \texttt{Synchronization}\normalfont}
+\label{cls:uppaal::templates::Synchronization} \index{6}
+	
+	\begin{longdescription}
+		\item[Overview] 		
+				
+
+	
+
+		A sent or received synchronization between two templates using a specific synchronization channel.		
+		
+	
+			\item[\textbf{Attributes of} \texttt{Synchronization}] ~
+			\begin{longdescription}
+	\item[\texttt{kind : SynchronizationKind 	\symbol{"5B}1..1\symbol{"5D}
+}] ~
+	see Section~\ref{cls:uppaal::templates::SynchronizationKind} on Page~\pageref{cls:uppaal::templates::SynchronizationKind}
+	
+	\nopagebreak
+		
+				
+
+	
+
+		The kind of synchronization (sent or received).		
+			\end{longdescription}
+			\item[\textbf{References of} \texttt{Synchronization}] ~
+			\begin{longdescription}
+	\item[\texttt{channelExpression : IdentifierExpression 	\symbol{"5B}1..1\symbol{"5D}
+}] ~
+	see Section~\ref{cls:uppaal::expressions::IdentifierExpression} on Page~\pageref{cls:uppaal::expressions::IdentifierExpression}
+	
+	\nopagebreak
+		
+				
+
+	
+
+		An expression representing the channel variable used for synchronization.		
+			\end{longdescription}
+			\item[\textbf{OCL Constraints of} \texttt{Synchronization}] ~
+			\begin{longdescription}
+	\item[\small\textit{ChannelVariablesOnly}] ~ 
+	\nopagebreak
+	
+		\begin{lstlisting}[breaklines=true]
+(not self.channelExpression.oclIsUndefined())
+and
+(not self.channelExpression.identifier.oclIsUndefined())
+and
+(self.channelExpression.identifier.oclIsKindOf(declarations::Variable))
+and
+(not self.channelExpression.identifier.oclAsType(declarations::Variable).typeDefinition.oclIsUndefined())
+implies
+self.channelExpression.identifier.oclAsType(declarations::Variable).typeDefinition.baseType = types::BuiltInType::CHAN		\end{lstlisting}
+			\end{longdescription}
+	
+	\end{longdescription}
+	
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Enumeration \bfseries \texttt{SynchronizationKind}\normalfont}
+\label{cls:uppaal::templates::SynchronizationKind} \index{uppaal::templates!SynchronizationKind}
+
+	\begin{longdescription}
+		\item[Overview] 		
+				
+
+	
+
+		Representing the type of synchronization.		
+	
+		\item[\textbf{Literals of} \texttt{SynchronizationKind}] ~
+		\begin{longdescription}
+			
+\item[\texttt{RECEIVE = 0}] ~
+\nopagebreak
+
+\item[\texttt{SEND = 1}] ~
+\nopagebreak
+		\end{longdescription}
+	\end{longdescription}
+	
+	
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Class \bfseries \texttt{Template}\normalfont}
+\label{cls:uppaal::templates::Template} \index{1}
+	
+	\begin{longdescription}
+		\item[Overview] 		
+				
+
+	
+
+		An Uppaal template representing a single timed automaton.		
+		\item[Super Types of \texttt{Template}] ~
+			\begin{longdescription}
+				\item[\texttt{AbstractTemplate}] see Section~\ref{cls:uppaal::templates::AbstractTemplate} on Page~\pageref{cls:uppaal::templates::AbstractTemplate}						\end{longdescription}
+		
+	
+			\item[\textbf{References of} \texttt{Template}] ~
+			\begin{longdescription}
+	\item[\texttt{declarations : LocalDeclarations 	}] ~
+	see Section~\ref{cls:uppaal::declarations::LocalDeclarations} on Page~\pageref{cls:uppaal::declarations::LocalDeclarations}
+	
+	\nopagebreak
+		
+				
+
+	
+
+		The local declarations of the template.		
+	\item[\texttt{edge : Edge 	\symbol{"5B}0..$*$\symbol{"5D}
+}] ~
+	see Section~\ref{cls:uppaal::templates::Edge} on Page~\pageref{cls:uppaal::templates::Edge}
+	
+	\nopagebreak
+		
+				
+
+	
+
+		The edges inside this template.		
+	\item[\texttt{init : Location 	\symbol{"5B}1..1\symbol{"5D}
+}] ~
+	see Section~\ref{cls:uppaal::templates::Location} on Page~\pageref{cls:uppaal::templates::Location}
+	
+	\nopagebreak
+		
+				
+
+	
+
+		The initial location of this template.		
+	\item[\texttt{location : Location 	\symbol{"5B}1..$*$\symbol{"5D}
+}] ~
+	see Section~\ref{cls:uppaal::templates::Location} on Page~\pageref{cls:uppaal::templates::Location}
+	
+	\nopagebreak
+		
+				
+
+	
+
+		The locations inside this template.		
+			\end{longdescription}
+			\item[\textbf{OCL Constraints of} \texttt{Template}] ~
+			\begin{longdescription}
+	\item[\small\textit{UniqueLocationNames}] ~ 
+	\nopagebreak
+	
+		\begin{lstlisting}[breaklines=true]
+self.location->isUnique(name)		\end{lstlisting}
+			\end{longdescription}
+	
+	\end{longdescription}
+	
+			\newpage
+		\section{Package \bfseries \texttt{uppaal::types}\normalfont}
+		
+		% Here comes the package documentation
+		\begin{longdescription}
+		\item[Overview]			
+				
+
+	
+
+		Provides support for built-in and user-defined types.		
+		\end{longdescription}
+	% Here a manual modifiable file is included: uppaal_types/graphics.tex
+	\input{img/uppaal_types/graphics}
+			%\subsection{Package Documentation}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Enumeration \bfseries \texttt{BuiltInType}\normalfont}
+\label{cls:uppaal::types::BuiltInType} \index{uppaal::types!BuiltInType}
+
+	\begin{longdescription}
+		\item[Overview] 		
+				
+
+	
+
+		All built-in types.		
+	
+		\item[\textbf{Literals of} \texttt{BuiltInType}] ~
+		\begin{longdescription}
+			
+\item[\texttt{INT = 0}] ~
+\nopagebreak
+
+\item[\texttt{CLOCK = 1}] ~
+\nopagebreak
+
+\item[\texttt{CHAN = 2}] ~
+\nopagebreak
+
+\item[\texttt{BOOL = 3}] ~
+\nopagebreak
+
+\item[\texttt{VOID = 4}] ~
+\nopagebreak
+		\end{longdescription}
+	\end{longdescription}
+	
+	
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Class \bfseries \texttt{DeclaredType}\normalfont}
+\label{cls:uppaal::types::DeclaredType} \index{3}
+	
+	\begin{longdescription}
+		\item[Overview] 		
+				
+
+	
+
+		A user-declared type.		
+		\item[Super Types of \texttt{DeclaredType}] ~
+			\begin{longdescription}
+				\item[\texttt{Type}] see Section~\ref{cls:uppaal::types::Type} on Page~\pageref{cls:uppaal::types::Type}						\end{longdescription}
+		
+	
+			\item[\textbf{References of} \texttt{DeclaredType}] ~
+			\begin{longdescription}
+	\item[\texttt{typeDeclaration : TypeDeclaration 	\symbol{"5B}1..1\symbol{"5D}
+}] ~
+	see Section~\ref{cls:uppaal::declarations::TypeDeclaration} on Page~\pageref{cls:uppaal::declarations::TypeDeclaration}
+	
+	\nopagebreak
+		
+				
+
+	
+
+		The declaration that declares this type.		
+	\item[\texttt{/typeDefinition : TypeDefinition 	\symbol{"5B}1..1\symbol{"5D}
+}] ~
+	see Section~\ref{cls:uppaal::types::TypeDefinition} on Page~\pageref{cls:uppaal::types::TypeDefinition}
+	
+	\nopagebreak
+		
+				
+
+	
+
+		The definition of the declared type. Usually a type specification, but can also be a type reference to a "renamed" type.		
+		\begin{longdescription}
+	\item[\small\textit{derivation}] ~ 
+	\nopagebreak
+		\begin{lstlisting}[language=OCL, breaklines=true]
+if self.typeDeclaration.oclIsUndefined()
+then null
+else self.typeDeclaration.typeDefinition
+endif		\end{lstlisting}
+		\end{longdescription}
+			\end{longdescription}
+	
+	\end{longdescription}
+	
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Class \bfseries \texttt{IntegerBounds}\normalfont}
+\label{cls:uppaal::types::IntegerBounds} \index{10}
+	
+	\begin{longdescription}
+		\item[Overview] 		
+				
+
+	
+
+		Used to restrict the 'int' type to a range of values.		
+		
+	
+			\item[\textbf{References of} \texttt{IntegerBounds}] ~
+			\begin{longdescription}
+	\item[\texttt{lowerBound : Expression 	\symbol{"5B}1..1\symbol{"5D}
+}] ~
+	see Section~\ref{cls:uppaal::expressions::Expression} on Page~\pageref{cls:uppaal::expressions::Expression}
+	
+	\nopagebreak
+		
+				
+
+	
+
+		An integer-based expression representing the lower bound.		
+	\item[\texttt{upperBound : Expression 	\symbol{"5B}1..1\symbol{"5D}
+}] ~
+	see Section~\ref{cls:uppaal::expressions::Expression} on Page~\pageref{cls:uppaal::expressions::Expression}
+	
+	\nopagebreak
+		
+				
+
+	
+
+		An integer-based expression representing the upper bound.		
+			\end{longdescription}
+	
+	\end{longdescription}
+	
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Class \bfseries \texttt{PredefinedType}\normalfont}
+\label{cls:uppaal::types::PredefinedType} \index{1}
+	
+	\begin{longdescription}
+		\item[Overview] 		
+				
+
+	
+
+		One of the predefined types 'int', 'bool', 'chan', 'clock' or 'void'.		
+		\item[Super Types of \texttt{PredefinedType}] ~
+			\begin{longdescription}
+				\item[\texttt{Type}] see Section~\ref{cls:uppaal::types::Type} on Page~\pageref{cls:uppaal::types::Type}						\end{longdescription}
+		
+	
+			\item[\textbf{Attributes of} \texttt{PredefinedType}] ~
+			\begin{longdescription}
+	\item[\texttt{type : BuiltInType 	\symbol{"5B}1..1\symbol{"5D}
+}] ~
+	see Section~\ref{cls:uppaal::types::BuiltInType} on Page~\pageref{cls:uppaal::types::BuiltInType}
+	
+	\nopagebreak
+		
+				
+
+	
+
+		Stores the concrete literal that represents the predefined type.		
+			\end{longdescription}
+	
+	\end{longdescription}
+	
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Class \bfseries \texttt{RangeTypeSpecification}\normalfont}
+\label{cls:uppaal::types::RangeTypeSpecification} \index{9}
+	
+	\begin{longdescription}
+		\item[Overview] 		
+				
+
+	
+
+		A type specification restricting the 'int' type to a range of values.		
+		\item[Super Types of \texttt{RangeTypeSpecification}] ~
+			\begin{longdescription}
+				\item[\texttt{TypeSpecification}] see Section~\ref{cls:uppaal::types::TypeSpecification} on Page~\pageref{cls:uppaal::types::TypeSpecification}						\end{longdescription}
+		
+	
+			\item[\textbf{References of} \texttt{RangeTypeSpecification}] ~
+			\begin{longdescription}
+	\item[\texttt{bounds : IntegerBounds 	\symbol{"5B}1..1\symbol{"5D}
+}] ~
+	see Section~\ref{cls:uppaal::types::IntegerBounds} on Page~\pageref{cls:uppaal::types::IntegerBounds}
+	
+	\nopagebreak
+		
+				
+
+	
+
+		The bounds that restrict the type specification.		
+			\end{longdescription}
+	
+	\end{longdescription}
+	
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Class \bfseries \texttt{ScalarTypeSpecification}\normalfont}
+\label{cls:uppaal::types::ScalarTypeSpecification} \index{7}
+	
+	\begin{longdescription}
+		\item[Overview] 		
+				
+
+	
+
+		A specification of a 'scalar' type.		
+		\item[Super Types of \texttt{ScalarTypeSpecification}] ~
+			\begin{longdescription}
+				\item[\texttt{TypeSpecification}] see Section~\ref{cls:uppaal::types::TypeSpecification} on Page~\pageref{cls:uppaal::types::TypeSpecification}						\end{longdescription}
+		
+	
+			\item[\textbf{References of} \texttt{ScalarTypeSpecification}] ~
+			\begin{longdescription}
+	\item[\texttt{sizeExpression : Expression 	\symbol{"5B}1..1\symbol{"5D}
+}] ~
+	see Section~\ref{cls:uppaal::expressions::Expression} on Page~\pageref{cls:uppaal::expressions::Expression}
+	
+	\nopagebreak
+		
+				
+
+	
+
+		An integer-based expression that represents the size of the scalar type.		
+			\end{longdescription}
+	
+	\end{longdescription}
+	
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Class \bfseries \texttt{StructTypeSpecification}\normalfont}
+\label{cls:uppaal::types::StructTypeSpecification} \index{8}
+	
+	\begin{longdescription}
+		\item[Overview] 		
+				
+
+	
+
+		A specification of a 'struct' type.		
+		\item[Super Types of \texttt{StructTypeSpecification}] ~
+			\begin{longdescription}
+				\item[\texttt{TypeSpecification}] see Section~\ref{cls:uppaal::types::TypeSpecification} on Page~\pageref{cls:uppaal::types::TypeSpecification}						\end{longdescription}
+		
+	
+			\item[\textbf{References of} \texttt{StructTypeSpecification}] ~
+			\begin{longdescription}
+	\item[\texttt{declaration : DataVariableDeclaration 	\symbol{"5B}1..$*$\symbol{"5D}
+}] ~
+	see Section~\ref{cls:uppaal::declarations::DataVariableDeclaration} on Page~\pageref{cls:uppaal::declarations::DataVariableDeclaration}
+	
+	\nopagebreak
+		
+				
+
+	
+
+		The variable declarations representing the fields of the 'struct' type.		
+			\end{longdescription}
+			\item[\textbf{OCL Constraints of} \texttt{StructTypeSpecification}] ~
+			\begin{longdescription}
+	\item[\small\textit{UniqueFieldNames}] ~ 
+	\nopagebreak
+	
+		\begin{lstlisting}[breaklines=true]
+self.declaration->collect(variable)->isUnique(name)		\end{lstlisting}
+			\end{longdescription}
+	
+	\end{longdescription}
+	
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Abstract Class \bfseries \texttt{Type}\normalfont}
+\label{cls:uppaal::types::Type} \index{0}
+	
+	\begin{longdescription}
+		\item[Overview] 		
+				
+
+	
+
+		Abstract base class for all types.		
+		\item[Super Types of \texttt{Type}] ~
+			\begin{longdescription}
+				\item[\texttt{NamedElement}] see Section~\ref{cls:uppaal::core::NamedElement} on Page~\pageref{cls:uppaal::core::NamedElement}						\end{longdescription}
+		
+	
+			\item[\textbf{Attributes of} \texttt{Type}] ~
+			\begin{longdescription}
+	\item[\texttt{/baseType : BuiltInType 	}] ~
+	see Section~\ref{cls:uppaal::types::BuiltInType} on Page~\pageref{cls:uppaal::types::BuiltInType}
+	
+	\nopagebreak
+		
+			~\todoo{Documentation missing (GenModel is not defined)}	
+		\begin{longdescription}
+	\item[\small\textit{derivation}] ~ 
+	\nopagebreak
+		\begin{lstlisting}[language=OCL, breaklines=true]
+if self.oclIsKindOf(DeclaredType)
+then 
+	if self.oclAsType(DeclaredType).typeDefinition.oclIsUndefined()
+	then null
+	else self.oclAsType(DeclaredType).typeDefinition.baseType
+	endif
+else 
+	if self.oclIsKindOf(PredefinedType)
+	then self.oclAsType(PredefinedType).type
+	else null
+	endif
+endif		\end{lstlisting}
+		\end{longdescription}
+			\end{longdescription}
+			\item[\textbf{References of} \texttt{Type}] ~
+			\begin{longdescription}
+	\item[\texttt{index : Index 	\symbol{"5B}0..$*$\symbol{"5D}
+}] ~
+	see Section~\ref{cls:uppaal::declarations::Index} on Page~\pageref{cls:uppaal::declarations::Index}
+	
+	\nopagebreak
+		
+				
+
+	
+
+		A set of array indexes for the type.		
+			\end{longdescription}
+	
+	\end{longdescription}
+	
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Abstract Class \bfseries \texttt{TypeDefinition}\normalfont}
+\label{cls:uppaal::types::TypeDefinition} \index{4}
+	
+	\begin{longdescription}
+		\item[Overview] 		
+				
+
+	
+
+		Abstract base class for type definitions of all typed elements. Type definitions are either references to types defined elsewhere, or in place specifications of new types.		
+		
+	
+			\item[\textbf{Attributes of} \texttt{TypeDefinition}] ~
+			\begin{longdescription}
+	\item[\texttt{/baseType : BuiltInType 	}] ~
+	see Section~\ref{cls:uppaal::types::BuiltInType} on Page~\pageref{cls:uppaal::types::BuiltInType}
+	
+	\nopagebreak
+		
+				
+
+	
+
+		The built-in base type this type definition relies on. Can be 'null' in case of a 'struct' type definition involved.		
+		\begin{longdescription}
+	\item[\small\textit{derivation}] ~ 
+	\nopagebreak
+		\begin{lstlisting}[language=OCL, breaklines=true]
+if self.oclIsKindOf(TypeReference)
+then 
+	if self.oclAsType(TypeReference).referredType.oclIsUndefined()
+	then null
+	else self.oclAsType(TypeReference).referredType.baseType
+	endif
+else 
+	if self.oclIsKindOf(ScalarTypeSpecification) or self.oclIsKindOf(RangeTypeSpecification)
+	then BuiltInType::INT
+	else null
+	endif
+endif		\end{lstlisting}
+		\end{longdescription}
+			\end{longdescription}
+	
+	\end{longdescription}
+	
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Class \bfseries \texttt{TypeReference}\normalfont}
+\label{cls:uppaal::types::TypeReference} \index{5}
+	
+	\begin{longdescription}
+		\item[Overview] 		
+				
+
+	
+
+		A reference to a type defined elsewhere.		
+		\item[Super Types of \texttt{TypeReference}] ~
+			\begin{longdescription}
+				\item[\texttt{TypeDefinition}] see Section~\ref{cls:uppaal::types::TypeDefinition} on Page~\pageref{cls:uppaal::types::TypeDefinition}						\end{longdescription}
+		
+	
+			\item[\textbf{References of} \texttt{TypeReference}] ~
+			\begin{longdescription}
+	\item[\texttt{referredType : Type 	\symbol{"5B}1..1\symbol{"5D}
+}] ~
+	see Section~\ref{cls:uppaal::types::Type} on Page~\pageref{cls:uppaal::types::Type}
+	
+	\nopagebreak
+		
+				
+
+	
+
+		The referred type.		
+			\end{longdescription}
+	
+	\end{longdescription}
+	
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Abstract Class \bfseries \texttt{TypeSpecification}\normalfont}
+\label{cls:uppaal::types::TypeSpecification} \index{6}
+	
+	\begin{longdescription}
+		\item[Overview] 		
+				
+
+	
+
+		Abstract base class for the specification of new types, using either the 'struct' or 'scalar' keywords, or restricting a type to a range of values.		
+		\item[Super Types of \texttt{TypeSpecification}] ~
+			\begin{longdescription}
+				\item[\texttt{TypeDefinition}] see Section~\ref{cls:uppaal::types::TypeDefinition} on Page~\pageref{cls:uppaal::types::TypeDefinition}						\end{longdescription}
+		
+	
+	
+	\end{longdescription}
+	
+			\newpage
+		\section{Package \bfseries \texttt{uppaal::visuals}\normalfont}
+		
+		% Here comes the package documentation
+		\begin{longdescription}
+		\item[Overview]			
+				
+
+	
+
+		Provides support for the visual representation of model elements.		
+		\end{longdescription}
+	% Here a manual modifiable file is included: uppaal_visuals/graphics.tex
+	\input{img/uppaal_visuals/graphics}
+			%\subsection{Package Documentation}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Enumeration \bfseries \texttt{ColorKind}\normalfont}
+\label{cls:uppaal::visuals::ColorKind} \index{uppaal::visuals!ColorKind}
+
+	\begin{longdescription}
+		\item[Overview] 		
+				
+
+	
+
+		The color kinds of an element. They are the standard colors of uppaal or a self-defined color.		
+	
+		\item[\textbf{Literals of} \texttt{ColorKind}] ~
+		\begin{longdescription}
+			
+\item[\texttt{DEFAULT = 0}] ~
+\nopagebreak
+
+\item[\texttt{WHITE = 1}] ~
+\nopagebreak
+
+\item[\texttt{LIGHTGREY = 2}] ~
+\nopagebreak
+
+\item[\texttt{DARKGREY = 3}] ~
+\nopagebreak
+
+\item[\texttt{BLACK = 4}] ~
+\nopagebreak
+
+\item[\texttt{BLUE = 5}] ~
+\nopagebreak
+
+\item[\texttt{CYAN = 6}] ~
+\nopagebreak
+
+\item[\texttt{GREEN = 7}] ~
+\nopagebreak
+
+\item[\texttt{MAGENTA = 8}] ~
+\nopagebreak
+
+\item[\texttt{ORANGE = 9}] ~
+\nopagebreak
+
+\item[\texttt{PINK = 10}] ~
+\nopagebreak
+
+\item[\texttt{RED = 11}] ~
+\nopagebreak
+
+\item[\texttt{YELLOW = 12}] ~
+\nopagebreak
+
+\item[\texttt{SELF\_DEFINED = 13}] ~
+\nopagebreak
+		\end{longdescription}
+	\end{longdescription}
+	
+	
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Abstract Class \bfseries \texttt{ColoredElement}\normalfont}
+\label{cls:uppaal::visuals::ColoredElement} \index{0}
+	
+	\begin{longdescription}
+		\item[Overview] 		
+				
+
+	
+
+		A model element that has an optional color.		
+		
+	
+			\item[\textbf{Attributes of} \texttt{ColoredElement}] ~
+			\begin{longdescription}
+	\item[\texttt{color : ColorKind 	}] ~
+	see Section~\ref{cls:uppaal::visuals::ColorKind} on Page~\pageref{cls:uppaal::visuals::ColorKind}
+	
+	\nopagebreak
+		
+				
+
+	
+
+		The color of the model element. It is either a standard uppaal color (default, white, light grey, dark grey, black, blue, cyan, green, magenta, orange, pink, red, yellow) or a self-defined color. Edges should not be white.
+
+\todosd{We need an OCL-Constraint: Edges should not be white.}
+\todosd{We need an OCL-Constraint: If self defined is choosen then a color code must be specified.}		
+	\item[\texttt{colorCode : EString 	}] ~
+	
+	
+	\nopagebreak
+		
+				
+
+	
+
+		The hexadecimal color code of the model element that must be defined if a self-defined color should be used.		
+			\end{longdescription}
+	
+	\end{longdescription}
+	
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Abstract Class \bfseries \texttt{LinearElement}\normalfont}
+\label{cls:uppaal::visuals::LinearElement} \index{2}
+	
+	\begin{longdescription}
+		\item[Overview] 		
+				
+
+	
+
+		A linear model element that has a set of bend points.		
+		
+	
+			\item[\textbf{References of} \texttt{LinearElement}] ~
+			\begin{longdescription}
+	\item[\texttt{bendPoint : Point 	\symbol{"5B}0..$*$\symbol{"5D}
+}] ~
+	see Section~\ref{cls:uppaal::visuals::Point} on Page~\pageref{cls:uppaal::visuals::Point}
+	
+	\nopagebreak
+		
+				
+
+	
+
+		The bend points of the linear model element.		
+			\end{longdescription}
+	
+	\end{longdescription}
+	
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Abstract Class \bfseries \texttt{PlanarElement}\normalfont}
+\label{cls:uppaal::visuals::PlanarElement} \index{1}
+	
+	\begin{longdescription}
+		\item[Overview] 		
+				
+
+	
+
+		A planar model element that has an optional position.		
+		
+	
+			\item[\textbf{References of} \texttt{PlanarElement}] ~
+			\begin{longdescription}
+	\item[\texttt{position : Point 	}] ~
+	see Section~\ref{cls:uppaal::visuals::Point} on Page~\pageref{cls:uppaal::visuals::Point}
+	
+	\nopagebreak
+		
+				
+
+	
+
+		The planar position of the model element.		
+			\end{longdescription}
+	
+	\end{longdescription}
+	
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Class \bfseries \texttt{Point}\normalfont}
+\label{cls:uppaal::visuals::Point} \index{3}
+	
+	\begin{longdescription}
+		\item[Overview] 		
+				
+
+	
+
+		Represents a point in the two-dimensional space.		
+		
+	
+			\item[\textbf{Attributes of} \texttt{Point}] ~
+			\begin{longdescription}
+	\item[\texttt{x : EInt 	\symbol{"5B}1..1\symbol{"5D}
+}] ~
+	
+	
+	\nopagebreak
+		
+				
+
+	
+
+		The horizontal component of the point.		
+	\item[\texttt{y : EInt 	\symbol{"5B}1..1\symbol{"5D}
+}] ~
+	
+	
+	\nopagebreak
+		
+				
+
+	
+
+		The vertical component of the point.		
+			\end{longdescription}
+	
+	\end{longdescription}
+	
+			\newpage
+	

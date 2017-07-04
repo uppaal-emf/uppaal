@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+
+
+  <extension
+         point="org.eclipse.ui.views.properties.tabbed.propertyContributor">
+    <propertyContributor
+          contributorId="org.muml.ape.contributor">
+       <propertyCategory
+             category="domain">
+       </propertyCategory>
+       <propertyCategory
+             category="default">
+       </propertyCategory>
+       <propertyCategory
+             category="extended">
+       </propertyCategory>
+       <propertyCategory
+             category="advanced">
+       </propertyCategory>
+    </propertyContributor>
+  </extension>
+
+
+
+
+
+
+
+
+ <extension point="org.muml.ape.runtime.propertyEditors">
+    <propertyEditors>
+    
+       <propertyEditor
+             factory="org.muml.uppaal.requirements.properties.requirements.editor.UnaryPropertyEditor$Factory"
+             type="http://www.muml.org/uppaal/requirements/1.0.0#UnaryProperty">
+       </propertyEditor>
+    
+       <propertyEditor
+             factory="org.muml.uppaal.requirements.properties.requirements.editor.LeadsToPropertyEditor$Factory"
+             type="http://www.muml.org/uppaal/requirements/1.0.0#LeadsToProperty">
+       </propertyEditor>
+    
+       <propertyEditor
+             factory="org.muml.uppaal.requirements.properties.requirements.editor.DeadlockExpressionEditor$Factory"
+             type="http://www.muml.org/uppaal/requirements/1.0.0#DeadlockExpression">
+       </propertyEditor>
+    
+       <propertyEditor
+             factory="org.muml.uppaal.requirements.properties.requirements.editor.PropertyRepositoryEditor$Factory"
+             type="http://www.muml.org/uppaal/requirements/1.0.0#PropertyRepository">
+       </propertyEditor>
+    
+    </propertyEditors>
+ </extension>
+
+
+ <extension
+       point="org.muml.ape.runtime.metamodelContributor">
+    <metamodel
+          contributor="org.muml.uppaal.requirements.properties.metamodel.MetamodelContributor">
+    </metamodel>
+ </extension>
+
+
+ <extension
+       point="org.muml.ape.runtime.creationConstraintContributor">
+    <constraint
+          contributor="org.muml.uppaal.requirements.properties.constraint.CreationConstraintContributor">
+    </constraint>
+ </extension>
+
+</plugin>

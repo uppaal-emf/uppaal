@@ -1,0 +1,423 @@
+<?xml version="1.0" encoding="ASCII"?>
+<org.muml:PropertyGenerator xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:org.muml="http://www.muml.org/ape/1.0.0" defaultTab="//@tabs.0" contributorId="org.muml.ape.contributor">
+  <reconciler/>
+  <genModel href="uppaal.genmodel#/"/>
+  <plugin id="org.muml.uppaal.edit.properties" name="Properties" vendor="Fraunhofer, HNI" version="1.0.0.qualifier">
+    <requiredBundles>org.eclipse.emf.ecore</requiredBundles>
+    <requiredBundles>org.eclipse.ui</requiredBundles>
+    <requiredBundles>org.eclipse.core.runtime</requiredBundles>
+    <requiredBundles>org.muml.uppaal.edit</requiredBundles>
+    <requiredBundles>org.muml.uppaal</requiredBundles>
+    <requiredBundles>org.muml.ape.runtime</requiredBundles>
+    <requiredBundles>org.eclipse.emf.edit</requiredBundles>
+  </plugin>
+  <tabs id="org.muml.uppaal" name="Uppaal"/>
+  <packages>
+    <genPackage href="uppaal.genmodel#//uppaal/templates"/>
+    <classes superClasses="//@packages.4/@classes.1 //@packages.4/@classes.0">
+      <genClass href="uppaal.genmodel#//uppaal/templates/AbstractTemplate"/>
+    </classes>
+    <classes superClasses="//@packages.0/@classes.0">
+      <genClass href="uppaal.genmodel#//uppaal/templates/Template"/>
+      <orderedElements xsi:type="org.muml:Property" tab="//@tabs.0">
+        <genFeature href="uppaal.genmodel#//uppaal/templates/Template/init"/>
+        <editor xsi:type="org.muml:ComboBoxPropertyEditor"/>
+      </orderedElements>
+    </classes>
+    <classes superClasses="//@packages.0/@classes.0">
+      <genClass href="uppaal.genmodel#//uppaal/templates/RedefinedTemplate"/>
+    </classes>
+    <classes superClasses="//@packages.8/@classes.0 //@packages.8/@classes.1 //@packages.4/@classes.1 //@packages.4/@classes.0">
+      <genClass href="uppaal.genmodel#//uppaal/templates/Location"/>
+      <orderedElements xsi:type="org.muml:Property" tab="//@tabs.0">
+        <genFeature href="uppaal.genmodel#//uppaal/templates/Location/locationTimeKind"/>
+        <editor xsi:type="org.muml:RadioPropertyEditor"/>
+      </orderedElements>
+    </classes>
+    <classes superClasses="//@packages.8/@classes.0 //@packages.4/@classes.1 //@packages.8/@classes.2">
+      <genClass href="uppaal.genmodel#//uppaal/templates/Edge"/>
+      <orderedElements xsi:type="org.muml:Property" tab="//@tabs.0">
+        <genFeature href="uppaal.genmodel#//uppaal/templates/Edge/source"/>
+        <editor xsi:type="org.muml:ComboBoxPropertyEditor"/>
+      </orderedElements>
+      <orderedElements xsi:type="org.muml:Property" tab="//@tabs.0">
+        <genFeature href="uppaal.genmodel#//uppaal/templates/Edge/target"/>
+        <editor xsi:type="org.muml:ComboBoxPropertyEditor"/>
+      </orderedElements>
+    </classes>
+    <classes>
+      <genClass href="uppaal.genmodel#//uppaal/templates/Synchronization"/>
+      <orderedElements xsi:type="org.muml:Property" tab="//@tabs.0">
+        <genFeature href="uppaal.genmodel#//uppaal/templates/Synchronization/kind"/>
+        <editor xsi:type="org.muml:RadioPropertyEditor"/>
+      </orderedElements>
+    </classes>
+    <classes superClasses="//@packages.9/@classes.16">
+      <genClass href="uppaal.genmodel#//uppaal/templates/Selection"/>
+    </classes>
+  </packages>
+  <packages>
+    <genPackage href="uppaal.genmodel#//uppaal/statements"/>
+    <classes>
+      <genClass href="uppaal.genmodel#//uppaal/statements/Statement"/>
+    </classes>
+    <classes superClasses="//@packages.1/@classes.0">
+      <genClass href="uppaal.genmodel#//uppaal/statements/Block"/>
+    </classes>
+    <classes superClasses="//@packages.1/@classes.0">
+      <genClass href="uppaal.genmodel#//uppaal/statements/EmptyStatement"/>
+    </classes>
+    <classes superClasses="//@packages.1/@classes.0">
+      <genClass href="uppaal.genmodel#//uppaal/statements/ForLoop"/>
+    </classes>
+    <classes superClasses="//@packages.9/@classes.16 //@packages.1/@classes.0">
+      <genClass href="uppaal.genmodel#//uppaal/statements/Iteration"/>
+    </classes>
+    <classes superClasses="//@packages.1/@classes.0">
+      <genClass href="uppaal.genmodel#//uppaal/statements/WhileLoop"/>
+    </classes>
+    <classes superClasses="//@packages.1/@classes.0">
+      <genClass href="uppaal.genmodel#//uppaal/statements/DoWhileLoop"/>
+    </classes>
+    <classes superClasses="//@packages.1/@classes.0">
+      <genClass href="uppaal.genmodel#//uppaal/statements/IfStatement"/>
+    </classes>
+    <classes superClasses="//@packages.1/@classes.0">
+      <genClass href="uppaal.genmodel#//uppaal/statements/ReturnStatement"/>
+    </classes>
+    <classes superClasses="//@packages.1/@classes.0">
+      <genClass href="uppaal.genmodel#//uppaal/statements/ExpressionStatement"/>
+    </classes>
+  </packages>
+  <packages>
+    <genPackage href="uppaal.genmodel#//uppaal"/>
+    <classes superClasses="//@packages.4/@classes.1 //@packages.4/@classes.0">
+      <genClass href="uppaal.genmodel#//uppaal/NTA"/>
+    </classes>
+  </packages>
+  <packages>
+    <genPackage href="uppaal.genmodel#//uppaal/types"/>
+    <classes superClasses="//@packages.4/@classes.0">
+      <genClass href="uppaal.genmodel#//uppaal/types/Type"/>
+    </classes>
+    <classes superClasses="//@packages.3/@classes.0">
+      <genClass href="uppaal.genmodel#//uppaal/types/PredefinedType"/>
+      <orderedElements xsi:type="org.muml:Property" tab="//@tabs.0">
+        <genFeature href="uppaal.genmodel#//uppaal/types/PredefinedType/type"/>
+        <editor xsi:type="org.muml:RadioPropertyEditor"/>
+      </orderedElements>
+    </classes>
+    <classes superClasses="//@packages.3/@classes.0">
+      <genClass href="uppaal.genmodel#//uppaal/types/DeclaredType"/>
+    </classes>
+    <classes>
+      <genClass href="uppaal.genmodel#//uppaal/types/TypeDefinition"/>
+    </classes>
+    <classes superClasses="//@packages.3/@classes.3">
+      <genClass href="uppaal.genmodel#//uppaal/types/TypeReference"/>
+      <orderedElements xsi:type="org.muml:Property" tab="//@tabs.0">
+        <genFeature href="uppaal.genmodel#//uppaal/types/TypeReference/referredType"/>
+        <editor xsi:type="org.muml:ComboBoxPropertyEditor"/>
+      </orderedElements>
+    </classes>
+    <classes superClasses="//@packages.3/@classes.3">
+      <genClass href="uppaal.genmodel#//uppaal/types/TypeSpecification"/>
+    </classes>
+    <classes superClasses="//@packages.3/@classes.5">
+      <genClass href="uppaal.genmodel#//uppaal/types/ScalarTypeSpecification"/>
+    </classes>
+    <classes superClasses="//@packages.3/@classes.5">
+      <genClass href="uppaal.genmodel#//uppaal/types/StructTypeSpecification"/>
+    </classes>
+    <classes superClasses="//@packages.3/@classes.5">
+      <genClass href="uppaal.genmodel#//uppaal/types/RangeTypeSpecification"/>
+    </classes>
+    <classes>
+      <genClass href="uppaal.genmodel#//uppaal/types/IntegerBounds"/>
+    </classes>
+    <classes>
+      <genClass href="uppaal.genmodel#//uppaal/types/Library"/>
+    </classes>
+  </packages>
+  <packages>
+    <genPackage href="uppaal.genmodel#//uppaal/core"/>
+    <classes>
+      <genClass href="uppaal.genmodel#//uppaal/core/NamedElement"/>
+      <orderedElements xsi:type="org.muml:Property" tab="//@tabs.0">
+        <genFeature href="uppaal.genmodel#//uppaal/core/NamedElement/name"/>
+        <editor xsi:type="org.muml:TextPropertyEditor"/>
+      </orderedElements>
+    </classes>
+    <classes>
+      <genClass href="uppaal.genmodel#//uppaal/core/CommentableElement"/>
+      <orderedElements xsi:type="org.muml:Property" tab="//@tabs.0">
+        <genFeature href="uppaal.genmodel#//uppaal/core/CommentableElement/comment"/>
+        <editor xsi:type="org.muml:TextPropertyEditor"/>
+      </orderedElements>
+    </classes>
+  </packages>
+  <packages>
+    <genPackage href="uppaal.genmodel#//uppaal/declarations/system"/>
+    <classes superClasses="//@packages.9/@classes.4">
+      <genClass href="uppaal.genmodel#//uppaal/declarations/system/TemplateDeclaration"/>
+    </classes>
+    <classes>
+      <genClass href="uppaal.genmodel#//uppaal/declarations/system/System"/>
+    </classes>
+    <classes>
+      <genClass href="uppaal.genmodel#//uppaal/declarations/system/InstantiationList"/>
+      <orderedElements xsi:type="org.muml:Property" tab="//@tabs.0">
+        <genFeature href="uppaal.genmodel#//uppaal/declarations/system/InstantiationList/template"/>
+        <editor xsi:type="org.muml:ListPropertyEditor"/>
+      </orderedElements>
+    </classes>
+    <classes>
+      <genClass href="uppaal.genmodel#//uppaal/declarations/system/ProgressMeasure"/>
+    </classes>
+  </packages>
+  <packages>
+    <genPackage href="uppaal.genmodel#//uppaal/expressions"/>
+    <classes>
+      <genClass href="uppaal.genmodel#//uppaal/expressions/Expression"/>
+    </classes>
+    <classes superClasses="//@packages.6/@classes.0">
+      <genClass href="uppaal.genmodel#//uppaal/expressions/NegationExpression"/>
+    </classes>
+    <classes superClasses="//@packages.6/@classes.0">
+      <genClass href="uppaal.genmodel#//uppaal/expressions/PlusExpression"/>
+    </classes>
+    <classes superClasses="//@packages.6/@classes.0">
+      <genClass href="uppaal.genmodel#//uppaal/expressions/MinusExpression"/>
+    </classes>
+    <classes superClasses="//@packages.6/@classes.0">
+      <genClass href="uppaal.genmodel#//uppaal/expressions/BinaryExpression"/>
+    </classes>
+    <classes superClasses="//@packages.6/@classes.4">
+      <genClass href="uppaal.genmodel#//uppaal/expressions/AssignmentExpression"/>
+      <orderedElements xsi:type="org.muml:Property" tab="//@tabs.0">
+        <genFeature href="uppaal.genmodel#//uppaal/expressions/AssignmentExpression/operator"/>
+        <editor xsi:type="org.muml:RadioPropertyEditor"/>
+      </orderedElements>
+    </classes>
+    <classes superClasses="//@packages.6/@classes.0">
+      <genClass href="uppaal.genmodel#//uppaal/expressions/IdentifierExpression"/>
+      <orderedElements xsi:type="org.muml:Property" tab="//@tabs.0">
+        <genFeature href="uppaal.genmodel#//uppaal/expressions/IdentifierExpression/identifier"/>
+        <editor xsi:type="org.muml:ComboBoxPropertyEditor"/>
+      </orderedElements>
+    </classes>
+    <classes superClasses="//@packages.6/@classes.0">
+      <genClass href="uppaal.genmodel#//uppaal/expressions/LiteralExpression"/>
+      <orderedElements xsi:type="org.muml:Property" tab="//@tabs.0">
+        <genFeature href="uppaal.genmodel#//uppaal/expressions/LiteralExpression/text"/>
+        <editor xsi:type="org.muml:TextPropertyEditor"/>
+      </orderedElements>
+    </classes>
+    <classes superClasses="//@packages.6/@classes.4">
+      <genClass href="uppaal.genmodel#//uppaal/expressions/ArithmeticExpression"/>
+      <orderedElements xsi:type="org.muml:Property" tab="//@tabs.0">
+        <genFeature href="uppaal.genmodel#//uppaal/expressions/ArithmeticExpression/operator"/>
+        <editor xsi:type="org.muml:RadioPropertyEditor"/>
+      </orderedElements>
+    </classes>
+    <classes superClasses="//@packages.6/@classes.4">
+      <genClass href="uppaal.genmodel#//uppaal/expressions/LogicalExpression"/>
+      <orderedElements xsi:type="org.muml:Property" tab="//@tabs.0">
+        <genFeature href="uppaal.genmodel#//uppaal/expressions/LogicalExpression/operator"/>
+        <editor xsi:type="org.muml:RadioPropertyEditor"/>
+      </orderedElements>
+    </classes>
+    <classes superClasses="//@packages.6/@classes.0">
+      <genClass href="uppaal.genmodel#//uppaal/expressions/FunctionCallExpression"/>
+      <orderedElements xsi:type="org.muml:Property" tab="//@tabs.0">
+        <genFeature href="uppaal.genmodel#//uppaal/expressions/FunctionCallExpression/function"/>
+        <editor xsi:type="org.muml:ComboBoxPropertyEditor"/>
+      </orderedElements>
+    </classes>
+    <classes superClasses="//@packages.6/@classes.4">
+      <genClass href="uppaal.genmodel#//uppaal/expressions/CompareExpression"/>
+      <orderedElements xsi:type="org.muml:Property" tab="//@tabs.0">
+        <genFeature href="uppaal.genmodel#//uppaal/expressions/CompareExpression/operator"/>
+        <editor xsi:type="org.muml:RadioPropertyEditor"/>
+      </orderedElements>
+    </classes>
+    <classes superClasses="//@packages.6/@classes.0">
+      <genClass href="uppaal.genmodel#//uppaal/expressions/ConditionExpression"/>
+    </classes>
+    <classes superClasses="//@packages.6/@classes.0">
+      <genClass href="uppaal.genmodel#//uppaal/expressions/ScopedIdentifierExpression"/>
+    </classes>
+    <classes superClasses="//@packages.9/@classes.16 //@packages.6/@classes.0">
+      <genClass href="uppaal.genmodel#//uppaal/expressions/QuantificationExpression"/>
+      <orderedElements xsi:type="org.muml:Property" tab="//@tabs.0">
+        <genFeature href="uppaal.genmodel#//uppaal/expressions/QuantificationExpression/quantifier"/>
+        <editor xsi:type="org.muml:RadioPropertyEditor"/>
+      </orderedElements>
+    </classes>
+    <classes superClasses="//@packages.6/@classes.0">
+      <genClass href="uppaal.genmodel#//uppaal/expressions/IncrementDecrementExpression"/>
+      <orderedElements xsi:type="org.muml:Property" tab="//@tabs.0">
+        <genFeature href="uppaal.genmodel#//uppaal/expressions/IncrementDecrementExpression/position"/>
+        <editor xsi:type="org.muml:RadioPropertyEditor"/>
+      </orderedElements>
+      <orderedElements xsi:type="org.muml:Property" tab="//@tabs.0">
+        <genFeature href="uppaal.genmodel#//uppaal/expressions/IncrementDecrementExpression/operator"/>
+        <editor xsi:type="org.muml:RadioPropertyEditor"/>
+      </orderedElements>
+    </classes>
+    <classes superClasses="//@packages.6/@classes.4">
+      <genClass href="uppaal.genmodel#//uppaal/expressions/BitShiftExpression"/>
+      <orderedElements xsi:type="org.muml:Property" tab="//@tabs.0">
+        <genFeature href="uppaal.genmodel#//uppaal/expressions/BitShiftExpression/operator"/>
+        <editor xsi:type="org.muml:RadioPropertyEditor"/>
+      </orderedElements>
+    </classes>
+    <classes superClasses="//@packages.6/@classes.4">
+      <genClass href="uppaal.genmodel#//uppaal/expressions/MinMaxExpression"/>
+      <orderedElements xsi:type="org.muml:Property" tab="//@tabs.0">
+        <genFeature href="uppaal.genmodel#//uppaal/expressions/MinMaxExpression/operator"/>
+        <editor xsi:type="org.muml:RadioPropertyEditor"/>
+      </orderedElements>
+    </classes>
+    <classes superClasses="//@packages.6/@classes.4">
+      <genClass href="uppaal.genmodel#//uppaal/expressions/BitwiseExpression"/>
+      <orderedElements xsi:type="org.muml:Property" tab="//@tabs.0">
+        <genFeature href="uppaal.genmodel#//uppaal/expressions/BitwiseExpression/operator"/>
+        <editor xsi:type="org.muml:RadioPropertyEditor"/>
+      </orderedElements>
+    </classes>
+  </packages>
+  <packages>
+    <genPackage href="uppaal.genmodel#//uppaal/declarations/global"/>
+    <classes>
+      <genClass href="uppaal.genmodel#//uppaal/declarations/global/ChannelPriority"/>
+    </classes>
+    <classes>
+      <genClass href="uppaal.genmodel#//uppaal/declarations/global/ChannelPriorityItem"/>
+    </classes>
+    <classes superClasses="//@packages.7/@classes.1">
+      <genClass href="uppaal.genmodel#//uppaal/declarations/global/ChannelList"/>
+    </classes>
+    <classes superClasses="//@packages.7/@classes.1">
+      <genClass href="uppaal.genmodel#//uppaal/declarations/global/DefaultChannelPriority"/>
+    </classes>
+  </packages>
+  <packages>
+    <genPackage href="uppaal.genmodel#//uppaal/visuals"/>
+    <classes>
+      <genClass href="uppaal.genmodel#//uppaal/visuals/ColoredElement"/>
+      <orderedElements xsi:type="org.muml:Property" tab="//@tabs.0">
+        <genFeature href="uppaal.genmodel#//uppaal/visuals/ColoredElement/color"/>
+        <editor xsi:type="org.muml:RadioPropertyEditor"/>
+      </orderedElements>
+      <orderedElements xsi:type="org.muml:Property" tab="//@tabs.0">
+        <genFeature href="uppaal.genmodel#//uppaal/visuals/ColoredElement/colorCode"/>
+        <editor xsi:type="org.muml:TextPropertyEditor"/>
+      </orderedElements>
+    </classes>
+    <classes>
+      <genClass href="uppaal.genmodel#//uppaal/visuals/PlanarElement"/>
+    </classes>
+    <classes>
+      <genClass href="uppaal.genmodel#//uppaal/visuals/LinearElement"/>
+      <orderedElements xsi:type="org.muml:Property" tab="//@tabs.0">
+        <genFeature href="uppaal.genmodel#//uppaal/visuals/LinearElement/bendPoint"/>
+        <editor xsi:type="org.muml:ListPropertyEditor"/>
+      </orderedElements>
+    </classes>
+    <classes>
+      <genClass href="uppaal.genmodel#//uppaal/visuals/Point"/>
+      <orderedElements xsi:type="org.muml:Property" tab="//@tabs.0">
+        <genFeature href="uppaal.genmodel#//uppaal/visuals/Point/x"/>
+        <editor xsi:type="org.muml:SpinnerPropertyEditor"/>
+      </orderedElements>
+      <orderedElements xsi:type="org.muml:Property" tab="//@tabs.0">
+        <genFeature href="uppaal.genmodel#//uppaal/visuals/Point/y"/>
+        <editor xsi:type="org.muml:SpinnerPropertyEditor"/>
+      </orderedElements>
+    </classes>
+  </packages>
+  <packages>
+    <genPackage href="uppaal.genmodel#//uppaal/declarations"/>
+    <classes>
+      <genClass href="uppaal.genmodel#//uppaal/declarations/Declarations"/>
+    </classes>
+    <classes superClasses="//@packages.9/@classes.0">
+      <genClass href="uppaal.genmodel#//uppaal/declarations/GlobalDeclarations"/>
+    </classes>
+    <classes superClasses="//@packages.9/@classes.0">
+      <genClass href="uppaal.genmodel#//uppaal/declarations/LocalDeclarations"/>
+    </classes>
+    <classes superClasses="//@packages.9/@classes.0">
+      <genClass href="uppaal.genmodel#//uppaal/declarations/SystemDeclarations"/>
+    </classes>
+    <classes>
+      <genClass href="uppaal.genmodel#//uppaal/declarations/Declaration"/>
+    </classes>
+    <classes superClasses="//@packages.9/@classes.16 //@packages.9/@classes.4">
+      <genClass href="uppaal.genmodel#//uppaal/declarations/VariableDeclaration"/>
+    </classes>
+    <classes superClasses="//@packages.9/@classes.5">
+      <genClass href="uppaal.genmodel#//uppaal/declarations/ChannelVariableDeclaration"/>
+      <orderedElements xsi:type="org.muml:Property" tab="//@tabs.0">
+        <genFeature href="uppaal.genmodel#//uppaal/declarations/ChannelVariableDeclaration/urgent"/>
+        <editor xsi:type="org.muml:CheckboxPropertyEditor"/>
+      </orderedElements>
+      <orderedElements xsi:type="org.muml:Property" tab="//@tabs.0">
+        <genFeature href="uppaal.genmodel#//uppaal/declarations/ChannelVariableDeclaration/broadcast"/>
+        <editor xsi:type="org.muml:CheckboxPropertyEditor"/>
+      </orderedElements>
+      <orderedElements xsi:type="org.muml:PropertyCategory" title="Booleans" properties="//@packages.9/@classes.6/@orderedElements.0 //@packages.9/@classes.6/@orderedElements.1"/>
+    </classes>
+    <classes superClasses="//@packages.9/@classes.5">
+      <genClass href="uppaal.genmodel#//uppaal/declarations/ClockVariableDeclaration"/>
+    </classes>
+    <classes superClasses="//@packages.9/@classes.5">
+      <genClass href="uppaal.genmodel#//uppaal/declarations/DataVariableDeclaration"/>
+      <orderedElements xsi:type="org.muml:Property" tab="//@tabs.0">
+        <genFeature href="uppaal.genmodel#//uppaal/declarations/DataVariableDeclaration/prefix"/>
+        <editor xsi:type="org.muml:RadioPropertyEditor"/>
+      </orderedElements>
+    </classes>
+    <classes superClasses="//@packages.9/@classes.4">
+      <genClass href="uppaal.genmodel#//uppaal/declarations/FunctionDeclaration"/>
+    </classes>
+    <classes superClasses="//@packages.4/@classes.0">
+      <genClass href="uppaal.genmodel#//uppaal/declarations/Function"/>
+    </classes>
+    <classes superClasses="//@packages.9/@classes.4">
+      <genClass href="uppaal.genmodel#//uppaal/declarations/TypeDeclaration"/>
+    </classes>
+    <classes superClasses="//@packages.4/@classes.0">
+      <genClass href="uppaal.genmodel#//uppaal/declarations/Variable"/>
+    </classes>
+    <classes>
+      <genClass href="uppaal.genmodel#//uppaal/declarations/Index"/>
+    </classes>
+    <classes superClasses="//@packages.9/@classes.13">
+      <genClass href="uppaal.genmodel#//uppaal/declarations/ValueIndex"/>
+    </classes>
+    <classes superClasses="//@packages.9/@classes.13">
+      <genClass href="uppaal.genmodel#//uppaal/declarations/TypeIndex"/>
+    </classes>
+    <classes>
+      <genClass href="uppaal.genmodel#//uppaal/declarations/VariableContainer"/>
+    </classes>
+    <classes>
+      <genClass href="uppaal.genmodel#//uppaal/declarations/Parameter"/>
+      <orderedElements xsi:type="org.muml:Property" tab="//@tabs.0">
+        <genFeature href="uppaal.genmodel#//uppaal/declarations/Parameter/callType"/>
+        <editor xsi:type="org.muml:RadioPropertyEditor"/>
+      </orderedElements>
+    </classes>
+    <classes>
+      <genClass href="uppaal.genmodel#//uppaal/declarations/Initializer"/>
+    </classes>
+    <classes superClasses="//@packages.9/@classes.18">
+      <genClass href="uppaal.genmodel#//uppaal/declarations/ExpressionInitializer"/>
+    </classes>
+    <classes superClasses="//@packages.9/@classes.18">
+      <genClass href="uppaal.genmodel#//uppaal/declarations/ArrayInitializer"/>
+    </classes>
+  </packages>
+</org.muml:PropertyGenerator>

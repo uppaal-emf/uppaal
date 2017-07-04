@@ -1,0 +1,395 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+
+
+  <extension
+         point="org.eclipse.ui.views.properties.tabbed.propertyContributor">
+    <propertyContributor
+          contributorId="org.muml.ape.contributor">
+       <propertyCategory
+             category="domain">
+       </propertyCategory>
+       <propertyCategory
+             category="default">
+       </propertyCategory>
+       <propertyCategory
+             category="extended">
+       </propertyCategory>
+       <propertyCategory
+             category="advanced">
+       </propertyCategory>
+    </propertyContributor>
+  </extension>
+
+
+
+<extension point="org.eclipse.ui.views.properties.tabbed.propertyTabs">
+      <propertyTabs contributorId="org.muml.ape.contributor">
+          <propertyTab
+             category="domain"
+             id="org.muml.uppaal"
+             afterTab=""
+             label="Uppaal"/>
+          
+      </propertyTabs>
+  </extension>
+
+
+
+
+  <extension point="org.eclipse.ui.views.properties.tabbed.propertySections"> 
+      <propertySections contributorId="org.muml.ape.contributor">
+          <propertySection
+            class="org.muml.ape.runtime.sections.ObjectPropertySection"
+            filter="org.muml.uppaal.properties.tabs.Org_muml_uppaalTabElementFilter"
+            id="org.muml.uppaal"
+            tab="org.muml.uppaal">
+             <input
+               type="org.eclipse.emf.ecore.EObject">
+             </input>
+          </propertySection>
+         
+      </propertySections>
+  </extension>
+
+
+
+ <extension point="org.muml.ape.runtime.propertyEditors">
+    <propertyEditors>
+    
+       <propertyEditor
+             factory="org.muml.uppaal.properties.templates.editor.TemplateEditor$Factory"
+             type="http://www.muml.org/uppaal/templates/1.0.0#Template">
+       </propertyEditor>
+    
+       <propertyEditor
+             factory="org.muml.uppaal.properties.templates.editor.RedefinedTemplateEditor$Factory"
+             type="http://www.muml.org/uppaal/templates/1.0.0#RedefinedTemplate">
+       </propertyEditor>
+    
+       <propertyEditor
+             factory="org.muml.uppaal.properties.templates.editor.LocationEditor$Factory"
+             type="http://www.muml.org/uppaal/templates/1.0.0#Location">
+       </propertyEditor>
+    
+       <propertyEditor
+             factory="org.muml.uppaal.properties.templates.editor.EdgeEditor$Factory"
+             type="http://www.muml.org/uppaal/templates/1.0.0#Edge">
+       </propertyEditor>
+    
+       <propertyEditor
+             factory="org.muml.uppaal.properties.templates.editor.SynchronizationEditor$Factory"
+             type="http://www.muml.org/uppaal/templates/1.0.0#Synchronization">
+       </propertyEditor>
+    
+       <propertyEditor
+             factory="org.muml.uppaal.properties.templates.editor.SelectionEditor$Factory"
+             type="http://www.muml.org/uppaal/templates/1.0.0#Selection">
+       </propertyEditor>
+    
+       <propertyEditor
+             factory="org.muml.uppaal.properties.statements.editor.BlockEditor$Factory"
+             type="http://www.muml.org/uppaal/statements/1.0.0#Block">
+       </propertyEditor>
+    
+       <propertyEditor
+             factory="org.muml.uppaal.properties.statements.editor.EmptyStatementEditor$Factory"
+             type="http://www.muml.org/uppaal/statements/1.0.0#EmptyStatement">
+       </propertyEditor>
+    
+       <propertyEditor
+             factory="org.muml.uppaal.properties.statements.editor.ForLoopEditor$Factory"
+             type="http://www.muml.org/uppaal/statements/1.0.0#ForLoop">
+       </propertyEditor>
+    
+       <propertyEditor
+             factory="org.muml.uppaal.properties.statements.editor.IterationEditor$Factory"
+             type="http://www.muml.org/uppaal/statements/1.0.0#Iteration">
+       </propertyEditor>
+    
+       <propertyEditor
+             factory="org.muml.uppaal.properties.statements.editor.WhileLoopEditor$Factory"
+             type="http://www.muml.org/uppaal/statements/1.0.0#WhileLoop">
+       </propertyEditor>
+    
+       <propertyEditor
+             factory="org.muml.uppaal.properties.statements.editor.DoWhileLoopEditor$Factory"
+             type="http://www.muml.org/uppaal/statements/1.0.0#DoWhileLoop">
+       </propertyEditor>
+    
+       <propertyEditor
+             factory="org.muml.uppaal.properties.statements.editor.IfStatementEditor$Factory"
+             type="http://www.muml.org/uppaal/statements/1.0.0#IfStatement">
+       </propertyEditor>
+    
+       <propertyEditor
+             factory="org.muml.uppaal.properties.statements.editor.ReturnStatementEditor$Factory"
+             type="http://www.muml.org/uppaal/statements/1.0.0#ReturnStatement">
+       </propertyEditor>
+    
+       <propertyEditor
+             factory="org.muml.uppaal.properties.statements.editor.ExpressionStatementEditor$Factory"
+             type="http://www.muml.org/uppaal/statements/1.0.0#ExpressionStatement">
+       </propertyEditor>
+    
+       <propertyEditor
+             factory="org.muml.uppaal.properties.uppaal.editor.NTAEditor$Factory"
+             type="http://www.muml.org/uppaal/1.0.0#NTA">
+       </propertyEditor>
+    
+       <propertyEditor
+             factory="org.muml.uppaal.properties.types.editor.PredefinedTypeEditor$Factory"
+             type="http://www.muml.org/uppaal/types/1.0.0#PredefinedType">
+       </propertyEditor>
+    
+       <propertyEditor
+             factory="org.muml.uppaal.properties.types.editor.DeclaredTypeEditor$Factory"
+             type="http://www.muml.org/uppaal/types/1.0.0#DeclaredType">
+       </propertyEditor>
+    
+       <propertyEditor
+             factory="org.muml.uppaal.properties.types.editor.ScalarTypeSpecificationEditor$Factory"
+             type="http://www.muml.org/uppaal/types/1.0.0#ScalarTypeSpecification">
+       </propertyEditor>
+    
+       <propertyEditor
+             factory="org.muml.uppaal.properties.types.editor.StructTypeSpecificationEditor$Factory"
+             type="http://www.muml.org/uppaal/types/1.0.0#StructTypeSpecification">
+       </propertyEditor>
+    
+       <propertyEditor
+             factory="org.muml.uppaal.properties.types.editor.RangeTypeSpecificationEditor$Factory"
+             type="http://www.muml.org/uppaal/types/1.0.0#RangeTypeSpecification">
+       </propertyEditor>
+    
+       <propertyEditor
+             factory="org.muml.uppaal.properties.types.editor.IntegerBoundsEditor$Factory"
+             type="http://www.muml.org/uppaal/types/1.0.0#IntegerBounds">
+       </propertyEditor>
+    
+       <propertyEditor
+             factory="org.muml.uppaal.properties.types.editor.LibraryEditor$Factory"
+             type="http://www.muml.org/uppaal/types/1.0.0#Library">
+       </propertyEditor>
+    
+       <propertyEditor
+             factory="org.muml.uppaal.properties.system.editor.TemplateDeclarationEditor$Factory"
+             type="http://www.muml.org/uppaal/declarations/system#TemplateDeclaration">
+       </propertyEditor>
+    
+       <propertyEditor
+             factory="org.muml.uppaal.properties.system.editor.SystemEditor$Factory"
+             type="http://www.muml.org/uppaal/declarations/system#System">
+       </propertyEditor>
+    
+       <propertyEditor
+             factory="org.muml.uppaal.properties.system.editor.InstantiationListEditor$Factory"
+             type="http://www.muml.org/uppaal/declarations/system#InstantiationList">
+       </propertyEditor>
+    
+       <propertyEditor
+             factory="org.muml.uppaal.properties.system.editor.ProgressMeasureEditor$Factory"
+             type="http://www.muml.org/uppaal/declarations/system#ProgressMeasure">
+       </propertyEditor>
+    
+       <propertyEditor
+             factory="org.muml.uppaal.properties.expressions.editor.NegationExpressionEditor$Factory"
+             type="http://www.muml.org/uppaal/expressions/1.0.0#NegationExpression">
+       </propertyEditor>
+    
+       <propertyEditor
+             factory="org.muml.uppaal.properties.expressions.editor.PlusExpressionEditor$Factory"
+             type="http://www.muml.org/uppaal/expressions/1.0.0#PlusExpression">
+       </propertyEditor>
+    
+       <propertyEditor
+             factory="org.muml.uppaal.properties.expressions.editor.MinusExpressionEditor$Factory"
+             type="http://www.muml.org/uppaal/expressions/1.0.0#MinusExpression">
+       </propertyEditor>
+    
+       <propertyEditor
+             factory="org.muml.uppaal.properties.expressions.editor.AssignmentExpressionEditor$Factory"
+             type="http://www.muml.org/uppaal/expressions/1.0.0#AssignmentExpression">
+       </propertyEditor>
+    
+       <propertyEditor
+             factory="org.muml.uppaal.properties.expressions.editor.IdentifierExpressionEditor$Factory"
+             type="http://www.muml.org/uppaal/expressions/1.0.0#IdentifierExpression">
+       </propertyEditor>
+    
+       <propertyEditor
+             factory="org.muml.uppaal.properties.expressions.editor.LiteralExpressionEditor$Factory"
+             type="http://www.muml.org/uppaal/expressions/1.0.0#LiteralExpression">
+       </propertyEditor>
+    
+       <propertyEditor
+             factory="org.muml.uppaal.properties.expressions.editor.ArithmeticExpressionEditor$Factory"
+             type="http://www.muml.org/uppaal/expressions/1.0.0#ArithmeticExpression">
+       </propertyEditor>
+    
+       <propertyEditor
+             factory="org.muml.uppaal.properties.expressions.editor.LogicalExpressionEditor$Factory"
+             type="http://www.muml.org/uppaal/expressions/1.0.0#LogicalExpression">
+       </propertyEditor>
+    
+       <propertyEditor
+             factory="org.muml.uppaal.properties.expressions.editor.FunctionCallExpressionEditor$Factory"
+             type="http://www.muml.org/uppaal/expressions/1.0.0#FunctionCallExpression">
+       </propertyEditor>
+    
+       <propertyEditor
+             factory="org.muml.uppaal.properties.expressions.editor.CompareExpressionEditor$Factory"
+             type="http://www.muml.org/uppaal/expressions/1.0.0#CompareExpression">
+       </propertyEditor>
+    
+       <propertyEditor
+             factory="org.muml.uppaal.properties.expressions.editor.ConditionExpressionEditor$Factory"
+             type="http://www.muml.org/uppaal/expressions/1.0.0#ConditionExpression">
+       </propertyEditor>
+    
+       <propertyEditor
+             factory="org.muml.uppaal.properties.expressions.editor.ScopedIdentifierExpressionEditor$Factory"
+             type="http://www.muml.org/uppaal/expressions/1.0.0#ScopedIdentifierExpression">
+       </propertyEditor>
+    
+       <propertyEditor
+             factory="org.muml.uppaal.properties.expressions.editor.QuantificationExpressionEditor$Factory"
+             type="http://www.muml.org/uppaal/expressions/1.0.0#QuantificationExpression">
+       </propertyEditor>
+    
+       <propertyEditor
+             factory="org.muml.uppaal.properties.expressions.editor.BitShiftExpressionEditor$Factory"
+             type="http://www.muml.org/uppaal/expressions/1.0.0#BitShiftExpression">
+       </propertyEditor>
+    
+       <propertyEditor
+             factory="org.muml.uppaal.properties.expressions.editor.MinMaxExpressionEditor$Factory"
+             type="http://www.muml.org/uppaal/expressions/1.0.0#MinMaxExpression">
+       </propertyEditor>
+    
+       <propertyEditor
+             factory="org.muml.uppaal.properties.expressions.editor.BitwiseExpressionEditor$Factory"
+             type="http://www.muml.org/uppaal/expressions/1.0.0#BitwiseExpression">
+       </propertyEditor>
+    
+       <propertyEditor
+             factory="org.muml.uppaal.properties.expressions.editor.PreIncrementDecrementExpressionEditor$Factory"
+             type="http://www.muml.org/uppaal/expressions/1.0.0#PreIncrementDecrementExpression">
+       </propertyEditor>
+    
+       <propertyEditor
+             factory="org.muml.uppaal.properties.expressions.editor.PostIncrementDecrementExpressionEditor$Factory"
+             type="http://www.muml.org/uppaal/expressions/1.0.0#PostIncrementDecrementExpression">
+       </propertyEditor>
+    
+       <propertyEditor
+             factory="org.muml.uppaal.properties.expressions.editor.ChannelPrefixExpressionEditor$Factory"
+             type="http://www.muml.org/uppaal/expressions/1.0.0#ChannelPrefixExpression">
+       </propertyEditor>
+    
+       <propertyEditor
+             factory="org.muml.uppaal.properties.expressions.editor.DataPrefixExpressionEditor$Factory"
+             type="http://www.muml.org/uppaal/expressions/1.0.0#DataPrefixExpression">
+       </propertyEditor>
+    
+       <propertyEditor
+             factory="org.muml.uppaal.properties.global.editor.ChannelPriorityDeclarationEditor$Factory"
+             type="http://www.muml.org/uppaal/declarations/global#ChannelPriorityDeclaration">
+       </propertyEditor>
+    
+       <propertyEditor
+             factory="org.muml.uppaal.properties.global.editor.ChannelPriorityGroupEditor$Factory"
+             type="http://www.muml.org/uppaal/declarations/global#ChannelPriorityGroup">
+       </propertyEditor>
+    
+       <propertyEditor
+             factory="org.muml.uppaal.properties.global.editor.ChannelItemEditor$Factory"
+             type="http://www.muml.org/uppaal/declarations/global#ChannelItem">
+       </propertyEditor>
+    
+       <propertyEditor
+             factory="org.muml.uppaal.properties.global.editor.DefaultItemEditor$Factory"
+             type="http://www.muml.org/uppaal/declarations/global#DefaultItem">
+       </propertyEditor>
+    
+       <propertyEditor
+             factory="org.muml.uppaal.properties.visuals.editor.PointEditor$Factory"
+             type="http://www.muml.org/uppaal/visuals/1.0.0#Point">
+       </propertyEditor>
+    
+       <propertyEditor
+             factory="org.muml.uppaal.properties.declarations.editor.GlobalDeclarationsEditor$Factory"
+             type="http://www.muml.org/uppaal/declarations/1.0.0#GlobalDeclarations">
+       </propertyEditor>
+    
+       <propertyEditor
+             factory="org.muml.uppaal.properties.declarations.editor.LocalDeclarationsEditor$Factory"
+             type="http://www.muml.org/uppaal/declarations/1.0.0#LocalDeclarations">
+       </propertyEditor>
+    
+       <propertyEditor
+             factory="org.muml.uppaal.properties.declarations.editor.SystemDeclarationsEditor$Factory"
+             type="http://www.muml.org/uppaal/declarations/1.0.0#SystemDeclarations">
+       </propertyEditor>
+    
+       <propertyEditor
+             factory="org.muml.uppaal.properties.declarations.editor.FunctionEditor$Factory"
+             type="http://www.muml.org/uppaal/declarations/1.0.0#Function">
+       </propertyEditor>
+    
+       <propertyEditor
+             factory="org.muml.uppaal.properties.declarations.editor.TypeDeclarationEditor$Factory"
+             type="http://www.muml.org/uppaal/declarations/1.0.0#TypeDeclaration">
+       </propertyEditor>
+    
+       <propertyEditor
+             factory="org.muml.uppaal.properties.declarations.editor.VariableEditor$Factory"
+             type="http://www.muml.org/uppaal/declarations/1.0.0#Variable">
+       </propertyEditor>
+    
+       <propertyEditor
+             factory="org.muml.uppaal.properties.declarations.editor.ParameterEditor$Factory"
+             type="http://www.muml.org/uppaal/declarations/1.0.0#Parameter">
+       </propertyEditor>
+    
+       <propertyEditor
+             factory="org.muml.uppaal.properties.declarations.editor.ExpressionInitializerEditor$Factory"
+             type="http://www.muml.org/uppaal/declarations/1.0.0#ExpressionInitializer">
+       </propertyEditor>
+    
+       <propertyEditor
+             factory="org.muml.uppaal.properties.declarations.editor.ArrayInitializerEditor$Factory"
+             type="http://www.muml.org/uppaal/declarations/1.0.0#ArrayInitializer">
+       </propertyEditor>
+    
+       <propertyEditor
+             factory="org.muml.uppaal.properties.declarations.editor.TypedDeclarationEditor$Factory"
+             type="http://www.muml.org/uppaal/declarations/1.0.0#TypedDeclaration">
+       </propertyEditor>
+    
+       <propertyEditor
+             factory="org.muml.uppaal.properties.declarations.editor.ParameterContainerEditor$Factory"
+             type="http://www.muml.org/uppaal/declarations/1.0.0#ParameterContainer">
+       </propertyEditor>
+    
+    </propertyEditors>
+ </extension>
+
+
+ <extension
+       point="org.muml.ape.runtime.metamodelContributor">
+    <metamodel
+          contributor="org.muml.uppaal.properties.metamodel.MetamodelContributor">
+    </metamodel>
+ </extension>
+
+
+ <extension
+       point="org.muml.ape.runtime.creationConstraintContributor">
+    <constraint
+          contributor="org.muml.uppaal.properties.constraint.CreationConstraintContributor">
+    </constraint>
+ </extension>
+
+</plugin>

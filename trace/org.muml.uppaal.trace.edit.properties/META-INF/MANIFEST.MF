@@ -1,0 +1,19 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Properties
+Bundle-SymbolicName: org.muml.uppaal.trace.edit.properties; singleton:=true
+Bundle-Version: 1.0.0.qualifier
+Require-Bundle: org.eclipse.emf.ecore,
+ org.eclipse.ui,
+ org.eclipse.core.runtime,
+ org.muml.uppaal.trace.edit,
+ org.muml.ape.runtime,
+ org.eclipse.emf.edit,
+ org.muml.uppaal.trace,
+ org.muml.uppaal.edit,
+ org.muml.uppaal.edit.properties
+Bundle-ActivationPolicy: lazy
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Export-Package: org.muml.uppaal.trace.properties.metamodel, org.muml.uppaal.trace.properties.constraint,
+ org.muml.uppaal.trace.properties.trace.editor
+Bundle-Vendor: Fraunhofer, HNI

@@ -7,48 +7,31 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Iterator;
 import java.util.List;
-import java.util.Map;
 
-import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EReference;
-import org.eclipse.emf.ecore.resource.Resource;
-import org.eclipse.emf.ecore.resource.ResourceSet;
-import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
-import org.eclipse.emf.ecore.xmi.impl.XMIResourceFactoryImpl;
 import org.eclipse.xtext.scoping.IScope;
 import org.eclipse.xtext.scoping.Scopes;
 import org.eclipse.xtext.scoping.impl.AbstractDeclarativeScopeProvider;
 import org.muml.uppaal.NTA;
-import org.muml.uppaal.UppaalPackage;
-import org.muml.uppaal.core.CorePackage;
 import org.muml.uppaal.core.NamedElement;
-import org.muml.uppaal.declarations.DataVariableDeclaration;
+import org.muml.uppaal.core.TypedElement;
 import org.muml.uppaal.declarations.Declaration;
 import org.muml.uppaal.declarations.Declarations;
-import org.muml.uppaal.declarations.DeclarationsPackage;
+import org.muml.uppaal.declarations.TypedDeclaration;
 import org.muml.uppaal.declarations.Variable;
-import org.muml.uppaal.declarations.VariableDeclaration;
-import org.muml.uppaal.declarations.global.GlobalPackage;
-import org.muml.uppaal.declarations.system.SystemPackage;
-import org.muml.uppaal.expressions.ExpressionsPackage;
-import org.muml.uppaal.statements.StatementsPackage;
+import org.muml.uppaal.expressions.Expression;
+import org.muml.uppaal.expressions.IdentifierExpression;
 import org.muml.uppaal.templates.AbstractTemplate;
 import org.muml.uppaal.templates.RedefinedTemplate;
 import org.muml.uppaal.templates.Template;
-import org.muml.uppaal.templates.TemplatesPackage;
 import org.muml.uppaal.trace.LocationActivity;
 import org.muml.uppaal.trace.NamedElementReference;
 import org.muml.uppaal.trace.ProcessIdentifier;
 import org.muml.uppaal.trace.SingleNamedElementReference;
 import org.muml.uppaal.types.DeclaredType;
 import org.muml.uppaal.types.StructTypeSpecification;
-import org.muml.uppaal.types.Type;
-import org.muml.uppaal.types.TypeDefinition;
-import org.muml.uppaal.types.TypeReference;
-import org.muml.uppaal.types.TypeSpecification;
-import org.muml.uppaal.types.TypesPackage;
-import org.muml.uppaal.visuals.VisualsPackage;
+import org.muml.uppaal.types.TypeExpression;
 
 /**
  * This class contains custom scoping description.
@@ -60,20 +43,15 @@ import org.muml.uppaal.visuals.VisualsPackage;
 public class DiagnosticTraceScopeProvider extends
 		AbstractDeclarativeScopeProvider {
 
+	
 	private NTA nta;
 	
 	public void setNTA(NTA nta) {
 		this.nta = nta;
 	}
 	
-	private NTA getNTA() {
-		
-		if (nta == null) {
-			setNTA(loadNTA());
-		};
-		
+	private NTA getNTA() {		
 		return nta;
-		
 	}
 	
 	@Override
@@ -82,40 +60,6 @@ public class DiagnosticTraceScopeProvider extends
 		return scope;
 	}
 	
-	
-	// XXX: only for debugging purposes
-	static NTA loadNTA() {
-
-		// Initialize the model
-		UppaalPackage.eINSTANCE.eClass();
-		CorePackage.eINSTANCE.eClass();
-		TypesPackage.eINSTANCE.eClass();
-		DeclarationsPackage.eINSTANCE.eClass();
-		GlobalPackage.eINSTANCE.eClass();
-		SystemPackage.eINSTANCE.eClass();
-		TemplatesPackage.eINSTANCE.eClass();
-		StatementsPackage.eINSTANCE.eClass();
-		ExpressionsPackage.eINSTANCE.eClass();
-		VisualsPackage.eINSTANCE.eClass();
-
-		// Register the XMI resource factory for the .uppaal extension
-
-		Resource.Factory.Registry reg = Resource.Factory.Registry.INSTANCE;
-		Map<String, Object> m = reg.getExtensionToFactoryMap();
-		m.put("uppaal", new XMIResourceFactoryImpl());
-
-		// Obtain a new resource set
-		ResourceSet resSet = new ResourceSetImpl();
-
-		// Get the resource
-		Resource resource = resSet.getResource(URI.createPlatformResourceURI(
-				"FASE 2014/model/Overtaking.uppaal", true), true);
-		// Get the first model element and cast it to the right type, in my
-		// example everything is hierarchical included in this first node
-		NTA nta = (NTA) resource.getContents().get(0);
-		return nta;
-	}
-
 	List<AbstractTemplate> getTemplates(NTA nta) {
 
 		List<AbstractTemplate> templates = new ArrayList<AbstractTemplate>();
@@ -250,12 +194,15 @@ public class DiagnosticTraceScopeProvider extends
 
 		for (Declaration declaration : declarations.getDeclaration()) {
 
-			if (declaration instanceof VariableDeclaration) {
+			if (declaration instanceof TypedDeclaration) {
 
-				VariableDeclaration variableDeclaration = (VariableDeclaration) declaration;
-
-				variables.addAll(variableDeclaration.getVariable());
-
+				TypedDeclaration typedDeclaration = (TypedDeclaration) declaration;
+				
+				for(TypedElement typedElement : typedDeclaration.getElements()) {
+					if (typedElement instanceof Variable) {
+						variables.add((Variable) typedElement);
+					}
+				}
 			}
 
 		}
@@ -268,15 +215,19 @@ public class DiagnosticTraceScopeProvider extends
 
 		List<Variable> fields = new ArrayList<Variable>();
 
-		TypeSpecification typeSpecification = getTypeSpecification(variable
+		TypeExpression typeExpression = getTypeExpression(variable
 				.getTypeDefinition());
 
-		if (typeSpecification instanceof StructTypeSpecification) {
+		if (typeExpression instanceof StructTypeSpecification) {
 
-			StructTypeSpecification struct = (StructTypeSpecification) typeSpecification;
+			StructTypeSpecification struct = (StructTypeSpecification) typeExpression;
 
-			for (DataVariableDeclaration declaration : struct.getDeclaration()) {
-				fields.addAll((declaration.getVariable()));
+			for (TypedDeclaration declaration : struct.getDeclaration()) {
+				for (TypedElement element : declaration.getElements()) {
+					if (element instanceof Variable) {
+						fields.add((Variable) element);
+					}
+				}
 			}
 
 		}
@@ -285,21 +236,18 @@ public class DiagnosticTraceScopeProvider extends
 
 	}
 
-	TypeSpecification getTypeSpecification(TypeDefinition typeDefinition) {
+	TypeExpression getTypeExpression(Expression expression) {
 
-		if (typeDefinition instanceof TypeSpecification) {
-			return (TypeSpecification) typeDefinition;
+		if (expression instanceof TypeExpression) {
+			return (TypeExpression) expression;
 		}
 
-		if (typeDefinition instanceof TypeReference) {
-
-			Type type = ((TypeReference) typeDefinition).getReferredType();
-
-			if (type instanceof DeclaredType) {
-
-				return getTypeSpecification(((DeclaredType) type)
-						.getTypeDefinition());
-
+		if (expression instanceof IdentifierExpression) {
+			
+			NamedElement identifier = ((IdentifierExpression) expression).getIdentifier();
+			
+			if (identifier instanceof DeclaredType) {
+				return getTypeExpression(((DeclaredType) identifier).getTypeDefinition());
 			}
 
 		}

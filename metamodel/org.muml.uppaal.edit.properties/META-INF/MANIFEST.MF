@@ -1,0 +1,27 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Properties
+Bundle-SymbolicName: org.muml.uppaal.edit.properties; singleton:=true
+Bundle-Version: 1.0.0.qualifier
+Require-Bundle: org.eclipse.emf.ecore,
+ org.eclipse.ui,
+ org.eclipse.core.runtime,
+ org.muml.uppaal.edit,
+ org.muml.uppaal,
+ org.muml.ape.runtime,
+ org.eclipse.emf.edit
+Bundle-ActivationPolicy: lazy
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Export-Package: org.muml.uppaal.properties.metamodel, org.muml.uppaal.properties.constraint,
+ org.muml.uppaal.properties.templates.editor,
+ org.muml.uppaal.properties.statements.editor,
+ org.muml.uppaal.properties.uppaal.editor,
+ org.muml.uppaal.properties.types.editor,
+ org.muml.uppaal.properties.core.editor,
+ org.muml.uppaal.properties.system.editor,
+ org.muml.uppaal.properties.expressions.editor,
+ org.muml.uppaal.properties.global.editor,
+ org.muml.uppaal.properties.visuals.editor,
+ org.muml.uppaal.properties.declarations.editor,
+ org.muml.uppaal.properties.tabs
+Bundle-Vendor: Fraunhofer, HNI

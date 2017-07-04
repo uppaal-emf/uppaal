@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="ASCII"?>
+<org.muml:PropertyGenerator xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:org.muml="http://www.muml.org/ape/1.0.0" contributorId="org.muml.ape.contributor">
+  <reconciler/>
+  <genModel href="requirements.genmodel#/"/>
+  <referencedGenerators href="../../org.muml.uppaal/model/uppaal.propsheet#/"/>
+  <plugin id="org.muml.uppaal.requirements.edit.properties" name="Properties" vendor="Fraunhofer, HNI" version="1.0.0.qualifier">
+    <requiredBundles>org.eclipse.emf.ecore</requiredBundles>
+    <requiredBundles>org.eclipse.ui</requiredBundles>
+    <requiredBundles>org.eclipse.core.runtime</requiredBundles>
+    <requiredBundles>org.muml.uppaal.requirements.edit</requiredBundles>
+    <requiredBundles>org.muml.ape.runtime</requiredBundles>
+    <requiredBundles>org.eclipse.emf.edit</requiredBundles>
+    <requiredBundles>org.muml.uppaal.requirements</requiredBundles>
+  </plugin>
+  <defaultTab href="../../org.muml.uppaal/model/uppaal.propsheet#//@tabs.0"/>
+  <packages>
+    <genPackage href="requirements.genmodel#//requirements"/>
+    <classes superClasses="//@packages.0/@classes.4">
+      <genClass href="requirements.genmodel#//requirements/UnaryProperty"/>
+      <orderedElements xsi:type="org.muml:Property">
+        <genFeature href="requirements.genmodel#//requirements/UnaryProperty/quantifier"/>
+        <tab href="../../org.muml.uppaal/model/uppaal.propsheet#//@tabs.0"/>
+        <editor xsi:type="org.muml:RadioPropertyEditor"/>
+      </orderedElements>
+      <orderedElements xsi:type="org.muml:Property">
+        <genFeature href="requirements.genmodel#//requirements/UnaryProperty/operator"/>
+        <tab href="../../org.muml.uppaal/model/uppaal.propsheet#//@tabs.0"/>
+        <editor xsi:type="org.muml:RadioPropertyEditor"/>
+      </orderedElements>
+    </classes>
+    <classes superClasses="//@packages.0/@classes.4">
+      <genClass href="requirements.genmodel#//requirements/BinaryProperty"/>
+    </classes>
+    <classes superClasses="//@packages.0/@classes.1">
+      <genClass href="requirements.genmodel#//requirements/LeadsToProperty"/>
+    </classes>
+    <classes>
+      <genClass href="requirements.genmodel#//requirements/DeadlockExpression"/>
+    </classes>
+    <classes>
+      <genClass href="requirements.genmodel#//requirements/Property"/>
+    </classes>
+    <classes>
+      <genClass href="requirements.genmodel#//requirements/PropertyRepository"/>
+    </classes>
+  </packages>
+</org.muml:PropertyGenerator>

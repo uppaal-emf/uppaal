@@ -173,7 +173,7 @@ public class UppaalActionBarContributor
 	public void contributeToMenu(IMenuManager menuManager) {
 		super.contributeToMenu(menuManager);
 
-		IMenuManager submenuManager = new MenuManager(UppaalEditorPlugin.INSTANCE.getString("_UI_UppaalEditor_menu"), "org.muml.uppaalMenuID");
+		IMenuManager submenuManager = new MenuManager(UppaalEditorPlugin.INSTANCE.getString("_UI_UppaalEditor_menu"), "de.uni_paderborn.uppaalMenuID");
 		menuManager.insertAfter("additions", submenuManager);
 		submenuManager.add(new Separator("settings"));
 		submenuManager.add(new Separator("actions"));

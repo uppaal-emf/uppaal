@@ -1,0 +1,4 @@
+# Tracing options for the org.muml.uppaal.adapter.job plug-in
+
+# Common issues
+org.muml.uppaal.adapter.job/debug=false

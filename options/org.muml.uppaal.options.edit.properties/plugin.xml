@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+
+
+  <extension
+         point="org.eclipse.ui.views.properties.tabbed.propertyContributor">
+    <propertyContributor
+          contributorId="">
+       <propertyCategory
+             category="domain">
+       </propertyCategory>
+       <propertyCategory
+             category="default">
+       </propertyCategory>
+       <propertyCategory
+             category="extended">
+       </propertyCategory>
+       <propertyCategory
+             category="advanced">
+       </propertyCategory>
+    </propertyContributor>
+  </extension>
+
+
+
+<extension point="org.eclipse.ui.views.properties.tabbed.propertyTabs">
+      <propertyTabs contributorId="">
+          <propertyTab
+             category="domain"
+             id="options"
+             label="Options"/>
+          
+      </propertyTabs>
+  </extension>
+
+
+
+
+  <extension point="org.eclipse.ui.views.properties.tabbed.propertySections"> 
+      <propertySections contributorId="">
+          <propertySection
+            class="org.muml.ape.runtime.sections.ObjectPropertySection"
+            filter="org.muml.uppaal.options.properties.tabs.OptionsTabElementFilter"
+            id="options"
+            tab="options">
+             <input
+               type="org.eclipse.emf.ecore.EObject">
+             </input>
+          </propertySection>
+         
+      </propertySections>
+  </extension>
+
+
+
+ <extension point="org.muml.ape.runtime.propertyEditors">
+    <propertyEditors>
+    
+       <propertyEditor
+             factory="org.muml.uppaal.options.properties.options.editor.OptionsEditor$Factory"
+             type="http://www.muml.org/uppaal/options/1.0.0#Options">
+       </propertyEditor>
+    
+       <propertyEditor
+             factory="org.muml.uppaal.options.properties.options.editor.CoordinationProtocolOptionsEditor$Factory"
+             type="http://www.muml.org/uppaal/options/1.0.0#CoordinationProtocolOptions">
+       </propertyEditor>
+    
+       <propertyEditor
+             factory="org.muml.uppaal.options.properties.options.editor.HideOptionExtensionEditor$Factory"
+             type="http://www.muml.org/uppaal/options/1.0.0#HideOptionExtension">
+       </propertyEditor>
+    
+    </propertyEditors>
+ </extension>
+
+
+ <extension
+       point="org.muml.ape.runtime.metamodelContributor">
+    <metamodel
+          contributor="org.muml.uppaal.options.properties.metamodel.MetamodelContributor">
+    </metamodel>
+ </extension>
+
+
+ <extension
+       point="org.muml.ape.runtime.creationConstraintContributor">
+    <constraint
+          contributor="org.muml.uppaal.options.properties.constraint.CreationConstraintContributor">
+    </constraint>
+ </extension>
+
+</plugin>

@@ -20,7 +20,7 @@ class UppaalPropertySerialization extends UppaalSerialization {
  «s.replace("*/","* /")»
 */'''
 	
-	def dispatch property(LeadsToProperty it) '''«expression(leftExpression)» --> «expression(rightExpression)»'''
+	def dispatch property(LeadsToProperty it) '''(«expression(leftExpression)») --> («expression(rightExpression)»)'''
 	
 	def dispatch property(UnaryProperty it)'''«pathQuantifier(quantifier)»«temporalOperator(operator)» «expression(expression)»'''
 	

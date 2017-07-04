@@ -153,21 +153,21 @@
 
     <!-- marker definitions for org.muml.uppaal.trace.DiagnosticTrace -->
     <extension
-            id="diagnostictrace.check.fast"
+            id="trace.check.fast"
             name="DiagnosticTrace Problem"
             point="org.eclipse.core.resources.markers">
         <super type="org.eclipse.xtext.ui.check.fast"/>
         <persistent value="true"/>
     </extension>
     <extension
-            id="diagnostictrace.check.normal"
+            id="trace.check.normal"
             name="DiagnosticTrace Problem"
             point="org.eclipse.core.resources.markers">
         <super type="org.eclipse.xtext.ui.check.normal"/>
         <persistent value="true"/>
     </extension>
     <extension
-            id="diagnostictrace.check.expensive"
+            id="trace.check.expensive"
             name="DiagnosticTrace Problem"
             point="org.eclipse.core.resources.markers">
         <super type="org.eclipse.xtext.ui.check.expensive"/>
@@ -243,7 +243,7 @@
             point="org.eclipse.ui.ide.markerResolution">
         <markerResolutionGenerator
             class="org.muml.uppaal.trace.ui.DiagnosticTraceExecutableExtensionFactory:org.eclipse.xtext.ui.editor.quickfix.MarkerResolutionGenerator"
-            markerType="org.muml.uppaal.trace.ui.diagnostictrace.check.fast">
+            markerType="org.muml.uppaal.trace.ui.trace.check.fast">
             <attribute
                 name="FIXABLE_KEY"
                 value="true">
@@ -251,7 +251,7 @@
         </markerResolutionGenerator>
         <markerResolutionGenerator
             class="org.muml.uppaal.trace.ui.DiagnosticTraceExecutableExtensionFactory:org.eclipse.xtext.ui.editor.quickfix.MarkerResolutionGenerator"
-            markerType="org.muml.uppaal.trace.ui.diagnostictrace.check.normal">
+            markerType="org.muml.uppaal.trace.ui.trace.check.normal">
             <attribute
                 name="FIXABLE_KEY"
                 value="true">
@@ -259,7 +259,7 @@
         </markerResolutionGenerator>
         <markerResolutionGenerator
             class="org.muml.uppaal.trace.ui.DiagnosticTraceExecutableExtensionFactory:org.eclipse.xtext.ui.editor.quickfix.MarkerResolutionGenerator"
-            markerType="org.muml.uppaal.trace.ui.diagnostictrace.check.expensive">
+            markerType="org.muml.uppaal.trace.ui.trace.check.expensive">
             <attribute
                 name="FIXABLE_KEY"
                 value="true">

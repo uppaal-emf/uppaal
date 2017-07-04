@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension-point id="preferencesPageExtension" name="preferencesPageExtension" schema="schema/preferencesPageExtension.exsd"/>
+   <extension
+         point="org.eclipse.ui.preferencePages">
+      <page
+            category="org.muml.preferences"
+            class="org.muml.uppaal.preferences.UppaalPreferencePage"
+            id="de.uni_paderborn.fujaba.muml.verification.preferences"
+            name="Verification">
+      </page>
+   </extension>
+   <extension
+         point="org.muml.uppaal.preferences.preferencesPageExtension">
+      <preferencesPageExtension id="org.muml.uppaal.preferences.DefaultUppaalPreferencesPageExtension"
+            implementation="org.muml.uppaal.preferences.DefaultUppaalPreferencesPageExtension">
+      </preferencesPageExtension>
+   </extension>
+
+</plugin>
