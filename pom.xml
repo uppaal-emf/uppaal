@@ -158,7 +158,7 @@
   
      <profiles>
         <profile>
-          <id>Local</id> <!-- local build, uses local maven repositories -->
+          <id>Local</id> <!-- local build, uses local maven repository -->
           <activation>
             <property>
               <name>env</name>
