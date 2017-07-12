@@ -77,7 +77,7 @@
 		 </execution>
 		</executions>
 		<configuration>
-		 <excludes>
+		   <excludes>
 		   <!--provide plug-ins not containing any source code -->
 		  <plugin id="org.muml.uppaal.repository" />
 		 </excludes>
