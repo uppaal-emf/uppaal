@@ -2,6 +2,7 @@
  */
 package org.muml.uppaal;
 
+
 import org.eclipse.emf.common.util.EList;
 import org.muml.uppaal.core.CommentableElement;
 import org.muml.uppaal.core.NamedElement;
