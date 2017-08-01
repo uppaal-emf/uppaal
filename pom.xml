@@ -183,6 +183,16 @@
 				<layout>p2</layout>
 				<url>https://muml-build.cs.upb.de/job/UpdateSite-Maven/lastSuccessfulBuild/artifact/org.muml.releng.site.repository/target/repository</url>
 			</repository>
+		    <repository>
+				<id>gmf-tooling</id>
+				<layout>p2</layout>
+				<url>http://download.eclipse.org/modeling/gmp/gmf-tooling/updates/releases/</url>
+			</repository>
+			<repository>
+				<id>xtend</id>
+				<layout>p2</layout>
+				<url>http://download.eclipse.org/modeling/tmf/updates/</url>
+			</repository>  
 		</repositories>		  
         </profile>
   </profiles>
@@ -195,15 +205,5 @@
 			<layout>p2</layout>
 			<url>http://download.eclipse.org/releases/oxygen</url>
 		</repository>
-	   	<repository>
-			<id>gmf-tooling</id>
-			<layout>p2</layout>
-			<url>http://download.eclipse.org/modeling/gmp/gmf-tooling/updates/releases/</url>
-		</repository>
-	   	<repository>
-			<id>xtend</id>
-			<layout>p2</layout>
-			<url>http://download.eclipse.org/modeling/tmf/updates/</url>
-        </repository>
     </repositories>
 </project>
