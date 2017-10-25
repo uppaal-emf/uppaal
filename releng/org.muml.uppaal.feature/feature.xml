@@ -17,6 +17,10 @@
       %license
    </license>
 
+   <url>
+      <discovery label="xtend" url="http://download.eclipse.org/modeling/tmf/xtext/updates/releases/"/>
+   </url>
+
    <requires>
       <import plugin="org.eclipse.core.runtime" version="3.8.0" match="greaterOrEqual"/>
       <import plugin="org.eclipse.emf.ecore"/>
@@ -48,7 +52,7 @@
       <import plugin="org.eclipse.xpand" version="1.2.0" match="greaterOrEqual"/>
       <import plugin="org.eclipse.xtend" version="1.2.0" match="greaterOrEqual"/>
       <import plugin="org.eclipse.xtend.typesystem.emf" version="1.2.0" match="greaterOrEqual"/>
-      <import plugin="org.muml.core.common" version="0.5.0" match="greaterOrEqual"/>
+      <import plugin="org.muml.core.common" version="1.0.0" match="greaterOrEqual"/>
       <import plugin="org.muml.core" version="1.0.0" match="greaterOrEqual"/>
       <import plugin="org.eclipse.gmf.runtime.diagram.ui"/>
       <import plugin="org.eclipse.jface"/>
