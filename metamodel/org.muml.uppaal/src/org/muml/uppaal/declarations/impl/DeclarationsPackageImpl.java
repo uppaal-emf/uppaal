@@ -928,7 +928,7 @@ public class DeclarationsPackageImpl extends EPackageImpl implements Declaration
 		   source,
 		   new String[] {
 			   "UniqueElementNames", "self.elements->select(oclIsKindOf(core::NamedElement))->collect(oclAsType(core::NamedElement))->isUnique(name)",
-			   "ElementsMustHaveSameType", "self.elements->forAll(oclIsKindOf(declarations::Parameter))\r\nor\r\nself.elements->forAll(oclIsKindOf(declarations::Variable))\r\nor\r\nself.elements->forAll(oclIsKindOf(declarations::Function))",
+			   "ElementsMustHaveSameType", "self.elements->forAll(oclIsKindOf(declarations::Parameter))\nor\nself.elements->forAll(oclIsKindOf(declarations::Variable))\nor\nself.elements->forAll(oclIsKindOf(declarations::Function))",
 			   "TypeExpressionMustBeType", "typeDefinition.oclIsKindOf(types::TypeExpression)\r\nor\r\n(\r\n\ttypeDefinition.oclIsKindOf(expressions::IdentifierExpression) and\r\n\ttypeDefinition.oclAsType(expressions::IdentifierExpression).identifier.oclIsKindOf(types::Type)\r\n)\r\nor\r\ntypeDefinition.oclIsKindOf(expressions::ChannelPrefixExpression)\r\nor\r\ntypeDefinition.oclIsKindOf(expressions::DataPrefixExpression)"
 		   });
 		addAnnotation

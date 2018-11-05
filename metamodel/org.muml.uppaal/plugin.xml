@@ -141,4 +141,5 @@
             class="org.muml.uppaal.visuals.VisualsPackage"
             genModel="model/uppaal.genmodel"/>
    </extension>
+
 </plugin>

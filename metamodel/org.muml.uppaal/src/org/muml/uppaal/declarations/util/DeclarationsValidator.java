@@ -669,10 +669,10 @@ public class DeclarationsValidator extends EObjectValidator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected static final String TYPED_ELEMENT_CONTAINER__ELEMENTS_MUST_HAVE_SAME_TYPE__EEXPRESSION = "self.elements->forAll(oclIsKindOf(declarations::Parameter))\r\n" +
-		"or\r\n" +
-		"self.elements->forAll(oclIsKindOf(declarations::Variable))\r\n" +
-		"or\r\n" +
+	protected static final String TYPED_ELEMENT_CONTAINER__ELEMENTS_MUST_HAVE_SAME_TYPE__EEXPRESSION = "self.elements->forAll(oclIsKindOf(declarations::Parameter))\n" +
+		"or\n" +
+		"self.elements->forAll(oclIsKindOf(declarations::Variable))\n" +
+		"or\n" +
 		"self.elements->forAll(oclIsKindOf(declarations::Function))";
 
 	/**
