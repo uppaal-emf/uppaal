@@ -14,7 +14,7 @@ package org.muml.uppaal.declarations;
  *
  *
  * @see org.muml.uppaal.declarations.DeclarationsPackage#getParameterContainer()
- * @model annotation="http://www.eclipse.org/emf/2002/Ecore/OCL SingleParameter='self.elements->size() <= 1' ParametersOnly='self.elements->forAll(oclIsKindOf(declarations::Parameter))'"
+ * @model annotation="http://www.eclipse.org/emf/2002/Ecore/OCL SingleParameter='self.elements-&gt;size() &lt;= 1' ParametersOnly='self.elements-&gt;forAll(oclIsKindOf(declarations::Parameter))'"
  *        annotation="http://www.eclipse.org/emf/2002/Ecore constraints='SingleParameter ParametersOnly'"
  * @generated
  */

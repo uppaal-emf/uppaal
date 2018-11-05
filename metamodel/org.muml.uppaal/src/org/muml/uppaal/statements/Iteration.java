@@ -21,7 +21,7 @@ import org.muml.uppaal.declarations.TypedElementContainer;
  * </ul>
  *
  * @see org.muml.uppaal.statements.StatementsPackage#getIteration()
- * @model annotation="http://www.eclipse.org/emf/2002/Ecore/OCL SingleVariable='self.elements->size() <= 1'"
+ * @model annotation="http://www.eclipse.org/emf/2002/Ecore/OCL SingleVariable='self.elements-&gt;size() &lt;= 1'"
  *        annotation="http://www.eclipse.org/emf/2002/Ecore constraints='SingleVariable'"
  * @generated
  */

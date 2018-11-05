@@ -419,7 +419,7 @@
       </eAnnotations>
       <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL">
         <details key="UniqueElementNames" value="self.elements->select(oclIsKindOf(core::NamedElement))->collect(oclAsType(core::NamedElement))->isUnique(name)"/>
-        <details key="ElementsMustHaveSameType" value="self.elements->forAll(oclIsKindOf(declarations::Parameter))&#xD;&#xA;or&#xD;&#xA;self.elements->forAll(oclIsKindOf(declarations::Variable))&#xD;&#xA;or&#xD;&#xA;self.elements->forAll(oclIsKindOf(declarations::Function))"/>
+        <details key="ElementsMustHaveSameType" value="self.elements->forAll(oclIsKindOf(declarations::Parameter))&#xA;or&#xA;self.elements->forAll(oclIsKindOf(declarations::Variable))&#xA;or&#xA;self.elements->forAll(oclIsKindOf(declarations::Function))"/>
         <details key="TypeExpressionMustBeType" value="typeDefinition.oclIsKindOf(types::TypeExpression)&#xD;&#xA;or&#xD;&#xA;(&#xD;&#xA;&#x9;typeDefinition.oclIsKindOf(expressions::IdentifierExpression) and&#xD;&#xA;&#x9;typeDefinition.oclAsType(expressions::IdentifierExpression).identifier.oclIsKindOf(types::Type)&#xD;&#xA;)&#xD;&#xA;or&#xD;&#xA;typeDefinition.oclIsKindOf(expressions::ChannelPrefixExpression)&#xD;&#xA;or&#xD;&#xA;typeDefinition.oclIsKindOf(expressions::DataPrefixExpression)"/>
       </eAnnotations>
       <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
@@ -680,10 +680,10 @@
         <details key="kind" value="elementOnly"/>
       </eAnnotations>
       <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL">
-        <details key="UniqueLocationNames" value="self.location->isUnique(name)"/>
+        <details key="UniqueLocationNames" value="self.location->reject(name.oclIsUndefined())->isUnique(name)"/>
       </eAnnotations>
       <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
-        <details key="constraints" value=""/>
+        <details key="constraints" value="UniqueLocationNames"/>
       </eAnnotations>
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="An Uppaal template representing a single timed automaton."/>

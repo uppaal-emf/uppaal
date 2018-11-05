@@ -23,7 +23,7 @@ import org.muml.uppaal.declarations.Function;
  * </ul>
  *
  * @see org.muml.uppaal.expressions.ExpressionsPackage#getFunctionCallExpression()
- * @model annotation="http://www.eclipse.org/emf/2002/Ecore/OCL NumberOfArgumentsMatchesDeclaration='(not self.function.oclIsUndefined())\r\nimplies\r\nself.argument->size() = self.function.parameter->size()'"
+ * @model annotation="http://www.eclipse.org/emf/2002/Ecore/OCL NumberOfArgumentsMatchesDeclaration='(not self.function.oclIsUndefined())\r\nimplies\r\nself.argument-&gt;size() = self.function.parameter-&gt;size()'"
  *        annotation="http://www.eclipse.org/emf/2002/Ecore constraints='NumberOfArgumentsMatchesDeclaration'"
  * @generated
  */

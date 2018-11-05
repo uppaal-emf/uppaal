@@ -24,7 +24,7 @@ import org.muml.uppaal.declarations.ParameterContainer;
  *
  * @see org.muml.uppaal.templates.TemplatesPackage#getAbstractTemplate()
  * @model abstract="true"
- *        annotation="http://www.eclipse.org/emf/2002/Ecore/OCL UniqueParameterNames='self.parameter->collect(elements)->collect(oclAsType(core::NamedElement))->isUnique(name)'"
+ *        annotation="http://www.eclipse.org/emf/2002/Ecore/OCL UniqueParameterNames='self.parameter-&gt;collect(elements)-&gt;collect(oclAsType(core::NamedElement))-&gt;isUnique(name)'"
  *        annotation="http://www.eclipse.org/emf/2002/Ecore constraints='UniqueParameterNames'"
  * @generated
  */

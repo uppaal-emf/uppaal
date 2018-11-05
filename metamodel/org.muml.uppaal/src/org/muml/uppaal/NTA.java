@@ -29,7 +29,7 @@ import org.muml.uppaal.templates.Template;
  *
  * @see org.muml.uppaal.UppaalPackage#getNTA()
  * @model extendedMetaData="name='NTA' kind='elementOnly'"
- *        annotation="http://www.eclipse.org/emf/2002/Ecore/OCL UniqueTemplateNames='self.template->isUnique(name)'"
+ *        annotation="http://www.eclipse.org/emf/2002/Ecore/OCL UniqueTemplateNames='self.template-&gt;isUnique(name)'"
  *        annotation="http://www.eclipse.org/emf/2002/Ecore constraints='UniqueTemplateNames'"
  * @generated
  */

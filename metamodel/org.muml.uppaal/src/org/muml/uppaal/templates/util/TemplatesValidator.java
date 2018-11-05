@@ -203,7 +203,37 @@ public class TemplatesValidator extends EObjectValidator {
 		if (result || diagnostics != null) result &= coreValidator.validateNamedElement_NoWhitespace(template, diagnostics, context);
 		if (result || diagnostics != null) result &= coreValidator.validateNamedElement_NoDigitStart(template, diagnostics, context);
 		if (result || diagnostics != null) result &= validateAbstractTemplate_UniqueParameterNames(template, diagnostics, context);
+		if (result || diagnostics != null) result &= validateTemplate_UniqueLocationNames(template, diagnostics, context);
 		return result;
+	}
+
+	/**
+	 * The cached validation expression for the UniqueLocationNames constraint of '<em>Template</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected static final String TEMPLATE__UNIQUE_LOCATION_NAMES__EEXPRESSION = "self.location->reject(name.oclIsUndefined())->isUnique(name)";
+
+	/**
+	 * Validates the UniqueLocationNames constraint of '<em>Template</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateTemplate_UniqueLocationNames(Template template, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return
+			validate
+				(TemplatesPackage.Literals.TEMPLATE,
+				 template,
+				 diagnostics,
+				 context,
+				 "http://www.eclipse.org/emf/2002/Ecore/OCL",
+				 "UniqueLocationNames",
+				 TEMPLATE__UNIQUE_LOCATION_NAMES__EEXPRESSION,
+				 Diagnostic.ERROR,
+				 DIAGNOSTIC_SOURCE,
+				 0);
 	}
 
 	/**

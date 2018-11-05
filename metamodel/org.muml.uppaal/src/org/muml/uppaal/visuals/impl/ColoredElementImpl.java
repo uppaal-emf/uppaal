@@ -150,7 +150,7 @@ public abstract class ColoredElementImpl extends EObjectImpl implements ColoredE
 	public String toString() {
 		if (eIsProxy()) return super.toString();
 
-		StringBuffer result = new StringBuffer(super.toString());
+		StringBuilder result = new StringBuilder(super.toString());
 		result.append(" (colorCode: ");
 		result.append(colorCode);
 		result.append(')');

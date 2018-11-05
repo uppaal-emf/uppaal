@@ -322,7 +322,7 @@ public class ExpressionsPackageImpl extends EPackageImpl implements ExpressionsP
 
 	/**
 	 * Creates, registers, and initializes the <b>Package</b> for this model, and for any others upon which it depends.
-	 * 
+	 *
 	 * <p>This method is used to initialize {@link ExpressionsPackage#eINSTANCE} when that field is accessed.
 	 * Clients should not invoke it directly. Instead, they should simply access that field to obtain the package.
 	 * <!-- begin-user-doc -->
@@ -336,20 +336,30 @@ public class ExpressionsPackageImpl extends EPackageImpl implements ExpressionsP
 		if (isInited) return (ExpressionsPackage)EPackage.Registry.INSTANCE.getEPackage(ExpressionsPackage.eNS_URI);
 
 		// Obtain or create and register package
-		ExpressionsPackageImpl theExpressionsPackage = (ExpressionsPackageImpl)(EPackage.Registry.INSTANCE.get(eNS_URI) instanceof ExpressionsPackageImpl ? EPackage.Registry.INSTANCE.get(eNS_URI) : new ExpressionsPackageImpl());
+		Object registeredExpressionsPackage = EPackage.Registry.INSTANCE.get(eNS_URI);
+		ExpressionsPackageImpl theExpressionsPackage = registeredExpressionsPackage instanceof ExpressionsPackageImpl ? (ExpressionsPackageImpl)registeredExpressionsPackage : new ExpressionsPackageImpl();
 
 		isInited = true;
 
 		// Obtain or create and register interdependencies
-		UppaalPackageImpl theUppaalPackage = (UppaalPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(UppaalPackage.eNS_URI) instanceof UppaalPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(UppaalPackage.eNS_URI) : UppaalPackage.eINSTANCE);
-		CorePackageImpl theCorePackage = (CorePackageImpl)(EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI) instanceof CorePackageImpl ? EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI) : CorePackage.eINSTANCE);
-		TypesPackageImpl theTypesPackage = (TypesPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(TypesPackage.eNS_URI) instanceof TypesPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(TypesPackage.eNS_URI) : TypesPackage.eINSTANCE);
-		DeclarationsPackageImpl theDeclarationsPackage = (DeclarationsPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(DeclarationsPackage.eNS_URI) instanceof DeclarationsPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(DeclarationsPackage.eNS_URI) : DeclarationsPackage.eINSTANCE);
-		GlobalPackageImpl theGlobalPackage = (GlobalPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(GlobalPackage.eNS_URI) instanceof GlobalPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(GlobalPackage.eNS_URI) : GlobalPackage.eINSTANCE);
-		SystemPackageImpl theSystemPackage = (SystemPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(SystemPackage.eNS_URI) instanceof SystemPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(SystemPackage.eNS_URI) : SystemPackage.eINSTANCE);
-		TemplatesPackageImpl theTemplatesPackage = (TemplatesPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(TemplatesPackage.eNS_URI) instanceof TemplatesPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(TemplatesPackage.eNS_URI) : TemplatesPackage.eINSTANCE);
-		StatementsPackageImpl theStatementsPackage = (StatementsPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(StatementsPackage.eNS_URI) instanceof StatementsPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(StatementsPackage.eNS_URI) : StatementsPackage.eINSTANCE);
-		VisualsPackageImpl theVisualsPackage = (VisualsPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(VisualsPackage.eNS_URI) instanceof VisualsPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(VisualsPackage.eNS_URI) : VisualsPackage.eINSTANCE);
+		Object registeredPackage = EPackage.Registry.INSTANCE.getEPackage(UppaalPackage.eNS_URI);
+		UppaalPackageImpl theUppaalPackage = (UppaalPackageImpl)(registeredPackage instanceof UppaalPackageImpl ? registeredPackage : UppaalPackage.eINSTANCE);
+		registeredPackage = EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI);
+		CorePackageImpl theCorePackage = (CorePackageImpl)(registeredPackage instanceof CorePackageImpl ? registeredPackage : CorePackage.eINSTANCE);
+		registeredPackage = EPackage.Registry.INSTANCE.getEPackage(TypesPackage.eNS_URI);
+		TypesPackageImpl theTypesPackage = (TypesPackageImpl)(registeredPackage instanceof TypesPackageImpl ? registeredPackage : TypesPackage.eINSTANCE);
+		registeredPackage = EPackage.Registry.INSTANCE.getEPackage(DeclarationsPackage.eNS_URI);
+		DeclarationsPackageImpl theDeclarationsPackage = (DeclarationsPackageImpl)(registeredPackage instanceof DeclarationsPackageImpl ? registeredPackage : DeclarationsPackage.eINSTANCE);
+		registeredPackage = EPackage.Registry.INSTANCE.getEPackage(GlobalPackage.eNS_URI);
+		GlobalPackageImpl theGlobalPackage = (GlobalPackageImpl)(registeredPackage instanceof GlobalPackageImpl ? registeredPackage : GlobalPackage.eINSTANCE);
+		registeredPackage = EPackage.Registry.INSTANCE.getEPackage(SystemPackage.eNS_URI);
+		SystemPackageImpl theSystemPackage = (SystemPackageImpl)(registeredPackage instanceof SystemPackageImpl ? registeredPackage : SystemPackage.eINSTANCE);
+		registeredPackage = EPackage.Registry.INSTANCE.getEPackage(TemplatesPackage.eNS_URI);
+		TemplatesPackageImpl theTemplatesPackage = (TemplatesPackageImpl)(registeredPackage instanceof TemplatesPackageImpl ? registeredPackage : TemplatesPackage.eINSTANCE);
+		registeredPackage = EPackage.Registry.INSTANCE.getEPackage(StatementsPackage.eNS_URI);
+		StatementsPackageImpl theStatementsPackage = (StatementsPackageImpl)(registeredPackage instanceof StatementsPackageImpl ? registeredPackage : StatementsPackage.eINSTANCE);
+		registeredPackage = EPackage.Registry.INSTANCE.getEPackage(VisualsPackage.eNS_URI);
+		VisualsPackageImpl theVisualsPackage = (VisualsPackageImpl)(registeredPackage instanceof VisualsPackageImpl ? registeredPackage : VisualsPackage.eINSTANCE);
 
 		// Create package meta-data objects
 		theExpressionsPackage.createPackageContents();
@@ -377,7 +387,7 @@ public class ExpressionsPackageImpl extends EPackageImpl implements ExpressionsP
 
 		// Register package validator
 		EValidator.Registry.INSTANCE.put
-			(theExpressionsPackage, 
+			(theExpressionsPackage,
 			 new EValidator.Descriptor() {
 				 public EValidator getEValidator() {
 					 return ExpressionsValidator.INSTANCE;
@@ -387,7 +397,6 @@ public class ExpressionsPackageImpl extends EPackageImpl implements ExpressionsP
 		// Mark meta-data to indicate it can't be changed
 		theExpressionsPackage.freeze();
 
-  
 		// Update the registry and return the package
 		EPackage.Registry.INSTANCE.put(ExpressionsPackage.eNS_URI, theExpressionsPackage);
 		return theExpressionsPackage;
@@ -1281,38 +1290,38 @@ public class ExpressionsPackageImpl extends EPackageImpl implements ExpressionsP
 	 * @generated
 	 */
 	protected void createEcoreAnnotations() {
-		String source = "http://www.eclipse.org/emf/2002/Ecore";	
+		String source = "http://www.eclipse.org/emf/2002/Ecore";
 		addAnnotation
-		  (this, 
-		   source, 
+		  (this,
+		   source,
 		   new String[] {
-			 "invocationDelegates", "http://www.eclipse.org/emf/2002/Ecore/OCL",
-			 "settingDelegates", "http://www.eclipse.org/emf/2002/Ecore/OCL",
-			 "validationDelegates", "http://www.eclipse.org/emf/2002/Ecore/OCL"
-		   });	
+			   "invocationDelegates", "http://www.eclipse.org/emf/2002/Ecore/OCL",
+			   "settingDelegates", "http://www.eclipse.org/emf/2002/Ecore/OCL",
+			   "validationDelegates", "http://www.eclipse.org/emf/2002/Ecore/OCL"
+		   });
 		addAnnotation
-		  (functionCallExpressionEClass, 
-		   source, 
+		  (functionCallExpressionEClass,
+		   source,
 		   new String[] {
-			 "constraints", "NumberOfArgumentsMatchesDeclaration"
-		   });	
+			   "constraints", "NumberOfArgumentsMatchesDeclaration"
+		   });
 		addAnnotation
-		  (quantificationExpressionEClass, 
-		   source, 
+		  (quantificationExpressionEClass,
+		   source,
 		   new String[] {
-			 "constraints", "SingleVariable"
-		   });	
+			   "constraints", "SingleVariable"
+		   });
 		addAnnotation
-		  (channelPrefixExpressionEClass, 
-		   source, 
+		  (channelPrefixExpressionEClass,
+		   source,
 		   new String[] {
-			 "constraints", "UrgentOrBroadcast ChannelTypeOnly"
-		   });	
+			   "constraints", "UrgentOrBroadcast ChannelTypeOnly"
+		   });
 		addAnnotation
-		  (dataPrefixExpressionEClass, 
-		   source, 
+		  (dataPrefixExpressionEClass,
+		   source,
 		   new String[] {
-			 "constraints", "TypeExpressionMustBeType"
+			   "constraints", "TypeExpressionMustBeType"
 		   });
 	}
 
@@ -1323,31 +1332,31 @@ public class ExpressionsPackageImpl extends EPackageImpl implements ExpressionsP
 	 * @generated
 	 */
 	protected void createOCLAnnotations() {
-		String source = "http://www.eclipse.org/emf/2002/Ecore/OCL";	
+		String source = "http://www.eclipse.org/emf/2002/Ecore/OCL";
 		addAnnotation
-		  (functionCallExpressionEClass, 
-		   source, 
+		  (functionCallExpressionEClass,
+		   source,
 		   new String[] {
-			 "NumberOfArgumentsMatchesDeclaration", "(not self.function.oclIsUndefined())\r\nimplies\r\nself.argument->size() = self.function.parameter->size()"
-		   });	
+			   "NumberOfArgumentsMatchesDeclaration", "(not self.function.oclIsUndefined())\r\nimplies\r\nself.argument->size() = self.function.parameter->size()"
+		   });
 		addAnnotation
-		  (quantificationExpressionEClass, 
-		   source, 
+		  (quantificationExpressionEClass,
+		   source,
 		   new String[] {
-			 "SingleVariable", "self.elements->size() <= 1"
-		   });	
+			   "SingleVariable", "self.elements->size() <= 1"
+		   });
 		addAnnotation
-		  (channelPrefixExpressionEClass, 
-		   source, 
+		  (channelPrefixExpressionEClass,
+		   source,
 		   new String[] {
-			 "UrgentOrBroadcast", "self.urgent or self.broadcast",
-			 "ChannelTypeOnly", "not self.channelType.oclIsUndefined()\r\nimplies\r\nself.channelType.baseType=uppaal::types::BuiltInType::CHAN"
-		   });	
+			   "UrgentOrBroadcast", "self.urgent or self.broadcast",
+			   "ChannelTypeOnly", "not self.channelType.oclIsUndefined()\r\nimplies\r\nself.channelType.baseType=uppaal::types::BuiltInType::CHAN"
+		   });
 		addAnnotation
-		  (dataPrefixExpressionEClass, 
-		   source, 
+		  (dataPrefixExpressionEClass,
+		   source,
 		   new String[] {
-			 "TypeExpressionMustBeType", "self.dataTypeExpression.oclIsKindOf(types::TypeExpression)\r\nor\r\n(\r\n\tself.dataTypeExpression.oclIsKindOf(expressions::IdentifierExpression) and\r\n\tself.dataTypeExpression.oclAsType(expressions::IdentifierExpression).identifier.oclIsKindOf(types::Type)\r\n)"
+			   "TypeExpressionMustBeType", "self.dataTypeExpression.oclIsKindOf(types::TypeExpression)\r\nor\r\n(\r\n\tself.dataTypeExpression.oclIsKindOf(expressions::IdentifierExpression) and\r\n\tself.dataTypeExpression.oclAsType(expressions::IdentifierExpression).identifier.oclIsKindOf(types::Type)\r\n)"
 		   });
 	}
 

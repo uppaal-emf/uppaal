@@ -24,7 +24,7 @@ import org.eclipse.emf.ecore.EObject;
  * @see org.muml.uppaal.declarations.DeclarationsPackage#getDeclarations()
  * @model abstract="true"
  *        extendedMetaData="name='Declarations' kind='elementOnly'"
- *        annotation="http://www.eclipse.org/emf/2002/Ecore/OCL UniqueTypeNames='self.declaration->select(oclIsKindOf(TypeDeclaration)).oclAsType(TypeDeclaration)->collect(type)->isUnique(name)' UniqueTypedElementNames='self.declaration->select(e | e.oclIsKindOf(uppaal::declarations::TypedDeclaration))->collect(oclAsType(uppaal::declarations::TypedDeclaration))->collect(elements)->select(e | e.oclIsKindOf(uppaal::core::NamedElement))->collect(oclAsType(uppaal::core::NamedElement))->isUnique(name)'"
+ *        annotation="http://www.eclipse.org/emf/2002/Ecore/OCL UniqueTypeNames='self.declaration-&gt;select(oclIsKindOf(TypeDeclaration)).oclAsType(TypeDeclaration)-&gt;collect(type)-&gt;isUnique(name)' UniqueTypedElementNames='self.declaration-&gt;select(e | e.oclIsKindOf(uppaal::declarations::TypedDeclaration))-&gt;collect(oclAsType(uppaal::declarations::TypedDeclaration))-&gt;collect(elements)-&gt;select(e | e.oclIsKindOf(uppaal::core::NamedElement))-&gt;collect(oclAsType(uppaal::core::NamedElement))-&gt;isUnique(name)'"
  *        annotation="http://www.eclipse.org/emf/2002/Ecore constraints='UniqueTypeNames UniqueTypedElementNames'"
  * @generated
  */

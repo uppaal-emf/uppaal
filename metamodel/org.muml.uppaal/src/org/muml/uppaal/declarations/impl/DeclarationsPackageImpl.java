@@ -202,7 +202,7 @@ public class DeclarationsPackageImpl extends EPackageImpl implements Declaration
 
 	/**
 	 * Creates, registers, and initializes the <b>Package</b> for this model, and for any others upon which it depends.
-	 * 
+	 *
 	 * <p>This method is used to initialize {@link DeclarationsPackage#eINSTANCE} when that field is accessed.
 	 * Clients should not invoke it directly. Instead, they should simply access that field to obtain the package.
 	 * <!-- begin-user-doc -->
@@ -216,20 +216,30 @@ public class DeclarationsPackageImpl extends EPackageImpl implements Declaration
 		if (isInited) return (DeclarationsPackage)EPackage.Registry.INSTANCE.getEPackage(DeclarationsPackage.eNS_URI);
 
 		// Obtain or create and register package
-		DeclarationsPackageImpl theDeclarationsPackage = (DeclarationsPackageImpl)(EPackage.Registry.INSTANCE.get(eNS_URI) instanceof DeclarationsPackageImpl ? EPackage.Registry.INSTANCE.get(eNS_URI) : new DeclarationsPackageImpl());
+		Object registeredDeclarationsPackage = EPackage.Registry.INSTANCE.get(eNS_URI);
+		DeclarationsPackageImpl theDeclarationsPackage = registeredDeclarationsPackage instanceof DeclarationsPackageImpl ? (DeclarationsPackageImpl)registeredDeclarationsPackage : new DeclarationsPackageImpl();
 
 		isInited = true;
 
 		// Obtain or create and register interdependencies
-		UppaalPackageImpl theUppaalPackage = (UppaalPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(UppaalPackage.eNS_URI) instanceof UppaalPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(UppaalPackage.eNS_URI) : UppaalPackage.eINSTANCE);
-		CorePackageImpl theCorePackage = (CorePackageImpl)(EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI) instanceof CorePackageImpl ? EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI) : CorePackage.eINSTANCE);
-		TypesPackageImpl theTypesPackage = (TypesPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(TypesPackage.eNS_URI) instanceof TypesPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(TypesPackage.eNS_URI) : TypesPackage.eINSTANCE);
-		GlobalPackageImpl theGlobalPackage = (GlobalPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(GlobalPackage.eNS_URI) instanceof GlobalPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(GlobalPackage.eNS_URI) : GlobalPackage.eINSTANCE);
-		SystemPackageImpl theSystemPackage = (SystemPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(SystemPackage.eNS_URI) instanceof SystemPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(SystemPackage.eNS_URI) : SystemPackage.eINSTANCE);
-		TemplatesPackageImpl theTemplatesPackage = (TemplatesPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(TemplatesPackage.eNS_URI) instanceof TemplatesPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(TemplatesPackage.eNS_URI) : TemplatesPackage.eINSTANCE);
-		StatementsPackageImpl theStatementsPackage = (StatementsPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(StatementsPackage.eNS_URI) instanceof StatementsPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(StatementsPackage.eNS_URI) : StatementsPackage.eINSTANCE);
-		ExpressionsPackageImpl theExpressionsPackage = (ExpressionsPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(ExpressionsPackage.eNS_URI) instanceof ExpressionsPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(ExpressionsPackage.eNS_URI) : ExpressionsPackage.eINSTANCE);
-		VisualsPackageImpl theVisualsPackage = (VisualsPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(VisualsPackage.eNS_URI) instanceof VisualsPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(VisualsPackage.eNS_URI) : VisualsPackage.eINSTANCE);
+		Object registeredPackage = EPackage.Registry.INSTANCE.getEPackage(UppaalPackage.eNS_URI);
+		UppaalPackageImpl theUppaalPackage = (UppaalPackageImpl)(registeredPackage instanceof UppaalPackageImpl ? registeredPackage : UppaalPackage.eINSTANCE);
+		registeredPackage = EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI);
+		CorePackageImpl theCorePackage = (CorePackageImpl)(registeredPackage instanceof CorePackageImpl ? registeredPackage : CorePackage.eINSTANCE);
+		registeredPackage = EPackage.Registry.INSTANCE.getEPackage(TypesPackage.eNS_URI);
+		TypesPackageImpl theTypesPackage = (TypesPackageImpl)(registeredPackage instanceof TypesPackageImpl ? registeredPackage : TypesPackage.eINSTANCE);
+		registeredPackage = EPackage.Registry.INSTANCE.getEPackage(GlobalPackage.eNS_URI);
+		GlobalPackageImpl theGlobalPackage = (GlobalPackageImpl)(registeredPackage instanceof GlobalPackageImpl ? registeredPackage : GlobalPackage.eINSTANCE);
+		registeredPackage = EPackage.Registry.INSTANCE.getEPackage(SystemPackage.eNS_URI);
+		SystemPackageImpl theSystemPackage = (SystemPackageImpl)(registeredPackage instanceof SystemPackageImpl ? registeredPackage : SystemPackage.eINSTANCE);
+		registeredPackage = EPackage.Registry.INSTANCE.getEPackage(TemplatesPackage.eNS_URI);
+		TemplatesPackageImpl theTemplatesPackage = (TemplatesPackageImpl)(registeredPackage instanceof TemplatesPackageImpl ? registeredPackage : TemplatesPackage.eINSTANCE);
+		registeredPackage = EPackage.Registry.INSTANCE.getEPackage(StatementsPackage.eNS_URI);
+		StatementsPackageImpl theStatementsPackage = (StatementsPackageImpl)(registeredPackage instanceof StatementsPackageImpl ? registeredPackage : StatementsPackage.eINSTANCE);
+		registeredPackage = EPackage.Registry.INSTANCE.getEPackage(ExpressionsPackage.eNS_URI);
+		ExpressionsPackageImpl theExpressionsPackage = (ExpressionsPackageImpl)(registeredPackage instanceof ExpressionsPackageImpl ? registeredPackage : ExpressionsPackage.eINSTANCE);
+		registeredPackage = EPackage.Registry.INSTANCE.getEPackage(VisualsPackage.eNS_URI);
+		VisualsPackageImpl theVisualsPackage = (VisualsPackageImpl)(registeredPackage instanceof VisualsPackageImpl ? registeredPackage : VisualsPackage.eINSTANCE);
 
 		// Create package meta-data objects
 		theDeclarationsPackage.createPackageContents();
@@ -257,7 +267,7 @@ public class DeclarationsPackageImpl extends EPackageImpl implements Declaration
 
 		// Register package validator
 		EValidator.Registry.INSTANCE.put
-			(theDeclarationsPackage, 
+			(theDeclarationsPackage,
 			 new EValidator.Descriptor() {
 				 public EValidator getEValidator() {
 					 return DeclarationsValidator.INSTANCE;
@@ -267,7 +277,6 @@ public class DeclarationsPackageImpl extends EPackageImpl implements Declaration
 		// Mark meta-data to indicate it can't be changed
 		theDeclarationsPackage.freeze();
 
-  
 		// Update the registry and return the package
 		EPackage.Registry.INSTANCE.put(DeclarationsPackage.eNS_URI, theDeclarationsPackage);
 		return theDeclarationsPackage;
@@ -765,68 +774,68 @@ public class DeclarationsPackageImpl extends EPackageImpl implements Declaration
 	 * @generated
 	 */
 	protected void createEcoreAnnotations() {
-		String source = "http://www.eclipse.org/emf/2002/Ecore";	
+		String source = "http://www.eclipse.org/emf/2002/Ecore";
 		addAnnotation
-		  (this, 
-		   source, 
+		  (this,
+		   source,
 		   new String[] {
-			 "invocationDelegates", "http://www.eclipse.org/emf/2002/Ecore/OCL",
-			 "settingDelegates", "http://www.eclipse.org/emf/2002/Ecore/OCL",
-			 "validationDelegates", "http://www.eclipse.org/emf/2002/Ecore/OCL"
-		   });	
+			   "invocationDelegates", "http://www.eclipse.org/emf/2002/Ecore/OCL",
+			   "settingDelegates", "http://www.eclipse.org/emf/2002/Ecore/OCL",
+			   "validationDelegates", "http://www.eclipse.org/emf/2002/Ecore/OCL"
+		   });
 		addAnnotation
-		  (declarationsEClass, 
-		   source, 
+		  (declarationsEClass,
+		   source,
 		   new String[] {
-			 "constraints", "UniqueTypeNames UniqueTypedElementNames"
-		   });	
+			   "constraints", "UniqueTypeNames UniqueTypedElementNames"
+		   });
 		addAnnotation
-		  (globalDeclarationsEClass, 
-		   source, 
+		  (globalDeclarationsEClass,
+		   source,
 		   new String[] {
-			 "constraints", "NoTemplateDeclarations"
-		   });	
+			   "constraints", "NoTemplateDeclarations"
+		   });
 		addAnnotation
-		  (localDeclarationsEClass, 
-		   source, 
+		  (localDeclarationsEClass,
+		   source,
 		   new String[] {
-			 "constraints", "NoTemplateDeclarations NoChannelDeclarations"
-		   });	
+			   "constraints", "NoTemplateDeclarations NoChannelDeclarations"
+		   });
 		addAnnotation
-		  (systemDeclarationsEClass, 
-		   source, 
+		  (systemDeclarationsEClass,
+		   source,
 		   new String[] {
-			 "constraints", "UniqueTemplateNames"
-		   });	
+			   "constraints", "UniqueTemplateNames"
+		   });
 		addAnnotation
-		  (functionEClass, 
-		   source, 
+		  (functionEClass,
+		   source,
 		   new String[] {
-			 "constraints", "ValidReturnType UniqueParameterNames"
-		   });	
+			   "constraints", "ValidReturnType UniqueParameterNames"
+		   });
 		addAnnotation
-		  (typeDeclarationEClass, 
-		   source, 
+		  (typeDeclarationEClass,
+		   source,
 		   new String[] {
-			 "constraints", "UniqueTypeNames"
-		   });	
+			   "constraints", "UniqueTypeNames"
+		   });
 		addAnnotation
-		  (variableEClass, 
-		   source, 
+		  (variableEClass,
+		   source,
 		   new String[] {
-			 "constraints", "NoInitializerForClockAndChannelVariables"
-		   });	
+			   "constraints", "NoInitializerForClockAndChannelVariables"
+		   });
 		addAnnotation
-		  (typedElementContainerEClass, 
-		   source, 
+		  (typedElementContainerEClass,
+		   source,
 		   new String[] {
-			 "constraints", "ElementsMustHaveSameType TypeExpressionMustBeType UniqueElementNames"
-		   });	
+			   "constraints", "ElementsMustHaveSameType TypeExpressionMustBeType UniqueElementNames"
+		   });
 		addAnnotation
-		  (parameterContainerEClass, 
-		   source, 
+		  (parameterContainerEClass,
+		   source,
 		   new String[] {
-			 "constraints", "SingleParameter ParametersOnly"
+			   "constraints", "SingleParameter ParametersOnly"
 		   });
 	}
 
@@ -837,27 +846,27 @@ public class DeclarationsPackageImpl extends EPackageImpl implements Declaration
 	 * @generated
 	 */
 	protected void createExtendedMetaDataAnnotations() {
-		String source = "http:///org/eclipse/emf/ecore/util/ExtendedMetaData";	
+		String source = "http:///org/eclipse/emf/ecore/util/ExtendedMetaData";
 		addAnnotation
-		  (declarationsEClass, 
-		   source, 
+		  (declarationsEClass,
+		   source,
 		   new String[] {
-			 "name", "Declarations",
-			 "kind", "elementOnly"
-		   });	
+			   "name", "Declarations",
+			   "kind", "elementOnly"
+		   });
 		addAnnotation
-		  (variableEClass, 
-		   source, 
+		  (variableEClass,
+		   source,
 		   new String[] {
-			 "name", "Variable",
-			 "kind", "empty"
-		   });	
+			   "name", "Variable",
+			   "kind", "empty"
+		   });
 		addAnnotation
-		  (getTypedElementContainer_Elements(), 
-		   source, 
+		  (getTypedElementContainer_Elements(),
+		   source,
 		   new String[] {
-			 "kind", "element",
-			 "name", "variable"
+			   "kind", "element",
+			   "name", "variable"
 		   });
 	}
 
@@ -868,66 +877,66 @@ public class DeclarationsPackageImpl extends EPackageImpl implements Declaration
 	 * @generated
 	 */
 	protected void createOCLAnnotations() {
-		String source = "http://www.eclipse.org/emf/2002/Ecore/OCL";	
+		String source = "http://www.eclipse.org/emf/2002/Ecore/OCL";
 		addAnnotation
-		  (declarationsEClass, 
-		   source, 
+		  (declarationsEClass,
+		   source,
 		   new String[] {
-			 "UniqueTypeNames", "self.declaration->select(oclIsKindOf(TypeDeclaration)).oclAsType(TypeDeclaration)->collect(type)->isUnique(name)",
-			 "UniqueTypedElementNames", "self.declaration->select(e | e.oclIsKindOf(uppaal::declarations::TypedDeclaration))->collect(oclAsType(uppaal::declarations::TypedDeclaration))->collect(elements)->select(e | e.oclIsKindOf(uppaal::core::NamedElement))->collect(oclAsType(uppaal::core::NamedElement))->isUnique(name)"
-		   });	
+			   "UniqueTypeNames", "self.declaration->select(oclIsKindOf(TypeDeclaration)).oclAsType(TypeDeclaration)->collect(type)->isUnique(name)",
+			   "UniqueTypedElementNames", "self.declaration->select(e | e.oclIsKindOf(uppaal::declarations::TypedDeclaration))->collect(oclAsType(uppaal::declarations::TypedDeclaration))->collect(elements)->select(e | e.oclIsKindOf(uppaal::core::NamedElement))->collect(oclAsType(uppaal::core::NamedElement))->isUnique(name)"
+		   });
 		addAnnotation
-		  (globalDeclarationsEClass, 
-		   source, 
+		  (globalDeclarationsEClass,
+		   source,
 		   new String[] {
-			 "NoTemplateDeclarations", "not self.declaration->exists(oclIsKindOf(system::TemplateDeclaration))"
-		   });	
+			   "NoTemplateDeclarations", "not self.declaration->exists(oclIsKindOf(system::TemplateDeclaration))"
+		   });
 		addAnnotation
-		  (localDeclarationsEClass, 
-		   source, 
+		  (localDeclarationsEClass,
+		   source,
 		   new String[] {
-			 "NoTemplateDeclarations", "not self.declaration->exists(oclIsKindOf(system::TemplateDeclaration))",
-			 "NoChannelDeclarations", "not self.declaration->exists(\r\n\toclIsKindOf(uppaal::declarations::TypedDeclaration)\r\n\tand\r\n\tlet typeDefinition : uppaal::expressions::Expression = oclAsType(uppaal::declarations::TypedDeclaration).typeDefinition in\r\n\t(\r\n\t\t\r\n\t\ttypeDefinition.oclIsKindOf(uppaal::expressions::ChannelPrefixExpression)\r\n\t\tor\r\n\t\t(\r\n\t\t\ttypeDefinition.oclIsKindOf(uppaal::expressions::IdentifierExpression)\r\n\t\t\tand\r\n\t\t\ttypeDefinition.oclAsType(uppaal::expressions::IdentifierExpression).identifier.oclIsKindOf(uppaal::types::Type)\r\n\t\t\tand\r\n\t\t\ttypeDefinition.oclAsType(uppaal::expressions::IdentifierExpression).identifier.oclAsType(uppaal::types::Type).baseType=uppaal::types::BuiltInType::CHAN\r\n\t\t)\r\n\t)\r\n)"
-		   });	
+			   "NoTemplateDeclarations", "not self.declaration->exists(oclIsKindOf(system::TemplateDeclaration))",
+			   "NoChannelDeclarations", "not self.declaration->exists(\r\n\toclIsKindOf(uppaal::declarations::TypedDeclaration)\r\n\tand\r\n\tlet typeDefinition : uppaal::expressions::Expression = oclAsType(uppaal::declarations::TypedDeclaration).typeDefinition in\r\n\t(\r\n\t\t\r\n\t\ttypeDefinition.oclIsKindOf(uppaal::expressions::ChannelPrefixExpression)\r\n\t\tor\r\n\t\t(\r\n\t\t\ttypeDefinition.oclIsKindOf(uppaal::expressions::IdentifierExpression)\r\n\t\t\tand\r\n\t\t\ttypeDefinition.oclAsType(uppaal::expressions::IdentifierExpression).identifier.oclIsKindOf(uppaal::types::Type)\r\n\t\t\tand\r\n\t\t\ttypeDefinition.oclAsType(uppaal::expressions::IdentifierExpression).identifier.oclAsType(uppaal::types::Type).baseType=uppaal::types::BuiltInType::CHAN\r\n\t\t)\r\n\t)\r\n)"
+		   });
 		addAnnotation
-		  (systemDeclarationsEClass, 
-		   source, 
+		  (systemDeclarationsEClass,
+		   source,
 		   new String[] {
-			 "UniqueTemplateNames", "self.declaration->select(oclIsKindOf(system::TemplateDeclaration)).oclAsType(system::TemplateDeclaration)->collect(declaredTemplate)->isUnique(name)"
-		   });	
+			   "UniqueTemplateNames", "self.declaration->select(oclIsKindOf(system::TemplateDeclaration)).oclAsType(system::TemplateDeclaration)->collect(declaredTemplate)->isUnique(name)"
+		   });
 		addAnnotation
-		  (functionEClass, 
-		   source, 
+		  (functionEClass,
+		   source,
 		   new String[] {
-			 "ValidReturnType", "(not typeDefinition.oclIsUndefined())\r\nimplies\r\n(\r\n\t(\r\n\t\ttypeDefinition.oclIsKindOf(uppaal::expressions::IdentifierExpression) and\r\n\t\ttypeDefinition.oclAsType(uppaal::expressions::IdentifierExpression).identifier.oclIsKindOf(uppaal::types::Type) and\r\n\t\t(\r\n\t\t\ttypeDefinition.oclAsType(uppaal::expressions::IdentifierExpression).identifier.oclAsType(uppaal::types::Type).baseType = uppaal::types::BuiltInType::VOID or\r\n\t\t\ttypeDefinition.oclAsType(uppaal::expressions::IdentifierExpression).identifier.oclAsType(uppaal::types::Type).baseType = uppaal::types::BuiltInType::INT or\r\n\t\t\ttypeDefinition.oclAsType(uppaal::expressions::IdentifierExpression).identifier.oclAsType(uppaal::types::Type).baseType = uppaal::types::BuiltInType::BOOL\r\n\t\t)\r\n\t)\r\n\tor\r\n\t\ttypeDefinition.oclIsKindOf(uppaal::types::RangeTypeSpecification)\r\n)",
-			 "UniqueParameterNames", "self.parameter->collect(elements)->select(e | e.oclIsKindOf(uppaal::core::NamedElement))->collect(oclAsType(uppaal::core::NamedElement))->isUnique(name)"
-		   });	
+			   "ValidReturnType", "(not typeDefinition.oclIsUndefined())\r\nimplies\r\n(\r\n\t(\r\n\t\ttypeDefinition.oclIsKindOf(uppaal::expressions::IdentifierExpression) and\r\n\t\ttypeDefinition.oclAsType(uppaal::expressions::IdentifierExpression).identifier.oclIsKindOf(uppaal::types::Type) and\r\n\t\t(\r\n\t\t\ttypeDefinition.oclAsType(uppaal::expressions::IdentifierExpression).identifier.oclAsType(uppaal::types::Type).baseType = uppaal::types::BuiltInType::VOID or\r\n\t\t\ttypeDefinition.oclAsType(uppaal::expressions::IdentifierExpression).identifier.oclAsType(uppaal::types::Type).baseType = uppaal::types::BuiltInType::INT or\r\n\t\t\ttypeDefinition.oclAsType(uppaal::expressions::IdentifierExpression).identifier.oclAsType(uppaal::types::Type).baseType = uppaal::types::BuiltInType::BOOL\r\n\t\t)\r\n\t)\r\n\tor\r\n\t\ttypeDefinition.oclIsKindOf(uppaal::types::RangeTypeSpecification)\r\n)",
+			   "UniqueParameterNames", "self.parameter->collect(elements)->select(e | e.oclIsKindOf(uppaal::core::NamedElement))->collect(oclAsType(uppaal::core::NamedElement))->isUnique(name)"
+		   });
 		addAnnotation
-		  (typeDeclarationEClass, 
-		   source, 
+		  (typeDeclarationEClass,
+		   source,
 		   new String[] {
-			 "UniqueTypeNames", "self.type->isUnique(name)"
-		   });	
+			   "UniqueTypeNames", "self.type->isUnique(name)"
+		   });
 		addAnnotation
-		  (variableEClass, 
-		   source, 
+		  (variableEClass,
+		   source,
 		   new String[] {
-			 "NoInitializerForClockAndChannelVariables", "if (not self.typeDefinition.oclIsUndefined()) then\r\n\t-- No channels allowed.\r\n\tif (self.typeDefinition.oclIsKindOf(uppaal::expressions::ChannelPrefixExpression)) then\r\n\t\tself.initializer.oclIsUndefined()\r\n\telse if (self.typeDefinition.oclIsKindOf(uppaal::expressions::IdentifierExpression)) then\r\n\t\tif (self.typeDefinition.oclAsType(uppaal::expressions::IdentifierExpression).identifier.oclIsKindOf(uppaal::types::Type)) then\r\n\t\t\t(\r\n\t\t\t\t(\r\n\t\t\t\t\tself.typeDefinition.oclAsType(uppaal::expressions::IdentifierExpression).identifier.oclAsType(uppaal::types::Type).baseType=uppaal::types::BuiltInType::CHAN or\r\n\t\t\t\t\tself.typeDefinition.oclAsType(uppaal::expressions::IdentifierExpression).identifier.oclAsType(uppaal::types::Type).baseType=uppaal::types::BuiltInType::CLOCK\r\n\t\t\t\t)\r\n\t\t\t\timplies\r\n\t\t\t\t\tself.initializer.oclIsUndefined()\r\n\t\t\t)\r\n\t\telse true endif\r\n\telse true endif endif\r\nelse\r\n\ttrue\r\nendif"
-		   });	
+			   "NoInitializerForClockAndChannelVariables", "if (not self.typeDefinition.oclIsUndefined()) then\r\n\t-- No channels allowed.\r\n\tif (self.typeDefinition.oclIsKindOf(uppaal::expressions::ChannelPrefixExpression)) then\r\n\t\tself.initializer.oclIsUndefined()\r\n\telse if (self.typeDefinition.oclIsKindOf(uppaal::expressions::IdentifierExpression)) then\r\n\t\tif (self.typeDefinition.oclAsType(uppaal::expressions::IdentifierExpression).identifier.oclIsKindOf(uppaal::types::Type)) then\r\n\t\t\t(\r\n\t\t\t\t(\r\n\t\t\t\t\tself.typeDefinition.oclAsType(uppaal::expressions::IdentifierExpression).identifier.oclAsType(uppaal::types::Type).baseType=uppaal::types::BuiltInType::CHAN or\r\n\t\t\t\t\tself.typeDefinition.oclAsType(uppaal::expressions::IdentifierExpression).identifier.oclAsType(uppaal::types::Type).baseType=uppaal::types::BuiltInType::CLOCK\r\n\t\t\t\t)\r\n\t\t\t\timplies\r\n\t\t\t\t\tself.initializer.oclIsUndefined()\r\n\t\t\t)\r\n\t\telse true endif\r\n\telse true endif endif\r\nelse\r\n\ttrue\r\nendif"
+		   });
 		addAnnotation
-		  (typedElementContainerEClass, 
-		   source, 
+		  (typedElementContainerEClass,
+		   source,
 		   new String[] {
-			 "UniqueElementNames", "self.elements->select(oclIsKindOf(core::NamedElement))->collect(oclAsType(core::NamedElement))->isUnique(name)",
-			 "ElementsMustHaveSameType", "self.elements->forAll(oclIsKindOf(declarations::Parameter))\r\nor\r\nself.elements->forAll(oclIsKindOf(declarations::Variable))\r\nor\r\nself.elements->forAll(oclIsKindOf(declarations::Function))",
-			 "TypeExpressionMustBeType", "typeDefinition.oclIsKindOf(types::TypeExpression)\r\nor\r\n(\r\n\ttypeDefinition.oclIsKindOf(expressions::IdentifierExpression) and\r\n\ttypeDefinition.oclAsType(expressions::IdentifierExpression).identifier.oclIsKindOf(types::Type)\r\n)\r\nor\r\ntypeDefinition.oclIsKindOf(expressions::ChannelPrefixExpression)\r\nor\r\ntypeDefinition.oclIsKindOf(expressions::DataPrefixExpression)"
-		   });	
+			   "UniqueElementNames", "self.elements->select(oclIsKindOf(core::NamedElement))->collect(oclAsType(core::NamedElement))->isUnique(name)",
+			   "ElementsMustHaveSameType", "self.elements->forAll(oclIsKindOf(declarations::Parameter))\r\nor\r\nself.elements->forAll(oclIsKindOf(declarations::Variable))\r\nor\r\nself.elements->forAll(oclIsKindOf(declarations::Function))",
+			   "TypeExpressionMustBeType", "typeDefinition.oclIsKindOf(types::TypeExpression)\r\nor\r\n(\r\n\ttypeDefinition.oclIsKindOf(expressions::IdentifierExpression) and\r\n\ttypeDefinition.oclAsType(expressions::IdentifierExpression).identifier.oclIsKindOf(types::Type)\r\n)\r\nor\r\ntypeDefinition.oclIsKindOf(expressions::ChannelPrefixExpression)\r\nor\r\ntypeDefinition.oclIsKindOf(expressions::DataPrefixExpression)"
+		   });
 		addAnnotation
-		  (parameterContainerEClass, 
-		   source, 
+		  (parameterContainerEClass,
+		   source,
 		   new String[] {
-			 "SingleParameter", "self.elements->size() <= 1",
-			 "ParametersOnly", "self.elements->forAll(oclIsKindOf(declarations::Parameter))"
+			   "SingleParameter", "self.elements->size() <= 1",
+			   "ParametersOnly", "self.elements->forAll(oclIsKindOf(declarations::Parameter))"
 		   });
 	}
 

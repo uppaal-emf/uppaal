@@ -22,7 +22,7 @@ import org.muml.uppaal.declarations.TypedDeclaration;
  * </ul>
  *
  * @see org.muml.uppaal.types.TypesPackage#getStructTypeSpecification()
- * @model annotation="http://www.eclipse.org/emf/2002/Ecore/OCL UniqueFieldNames='self.declaration->collect(elements)->collect(oclAsType(core::NamedElement))->isUnique(name)'"
+ * @model annotation="http://www.eclipse.org/emf/2002/Ecore/OCL UniqueFieldNames='self.declaration-&gt;collect(elements)-&gt;collect(oclAsType(core::NamedElement))-&gt;isUnique(name)'"
  *        annotation="http://www.eclipse.org/emf/2002/Ecore constraints='UniqueFieldNames'"
  * @generated
  */

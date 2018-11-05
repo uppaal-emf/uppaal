@@ -150,7 +150,7 @@ public class ParameterImpl extends VariableImpl implements Parameter {
 	public String toString() {
 		if (eIsProxy()) return super.toString();
 
-		StringBuffer result = new StringBuffer(super.toString());
+		StringBuilder result = new StringBuilder(super.toString());
 		result.append(" (callType: ");
 		result.append(callType);
 		result.append(')');

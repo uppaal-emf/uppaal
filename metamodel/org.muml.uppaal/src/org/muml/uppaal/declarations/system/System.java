@@ -23,7 +23,7 @@ import org.eclipse.emf.ecore.EObject;
  *
  * @see org.muml.uppaal.declarations.system.SystemPackage#getSystem()
  * @model extendedMetaData="name='System' kind='elementOnly'"
- *        annotation="http://www.eclipse.org/emf/2002/Ecore/OCL EachTemplateReferencedAtMostOnce='self.instantiationList->collect(template)->isUnique(t : templates::AbstractTemplate | t)'"
+ *        annotation="http://www.eclipse.org/emf/2002/Ecore/OCL EachTemplateReferencedAtMostOnce='self.instantiationList-&gt;collect(template)-&gt;isUnique(t : templates::AbstractTemplate | t)'"
  *        annotation="http://www.eclipse.org/emf/2002/Ecore constraints='EachTemplateReferencedAtMostOnce'"
  * @generated
  */

@@ -50,7 +50,7 @@ public enum MinMaxOperator implements Enumerator {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @see #MIN
-	 * @model literal="<?"
+	 * @model literal="&lt;?"
 	 * @generated
 	 * @ordered
 	 */
@@ -65,7 +65,7 @@ public enum MinMaxOperator implements Enumerator {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @see #MAX
-	 * @model literal=">?"
+	 * @model literal="&gt;?"
 	 * @generated
 	 * @ordered
 	 */

@@ -105,7 +105,7 @@ public enum CompareOperator implements Enumerator {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @see #GREATER
-	 * @model literal=">"
+	 * @model literal="&gt;"
 	 * @generated
 	 * @ordered
 	 */
@@ -120,7 +120,7 @@ public enum CompareOperator implements Enumerator {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @see #GREATER_OR_EQUAL
-	 * @model literal=">="
+	 * @model literal="&gt;="
 	 * @generated
 	 * @ordered
 	 */
@@ -135,7 +135,7 @@ public enum CompareOperator implements Enumerator {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @see #LESS
-	 * @model literal="<"
+	 * @model literal="&lt;"
 	 * @generated
 	 * @ordered
 	 */
@@ -150,7 +150,7 @@ public enum CompareOperator implements Enumerator {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @see #LESS_OR_EQUAL
-	 * @model literal="<="
+	 * @model literal="&lt;="
 	 * @generated
 	 * @ordered
 	 */

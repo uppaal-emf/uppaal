@@ -22,7 +22,7 @@ import org.muml.uppaal.declarations.Declaration;
  * </ul>
  *
  * @see org.muml.uppaal.declarations.global.GlobalPackage#getChannelPriorityDeclaration()
- * @model annotation="http://www.eclipse.org/emf/2002/Ecore/OCL AtMostOneDefaultItem='self.groups.items->select(oclIsKindOf(uppaal::declarations::global::DefaultItem))->size() <= 1' EachChannelContainedAtMostOnce='self.groups.items\r\n->select(oclIsKindOf(uppaal::declarations::global::ChannelItem))\r\n->collect(oclAsType(uppaal::declarations::global::ChannelItem))\r\n->isUnique(channelExpression.identifier)'"
+ * @model annotation="http://www.eclipse.org/emf/2002/Ecore/OCL AtMostOneDefaultItem='self.groups.items-&gt;select(oclIsKindOf(uppaal::declarations::global::DefaultItem))-&gt;size() &lt;= 1' EachChannelContainedAtMostOnce='self.groups.items\r\n-&gt;select(oclIsKindOf(uppaal::declarations::global::ChannelItem))\r\n-&gt;collect(oclAsType(uppaal::declarations::global::ChannelItem))\r\n-&gt;isUnique(channelExpression.identifier)'"
  *        annotation="http://www.eclipse.org/emf/2002/Ecore constraints='AtMostOneDefaultItem EachChannelContainedAtMostOnce'"
  * @generated
  */

@@ -230,7 +230,7 @@ public enum AssignmentOperator implements Enumerator {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @see #BIT_AND_EQUAL
-	 * @model literal="&="
+	 * @model literal="&amp;="
 	 * @generated
 	 * @ordered
 	 */
@@ -260,7 +260,7 @@ public enum AssignmentOperator implements Enumerator {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @see #BIT_LEFT_EQUAL
-	 * @model literal="<<="
+	 * @model literal="&lt;&lt;="
 	 * @generated
 	 * @ordered
 	 */
@@ -275,7 +275,7 @@ public enum AssignmentOperator implements Enumerator {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @see #BIT_RIGHT_EQUAL
-	 * @model literal=">>="
+	 * @model literal="&gt;&gt;="
 	 * @generated
 	 * @ordered
 	 */

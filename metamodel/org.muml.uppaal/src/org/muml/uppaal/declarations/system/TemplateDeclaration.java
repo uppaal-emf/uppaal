@@ -25,7 +25,7 @@ import org.muml.uppaal.templates.RedefinedTemplate;
  * </ul>
  *
  * @see org.muml.uppaal.declarations.system.SystemPackage#getTemplateDeclaration()
- * @model annotation="http://www.eclipse.org/emf/2002/Ecore/OCL NumberOfArgumentsMatchesDeclaration='(not self.declaredTemplate.oclIsUndefined() and not self.declaredTemplate.referredTemplate.oclIsUndefined())\r\nimplies\r\nself.argument->size() = self.declaredTemplate.referredTemplate.parameter->size()'"
+ * @model annotation="http://www.eclipse.org/emf/2002/Ecore/OCL NumberOfArgumentsMatchesDeclaration='(not self.declaredTemplate.oclIsUndefined() and not self.declaredTemplate.referredTemplate.oclIsUndefined())\r\nimplies\r\nself.argument-&gt;size() = self.declaredTemplate.referredTemplate.parameter-&gt;size()'"
  *        annotation="http://www.eclipse.org/emf/2002/Ecore constraints='NumberOfArgumentsMatchesDeclaration'"
  * @generated
  */
