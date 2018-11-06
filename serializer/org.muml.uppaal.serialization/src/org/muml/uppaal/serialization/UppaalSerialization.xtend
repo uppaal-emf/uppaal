@@ -109,19 +109,18 @@ class UppaalSerialization {
 	def dispatch declarations(GlobalDeclarations it) '''
 	«FOR i : declaration ?:emptyList»
 		«declaration(i)»
-
-		«ENDFOR»
+	«ENDFOR»
 	«channelPriority(channelPriority)»'''
 	
-	def dispatch declarations(LocalDeclarations it) '''«FOR i : declaration ?:emptyList»
+	def dispatch declarations(LocalDeclarations it) '''
+	«FOR i : declaration ?:emptyList»
 		«declaration(i)»
-		
-		«ENDFOR»'''
+	«ENDFOR»'''
 	
-	def dispatch declarations(SystemDeclarations it) '''«FOR i : declaration ?:emptyList»
+	def dispatch declarations(SystemDeclarations it) '''
+	«FOR i : declaration ?:emptyList»
 		«declaration(i)»
-		
-		«ENDFOR»
+	«ENDFOR»
 	«system(system)»
 	«IF progressMeasure != null»«progressMeasure(progressMeasure)»«ENDIF»'''
 	
@@ -131,7 +130,7 @@ class UppaalSerialization {
 	
 	def dispatch declaration(TypeDeclaration it) '''typedef «expression(typeDefinition)» «FOR DeclaredType i : type ?:emptyList SEPARATOR ', '»«typedeclaration(i)»«ENDFOR»;'''
 	
-	def dispatch declaration(TemplateDeclaration it) '''«name(declaredTemplate)»«IF declaredTemplate.parameter.size > 0»(«FOR i : declaredTemplate.parameter ?:emptyList SEPARATOR ', '»«parametercontainer(i)»«ENDFOR»)«ENDIF» = «name(declaredTemplate.referredTemplate)»(«FOR i : argument ?:emptyList SEPARATOR ', '»«expression(i)»«ENDFOR»);'''
+	def dispatch declaration(TemplateDeclaration it) '''«name(declaredTemplate)»«IF !declaredTemplate.parameter.empty»(«FOR i : declaredTemplate.parameter ?:emptyList SEPARATOR ', '»«parametercontainer(i)»«ENDFOR»)«ENDIF» = «name(declaredTemplate.referredTemplate)»(«FOR i : argument ?:emptyList SEPARATOR ', '»«expression(i)»«ENDFOR»);'''
 	
 	
 //	def dispatch declaration(TypedDeclaration it) '''«declaration(it, false)»;'''
@@ -156,12 +155,12 @@ class UppaalSerialization {
 		}
 	}
 	
-	def dispatch block(Block it) '''{
+	def block(Block it) '''{
 	«FOR i : if (declarations == null) emptyList else (declarations.declaration ?: emptyList)»
-	«declaration(i)»
+		«declaration(i)»
 	«ENDFOR»
 	«FOR i : statement ?:emptyList»
-	«statement(i)»
+		«statement(i)»
 	«ENDFOR»
 }'''
 	
@@ -223,7 +222,7 @@ class UppaalSerialization {
 	«declarations(declarations)»
 	</declaration>	
 	«FOR i : location ?:emptyList»«location(i)»«ENDFOR»
-	<init ref="«init.name+"_"+name»"/>
+	<init ref="«id(init)»"/>
 	«FOR i : edge ?:emptyList»«edge(i)»«ENDFOR»
 	</template>
 	'''
@@ -239,7 +238,7 @@ class UppaalSerialization {
 	def name(NamedElement it) '''«name.replaceAll('\\.','')»'''
 	
 	def location(Location it) '''
-	<location id="«id(it)»" x="«if (position == null) "" else position.x»" y="«if (position == null) "" else position.y»" «IF colorToString(it) != null»color="«colorToString(it)»"«ENDIF»>
+	<location id="«id(it)»"«IF position != null» x="«position.x»" y="«position.y»"«ENDIF»«IF colorCode != null» color="«colorCode»"«ENDIF»>
 		<name>«name(it)»</name>
 		«IF !(invariant == null)»<label kind="invariant">«expression(invariant)»</label>«ENDIF»
 		«IF locationTimeKind == LocationKind::URGENT»<urgent/>«ENDIF»
@@ -257,13 +256,13 @@ class UppaalSerialization {
 	<transition>
 	<source ref="«id(source)»"/>
 	<target ref="«id(target)»"/>
-	«IF !(selection == null)»<label kind="select"«IF moveEdgeLabelsAway» x="-100" y="-100"«ENDIF»>«FOR i : selection ?:emptyList SEPARATOR ', '»«selection(i)»«ENDFOR»</label>«ENDIF»
+	«IF !(selection.empty)»<label kind="select"«IF moveEdgeLabelsAway» x="-100" y="-100"«ENDIF»>«FOR i : selection ?:emptyList SEPARATOR ', '»«selection(i)»«ENDFOR»</label>«ENDIF»
 	«IF !(guard == null)»<label kind="guard"«IF moveEdgeLabelsAway» x="-100" y="-100"«ENDIF»>«expression(guard)»</label>«ENDIF»
 	«IF !(synchronization == null)»<label kind="synchronisation"«IF moveEdgeLabelsAway» x="-100" y="-100"«ENDIF»>«synchronization(synchronization)»</label>«ENDIF»
-	«IF !(update == null)»<label kind="assignment"«IF moveEdgeLabelsAway» x="-100" y="-100"«ENDIF»>«FOR i : update ?:emptyList SEPARATOR ","»
+	«IF !(update.empty)»<label kind="assignment"«IF moveEdgeLabelsAway» x="-100" y="-100"«ENDIF»>«FOR i : update ?:emptyList SEPARATOR ","»
 	«expression(i)»
 	«ENDFOR»</label>«ENDIF»
-	«IF !(bendPoint == null)»«FOR i : bendPoint ?:emptyList»
+	«IF !(bendPoint.empty)»«FOR i : bendPoint ?:emptyList»
 	<nail x="«i.x»" y="«i.y»"/>
 	«ENDFOR»«ENDIF»
 	</transition>
@@ -312,7 +311,7 @@ class UppaalSerialization {
 	
 	def dispatch expression(AssignmentExpression it) '''«expressionOptionalParentheses(firstExpr)» «assignment(operator)» «expressionOptionalParentheses(secondExpr)»'''
 	
-	def dispatch expression(IdentifierExpression it) '''«name(identifier)»«IF !index.isEmpty»[«FOR i : index ?:emptyList SEPARATOR ']['»«expression(i)»«ENDFOR»]«ENDIF»'''
+	def dispatch expression(IdentifierExpression it) '''«name(identifier)»«IF !index.empty»[«FOR i : index ?:emptyList SEPARATOR ']['»«expression(i)»«ENDFOR»]«ENDIF»'''
 	
 	def dispatch expression(NegationExpression it) '''not «expressionOptionalParentheses(negatedExpression)»'''
 	
