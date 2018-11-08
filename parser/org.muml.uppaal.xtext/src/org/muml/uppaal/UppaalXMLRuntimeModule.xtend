@@ -6,6 +6,7 @@ package org.muml.uppaal
 import org.muml.uppaal.scoping.UppaalQualifiedNameProvider
 import org.muml.uppaal.scoping.UppaalLazyLinker
 import org.muml.uppaal.valueconversion.UppaalValueConverter
+import org.muml.uppaal.serializer.UppaalTransientValueService
 
 /**
  * Use this class to register components to be used at runtime / without the Equinox extension registry.
@@ -24,4 +25,8 @@ class UppaalXMLRuntimeModule extends AbstractUppaalXMLRuntimeModule {
 		return UppaalValueConverter
 	}
 	
+	override bindITransientValueService() {
+    	return UppaalTransientValueService
+    }
+    	
 }
