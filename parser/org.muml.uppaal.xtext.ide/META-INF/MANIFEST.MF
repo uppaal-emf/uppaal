@@ -1,0 +1,16 @@
+Manifest-Version: 1.0
+Automatic-Module-Name: org.xtext.example.mydsl.ide
+Bundle-ManifestVersion: 2
+Bundle-Name: %pluginName
+Bundle-Vendor: %providerName
+Bundle-Version: 1.0.0.qualifier
+Bundle-SymbolicName: org.muml.uppaal.xtext.ide;singleton:=true
+Bundle-ActivationPolicy: lazy
+Require-Bundle: org.eclipse.xtext.ide,
+ org.eclipse.xtext.xbase.ide,
+ org.antlr.runtime;bundle-version="[3.2.0,3.2.1)",
+ org.muml.uppaal.xtext;bundle-version="1.0.0"
+Bundle-RequiredExecutionEnvironment: JavaSE-1.7
+Export-Package: org.muml.uppaal.ide.contentassist.antlr,
+ org.muml.uppaal.ide.contentassist.antlr.internal
+

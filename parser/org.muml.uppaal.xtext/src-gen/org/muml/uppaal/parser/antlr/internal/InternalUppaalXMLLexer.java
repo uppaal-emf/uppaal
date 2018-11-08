@@ -2855,10 +2855,10 @@ public class InternalUppaalXMLLexer extends Lexer {
         try {
             int _type = RULE_STRING;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalUppaalXML.g:9492:13: ( ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' ) )
-            // InternalUppaalXML.g:9492:15: ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )
+            // InternalUppaalXML.g:9509:13: ( ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' ) )
+            // InternalUppaalXML.g:9509:15: ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )
             {
-            // InternalUppaalXML.g:9492:15: ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )
+            // InternalUppaalXML.g:9509:15: ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )
             int alt3=2;
             int LA3_0 = input.LA(1);
 
@@ -2876,10 +2876,10 @@ public class InternalUppaalXMLLexer extends Lexer {
             }
             switch (alt3) {
                 case 1 :
-                    // InternalUppaalXML.g:9492:16: '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"'
+                    // InternalUppaalXML.g:9509:16: '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"'
                     {
                     match('\"'); 
-                    // InternalUppaalXML.g:9492:20: ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )*
+                    // InternalUppaalXML.g:9509:20: ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )*
                     loop1:
                     do {
                         int alt1=3;
@@ -2895,7 +2895,7 @@ public class InternalUppaalXMLLexer extends Lexer {
 
                         switch (alt1) {
                     	case 1 :
-                    	    // InternalUppaalXML.g:9492:21: '\\\\' .
+                    	    // InternalUppaalXML.g:9509:21: '\\\\' .
                     	    {
                     	    match('\\'); 
                     	    matchAny(); 
@@ -2903,7 +2903,7 @@ public class InternalUppaalXMLLexer extends Lexer {
                     	    }
                     	    break;
                     	case 2 :
-                    	    // InternalUppaalXML.g:9492:28: ~ ( ( '\\\\' | '\"' ) )
+                    	    // InternalUppaalXML.g:9509:28: ~ ( ( '\\\\' | '\"' ) )
                     	    {
                     	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='!')||(input.LA(1)>='#' && input.LA(1)<='[')||(input.LA(1)>=']' && input.LA(1)<='\uFFFF') ) {
                     	        input.consume();
@@ -2928,10 +2928,10 @@ public class InternalUppaalXMLLexer extends Lexer {
                     }
                     break;
                 case 2 :
-                    // InternalUppaalXML.g:9492:48: '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\''
+                    // InternalUppaalXML.g:9509:48: '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\''
                     {
                     match('\''); 
-                    // InternalUppaalXML.g:9492:53: ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )*
+                    // InternalUppaalXML.g:9509:53: ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )*
                     loop2:
                     do {
                         int alt2=3;
@@ -2947,7 +2947,7 @@ public class InternalUppaalXMLLexer extends Lexer {
 
                         switch (alt2) {
                     	case 1 :
-                    	    // InternalUppaalXML.g:9492:54: '\\\\' .
+                    	    // InternalUppaalXML.g:9509:54: '\\\\' .
                     	    {
                     	    match('\\'); 
                     	    matchAny(); 
@@ -2955,7 +2955,7 @@ public class InternalUppaalXMLLexer extends Lexer {
                     	    }
                     	    break;
                     	case 2 :
-                    	    // InternalUppaalXML.g:9492:61: ~ ( ( '\\\\' | '\\'' ) )
+                    	    // InternalUppaalXML.g:9509:61: ~ ( ( '\\\\' | '\\'' ) )
                     	    {
                     	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='&')||(input.LA(1)>='(' && input.LA(1)<='[')||(input.LA(1)>=']' && input.LA(1)<='\uFFFF') ) {
                     	        input.consume();
@@ -2998,8 +2998,8 @@ public class InternalUppaalXMLLexer extends Lexer {
         try {
             int _type = RULE_ID;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalUppaalXML.g:9494:9: ( ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )* )
-            // InternalUppaalXML.g:9494:11: ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )*
+            // InternalUppaalXML.g:9511:9: ( ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )* )
+            // InternalUppaalXML.g:9511:11: ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )*
             {
             if ( (input.LA(1)>='A' && input.LA(1)<='Z')||input.LA(1)=='_'||(input.LA(1)>='a' && input.LA(1)<='z') ) {
                 input.consume();
@@ -3010,7 +3010,7 @@ public class InternalUppaalXMLLexer extends Lexer {
                 recover(mse);
                 throw mse;}
 
-            // InternalUppaalXML.g:9494:35: ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )*
+            // InternalUppaalXML.g:9511:35: ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )*
             loop4:
             do {
                 int alt4=2;
@@ -3059,10 +3059,10 @@ public class InternalUppaalXMLLexer extends Lexer {
         try {
             int _type = RULE_INT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalUppaalXML.g:9496:10: ( ( '0' | '1' .. '9' ( '0' .. '9' )* ) )
-            // InternalUppaalXML.g:9496:12: ( '0' | '1' .. '9' ( '0' .. '9' )* )
+            // InternalUppaalXML.g:9513:10: ( ( '0' | '1' .. '9' ( '0' .. '9' )* ) )
+            // InternalUppaalXML.g:9513:12: ( '0' | '1' .. '9' ( '0' .. '9' )* )
             {
-            // InternalUppaalXML.g:9496:12: ( '0' | '1' .. '9' ( '0' .. '9' )* )
+            // InternalUppaalXML.g:9513:12: ( '0' | '1' .. '9' ( '0' .. '9' )* )
             int alt6=2;
             int LA6_0 = input.LA(1);
 
@@ -3080,17 +3080,17 @@ public class InternalUppaalXMLLexer extends Lexer {
             }
             switch (alt6) {
                 case 1 :
-                    // InternalUppaalXML.g:9496:13: '0'
+                    // InternalUppaalXML.g:9513:13: '0'
                     {
                     match('0'); 
 
                     }
                     break;
                 case 2 :
-                    // InternalUppaalXML.g:9496:17: '1' .. '9' ( '0' .. '9' )*
+                    // InternalUppaalXML.g:9513:17: '1' .. '9' ( '0' .. '9' )*
                     {
                     matchRange('1','9'); 
-                    // InternalUppaalXML.g:9496:26: ( '0' .. '9' )*
+                    // InternalUppaalXML.g:9513:26: ( '0' .. '9' )*
                     loop5:
                     do {
                         int alt5=2;
@@ -3103,7 +3103,7 @@ public class InternalUppaalXMLLexer extends Lexer {
 
                         switch (alt5) {
                     	case 1 :
-                    	    // InternalUppaalXML.g:9496:27: '0' .. '9'
+                    	    // InternalUppaalXML.g:9513:27: '0' .. '9'
                     	    {
                     	    matchRange('0','9'); 
 
@@ -3137,12 +3137,12 @@ public class InternalUppaalXMLLexer extends Lexer {
         try {
             int _type = RULE_SINGLE_LINE_COMMENT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalUppaalXML.g:9498:26: ( '//' (~ ( ( '<' | '\\r' | '\\n' ) ) )* )
-            // InternalUppaalXML.g:9498:28: '//' (~ ( ( '<' | '\\r' | '\\n' ) ) )*
+            // InternalUppaalXML.g:9515:26: ( '//' (~ ( ( '<' | '\\r' | '\\n' ) ) )* )
+            // InternalUppaalXML.g:9515:28: '//' (~ ( ( '<' | '\\r' | '\\n' ) ) )*
             {
             match("//"); 
 
-            // InternalUppaalXML.g:9498:33: (~ ( ( '<' | '\\r' | '\\n' ) ) )*
+            // InternalUppaalXML.g:9515:33: (~ ( ( '<' | '\\r' | '\\n' ) ) )*
             loop7:
             do {
                 int alt7=2;
@@ -3155,7 +3155,7 @@ public class InternalUppaalXMLLexer extends Lexer {
 
                 switch (alt7) {
             	case 1 :
-            	    // InternalUppaalXML.g:9498:33: ~ ( ( '<' | '\\r' | '\\n' ) )
+            	    // InternalUppaalXML.g:9515:33: ~ ( ( '<' | '\\r' | '\\n' ) )
             	    {
             	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='\t')||(input.LA(1)>='\u000B' && input.LA(1)<='\f')||(input.LA(1)>='\u000E' && input.LA(1)<=';')||(input.LA(1)>='=' && input.LA(1)<='\uFFFF') ) {
             	        input.consume();
@@ -3191,12 +3191,12 @@ public class InternalUppaalXMLLexer extends Lexer {
         try {
             int _type = RULE_MULTI_LINE_COMMENT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalUppaalXML.g:9500:25: ( '/*' ( options {greedy=false; } : . )* '*/' )
-            // InternalUppaalXML.g:9500:27: '/*' ( options {greedy=false; } : . )* '*/'
+            // InternalUppaalXML.g:9517:25: ( '/*' ( options {greedy=false; } : . )* '*/' )
+            // InternalUppaalXML.g:9517:27: '/*' ( options {greedy=false; } : . )* '*/'
             {
             match("/*"); 
 
-            // InternalUppaalXML.g:9500:32: ( options {greedy=false; } : . )*
+            // InternalUppaalXML.g:9517:32: ( options {greedy=false; } : . )*
             loop8:
             do {
                 int alt8=2;
@@ -3221,7 +3221,7 @@ public class InternalUppaalXMLLexer extends Lexer {
 
                 switch (alt8) {
             	case 1 :
-            	    // InternalUppaalXML.g:9500:60: .
+            	    // InternalUppaalXML.g:9517:60: .
             	    {
             	    matchAny(); 
 
@@ -3251,10 +3251,10 @@ public class InternalUppaalXMLLexer extends Lexer {
         try {
             int _type = RULE_WS;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalUppaalXML.g:9502:9: ( ( ' ' | '\\t' | '\\r' | '\\n' )+ )
-            // InternalUppaalXML.g:9502:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
+            // InternalUppaalXML.g:9519:9: ( ( ' ' | '\\t' | '\\r' | '\\n' )+ )
+            // InternalUppaalXML.g:9519:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
             {
-            // InternalUppaalXML.g:9502:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
+            // InternalUppaalXML.g:9519:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
             int cnt9=0;
             loop9:
             do {
@@ -3308,8 +3308,8 @@ public class InternalUppaalXMLLexer extends Lexer {
         try {
             int _type = RULE_ANY_OTHER;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalUppaalXML.g:9504:16: ( . )
-            // InternalUppaalXML.g:9504:18: .
+            // InternalUppaalXML.g:9521:16: ( . )
+            // InternalUppaalXML.g:9521:18: .
             {
             matchAny(); 
 
@@ -4872,7 +4872,7 @@ public class InternalUppaalXMLLexer extends Lexer {
         }
     }
 
-    static class DFA10 extends DFA {
+    class DFA10 extends DFA {
 
         public DFA10(BaseRecognizer recognizer) {
             this.recognizer = recognizer;
