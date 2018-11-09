@@ -215,23 +215,6 @@ public class EdgeImpl extends LinearElementImpl implements Edge {
 	 * @generated
 	 */
 	public Location getSource() {
-		if (source != null && source.eIsProxy()) {
-			InternalEObject oldSource = (InternalEObject)source;
-			source = (Location)eResolveProxy(oldSource);
-			if (source != oldSource) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, TemplatesPackage.EDGE__SOURCE, oldSource, source));
-			}
-		}
-		return source;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Location basicGetSource() {
 		return source;
 	}
 
@@ -275,23 +258,6 @@ public class EdgeImpl extends LinearElementImpl implements Edge {
 	 * @generated
 	 */
 	public Location getTarget() {
-		if (target != null && target.eIsProxy()) {
-			InternalEObject oldTarget = (InternalEObject)target;
-			target = (Location)eResolveProxy(oldTarget);
-			if (target != oldTarget) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, TemplatesPackage.EDGE__TARGET, oldTarget, target));
-			}
-		}
-		return target;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Location basicGetTarget() {
 		return target;
 	}
 
@@ -557,11 +523,9 @@ public class EdgeImpl extends LinearElementImpl implements Edge {
 			case TemplatesPackage.EDGE__COLOR_CODE:
 				return getColorCode();
 			case TemplatesPackage.EDGE__SOURCE:
-				if (resolve) return getSource();
-				return basicGetSource();
+				return getSource();
 			case TemplatesPackage.EDGE__TARGET:
-				if (resolve) return getTarget();
-				return basicGetTarget();
+				return getTarget();
 			case TemplatesPackage.EDGE__PARENT_TEMPLATE:
 				return getParentTemplate();
 			case TemplatesPackage.EDGE__GUARD:

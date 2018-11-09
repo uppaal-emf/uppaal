@@ -49,7 +49,7 @@ public interface Edge extends LinearElement, CommentableElement, ColoredElement 
 	 * @see #setSource(Location)
 	 * @see org.muml.uppaal.templates.TemplatesPackage#getEdge_Source()
 	 * @see org.muml.uppaal.templates.Location#getOutgoingEdges
-	 * @model opposite="outgoingEdges" required="true"
+	 * @model opposite="outgoingEdges" resolveProxies="false" required="true"
 	 *        extendedMetaData="kind='attribute' name='source'"
 	 * @generated
 	 */
@@ -77,7 +77,7 @@ public interface Edge extends LinearElement, CommentableElement, ColoredElement 
 	 * @see #setTarget(Location)
 	 * @see org.muml.uppaal.templates.TemplatesPackage#getEdge_Target()
 	 * @see org.muml.uppaal.templates.Location#getIncomingEdges
-	 * @model opposite="incomingEdges" required="true"
+	 * @model opposite="incomingEdges" resolveProxies="false" required="true"
 	 *        extendedMetaData="kind='attribute' name='target'"
 	 * @generated
 	 */
