@@ -295,7 +295,7 @@
     <eClassifiers xsi:type="ecore:EClass" name="LocalDeclarations" eSuperTypes="#//declarations/Declarations">
       <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL">
         <details key="NoTemplateDeclarations" value="not self.declaration->exists(oclIsKindOf(system::TemplateDeclaration))"/>
-        <details key="NoChannelDeclarations" value="not self.declaration->exists(&#xD;&#xA;&#x9;oclIsKindOf(uppaal::declarations::TypedDeclaration)&#xD;&#xA;&#x9;and&#xD;&#xA;&#x9;let typeDefinition : uppaal::expressions::Expression = oclAsType(uppaal::declarations::TypedDeclaration).typeDefinition in&#xD;&#xA;&#x9;(&#xD;&#xA;&#x9;&#x9;&#xD;&#xA;&#x9;&#x9;typeDefinition.oclIsKindOf(uppaal::expressions::ChannelPrefixExpression)&#xD;&#xA;&#x9;&#x9;or&#xD;&#xA;&#x9;&#x9;(&#xD;&#xA;&#x9;&#x9;&#x9;typeDefinition.oclIsKindOf(uppaal::expressions::IdentifierExpression)&#xD;&#xA;&#x9;&#x9;&#x9;and&#xD;&#xA;&#x9;&#x9;&#x9;typeDefinition.oclAsType(uppaal::expressions::IdentifierExpression).identifier.oclIsKindOf(uppaal::types::Type)&#xD;&#xA;&#x9;&#x9;&#x9;and&#xD;&#xA;&#x9;&#x9;&#x9;typeDefinition.oclAsType(uppaal::expressions::IdentifierExpression).identifier.oclAsType(uppaal::types::Type).baseType=uppaal::types::BuiltInType::CHAN&#xD;&#xA;&#x9;&#x9;)&#xD;&#xA;&#x9;)&#xD;&#xA;)"/>
+        <details key="NoChannelDeclarations" value="not self.declaration->exists(d |&#xA;&#x9;d.oclIsKindOf(uppaal::declarations::TypedDeclaration)&#xA;&#x9;and&#xA;&#x9;let typeDefinition : uppaal::expressions::Expression = d.oclAsType(uppaal::declarations::TypedDeclaration).typeDefinition in&#xA;&#x9;(&#xA;&#x9;&#x9;&#xA;&#x9;&#x9;typeDefinition.oclIsKindOf(uppaal::expressions::ChannelPrefixExpression)&#xA;&#x9;&#x9;or&#xA;&#x9;&#x9;(&#xA;&#x9;&#x9;&#x9;typeDefinition.oclIsKindOf(uppaal::expressions::IdentifierExpression)&#xA;&#x9;&#x9;&#x9;and&#xA;&#x9;&#x9;&#x9;typeDefinition.oclAsType(uppaal::expressions::IdentifierExpression).identifier.oclIsKindOf(uppaal::types::Type)&#xA;&#x9;&#x9;&#x9;and&#xA;&#x9;&#x9;&#x9;typeDefinition.oclAsType(uppaal::expressions::IdentifierExpression).identifier.oclAsType(uppaal::types::Type).baseType=uppaal::types::BuiltInType::CHAN&#xA;&#x9;&#x9;)&#xA;&#x9;)&#xA;)"/>
       </eAnnotations>
       <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
         <details key="constraints" value="NoTemplateDeclarations NoChannelDeclarations"/>
@@ -794,13 +794,13 @@
         <details key="documentation" value="An edge connecting two locations inside a template."/>
       </eAnnotations>
       <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL">
-        <details key="UniqueParentTemplate" value="(not (self.source.oclIsUndefined() or self.target.oclIsUndefined()))&#xD;&#xA;implies&#xD;&#xA;self.source.parentTemplate = self.target.parentTemplate"/>
+        <details key="UniformParentTemplate" value="(not (self.source.oclIsUndefined() or self.target.oclIsUndefined()))&#xA;implies&#xA;self.source.parentTemplate = self.target.parentTemplate"/>
       </eAnnotations>
       <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
-        <details key="constraints" value="UniqueParentTemplate"/>
+        <details key="constraints" value="UniformParentTemplate"/>
       </eAnnotations>
       <eStructuralFeatures xsi:type="ecore:EReference" name="source" lowerBound="1"
-          eType="#//templates/Location" eOpposite="#//templates/Location/outgoingEdges">
+          eType="#//templates/Location" resolveProxies="false" eOpposite="#//templates/Location/outgoingEdges">
         <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
           <details key="kind" value="attribute"/>
           <details key="name" value="source"/>
@@ -810,7 +810,7 @@
         </eAnnotations>
       </eStructuralFeatures>
       <eStructuralFeatures xsi:type="ecore:EReference" name="target" lowerBound="1"
-          eType="#//templates/Location" eOpposite="#//templates/Location/incomingEdges">
+          eType="#//templates/Location" resolveProxies="false" eOpposite="#//templates/Location/incomingEdges">
         <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
           <details key="kind" value="attribute"/>
           <details key="name" value="target"/>

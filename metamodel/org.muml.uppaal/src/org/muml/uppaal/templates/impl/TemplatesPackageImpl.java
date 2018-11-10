@@ -690,7 +690,7 @@ public class TemplatesPackageImpl extends EPackageImpl implements TemplatesPacka
 		  (edgeEClass,
 		   source,
 		   new String[] {
-			   "constraints", "UniqueParentTemplate"
+			   "constraints", "UniformParentTemplate"
 		   });
 		addAnnotation
 		  (synchronizationEClass,
@@ -730,7 +730,7 @@ public class TemplatesPackageImpl extends EPackageImpl implements TemplatesPacka
 		  (edgeEClass,
 		   source,
 		   new String[] {
-			   "UniqueParentTemplate", "(not (self.source.oclIsUndefined() or self.target.oclIsUndefined()))\r\nimplies\r\nself.source.parentTemplate = self.target.parentTemplate"
+			   "UniformParentTemplate", "(not (self.source.oclIsUndefined() or self.target.oclIsUndefined()))\nimplies\nself.source.parentTemplate = self.target.parentTemplate"
 		   });
 		addAnnotation
 		  (synchronizationEClass,

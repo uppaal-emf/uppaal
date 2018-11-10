@@ -292,27 +292,27 @@ public class TemplatesValidator extends EObjectValidator {
 		if (result || diagnostics != null) result &= validate_UniqueID(edge, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryKeyUnique(edge, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(edge, diagnostics, context);
-		if (result || diagnostics != null) result &= validateEdge_UniqueParentTemplate(edge, diagnostics, context);
+		if (result || diagnostics != null) result &= validateEdge_UniformParentTemplate(edge, diagnostics, context);
 		return result;
 	}
 
 	/**
-	 * The cached validation expression for the UniqueParentTemplate constraint of '<em>Edge</em>'.
+	 * The cached validation expression for the UniformParentTemplate constraint of '<em>Edge</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected static final String EDGE__UNIQUE_PARENT_TEMPLATE__EEXPRESSION = "(not (self.source.oclIsUndefined() or self.target.oclIsUndefined()))\r\n" +
-		"implies\r\n" +
+	protected static final String EDGE__UNIFORM_PARENT_TEMPLATE__EEXPRESSION = "(not (self.source.oclIsUndefined() or self.target.oclIsUndefined()))\n" +
+		"implies\n" +
 		"self.source.parentTemplate = self.target.parentTemplate";
 
 	/**
-	 * Validates the UniqueParentTemplate constraint of '<em>Edge</em>'.
+	 * Validates the UniformParentTemplate constraint of '<em>Edge</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean validateEdge_UniqueParentTemplate(Edge edge, DiagnosticChain diagnostics, Map<Object, Object> context) {
+	public boolean validateEdge_UniformParentTemplate(Edge edge, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		return
 			validate
 				(TemplatesPackage.Literals.EDGE,
@@ -320,8 +320,8 @@ public class TemplatesValidator extends EObjectValidator {
 				 diagnostics,
 				 context,
 				 "http://www.eclipse.org/emf/2002/Ecore/OCL",
-				 "UniqueParentTemplate",
-				 EDGE__UNIQUE_PARENT_TEMPLATE__EEXPRESSION,
+				 "UniformParentTemplate",
+				 EDGE__UNIFORM_PARENT_TEMPLATE__EEXPRESSION,
 				 Diagnostic.ERROR,
 				 DIAGNOSTIC_SOURCE,
 				 0);

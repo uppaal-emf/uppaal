@@ -32,8 +32,8 @@ import org.muml.uppaal.visuals.LinearElement;
  *
  * @see org.muml.uppaal.templates.TemplatesPackage#getEdge()
  * @model extendedMetaData="name='Edge' kind='empty'"
- *        annotation="http://www.eclipse.org/emf/2002/Ecore/OCL UniqueParentTemplate='(not (self.source.oclIsUndefined() or self.target.oclIsUndefined()))\r\nimplies\r\nself.source.parentTemplate = self.target.parentTemplate'"
- *        annotation="http://www.eclipse.org/emf/2002/Ecore constraints='UniqueParentTemplate'"
+ *        annotation="http://www.eclipse.org/emf/2002/Ecore/OCL UniformParentTemplate='(not (self.source.oclIsUndefined() or self.target.oclIsUndefined()))\nimplies\nself.source.parentTemplate = self.target.parentTemplate'"
+ *        annotation="http://www.eclipse.org/emf/2002/Ecore constraints='UniformParentTemplate'"
  * @generated
  */
 public interface Edge extends LinearElement, CommentableElement, ColoredElement {

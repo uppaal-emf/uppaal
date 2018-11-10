@@ -334,22 +334,22 @@ public class DeclarationsValidator extends EObjectValidator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected static final String LOCAL_DECLARATIONS__NO_CHANNEL_DECLARATIONS__EEXPRESSION = "not self.declaration->exists(\r\n" +
-		"\toclIsKindOf(uppaal::declarations::TypedDeclaration)\r\n" +
-		"\tand\r\n" +
-		"\tlet typeDefinition : uppaal::expressions::Expression = oclAsType(uppaal::declarations::TypedDeclaration).typeDefinition in\r\n" +
-		"\t(\r\n" +
-		"\t\t\r\n" +
-		"\t\ttypeDefinition.oclIsKindOf(uppaal::expressions::ChannelPrefixExpression)\r\n" +
-		"\t\tor\r\n" +
-		"\t\t(\r\n" +
-		"\t\t\ttypeDefinition.oclIsKindOf(uppaal::expressions::IdentifierExpression)\r\n" +
-		"\t\t\tand\r\n" +
-		"\t\t\ttypeDefinition.oclAsType(uppaal::expressions::IdentifierExpression).identifier.oclIsKindOf(uppaal::types::Type)\r\n" +
-		"\t\t\tand\r\n" +
-		"\t\t\ttypeDefinition.oclAsType(uppaal::expressions::IdentifierExpression).identifier.oclAsType(uppaal::types::Type).baseType=uppaal::types::BuiltInType::CHAN\r\n" +
-		"\t\t)\r\n" +
-		"\t)\r\n" +
+	protected static final String LOCAL_DECLARATIONS__NO_CHANNEL_DECLARATIONS__EEXPRESSION = "not self.declaration->exists(d |\n" +
+		"\td.oclIsKindOf(uppaal::declarations::TypedDeclaration)\n" +
+		"\tand\n" +
+		"\tlet typeDefinition : uppaal::expressions::Expression = d.oclAsType(uppaal::declarations::TypedDeclaration).typeDefinition in\n" +
+		"\t(\n" +
+		"\t\t\n" +
+		"\t\ttypeDefinition.oclIsKindOf(uppaal::expressions::ChannelPrefixExpression)\n" +
+		"\t\tor\n" +
+		"\t\t(\n" +
+		"\t\t\ttypeDefinition.oclIsKindOf(uppaal::expressions::IdentifierExpression)\n" +
+		"\t\t\tand\n" +
+		"\t\t\ttypeDefinition.oclAsType(uppaal::expressions::IdentifierExpression).identifier.oclIsKindOf(uppaal::types::Type)\n" +
+		"\t\t\tand\n" +
+		"\t\t\ttypeDefinition.oclAsType(uppaal::expressions::IdentifierExpression).identifier.oclAsType(uppaal::types::Type).baseType=uppaal::types::BuiltInType::CHAN\n" +
+		"\t\t)\n" +
+		"\t)\n" +
 		")";
 
 	/**
