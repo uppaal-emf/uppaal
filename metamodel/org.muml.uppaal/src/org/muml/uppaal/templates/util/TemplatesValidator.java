@@ -11,6 +11,7 @@ import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.util.EObjectValidator;
 import org.muml.uppaal.core.util.CoreValidator;
 import org.muml.uppaal.declarations.util.DeclarationsValidator;
+import org.muml.uppaal.templates.*;
 import org.muml.uppaal.templates.AbstractTemplate;
 import org.muml.uppaal.templates.Edge;
 import org.muml.uppaal.templates.Location;

@@ -26,7 +26,7 @@ import org.muml.uppaal.types.TypeDefinition;
  * </ul>
  *
  * @see org.muml.uppaal.declarations.DeclarationsPackage#getFunction()
- * @model annotation="http://www.eclipse.org/emf/2002/Ecore/OCL ValidReturnType='(not returnType.oclIsUndefined())\r\nimplies\r\n(returnType.baseType = types::BuiltInType::VOID or\r\n returnType.baseType = types::BuiltInType::INT or\r\n returnType.baseType = types::BuiltInType::BOOL)' UniqueParameterNames='self.parameter->collect(variableDeclaration)->collect(variable)->isUnique(name)'"
+ * @model annotation="http://www.eclipse.org/emf/2002/Ecore/OCL ValidReturnType='(not returnType.oclIsUndefined())\r\nimplies\r\n(returnType.baseType = types::BuiltInType::VOID or\r\n returnType.baseType = types::BuiltInType::INT or\r\n returnType.baseType = types::BuiltInType::BOOL)' UniqueParameterNames='self.parameter-&gt;collect(variableDeclaration)-&gt;collect(variable)-&gt;isUnique(name)'"
  *        annotation="http://www.eclipse.org/emf/2002/Ecore constraints='ValidReturnType UniqueParameterNames'"
  * @generated
  */

@@ -328,7 +328,7 @@ public class VariableImpl extends NamedElementImpl implements Variable {
 			case DeclarationsPackage.VARIABLE__CONTAINER:
 				return getContainer() != null;
 			case DeclarationsPackage.VARIABLE__TYPE_DEFINITION:
-				return TYPE_DEFINITION__ESETTING_DELEGATE.dynamicIsSet(this, null, 0);
+				return false;
 			case DeclarationsPackage.VARIABLE__INITIALIZER:
 				return initializer != null;
 		}

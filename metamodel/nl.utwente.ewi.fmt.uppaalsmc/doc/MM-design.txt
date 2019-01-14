@@ -1,0 +1,96 @@
+Design of the Uppaal SMC metamodel
+==================================
+
+This document is intended to describe the design choices that resulted
+in the current metamodel of Uppaal SMC.
+
+Fundamentals
+------------
+
+The previous metamodel developed by the University of Paderborn (the
+Mechatronic UML project) does not support the SMC extension of Uppaal.
+Since our tools (notable the AFT metamodel for Attack-Fault Trees and
+the ATTop tool for attack trees) use Uppaal-SMC for analysis, it was
+natural to develop a metamodel supporting this.
+
+There are two basic options for developing this metamodel:
+- Extend the existing metamodel with the newly supported aspects of SMC.
+- Develop a new metamodel from scratch.
+
+Although the existing metamodel is by no means perfect (modelling very
+closely to the format of Uppaal, and being highly verbose in certain
+aspects), the large amount of work needed to design a new metamodel and
+change the existing codebases to use it motivated us to try to extend
+the existing metamodel first.
+
+The SMC metamodel is provided as a separate Eclipse project, to allow it
+to be used in other projects in the future.
+
+
+Additions in SMC
+----------------
+
+Uppaal-SMC extends the traditional Uppaal format in the following ways:
+
+- The introduction of a double-precision floating point type ('double')
+  that can be used in calculations and guards (in inequalities on
+  clocks).
+
+- The possibility to add an exponential rate to a location. If the
+  location does not have an invariant, an outgoing transition will occur
+  at a time governed by an exponential distribution determined by that
+  rate. If the location does have an invariant, the exponential rate is
+  ignored.
+
+- The introduction of chance nodes, which provide probabilistic
+  transitions. Upon taking a transition to a chance node, one of the
+  outgoing edges is taken with a probability proportional to its
+  (integer, nonnegative) weight. The outgoing edges can have selections
+  and updates, but no guards or synchronization. Guards and
+  synchronization are permitted on the edges leading to chance nodes,
+  although synchronizations may crash Uppaal.
+
+
+Extensions to the MetaModel
+---------------------------
+
+The double type is added to the type system by introducing a new class
+'DoubleType', subclassing the existing class 'Type'. The natural way for
+a double type to be included would have been an addition to the
+metamodel's BuiltinType enum with a value DOUBLE, but unfortunately it
+is not possible to extend this enum.
+
+All existing basic Uppaal types are instances of the class
+PredefinedType. Since the only purpose of this PredefinedType is to
+specify a values of the enum BuiltinType (which we won't have),
+DoubleType was chosen not to extend PredefinedType. Implementors must
+therefore use caution that, unlike in the previous metamodel, it is not
+the case that all types can eventually be reduced to one or more
+PredefinedTypes.
+
+The ExponentialLocation models a location with an exponential exit rate.
+Since the exit rate can be an arbitrary expression in Uppaal, it is also
+modeled as such in the MM. There is a restriction that the value of this
+expression may not be negative, but it is impossible to convey this
+requirement in general without either restricting the set of permitted
+expressions more than strictly needed, or analyzing the model to
+determine whether a given expression can become negative (which in
+undecidable in general).
+
+Uppaal allows locations to have both an exponential rate and an
+invariant. If the invariant bounds the remaining time that may be spent
+in the state (e.g. "x <= 5"), the exponential rate is ignored. If the
+invariant does not bound the remaining time (e.g. "x >= 5"), it is
+treated as a runtime asserting and causes an error if any run violates
+the constraint. If the delay of the exponential distribution expires but
+no outgoing transition is possible (due to guards or input
+synchronizations), no transition is taken and a new sample of the
+exponential distribution is drawn.
+
+Finally, we add the chance nodes (aka. branch points). Since these
+behave similar enough to locations (have edges to and from them),
+ChaceNode is a subclass of Location. Separate validation rules restrict
+them to have no invariants or abnormal time kinds (so no urgent or
+committed). The outgoing edges must be ChanceEdges with nonnegative
+weights attached to them. Again, separate constraints enforce that no
+guards or synchronizations may occur on these edges.

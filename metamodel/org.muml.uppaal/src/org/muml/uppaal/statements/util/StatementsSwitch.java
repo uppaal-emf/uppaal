@@ -6,6 +6,7 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.util.Switch;
 import org.muml.uppaal.declarations.VariableContainer;
+import org.muml.uppaal.statements.*;
 import org.muml.uppaal.statements.Block;
 import org.muml.uppaal.statements.DoWhileLoop;
 import org.muml.uppaal.statements.EmptyStatement;

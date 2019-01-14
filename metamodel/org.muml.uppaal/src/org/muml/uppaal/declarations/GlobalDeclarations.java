@@ -21,7 +21,7 @@ import org.muml.uppaal.declarations.global.ChannelPriority;
  * </ul>
  *
  * @see org.muml.uppaal.declarations.DeclarationsPackage#getGlobalDeclarations()
- * @model annotation="http://www.eclipse.org/emf/2002/Ecore/OCL NoTemplateDeclarations='not self.declaration->exists(oclIsKindOf(system::TemplateDeclaration))'"
+ * @model annotation="http://www.eclipse.org/emf/2002/Ecore/OCL NoTemplateDeclarations='not self.declaration-&gt;exists(oclIsKindOf(system::TemplateDeclaration))'"
  *        annotation="http://www.eclipse.org/emf/2002/Ecore constraints='NoTemplateDeclarations'"
  * @generated
  */

@@ -10,6 +10,7 @@ import org.eclipse.emf.common.util.ResourceLocator;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.util.EObjectValidator;
 import org.muml.uppaal.declarations.util.DeclarationsValidator;
+import org.muml.uppaal.expressions.*;
 import org.muml.uppaal.expressions.ArithmeticExpression;
 import org.muml.uppaal.expressions.ArithmeticOperator;
 import org.muml.uppaal.expressions.AssignmentExpression;

@@ -14,7 +14,7 @@ package org.muml.uppaal.declarations;
  *
  *
  * @see org.muml.uppaal.declarations.DeclarationsPackage#getLocalDeclarations()
- * @model annotation="http://www.eclipse.org/emf/2002/Ecore/OCL NoTemplateDeclarations='not self.declaration->exists(oclIsKindOf(system::TemplateDeclaration))' NoChannelDeclarations='not self.declaration->exists(oclIsKindOf(ChannelVariableDeclaration))'"
+ * @model annotation="http://www.eclipse.org/emf/2002/Ecore/OCL NoTemplateDeclarations='not self.declaration-&gt;exists(oclIsKindOf(system::TemplateDeclaration))' NoChannelDeclarations='not self.declaration-&gt;exists(oclIsKindOf(ChannelVariableDeclaration))'"
  *        annotation="http://www.eclipse.org/emf/2002/Ecore constraints='NoTemplateDeclarations NoChannelDeclarations'"
  * @generated
  */

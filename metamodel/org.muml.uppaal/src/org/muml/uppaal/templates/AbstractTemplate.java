@@ -25,7 +25,7 @@ import org.muml.uppaal.declarations.Parameter;
  *
  * @see org.muml.uppaal.templates.TemplatesPackage#getAbstractTemplate()
  * @model abstract="true"
- *        annotation="http://www.eclipse.org/emf/2002/Ecore/OCL UniqueParameterNames='self.parameter->collect(variableDeclaration)->collect(variable)->isUnique(name)'"
+ *        annotation="http://www.eclipse.org/emf/2002/Ecore/OCL UniqueParameterNames='self.parameter-&gt;collect(variableDeclaration)-&gt;collect(variable)-&gt;isUnique(name)'"
  *        annotation="http://www.eclipse.org/emf/2002/Ecore constraints='UniqueParameterNames'"
  * @generated
  */

@@ -7,6 +7,7 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.impl.EFactoryImpl;
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
+import org.muml.uppaal.core.*;
 import org.muml.uppaal.core.CoreFactory;
 import org.muml.uppaal.core.CorePackage;
 

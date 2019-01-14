@@ -38,7 +38,6 @@ public interface TypeDefinition extends EObject {
 	 * @see org.muml.uppaal.types.BuiltInType
 	 * @see org.muml.uppaal.types.TypesPackage#getTypeDefinition_BaseType()
 	 * @model transient="true" changeable="false" volatile="true" derived="true"
-	 *        annotation="http://www.eclipse.org/emf/2002/Ecore/OCL derivation='if self.oclIsKindOf(TypeReference)\r\nthen \r\n\tif self.oclAsType(TypeReference).referredType.oclIsUndefined()\r\n\tthen null\r\n\telse self.oclAsType(TypeReference).referredType.baseType\r\n\tendif\r\nelse \r\n\tif self.oclIsKindOf(ScalarTypeSpecification) or self.oclIsKindOf(RangeTypeSpecification)\r\n\tthen BuiltInType::INT\r\n\telse null\r\n\tendif\r\nendif'"
 	 * @generated
 	 */
 	BuiltInType getBaseType();
@@ -54,7 +53,6 @@ public interface TypeDefinition extends EObject {
 	 * @return the value of the '<em>Type Specification</em>' reference.
 	 * @see org.muml.uppaal.types.TypesPackage#getTypeDefinition_TypeSpecification()
 	 * @model transient="true" changeable="false" volatile="true" derived="true"
-	 *        annotation="http://www.eclipse.org/emf/2002/Ecore/OCL derivation='if (self.oclIsKindOf(TypeReference))\r\nthen self.oclAsType(TypeReference).referredType.typeSpecification\r\nelse\r\n\tif (self.oclIsKindOf(TypeSpecification))\r\n\tthen self.oclAsType(TypeSpecification)\r\n\telse null\r\n\tendif\r\nendif'"
 	 * @generated
 	 */
 	TypeSpecification getTypeSpecification();

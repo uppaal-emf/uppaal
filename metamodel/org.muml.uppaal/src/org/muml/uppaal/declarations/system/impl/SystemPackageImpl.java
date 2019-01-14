@@ -95,7 +95,7 @@ public class SystemPackageImpl extends EPackageImpl implements SystemPackage {
 
 	/**
 	 * Creates, registers, and initializes the <b>Package</b> for this model, and for any others upon which it depends.
-	 * 
+	 *
 	 * <p>This method is used to initialize {@link SystemPackage#eINSTANCE} when that field is accessed.
 	 * Clients should not invoke it directly. Instead, they should simply access that field to obtain the package.
 	 * <!-- begin-user-doc -->
@@ -109,20 +109,30 @@ public class SystemPackageImpl extends EPackageImpl implements SystemPackage {
 		if (isInited) return (SystemPackage)EPackage.Registry.INSTANCE.getEPackage(SystemPackage.eNS_URI);
 
 		// Obtain or create and register package
-		SystemPackageImpl theSystemPackage = (SystemPackageImpl)(EPackage.Registry.INSTANCE.get(eNS_URI) instanceof SystemPackageImpl ? EPackage.Registry.INSTANCE.get(eNS_URI) : new SystemPackageImpl());
+		Object registeredSystemPackage = EPackage.Registry.INSTANCE.get(eNS_URI);
+		SystemPackageImpl theSystemPackage = registeredSystemPackage instanceof SystemPackageImpl ? (SystemPackageImpl)registeredSystemPackage : new SystemPackageImpl();
 
 		isInited = true;
 
 		// Obtain or create and register interdependencies
-		UppaalPackageImpl theUppaalPackage = (UppaalPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(UppaalPackage.eNS_URI) instanceof UppaalPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(UppaalPackage.eNS_URI) : UppaalPackage.eINSTANCE);
-		CorePackageImpl theCorePackage = (CorePackageImpl)(EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI) instanceof CorePackageImpl ? EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI) : CorePackage.eINSTANCE);
-		TypesPackageImpl theTypesPackage = (TypesPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(TypesPackage.eNS_URI) instanceof TypesPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(TypesPackage.eNS_URI) : TypesPackage.eINSTANCE);
-		DeclarationsPackageImpl theDeclarationsPackage = (DeclarationsPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(DeclarationsPackage.eNS_URI) instanceof DeclarationsPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(DeclarationsPackage.eNS_URI) : DeclarationsPackage.eINSTANCE);
-		GlobalPackageImpl theGlobalPackage = (GlobalPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(GlobalPackage.eNS_URI) instanceof GlobalPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(GlobalPackage.eNS_URI) : GlobalPackage.eINSTANCE);
-		TemplatesPackageImpl theTemplatesPackage = (TemplatesPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(TemplatesPackage.eNS_URI) instanceof TemplatesPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(TemplatesPackage.eNS_URI) : TemplatesPackage.eINSTANCE);
-		StatementsPackageImpl theStatementsPackage = (StatementsPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(StatementsPackage.eNS_URI) instanceof StatementsPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(StatementsPackage.eNS_URI) : StatementsPackage.eINSTANCE);
-		ExpressionsPackageImpl theExpressionsPackage = (ExpressionsPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(ExpressionsPackage.eNS_URI) instanceof ExpressionsPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(ExpressionsPackage.eNS_URI) : ExpressionsPackage.eINSTANCE);
-		VisualsPackageImpl theVisualsPackage = (VisualsPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(VisualsPackage.eNS_URI) instanceof VisualsPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(VisualsPackage.eNS_URI) : VisualsPackage.eINSTANCE);
+		Object registeredPackage = EPackage.Registry.INSTANCE.getEPackage(UppaalPackage.eNS_URI);
+		UppaalPackageImpl theUppaalPackage = (UppaalPackageImpl)(registeredPackage instanceof UppaalPackageImpl ? registeredPackage : UppaalPackage.eINSTANCE);
+		registeredPackage = EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI);
+		CorePackageImpl theCorePackage = (CorePackageImpl)(registeredPackage instanceof CorePackageImpl ? registeredPackage : CorePackage.eINSTANCE);
+		registeredPackage = EPackage.Registry.INSTANCE.getEPackage(TypesPackage.eNS_URI);
+		TypesPackageImpl theTypesPackage = (TypesPackageImpl)(registeredPackage instanceof TypesPackageImpl ? registeredPackage : TypesPackage.eINSTANCE);
+		registeredPackage = EPackage.Registry.INSTANCE.getEPackage(DeclarationsPackage.eNS_URI);
+		DeclarationsPackageImpl theDeclarationsPackage = (DeclarationsPackageImpl)(registeredPackage instanceof DeclarationsPackageImpl ? registeredPackage : DeclarationsPackage.eINSTANCE);
+		registeredPackage = EPackage.Registry.INSTANCE.getEPackage(GlobalPackage.eNS_URI);
+		GlobalPackageImpl theGlobalPackage = (GlobalPackageImpl)(registeredPackage instanceof GlobalPackageImpl ? registeredPackage : GlobalPackage.eINSTANCE);
+		registeredPackage = EPackage.Registry.INSTANCE.getEPackage(TemplatesPackage.eNS_URI);
+		TemplatesPackageImpl theTemplatesPackage = (TemplatesPackageImpl)(registeredPackage instanceof TemplatesPackageImpl ? registeredPackage : TemplatesPackage.eINSTANCE);
+		registeredPackage = EPackage.Registry.INSTANCE.getEPackage(StatementsPackage.eNS_URI);
+		StatementsPackageImpl theStatementsPackage = (StatementsPackageImpl)(registeredPackage instanceof StatementsPackageImpl ? registeredPackage : StatementsPackage.eINSTANCE);
+		registeredPackage = EPackage.Registry.INSTANCE.getEPackage(ExpressionsPackage.eNS_URI);
+		ExpressionsPackageImpl theExpressionsPackage = (ExpressionsPackageImpl)(registeredPackage instanceof ExpressionsPackageImpl ? registeredPackage : ExpressionsPackage.eINSTANCE);
+		registeredPackage = EPackage.Registry.INSTANCE.getEPackage(VisualsPackage.eNS_URI);
+		VisualsPackageImpl theVisualsPackage = (VisualsPackageImpl)(registeredPackage instanceof VisualsPackageImpl ? registeredPackage : VisualsPackage.eINSTANCE);
 
 		// Create package meta-data objects
 		theSystemPackage.createPackageContents();
@@ -150,7 +160,7 @@ public class SystemPackageImpl extends EPackageImpl implements SystemPackage {
 
 		// Register package validator
 		EValidator.Registry.INSTANCE.put
-			(theSystemPackage, 
+			(theSystemPackage,
 			 new EValidator.Descriptor() {
 				 public EValidator getEValidator() {
 					 return SystemValidator.INSTANCE;
@@ -160,7 +170,6 @@ public class SystemPackageImpl extends EPackageImpl implements SystemPackage {
 		// Mark meta-data to indicate it can't be changed
 		theSystemPackage.freeze();
 
-  
 		// Update the registry and return the package
 		EPackage.Registry.INSTANCE.put(SystemPackage.eNS_URI, theSystemPackage);
 		return theSystemPackage;
@@ -354,32 +363,32 @@ public class SystemPackageImpl extends EPackageImpl implements SystemPackage {
 	 * @generated
 	 */
 	protected void createEcoreAnnotations() {
-		String source = "http://www.eclipse.org/emf/2002/Ecore";	
+		String source = "http://www.eclipse.org/emf/2002/Ecore";
 		addAnnotation
-		  (this, 
-		   source, 
+		  (this,
+		   source,
 		   new String[] {
-			 "invocationDelegates", "http://www.eclipse.org/emf/2002/Ecore/OCL",
-			 "settingDelegates", "http://www.eclipse.org/emf/2002/Ecore/OCL",
-			 "validationDelegates", "http://www.eclipse.org/emf/2002/Ecore/OCL"
-		   });	
+			   "invocationDelegates", "http://www.eclipse.org/emf/2002/Ecore/OCL",
+			   "settingDelegates", "http://www.eclipse.org/emf/2002/Ecore/OCL",
+			   "validationDelegates", "http://www.eclipse.org/emf/2002/Ecore/OCL"
+		   });
 		addAnnotation
-		  (templateDeclarationEClass, 
-		   source, 
+		  (templateDeclarationEClass,
+		   source,
 		   new String[] {
-			 "constraints", "NumberOfArgumentsMatchesDeclaration"
-		   });	
+			   "constraints", "NumberOfArgumentsMatchesDeclaration"
+		   });
 		addAnnotation
-		  (systemEClass, 
-		   source, 
+		  (systemEClass,
+		   source,
 		   new String[] {
-			 "constraints", "EachTemplateReferencedAtMostOnce"
-		   });	
+			   "constraints", "EachTemplateReferencedAtMostOnce"
+		   });
 		addAnnotation
-		  (instantiationListEClass, 
-		   source, 
+		  (instantiationListEClass,
+		   source,
 		   new String[] {
-			 "constraints", "OnlyLegalParamsForPartialInstantiation"
+			   "constraints", "OnlyLegalParamsForPartialInstantiation"
 		   });
 	}
 
@@ -390,24 +399,24 @@ public class SystemPackageImpl extends EPackageImpl implements SystemPackage {
 	 * @generated
 	 */
 	protected void createOCLAnnotations() {
-		String source = "http://www.eclipse.org/emf/2002/Ecore/OCL";	
+		String source = "http://www.eclipse.org/emf/2002/Ecore/OCL";
 		addAnnotation
-		  (templateDeclarationEClass, 
-		   source, 
+		  (templateDeclarationEClass,
+		   source,
 		   new String[] {
-			 "NumberOfArgumentsMatchesDeclaration", "(not self.declaredTemplate.oclIsUndefined() and not self.declaredTemplate.referredTemplate.oclIsUndefined())\r\nimplies\r\nself.argument->size() = self.declaredTemplate.referredTemplate.parameter->size()"
-		   });	
+			   "NumberOfArgumentsMatchesDeclaration", "(not self.declaredTemplate.oclIsUndefined() and not self.declaredTemplate.referredTemplate.oclIsUndefined())\r\nimplies\r\nself.argument->size() = self.declaredTemplate.referredTemplate.parameter->size()"
+		   });
 		addAnnotation
-		  (systemEClass, 
-		   source, 
+		  (systemEClass,
+		   source,
 		   new String[] {
-			 "EachTemplateReferencedAtMostOnce", "self.instantiationList->collect(template)->isUnique(t : templates::AbstractTemplate | t)"
-		   });	
+			   "EachTemplateReferencedAtMostOnce", "self.instantiationList->collect(template)->isUnique(t : templates::AbstractTemplate | t)"
+		   });
 		addAnnotation
-		  (instantiationListEClass, 
-		   source, 
+		  (instantiationListEClass,
+		   source,
 		   new String[] {
-			 "OnlyLegalParamsForPartialInstantiation", "self.template->forAll(\r\n\tparameter->forAll(\r\n\t\tcallType = declarations::CallType::CALL_BY_VALUE\r\n\t\tand\r\n\t\t((not variableDeclaration.oclIsUndefined())\r\n\t\t\timplies\r\n\t\t (variableDeclaration.typeDefinition.typeSpecification.oclIsKindOf(types::RangeTypeSpecification) or\r\n\t\t  variableDeclaration.typeDefinition.typeSpecification.oclIsKindOf(types::ScalarTypeSpecification)))\r\n\t)\r\n)"
+			   "OnlyLegalParamsForPartialInstantiation", "self.template->forAll(\r\n\tparameter->forAll(\r\n\t\tcallType = declarations::CallType::CALL_BY_VALUE\r\n\t\tand\r\n\t\t((not variableDeclaration.oclIsUndefined())\r\n\t\t\timplies\r\n\t\t (variableDeclaration.typeDefinition.typeSpecification.oclIsKindOf(types::RangeTypeSpecification) or\r\n\t\t  variableDeclaration.typeDefinition.typeSpecification.oclIsKindOf(types::ScalarTypeSpecification)))\r\n\t)\r\n)"
 		   });
 	}
 
@@ -418,13 +427,13 @@ public class SystemPackageImpl extends EPackageImpl implements SystemPackage {
 	 * @generated
 	 */
 	protected void createExtendedMetaDataAnnotations() {
-		String source = "http:///org/eclipse/emf/ecore/util/ExtendedMetaData";	
+		String source = "http:///org/eclipse/emf/ecore/util/ExtendedMetaData";
 		addAnnotation
-		  (systemEClass, 
-		   source, 
+		  (systemEClass,
+		   source,
 		   new String[] {
-			 "name", "System",
-			 "kind", "elementOnly"
+			   "name", "System",
+			   "kind", "elementOnly"
 		   });
 	}
 

@@ -20,7 +20,7 @@ package org.muml.uppaal.declarations;
  * </ul>
  *
  * @see org.muml.uppaal.declarations.DeclarationsPackage#getDataVariableDeclaration()
- * @model annotation="http://www.eclipse.org/emf/2002/Ecore/OCL MatchingType='(not self.typeDefinition.oclIsUndefined())\r\nimplies\r\n(self.typeDefinition.baseType <> types::BuiltInType::CHAN\r\nand\r\nself.typeDefinition.baseType <> types::BuiltInType::CLOCK)'"
+ * @model annotation="http://www.eclipse.org/emf/2002/Ecore/OCL MatchingType='(not self.typeDefinition.oclIsUndefined())\r\nimplies\r\n(self.typeDefinition.baseType &lt;&gt; types::BuiltInType::CHAN\r\nand\r\nself.typeDefinition.baseType &lt;&gt; types::BuiltInType::CLOCK)'"
  *        annotation="http://www.eclipse.org/emf/2002/Ecore constraints='MatchingType'"
  * @generated
  */

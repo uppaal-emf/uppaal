@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/nl.utwente.ewi.fmt.uppaalsmc/src" modelPluginID="nl.utwente.ewi.fmt.uppaalsmc"
+    templateDirectory="" modelName="UppaalSMC" modelPluginClass="" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
+    rootImplementsInterface="" importerID="org.eclipse.emf.importer.ecore" complianceLevel="8.0"
+    copyrightFields="false" usedGenPackages="../../org.muml.uppaal/model/uppaal.genmodel#//uppaal"
+    importOrganizing="true">
+  <foreignModel>uppaalSMC.ecore</foreignModel>
+  <genPackages prefix="UppaalSMC" basePackage="nl.utwente.ewi.fmt" resource="XML"
+      disposableProviderFactory="true" ecorePackage="uppaalSMC.ecore#/" publicationLocation="">
+    <genClasses ecoreClass="uppaalSMC.ecore#//NSTA">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference uppaalSMC.ecore#//NSTA/double"/>
+    </genClasses>
+    <genClasses ecoreClass="uppaalSMC.ecore#//DoubleType"/>
+    <genClasses ecoreClass="uppaalSMC.ecore#//ChanceNode"/>
+    <genClasses ecoreClass="uppaalSMC.ecore#//ChanceEdge">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute uppaalSMC.ecore#//ChanceEdge/weight"/>
+    </genClasses>
+    <genClasses ecoreClass="uppaalSMC.ecore#//ExponentialLocation">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference uppaalSMC.ecore#//ExponentialLocation/exitRate"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>

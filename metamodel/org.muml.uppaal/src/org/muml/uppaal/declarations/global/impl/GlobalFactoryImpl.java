@@ -7,6 +7,7 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.impl.EFactoryImpl;
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
+import org.muml.uppaal.declarations.global.*;
 import org.muml.uppaal.declarations.global.ChannelList;
 import org.muml.uppaal.declarations.global.ChannelPriority;
 import org.muml.uppaal.declarations.global.DefaultChannelPriority;

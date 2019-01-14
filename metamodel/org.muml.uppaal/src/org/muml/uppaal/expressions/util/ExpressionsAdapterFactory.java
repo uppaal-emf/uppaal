@@ -7,6 +7,7 @@ import org.eclipse.emf.common.notify.Notifier;
 import org.eclipse.emf.common.notify.impl.AdapterFactoryImpl;
 import org.eclipse.emf.ecore.EObject;
 import org.muml.uppaal.declarations.VariableContainer;
+import org.muml.uppaal.expressions.*;
 import org.muml.uppaal.expressions.ArithmeticExpression;
 import org.muml.uppaal.expressions.AssignmentExpression;
 import org.muml.uppaal.expressions.BinaryExpression;

@@ -60,7 +60,7 @@ public enum BitwiseOperator implements Enumerator {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @see #AND
-	 * @model literal="&"
+	 * @model literal="&amp;"
 	 * @generated
 	 * @ordered
 	 */

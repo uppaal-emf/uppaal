@@ -25,7 +25,7 @@ import org.muml.uppaal.types.TypeDefinition;
  *
  * @see org.muml.uppaal.declarations.DeclarationsPackage#getVariableContainer()
  * @model abstract="true"
- *        annotation="http://www.eclipse.org/emf/2002/Ecore/OCL NoVoidVariables='(not self.typeDefinition.oclIsUndefined())\r\nimplies\r\nself.typeDefinition.baseType <> types::BuiltInType::VOID' UniqueVariableNames='self.variable->isUnique(name)'"
+ *        annotation="http://www.eclipse.org/emf/2002/Ecore/OCL NoVoidVariables='(not self.typeDefinition.oclIsUndefined())\r\nimplies\r\nself.typeDefinition.baseType &lt;&gt; types::BuiltInType::VOID' UniqueVariableNames='self.variable-&gt;isUnique(name)'"
  *        annotation="http://www.eclipse.org/emf/2002/Ecore constraints='NoVoidVariables UniqueVariableNames'"
  * @generated
  */

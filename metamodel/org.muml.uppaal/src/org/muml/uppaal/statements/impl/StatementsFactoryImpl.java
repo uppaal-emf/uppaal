@@ -7,6 +7,7 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.impl.EFactoryImpl;
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
+import org.muml.uppaal.statements.*;
 import org.muml.uppaal.statements.Block;
 import org.muml.uppaal.statements.DoWhileLoop;
 import org.muml.uppaal.statements.EmptyStatement;

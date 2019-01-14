@@ -31,16 +31,6 @@ import org.muml.uppaal.types.TypesPackage;
  */
 public class DeclaredTypeImpl extends TypeImpl implements DeclaredType {
 	/**
-	 * The cached setting delegate for the '{@link #getTypeDefinition() <em>Type Definition</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getTypeDefinition()
-	 * @generated
-	 * @ordered
-	 */
-	protected EStructuralFeature.Internal.SettingDelegate TYPE_DEFINITION__ESETTING_DELEGATE = ((EStructuralFeature.Internal)TypesPackage.Literals.DECLARED_TYPE__TYPE_DEFINITION).getSettingDelegate();
-
-	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -106,7 +96,8 @@ public class DeclaredTypeImpl extends TypeImpl implements DeclaredType {
 	 * @generated
 	 */
 	public TypeDefinition getTypeDefinition() {
-		return (TypeDefinition)TYPE_DEFINITION__ESETTING_DELEGATE.dynamicGet(this, null, 0, true, false);
+		TypeDefinition typeDefinition = basicGetTypeDefinition();
+		return typeDefinition != null && typeDefinition.eIsProxy() ? (TypeDefinition)eResolveProxy((InternalEObject)typeDefinition) : typeDefinition;
 	}
 
 	/**
@@ -115,7 +106,10 @@ public class DeclaredTypeImpl extends TypeImpl implements DeclaredType {
 	 * @generated
 	 */
 	public TypeDefinition basicGetTypeDefinition() {
-		return (TypeDefinition)TYPE_DEFINITION__ESETTING_DELEGATE.dynamicGet(this, null, 0, false, false);
+		// TODO: implement this method to return the 'Type Definition' reference
+		// -> do not perform proxy resolution
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
 	}
 
 	/**
@@ -220,7 +214,7 @@ public class DeclaredTypeImpl extends TypeImpl implements DeclaredType {
 			case TypesPackage.DECLARED_TYPE__TYPE_DECLARATION:
 				return getTypeDeclaration() != null;
 			case TypesPackage.DECLARED_TYPE__TYPE_DEFINITION:
-				return TYPE_DEFINITION__ESETTING_DELEGATE.dynamicIsSet(this, null, 0);
+				return basicGetTypeDefinition() != null;
 		}
 		return super.eIsSet(featureID);
 	}

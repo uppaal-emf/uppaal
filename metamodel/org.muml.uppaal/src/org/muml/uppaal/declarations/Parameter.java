@@ -22,7 +22,7 @@ import org.eclipse.emf.ecore.EObject;
  * </ul>
  *
  * @see org.muml.uppaal.declarations.DeclarationsPackage#getParameter()
- * @model annotation="http://www.eclipse.org/emf/2002/Ecore/OCL SingleVariable='(not self.variableDeclaration.oclIsUndefined())\r\nimplies\r\nself.variableDeclaration.variable->size() <= 1'"
+ * @model annotation="http://www.eclipse.org/emf/2002/Ecore/OCL SingleVariable='(not self.variableDeclaration.oclIsUndefined())\r\nimplies\r\nself.variableDeclaration.variable-&gt;size() &lt;= 1'"
  *        annotation="http://www.eclipse.org/emf/2002/Ecore constraints='SingleVariable'"
  * @generated
  */

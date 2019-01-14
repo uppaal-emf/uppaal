@@ -23,7 +23,7 @@ import org.muml.uppaal.templates.AbstractTemplate;
  * </ul>
  *
  * @see org.muml.uppaal.declarations.system.SystemPackage#getInstantiationList()
- * @model annotation="http://www.eclipse.org/emf/2002/Ecore/OCL OnlyLegalParamsForPartialInstantiation='self.template->forAll(\r\n\tparameter->forAll(\r\n\t\tcallType = declarations::CallType::CALL_BY_VALUE\r\n\t\tand\r\n\t\t((not variableDeclaration.oclIsUndefined())\r\n\t\t\timplies\r\n\t\t (variableDeclaration.typeDefinition.typeSpecification.oclIsKindOf(types::RangeTypeSpecification) or\r\n\t\t  variableDeclaration.typeDefinition.typeSpecification.oclIsKindOf(types::ScalarTypeSpecification)))\r\n\t)\r\n)'"
+ * @model annotation="http://www.eclipse.org/emf/2002/Ecore/OCL OnlyLegalParamsForPartialInstantiation='self.template-&gt;forAll(\r\n\tparameter-&gt;forAll(\r\n\t\tcallType = declarations::CallType::CALL_BY_VALUE\r\n\t\tand\r\n\t\t((not variableDeclaration.oclIsUndefined())\r\n\t\t\timplies\r\n\t\t (variableDeclaration.typeDefinition.typeSpecification.oclIsKindOf(types::RangeTypeSpecification) or\r\n\t\t  variableDeclaration.typeDefinition.typeSpecification.oclIsKindOf(types::ScalarTypeSpecification)))\r\n\t)\r\n)'"
  *        annotation="http://www.eclipse.org/emf/2002/Ecore constraints='OnlyLegalParamsForPartialInstantiation'"
  * @generated
  */

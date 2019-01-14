@@ -5,6 +5,7 @@ package org.muml.uppaal.visuals.util;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.util.Switch;
+import org.muml.uppaal.visuals.*;
 import org.muml.uppaal.visuals.ColoredElement;
 import org.muml.uppaal.visuals.LinearElement;
 import org.muml.uppaal.visuals.PlanarElement;

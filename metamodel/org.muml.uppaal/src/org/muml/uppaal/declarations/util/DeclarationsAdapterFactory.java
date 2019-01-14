@@ -7,6 +7,7 @@ import org.eclipse.emf.common.notify.Notifier;
 import org.eclipse.emf.common.notify.impl.AdapterFactoryImpl;
 import org.eclipse.emf.ecore.EObject;
 import org.muml.uppaal.core.NamedElement;
+import org.muml.uppaal.declarations.*;
 import org.muml.uppaal.declarations.ArrayInitializer;
 import org.muml.uppaal.declarations.ChannelVariableDeclaration;
 import org.muml.uppaal.declarations.ClockVariableDeclaration;

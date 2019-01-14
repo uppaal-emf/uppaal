@@ -24,7 +24,7 @@ import org.eclipse.emf.ecore.EObject;
  * @see org.muml.uppaal.declarations.DeclarationsPackage#getDeclarations()
  * @model abstract="true"
  *        extendedMetaData="name='Declarations' kind='elementOnly'"
- *        annotation="http://www.eclipse.org/emf/2002/Ecore/OCL UniqueFunctionNames='self.declaration->select(oclIsKindOf(FunctionDeclaration)).oclAsType(FunctionDeclaration)->collect(function)->isUnique(name)' UniqueVariableNames='self.declaration->select(oclIsKindOf(VariableDeclaration)).oclAsType(VariableDeclaration)->collect(variable)->isUnique(name)' UniqueTypeNames='self.declaration->select(oclIsKindOf(TypeDeclaration)).oclAsType(TypeDeclaration)->collect(type)->isUnique(name)'"
+ *        annotation="http://www.eclipse.org/emf/2002/Ecore/OCL UniqueFunctionNames='self.declaration-&gt;select(oclIsKindOf(FunctionDeclaration)).oclAsType(FunctionDeclaration)-&gt;collect(function)-&gt;isUnique(name)' UniqueVariableNames='self.declaration-&gt;select(oclIsKindOf(VariableDeclaration)).oclAsType(VariableDeclaration)-&gt;collect(variable)-&gt;isUnique(name)' UniqueTypeNames='self.declaration-&gt;select(oclIsKindOf(TypeDeclaration)).oclAsType(TypeDeclaration)-&gt;collect(type)-&gt;isUnique(name)'"
  *        annotation="http://www.eclipse.org/emf/2002/Ecore constraints='UniqueFunctionNames UniqueVariableNames UniqueTypeNames'"
  * @generated
  */

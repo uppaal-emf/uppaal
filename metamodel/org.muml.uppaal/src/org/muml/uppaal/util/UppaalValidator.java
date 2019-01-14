@@ -9,6 +9,7 @@ import org.eclipse.emf.common.util.DiagnosticChain;
 import org.eclipse.emf.common.util.ResourceLocator;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.util.EObjectValidator;
+import org.muml.uppaal.*;
 import org.muml.uppaal.NTA;
 import org.muml.uppaal.UppaalPackage;
 import org.muml.uppaal.core.util.CoreValidator;
