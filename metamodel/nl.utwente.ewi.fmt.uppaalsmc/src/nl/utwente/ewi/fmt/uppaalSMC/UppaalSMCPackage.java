@@ -44,7 +44,7 @@ public interface UppaalSMCPackage extends EPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	String eNS_URI = "http://fmt.ewi.utwente.nl/FMT/AFTModel/uppaalSMC";
+	String eNS_URI = "http://fmt.ewi.utwente.nl/uppaalSMC";
 
 	/**
 	 * The package namespace name.

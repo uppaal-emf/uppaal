@@ -22,7 +22,7 @@ import org.eclipse.emf.ecore.EObject;
  *
  * @see org.muml.uppaal.core.CorePackage#getNamedElement()
  * @model abstract="true"
- *        annotation="http://www.eclipse.org/emf/2002/Ecore/OCL NoWhitespace='self.name.characters()->excludes(\' \')' NoDigitStart='Set{0..9}->excludes(self.name.characters()->first())'"
+ *        annotation="http://www.eclipse.org/emf/2002/Ecore/OCL NoWhitespace='self.name.characters()-&gt;excludes(\' \')' NoDigitStart='Set{0..9}-&gt;excludes(self.name.characters()-&gt;first())'"
  *        annotation="http://www.eclipse.org/emf/2002/Ecore constraints='NoWhitespace NoDigitStart'"
  * @generated
  */

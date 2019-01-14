@@ -8,6 +8,7 @@ import org.eclipse.emf.ecore.util.Switch;
 import org.muml.uppaal.core.CommentableElement;
 import org.muml.uppaal.core.NamedElement;
 import org.muml.uppaal.declarations.VariableContainer;
+import org.muml.uppaal.templates.*;
 import org.muml.uppaal.templates.AbstractTemplate;
 import org.muml.uppaal.templates.Edge;
 import org.muml.uppaal.templates.Location;

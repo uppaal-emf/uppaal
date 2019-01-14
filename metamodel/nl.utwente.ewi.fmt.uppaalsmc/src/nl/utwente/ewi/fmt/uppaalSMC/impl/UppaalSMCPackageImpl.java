@@ -94,7 +94,7 @@ public class UppaalSMCPackageImpl extends EPackageImpl implements UppaalSMCPacka
 
 	/**
 	 * Creates, registers, and initializes the <b>Package</b> for this model, and for any others upon which it depends.
-	 * 
+	 *
 	 * <p>This method is used to initialize {@link UppaalSMCPackage#eINSTANCE} when that field is accessed.
 	 * Clients should not invoke it directly. Instead, they should simply access that field to obtain the package.
 	 * <!-- begin-user-doc -->
@@ -108,7 +108,8 @@ public class UppaalSMCPackageImpl extends EPackageImpl implements UppaalSMCPacka
 		if (isInited) return (UppaalSMCPackage)EPackage.Registry.INSTANCE.getEPackage(UppaalSMCPackage.eNS_URI);
 
 		// Obtain or create and register package
-		UppaalSMCPackageImpl theUppaalSMCPackage = (UppaalSMCPackageImpl)(EPackage.Registry.INSTANCE.get(eNS_URI) instanceof UppaalSMCPackageImpl ? EPackage.Registry.INSTANCE.get(eNS_URI) : new UppaalSMCPackageImpl());
+		Object registeredUppaalSMCPackage = EPackage.Registry.INSTANCE.get(eNS_URI);
+		UppaalSMCPackageImpl theUppaalSMCPackage = registeredUppaalSMCPackage instanceof UppaalSMCPackageImpl ? (UppaalSMCPackageImpl)registeredUppaalSMCPackage : new UppaalSMCPackageImpl();
 
 		isInited = true;
 
@@ -124,7 +125,6 @@ public class UppaalSMCPackageImpl extends EPackageImpl implements UppaalSMCPacka
 		// Mark meta-data to indicate it can't be changed
 		theUppaalSMCPackage.freeze();
 
-  
 		// Update the registry and return the package
 		EPackage.Registry.INSTANCE.put(UppaalSMCPackage.eNS_URI, theUppaalSMCPackage);
 		return theUppaalSMCPackage;

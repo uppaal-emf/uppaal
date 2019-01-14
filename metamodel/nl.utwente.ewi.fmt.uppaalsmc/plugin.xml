@@ -9,7 +9,7 @@
    <extension point="org.eclipse.emf.ecore.generated_package">
       <!-- @generated uppaalSMC -->
       <package
-            uri="http://fmt.ewi.utwente.nl/FMT/AFTModel/uppaalSMC"
+            uri="http://fmt.ewi.utwente.nl/uppaalSMC"
             class="nl.utwente.ewi.fmt.uppaalSMC.UppaalSMCPackage"
             genModel="model/uppaalSMC.genmodel"/>
    </extension>

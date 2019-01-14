@@ -24,7 +24,7 @@ import org.muml.uppaal.types.TypeDefinition;
  * </ul>
  *
  * @see org.muml.uppaal.declarations.DeclarationsPackage#getTypeDeclaration()
- * @model annotation="http://www.eclipse.org/emf/2002/Ecore/OCL UniqueTypeNames='self.type->isUnique(name)'"
+ * @model annotation="http://www.eclipse.org/emf/2002/Ecore/OCL UniqueTypeNames='self.type-&gt;isUnique(name)'"
  *        annotation="http://www.eclipse.org/emf/2002/Ecore constraints='UniqueTypeNames'"
  * @generated
  */

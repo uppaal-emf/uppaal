@@ -22,7 +22,7 @@ import org.muml.uppaal.declarations.DataVariableDeclaration;
  * </ul>
  *
  * @see org.muml.uppaal.types.TypesPackage#getStructTypeSpecification()
- * @model annotation="http://www.eclipse.org/emf/2002/Ecore/OCL UniqueFieldNames='self.declaration->collect(variable)->isUnique(name)'"
+ * @model annotation="http://www.eclipse.org/emf/2002/Ecore/OCL UniqueFieldNames='self.declaration-&gt;collect(variable)-&gt;isUnique(name)'"
  *        annotation="http://www.eclipse.org/emf/2002/Ecore constraints='UniqueFieldNames'"
  * @generated
  */

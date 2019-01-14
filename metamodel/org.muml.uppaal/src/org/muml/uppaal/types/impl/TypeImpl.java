@@ -45,24 +45,14 @@ public abstract class TypeImpl extends NamedElementImpl implements Type {
 	protected EList<Index> index;
 
 	/**
-	 * The cached setting delegate for the '{@link #getBaseType() <em>Base Type</em>}' attribute.
+	 * The default value of the '{@link #getBaseType() <em>Base Type</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getBaseType()
 	 * @generated
 	 * @ordered
 	 */
-	protected EStructuralFeature.Internal.SettingDelegate BASE_TYPE__ESETTING_DELEGATE = ((EStructuralFeature.Internal)TypesPackage.Literals.TYPE__BASE_TYPE).getSettingDelegate();
-
-	/**
-	 * The cached setting delegate for the '{@link #getTypeSpecification() <em>Type Specification</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getTypeSpecification()
-	 * @generated
-	 * @ordered
-	 */
-	protected EStructuralFeature.Internal.SettingDelegate TYPE_SPECIFICATION__ESETTING_DELEGATE = ((EStructuralFeature.Internal)TypesPackage.Literals.TYPE__TYPE_SPECIFICATION).getSettingDelegate();
+	protected static final BuiltInType BASE_TYPE_EDEFAULT = BuiltInType.INT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -101,7 +91,9 @@ public abstract class TypeImpl extends NamedElementImpl implements Type {
 	 * @generated
 	 */
 	public BuiltInType getBaseType() {
-		return (BuiltInType)BASE_TYPE__ESETTING_DELEGATE.dynamicGet(this, null, 0, true, false);
+		// TODO: implement this method to return the 'Base Type' attribute
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
 	}
 
 	/**
@@ -110,16 +102,17 @@ public abstract class TypeImpl extends NamedElementImpl implements Type {
 	 * @generated
 	 */
 	public TypeSpecification getTypeSpecification() {
-		return (TypeSpecification)TYPE_SPECIFICATION__ESETTING_DELEGATE.dynamicGet(this, null, 0, true, false);
+		TypeSpecification typeSpecification = basicGetTypeSpecification();
+		return typeSpecification != null && typeSpecification.eIsProxy() ? (TypeSpecification)eResolveProxy((InternalEObject)typeSpecification) : typeSpecification;
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
+	 * ER: Don't know if this is correct.
 	 * <!-- end-user-doc -->
-	 * @generated
 	 */
 	public TypeSpecification basicGetTypeSpecification() {
-		return (TypeSpecification)TYPE_SPECIFICATION__ESETTING_DELEGATE.dynamicGet(this, null, 0, false, false);
+		return null;
 	}
 
 	/**
@@ -198,9 +191,9 @@ public abstract class TypeImpl extends NamedElementImpl implements Type {
 			case TypesPackage.TYPE__INDEX:
 				return index != null && !index.isEmpty();
 			case TypesPackage.TYPE__BASE_TYPE:
-				return BASE_TYPE__ESETTING_DELEGATE.dynamicIsSet(this, null, 0);
+				return getBaseType() != BASE_TYPE_EDEFAULT;
 			case TypesPackage.TYPE__TYPE_SPECIFICATION:
-				return TYPE_SPECIFICATION__ESETTING_DELEGATE.dynamicIsSet(this, null, 0);
+				return basicGetTypeSpecification() != null;
 		}
 		return super.eIsSet(featureID);
 	}

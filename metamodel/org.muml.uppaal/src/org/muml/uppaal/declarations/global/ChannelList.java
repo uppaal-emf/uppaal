@@ -22,7 +22,7 @@ import org.muml.uppaal.expressions.IdentifierExpression;
  * </ul>
  *
  * @see org.muml.uppaal.declarations.global.GlobalPackage#getChannelList()
- * @model annotation="http://www.eclipse.org/emf/2002/Ecore/OCL ChannelVariablesOnly='self.channelExpression->forAll(\r\n\t(not identifier.typeDefinition.oclIsUndefined()) implies identifier.typeDefinition.baseType = types::BuiltInType::CHAN\r\n)'"
+ * @model annotation="http://www.eclipse.org/emf/2002/Ecore/OCL ChannelVariablesOnly='self.channelExpression-&gt;forAll(\r\n\t(not identifier.typeDefinition.oclIsUndefined()) implies identifier.typeDefinition.baseType = types::BuiltInType::CHAN\r\n)'"
  *        annotation="http://www.eclipse.org/emf/2002/Ecore constraints='ChannelVariablesOnly'"
  * @generated
  */

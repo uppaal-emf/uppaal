@@ -22,7 +22,7 @@ import org.muml.uppaal.declarations.system.ProgressMeasure;
  * </ul>
  *
  * @see org.muml.uppaal.declarations.DeclarationsPackage#getSystemDeclarations()
- * @model annotation="http://www.eclipse.org/emf/2002/Ecore/OCL UniqueTemplateNames='self.declaration->select(oclIsKindOf(system::TemplateDeclaration)).oclAsType(system::TemplateDeclaration)->collect(declaredTemplate)->isUnique(name)' NoChannelDeclarations='not self.declaration->exists(oclIsKindOf(ChannelVariableDeclaration))'"
+ * @model annotation="http://www.eclipse.org/emf/2002/Ecore/OCL UniqueTemplateNames='self.declaration-&gt;select(oclIsKindOf(system::TemplateDeclaration)).oclAsType(system::TemplateDeclaration)-&gt;collect(declaredTemplate)-&gt;isUnique(name)' NoChannelDeclarations='not self.declaration-&gt;exists(oclIsKindOf(ChannelVariableDeclaration))'"
  *        annotation="http://www.eclipse.org/emf/2002/Ecore constraints='UniqueTemplateNames NoChannelDeclarations'"
  * @generated
  */

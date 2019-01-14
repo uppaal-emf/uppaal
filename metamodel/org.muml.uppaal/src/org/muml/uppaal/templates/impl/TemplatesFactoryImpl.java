@@ -8,6 +8,7 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.impl.EFactoryImpl;
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
+import org.muml.uppaal.templates.*;
 import org.muml.uppaal.templates.Edge;
 import org.muml.uppaal.templates.Location;
 import org.muml.uppaal.templates.LocationKind;

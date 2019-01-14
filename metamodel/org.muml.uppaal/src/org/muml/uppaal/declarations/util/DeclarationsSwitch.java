@@ -6,6 +6,7 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.util.Switch;
 import org.muml.uppaal.core.NamedElement;
+import org.muml.uppaal.declarations.*;
 import org.muml.uppaal.declarations.ArrayInitializer;
 import org.muml.uppaal.declarations.ChannelVariableDeclaration;
 import org.muml.uppaal.declarations.ClockVariableDeclaration;

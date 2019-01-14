@@ -23,7 +23,7 @@ import org.muml.uppaal.declarations.LocalDeclarations;
  * </ul>
  *
  * @see org.muml.uppaal.statements.StatementsPackage#getBlock()
- * @model annotation="http://www.eclipse.org/emf/2002/Ecore/OCL DataVariableDeclarationsOnly='(not self.declarations.oclIsUndefined())\r\nimplies\r\n(self.declarations.declaration->forAll(oclIsKindOf(declarations::DataVariableDeclaration)))'"
+ * @model annotation="http://www.eclipse.org/emf/2002/Ecore/OCL DataVariableDeclarationsOnly='(not self.declarations.oclIsUndefined())\r\nimplies\r\n(self.declarations.declaration-&gt;forAll(oclIsKindOf(declarations::DataVariableDeclaration)))'"
  *        annotation="http://www.eclipse.org/emf/2002/Ecore constraints='DataVariableDeclarationsOnly'"
  * @generated
  */

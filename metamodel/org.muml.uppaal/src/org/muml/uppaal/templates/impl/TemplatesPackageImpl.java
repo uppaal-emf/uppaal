@@ -138,7 +138,7 @@ public class TemplatesPackageImpl extends EPackageImpl implements TemplatesPacka
 
 	/**
 	 * Creates, registers, and initializes the <b>Package</b> for this model, and for any others upon which it depends.
-	 * 
+	 *
 	 * <p>This method is used to initialize {@link TemplatesPackage#eINSTANCE} when that field is accessed.
 	 * Clients should not invoke it directly. Instead, they should simply access that field to obtain the package.
 	 * <!-- begin-user-doc -->
@@ -152,20 +152,30 @@ public class TemplatesPackageImpl extends EPackageImpl implements TemplatesPacka
 		if (isInited) return (TemplatesPackage)EPackage.Registry.INSTANCE.getEPackage(TemplatesPackage.eNS_URI);
 
 		// Obtain or create and register package
-		TemplatesPackageImpl theTemplatesPackage = (TemplatesPackageImpl)(EPackage.Registry.INSTANCE.get(eNS_URI) instanceof TemplatesPackageImpl ? EPackage.Registry.INSTANCE.get(eNS_URI) : new TemplatesPackageImpl());
+		Object registeredTemplatesPackage = EPackage.Registry.INSTANCE.get(eNS_URI);
+		TemplatesPackageImpl theTemplatesPackage = registeredTemplatesPackage instanceof TemplatesPackageImpl ? (TemplatesPackageImpl)registeredTemplatesPackage : new TemplatesPackageImpl();
 
 		isInited = true;
 
 		// Obtain or create and register interdependencies
-		UppaalPackageImpl theUppaalPackage = (UppaalPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(UppaalPackage.eNS_URI) instanceof UppaalPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(UppaalPackage.eNS_URI) : UppaalPackage.eINSTANCE);
-		CorePackageImpl theCorePackage = (CorePackageImpl)(EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI) instanceof CorePackageImpl ? EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI) : CorePackage.eINSTANCE);
-		TypesPackageImpl theTypesPackage = (TypesPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(TypesPackage.eNS_URI) instanceof TypesPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(TypesPackage.eNS_URI) : TypesPackage.eINSTANCE);
-		DeclarationsPackageImpl theDeclarationsPackage = (DeclarationsPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(DeclarationsPackage.eNS_URI) instanceof DeclarationsPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(DeclarationsPackage.eNS_URI) : DeclarationsPackage.eINSTANCE);
-		GlobalPackageImpl theGlobalPackage = (GlobalPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(GlobalPackage.eNS_URI) instanceof GlobalPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(GlobalPackage.eNS_URI) : GlobalPackage.eINSTANCE);
-		SystemPackageImpl theSystemPackage = (SystemPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(SystemPackage.eNS_URI) instanceof SystemPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(SystemPackage.eNS_URI) : SystemPackage.eINSTANCE);
-		StatementsPackageImpl theStatementsPackage = (StatementsPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(StatementsPackage.eNS_URI) instanceof StatementsPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(StatementsPackage.eNS_URI) : StatementsPackage.eINSTANCE);
-		ExpressionsPackageImpl theExpressionsPackage = (ExpressionsPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(ExpressionsPackage.eNS_URI) instanceof ExpressionsPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(ExpressionsPackage.eNS_URI) : ExpressionsPackage.eINSTANCE);
-		VisualsPackageImpl theVisualsPackage = (VisualsPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(VisualsPackage.eNS_URI) instanceof VisualsPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(VisualsPackage.eNS_URI) : VisualsPackage.eINSTANCE);
+		Object registeredPackage = EPackage.Registry.INSTANCE.getEPackage(UppaalPackage.eNS_URI);
+		UppaalPackageImpl theUppaalPackage = (UppaalPackageImpl)(registeredPackage instanceof UppaalPackageImpl ? registeredPackage : UppaalPackage.eINSTANCE);
+		registeredPackage = EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI);
+		CorePackageImpl theCorePackage = (CorePackageImpl)(registeredPackage instanceof CorePackageImpl ? registeredPackage : CorePackage.eINSTANCE);
+		registeredPackage = EPackage.Registry.INSTANCE.getEPackage(TypesPackage.eNS_URI);
+		TypesPackageImpl theTypesPackage = (TypesPackageImpl)(registeredPackage instanceof TypesPackageImpl ? registeredPackage : TypesPackage.eINSTANCE);
+		registeredPackage = EPackage.Registry.INSTANCE.getEPackage(DeclarationsPackage.eNS_URI);
+		DeclarationsPackageImpl theDeclarationsPackage = (DeclarationsPackageImpl)(registeredPackage instanceof DeclarationsPackageImpl ? registeredPackage : DeclarationsPackage.eINSTANCE);
+		registeredPackage = EPackage.Registry.INSTANCE.getEPackage(GlobalPackage.eNS_URI);
+		GlobalPackageImpl theGlobalPackage = (GlobalPackageImpl)(registeredPackage instanceof GlobalPackageImpl ? registeredPackage : GlobalPackage.eINSTANCE);
+		registeredPackage = EPackage.Registry.INSTANCE.getEPackage(SystemPackage.eNS_URI);
+		SystemPackageImpl theSystemPackage = (SystemPackageImpl)(registeredPackage instanceof SystemPackageImpl ? registeredPackage : SystemPackage.eINSTANCE);
+		registeredPackage = EPackage.Registry.INSTANCE.getEPackage(StatementsPackage.eNS_URI);
+		StatementsPackageImpl theStatementsPackage = (StatementsPackageImpl)(registeredPackage instanceof StatementsPackageImpl ? registeredPackage : StatementsPackage.eINSTANCE);
+		registeredPackage = EPackage.Registry.INSTANCE.getEPackage(ExpressionsPackage.eNS_URI);
+		ExpressionsPackageImpl theExpressionsPackage = (ExpressionsPackageImpl)(registeredPackage instanceof ExpressionsPackageImpl ? registeredPackage : ExpressionsPackage.eINSTANCE);
+		registeredPackage = EPackage.Registry.INSTANCE.getEPackage(VisualsPackage.eNS_URI);
+		VisualsPackageImpl theVisualsPackage = (VisualsPackageImpl)(registeredPackage instanceof VisualsPackageImpl ? registeredPackage : VisualsPackage.eINSTANCE);
 
 		// Create package meta-data objects
 		theTemplatesPackage.createPackageContents();
@@ -193,7 +203,7 @@ public class TemplatesPackageImpl extends EPackageImpl implements TemplatesPacka
 
 		// Register package validator
 		EValidator.Registry.INSTANCE.put
-			(theTemplatesPackage, 
+			(theTemplatesPackage,
 			 new EValidator.Descriptor() {
 				 public EValidator getEValidator() {
 					 return TemplatesValidator.INSTANCE;
@@ -203,7 +213,6 @@ public class TemplatesPackageImpl extends EPackageImpl implements TemplatesPacka
 		// Mark meta-data to indicate it can't be changed
 		theTemplatesPackage.freeze();
 
-  
 		// Update the registry and return the package
 		EPackage.Registry.INSTANCE.put(TemplatesPackage.eNS_URI, theTemplatesPackage);
 		return theTemplatesPackage;
@@ -635,44 +644,44 @@ public class TemplatesPackageImpl extends EPackageImpl implements TemplatesPacka
 	 * @generated
 	 */
 	protected void createEcoreAnnotations() {
-		String source = "http://www.eclipse.org/emf/2002/Ecore";	
+		String source = "http://www.eclipse.org/emf/2002/Ecore";
 		addAnnotation
-		  (this, 
-		   source, 
+		  (this,
+		   source,
 		   new String[] {
-			 "invocationDelegates", "http://www.eclipse.org/emf/2002/Ecore/OCL",
-			 "settingDelegates", "http://www.eclipse.org/emf/2002/Ecore/OCL",
-			 "validationDelegates", "http://www.eclipse.org/emf/2002/Ecore/OCL"
-		   });	
+			   "invocationDelegates", "http://www.eclipse.org/emf/2002/Ecore/OCL",
+			   "settingDelegates", "http://www.eclipse.org/emf/2002/Ecore/OCL",
+			   "validationDelegates", "http://www.eclipse.org/emf/2002/Ecore/OCL"
+		   });
 		addAnnotation
-		  (abstractTemplateEClass, 
-		   source, 
+		  (abstractTemplateEClass,
+		   source,
 		   new String[] {
-			 "constraints", "UniqueParameterNames"
-		   });	
+			   "constraints", "UniqueParameterNames"
+		   });
 		addAnnotation
-		  (templateEClass, 
-		   source, 
+		  (templateEClass,
+		   source,
 		   new String[] {
-			 "constraints", "UniqueLocationNames"
-		   });	
+			   "constraints", "UniqueLocationNames"
+		   });
 		addAnnotation
-		  (edgeEClass, 
-		   source, 
+		  (edgeEClass,
+		   source,
 		   new String[] {
-			 "constraints", "UniqueParentTemplate"
-		   });	
+			   "constraints", "UniqueParentTemplate"
+		   });
 		addAnnotation
-		  (synchronizationEClass, 
-		   source, 
+		  (synchronizationEClass,
+		   source,
 		   new String[] {
-			 "constraints", "ChannelVariablesOnly"
-		   });	
+			   "constraints", "ChannelVariablesOnly"
+		   });
 		addAnnotation
-		  (selectionEClass, 
-		   source, 
+		  (selectionEClass,
+		   source,
 		   new String[] {
-			 "constraints", "SingleVariable IntegerBasedType"
+			   "constraints", "SingleVariable IntegerBasedType"
 		   });
 	}
 
@@ -683,37 +692,37 @@ public class TemplatesPackageImpl extends EPackageImpl implements TemplatesPacka
 	 * @generated
 	 */
 	protected void createOCLAnnotations() {
-		String source = "http://www.eclipse.org/emf/2002/Ecore/OCL";	
+		String source = "http://www.eclipse.org/emf/2002/Ecore/OCL";
 		addAnnotation
-		  (abstractTemplateEClass, 
-		   source, 
+		  (abstractTemplateEClass,
+		   source,
 		   new String[] {
-			 "UniqueParameterNames", "self.parameter->collect(variableDeclaration)->collect(variable)->isUnique(name)"
-		   });	
+			   "UniqueParameterNames", "self.parameter->collect(variableDeclaration)->collect(variable)->isUnique(name)"
+		   });
 		addAnnotation
-		  (templateEClass, 
-		   source, 
+		  (templateEClass,
+		   source,
 		   new String[] {
-			 "UniqueLocationNames", "self.location->isUnique(name)"
-		   });	
+			   "UniqueLocationNames", "self.location->isUnique(name)"
+		   });
 		addAnnotation
-		  (edgeEClass, 
-		   source, 
+		  (edgeEClass,
+		   source,
 		   new String[] {
-			 "UniqueParentTemplate", "(not (self.source.oclIsUndefined() or self.target.oclIsUndefined()))\r\nimplies\r\nself.source.parentTemplate = self.target.parentTemplate"
-		   });	
+			   "UniqueParentTemplate", "(not (self.source.oclIsUndefined() or self.target.oclIsUndefined()))\r\nimplies\r\nself.source.parentTemplate = self.target.parentTemplate"
+		   });
 		addAnnotation
-		  (synchronizationEClass, 
-		   source, 
+		  (synchronizationEClass,
+		   source,
 		   new String[] {
-			 "ChannelVariablesOnly", "(not self.channelExpression.oclIsUndefined())\r\nand\r\n(not self.channelExpression.identifier.oclIsUndefined())\r\nand\r\n(self.channelExpression.identifier.oclIsKindOf(declarations::Variable))\r\nand\r\n(not self.channelExpression.identifier.oclAsType(declarations::Variable).typeDefinition.oclIsUndefined())\r\nimplies\r\nself.channelExpression.identifier.oclAsType(declarations::Variable).typeDefinition.baseType = types::BuiltInType::CHAN"
-		   });	
+			   "ChannelVariablesOnly", "(not self.channelExpression.oclIsUndefined())\r\nand\r\n(not self.channelExpression.identifier.oclIsUndefined())\r\nand\r\n(self.channelExpression.identifier.oclIsKindOf(declarations::Variable))\r\nand\r\n(not self.channelExpression.identifier.oclAsType(declarations::Variable).typeDefinition.oclIsUndefined())\r\nimplies\r\nself.channelExpression.identifier.oclAsType(declarations::Variable).typeDefinition.baseType = types::BuiltInType::CHAN"
+		   });
 		addAnnotation
-		  (selectionEClass, 
-		   source, 
+		  (selectionEClass,
+		   source,
 		   new String[] {
-			 "SingleVariable", "self.variable->size() <= 1",
-			 "IntegerBasedType", "(not self.typeDefinition.oclIsUndefined())\r\nimplies\r\nself.typeDefinition.baseType = types::BuiltInType::INT"
+			   "SingleVariable", "self.variable->size() <= 1",
+			   "IntegerBasedType", "(not self.typeDefinition.oclIsUndefined())\r\nimplies\r\nself.typeDefinition.baseType = types::BuiltInType::INT"
 		   });
 	}
 
@@ -724,69 +733,69 @@ public class TemplatesPackageImpl extends EPackageImpl implements TemplatesPacka
 	 * @generated
 	 */
 	protected void createExtendedMetaDataAnnotations() {
-		String source = "http:///org/eclipse/emf/ecore/util/ExtendedMetaData";	
+		String source = "http:///org/eclipse/emf/ecore/util/ExtendedMetaData";
 		addAnnotation
-		  (templateEClass, 
-		   source, 
+		  (templateEClass,
+		   source,
 		   new String[] {
-			 "name", "Template",
-			 "kind", "elementOnly"
-		   });	
+			   "name", "Template",
+			   "kind", "elementOnly"
+		   });
 		addAnnotation
-		  (getTemplate_Declarations(), 
-		   source, 
+		  (getTemplate_Declarations(),
+		   source,
 		   new String[] {
-			 "kind", "element",
-			 "name", "declarations"
-		   });	
+			   "kind", "element",
+			   "name", "declarations"
+		   });
 		addAnnotation
-		  (getTemplate_Location(), 
-		   source, 
+		  (getTemplate_Location(),
+		   source,
 		   new String[] {
-			 "kind", "element",
-			 "name", "location"
-		   });	
+			   "kind", "element",
+			   "name", "location"
+		   });
 		addAnnotation
-		  (getTemplate_Edge(), 
-		   source, 
+		  (getTemplate_Edge(),
+		   source,
 		   new String[] {
-			 "kind", "element",
-			 "name", "edge"
-		   });	
+			   "kind", "element",
+			   "name", "edge"
+		   });
 		addAnnotation
-		  (getTemplate_Init(), 
-		   source, 
+		  (getTemplate_Init(),
+		   source,
 		   new String[] {
-			 "kind", "attribute",
-			 "name", "init"
-		   });	
+			   "kind", "attribute",
+			   "name", "init"
+		   });
 		addAnnotation
-		  (locationEClass, 
-		   source, 
+		  (locationEClass,
+		   source,
 		   new String[] {
-			 "name", "Location",
-			 "kind", "empty"
-		   });	
+			   "name", "Location",
+			   "kind", "empty"
+		   });
 		addAnnotation
-		  (edgeEClass, 
-		   source, 
+		  (edgeEClass,
+		   source,
 		   new String[] {
-			 "name", "Edge",
-			 "kind", "empty"
-		   });	
+			   "name", "Edge",
+			   "kind", "empty"
+		   });
 		addAnnotation
-		  (getEdge_Source(), 
-		   source, 
+		  (getEdge_Source(),
+		   source,
 		   new String[] {
-			 "kind", "attribute",
-			 "name", "source"
-		   });	
+			   "kind", "attribute",
+			   "name", "source"
+		   });
 		addAnnotation
-		  (getEdge_Target(), 
-		   source, 
+		  (getEdge_Target(),
+		   source,
 		   new String[] {
-			 "kind", "attribute",
-			 "name", "target"
+			   "kind", "attribute",
+			   "name", "target"
 		   });
 	}
 

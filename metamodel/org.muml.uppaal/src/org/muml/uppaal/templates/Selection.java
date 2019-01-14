@@ -15,7 +15,7 @@ import org.muml.uppaal.declarations.VariableContainer;
  *
  *
  * @see org.muml.uppaal.templates.TemplatesPackage#getSelection()
- * @model annotation="http://www.eclipse.org/emf/2002/Ecore/OCL SingleVariable='self.variable->size() <= 1' IntegerBasedType='(not self.typeDefinition.oclIsUndefined())\r\nimplies\r\nself.typeDefinition.baseType = types::BuiltInType::INT'"
+ * @model annotation="http://www.eclipse.org/emf/2002/Ecore/OCL SingleVariable='self.variable-&gt;size() &lt;= 1' IntegerBasedType='(not self.typeDefinition.oclIsUndefined())\r\nimplies\r\nself.typeDefinition.baseType = types::BuiltInType::INT'"
  *        annotation="http://www.eclipse.org/emf/2002/Ecore constraints='SingleVariable IntegerBasedType'"
  * @generated
  */

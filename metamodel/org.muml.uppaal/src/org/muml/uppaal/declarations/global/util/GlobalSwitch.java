@@ -5,6 +5,7 @@ package org.muml.uppaal.declarations.global.util;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.util.Switch;
+import org.muml.uppaal.declarations.global.*;
 import org.muml.uppaal.declarations.global.ChannelList;
 import org.muml.uppaal.declarations.global.ChannelPriority;
 import org.muml.uppaal.declarations.global.ChannelPriorityItem;
