@@ -433,6 +433,8 @@ class UppaalSerialization {
 			case it instanceof PlusExpression: return 300
 			case it instanceof MinusExpression: return 300
 
+			case it instanceof NegationExpression: return 295
+
 			case it instanceof ArithmeticExpression && (
 									(it as ArithmeticExpression).operator == ArithmeticOperator::MULTIPLICATE
 									|| (it as ArithmeticExpression).operator == ArithmeticOperator::DIVIDE
@@ -455,7 +457,6 @@ class UppaalSerialization {
 			
 			case it instanceof AssignmentExpression: return 200
 			
-			case it instanceof NegationExpression: return 190
 			case it instanceof LogicalExpression && (it as LogicalExpression).operator == LogicalOperator::AND: return 180
 			case it instanceof LogicalExpression && (it as LogicalExpression).operator == LogicalOperator::OR: return 160
 			case it instanceof LogicalExpression && (it as LogicalExpression).operator == LogicalOperator::IMPLY: return 170
